@@ -1,31 +1,34 @@
 
-# Remove Lovable Branding from Website
+# Add Contact Number to Promotional Gallery
 
-## What You're Seeing
-The browser shows "Lovable App" with a Lovable logo icon because the website's title and favicon haven't been updated to Ezzy ERP branding yet.
+## Current State
+The Promotional Gallery section currently only displays:
+- A heading ("Promotional Gallery")
+- A subtitle ("Check out our latest offers and features")
+- 6 poster images in a grid with lightbox functionality
 
-## What I'll Change
+There is **no phone number** in this section currently.
 
-### 1. Update Website Title & Meta Tags
-Change all instances of "Lovable App" to "Ezzy ERP - Smart Billing & Inventory Software" in `index.html`:
-- Page title (shown in browser tab)
-- Open Graph title (for Facebook/social sharing)
-- Twitter title (for Twitter sharing)
-- Author name
+## What I'll Add
+Add a call-to-action with the phone number **91-7385432144** below the subtitle to encourage users to contact for inquiries about promotions.
 
-### 2. Replace Favicon
-- Copy the Ezzy ERP logo to the `public` folder as `favicon.png`
-- Update the HTML to use the new Ezzy ERP favicon instead of the default Lovable one
+## Changes
+
+### File: `src/components/landing/Gallery.tsx`
+
+**Add below the subtitle (line 43):**
+- A clickable phone number link styled to match the brand
+- Text: "Call: 91-7385432144" with a phone icon
+- Styled as a subtle but visible CTA
+
+**Updated subtitle section will include:**
+```
+Check out our latest offers and features
+📞 Call: 91-7385432144 for inquiries
+```
 
 ## Technical Details
-
-**File to modify:** `index.html`
-
-Changes:
-- Line 7: `<title>Lovable App</title>` to `<title>Ezzy ERP - Smart Billing & Inventory Software</title>`
-- Line 9: Author from "Lovable" to "Ezzy ERP"
-- Line 18: Twitter site from "@Lovable" to "@EzzyERP"
-- Line 20-21: og:title and twitter:title to "Ezzy ERP - Smart Billing & Inventory Software"
-- Add favicon link to use Ezzy ERP logo
-
-**New file:** Copy `src/assets/ezzylogo.png` to `public/favicon.png` and add a link tag in the HTML head.
+- Import `Phone` icon from lucide-react
+- Add an anchor tag with `href="tel:+917385432144"`
+- Style with primary color and hover effect to match other CTAs
+- Keep it mobile-friendly with appropriate text size
