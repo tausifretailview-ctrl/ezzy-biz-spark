@@ -15,7 +15,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            #1 Billing Software for Indian Businesses
+            #1 Billing Software for Indian Businesses <span className="ml-1">🇮🇳</span>
           </div>
 
           {/* Headline */}
