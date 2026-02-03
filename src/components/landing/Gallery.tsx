@@ -3,6 +3,10 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import poster1 from "@/assets/poster-1.jpeg";
 import poster2 from "@/assets/poster-2.jpeg";
+import poster3 from "@/assets/poster-3.png";
+import poster4 from "@/assets/poster-4.png";
+import poster5 from "@/assets/poster-5.png";
+import poster6 from "@/assets/poster-6.png";
 
 const Gallery = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -10,6 +14,10 @@ const Gallery = () => {
   const posters = [
     { id: 1, title: "Smart Billing & Inventory", image: poster1 },
     { id: 2, title: "Cloud Based ERP", image: poster2 },
+    { id: 3, title: "Billing & Inventory Reports", image: poster3 },
+    { id: 4, title: "Business Trust", image: poster4 },
+    { id: 5, title: "One Solution", image: poster5 },
+    { id: 6, title: "Easy Billing Smart Business", image: poster6 },
   ];
 
   const openLightbox = (index: number) => setSelectedIndex(index);
@@ -36,7 +44,7 @@ const Gallery = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {posters.map((poster, index) => (
             <div
               key={poster.id}
