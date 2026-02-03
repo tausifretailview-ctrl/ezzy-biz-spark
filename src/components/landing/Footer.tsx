@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Ezzy ERP" className="h-10 w-auto brightness-0 invert" />
+              <img src={logo} alt="Ezzy ERP" className="h-12 w-auto" />
             </div>
             <p className="text-background/70 text-sm">
               Complete Billing & Inventory Management Software for Indian Businesses.
