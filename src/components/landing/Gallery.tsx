@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import poster1 from "@/assets/poster-1.jpeg";
+import poster2 from "@/assets/poster-2.jpeg";
 
 const Gallery = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  // Placeholder posters - will be replaced with actual images
   const posters = [
-    { id: 1, title: "Promotional Poster 1" },
-    { id: 2, title: "Promotional Poster 2" },
-    { id: 3, title: "Promotional Poster 3" },
-    { id: 4, title: "Promotional Poster 4" },
-    { id: 5, title: "Promotional Poster 5" },
-    { id: 6, title: "Promotional Poster 6" },
-    { id: 7, title: "Promotional Poster 7" },
-    { id: 8, title: "Promotional Poster 8" },
+    { id: 1, title: "Smart Billing & Inventory", image: poster1 },
+    { id: 2, title: "Cloud Based ERP", image: poster2 },
   ];
 
   const openLightbox = (index: number) => setSelectedIndex(index);
@@ -41,16 +36,18 @@ const Gallery = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {posters.map((poster, index) => (
             <div
               key={poster.id}
               onClick={() => openLightbox(index)}
-              className="aspect-square bg-gradient-to-br from-primary/10 to-accent rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform shadow-lg"
+              className="aspect-[3/4] bg-gradient-to-br from-primary/10 to-accent rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform shadow-lg"
             >
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm p-4 text-center">
-                {poster.title}
-              </div>
+              <img
+                src={poster.image}
+                alt={poster.title}
+                className="w-full h-full object-cover"
+              />
             </div>
           ))}
         </div>
@@ -76,10 +73,12 @@ const Gallery = () => {
               <ChevronLeft className="w-8 h-8" />
             </Button>
 
-            <div className="max-w-4xl max-h-[80vh] bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center p-8">
-              <p className="text-white text-lg">
-                {posters[selectedIndex].title}
-              </p>
+            <div className="max-w-lg max-h-[80vh] rounded-xl overflow-hidden">
+              <img
+                src={posters[selectedIndex].image}
+                alt={posters[selectedIndex].title}
+                className="w-full h-full object-contain"
+              />
             </div>
 
             <Button

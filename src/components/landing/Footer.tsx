@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/ezzylogo.png";
 
 const Footer = () => {
   return (
@@ -8,12 +9,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">E</span>
-              </div>
-              <span className="text-xl font-bold">
-                Ezzy<span className="text-primary">ERP</span>
-              </span>
+              <img src={logo} alt="Ezzy ERP" className="h-10 w-auto brightness-0 invert" />
             </div>
             <p className="text-background/70 text-sm">
               Complete Billing & Inventory Management Software for Indian Businesses.
