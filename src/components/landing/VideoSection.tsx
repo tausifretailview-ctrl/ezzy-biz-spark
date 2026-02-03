@@ -1,5 +1,7 @@
 import { Play } from "lucide-react";
 import { useState } from "react";
+import videoThumbnail from "@/assets/video-thumbnail.png";
+import promoVideo from "@/assets/promo-video.mp4";
 
 const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,16 +19,18 @@ const VideoSection = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/20 to-accent/20">
+          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
             {!isPlaying ? (
               <div
                 className="absolute inset-0 flex items-center justify-center cursor-pointer group"
                 onClick={() => setIsPlaying(true)}
               >
-                {/* Thumbnail placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center">
-                  <p className="text-foreground/60">Video Thumbnail</p>
-                </div>
+                {/* Thumbnail */}
+                <img
+                  src={videoThumbnail}
+                  alt="Ezzy ERP Demo"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
 
                 {/* Play button */}
                 <div className="relative z-10 w-20 h-20 rounded-full gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
@@ -34,9 +38,12 @@ const VideoSection = () => {
                 </div>
               </div>
             ) : (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/80">
-                <p className="text-white">Video Player Placeholder</p>
-              </div>
+              <video
+                src={promoVideo}
+                className="absolute inset-0 w-full h-full object-cover"
+                controls
+                autoPlay
+              />
             )}
           </div>
         </div>
