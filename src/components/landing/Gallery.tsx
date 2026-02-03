@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import poster1 from "@/assets/poster-1.jpeg";
 import poster2 from "@/assets/poster-2.jpeg";
@@ -41,6 +41,13 @@ const Gallery = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Check out our latest offers and features
           </p>
+          <a 
+            href="tel:+917385432144" 
+            className="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 font-medium transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            Call: 91-7385432144 for inquiries
+          </a>
         </div>
 
         {/* Gallery Grid */}
