@@ -28,7 +28,7 @@ const Pricing = () => {
     {
       name: "Pro Plan",
       icon: Star,
-      price: "₹25,000",
+      price: "₹35,000",
       priceLabel: "",
       popular: true,
       features: [
