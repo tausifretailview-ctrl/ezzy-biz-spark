@@ -8,7 +8,7 @@ const Pricing = () => {
     {
       name: "Basic Plan",
       icon: Zap,
-      price: "₹17,000",
+      price: "₹25,000",
       priceLabel: "Starting at",
       popular: false,
       features: [
@@ -28,7 +28,7 @@ const Pricing = () => {
     {
       name: "Pro Plan",
       icon: Star,
-      price: "₹25,000",
+      price: "₹35,000",
       priceLabel: "",
       popular: true,
       features: [
@@ -47,7 +47,7 @@ const Pricing = () => {
     {
       name: "Advance Plan",
       icon: Crown,
-      price: "₹35,000",
+      price: "₹50,000",
       priceLabel: "",
       popular: false,
       premium: true,
