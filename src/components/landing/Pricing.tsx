@@ -8,7 +8,7 @@ const Pricing = () => {
     {
       name: "Basic Plan",
       icon: Zap,
-      price: "₹17,000",
+      price: "₹25,000",
       priceLabel: "Starting at",
       popular: false,
       features: [
