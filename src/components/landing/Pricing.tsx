@@ -47,7 +47,7 @@ const Pricing = () => {
     {
       name: "Advance Plan",
       icon: Crown,
-      price: "₹35,000",
+      price: "₹50,000",
       priceLabel: "",
       popular: false,
       premium: true,
