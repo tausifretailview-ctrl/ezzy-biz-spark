@@ -14,7 +14,87 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      work_report_users: {
+        Row: {
+          created_at: string | null
+          department: string | null
+          id: string
+          name: string
+          password_hash: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          department?: string | null
+          id?: string
+          name: string
+          password_hash: string
+          role?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          department?: string | null
+          id?: string
+          name?: string
+          password_hash?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      work_reports: {
+        Row: {
+          assigned_senior: string | null
+          client_name: string | null
+          created_at: string | null
+          emp_id: string
+          emp_name: string
+          id: string
+          priority: string | null
+          progress: number | null
+          remarks: string | null
+          report_date: string
+          status: string
+          task: string
+          time_spent: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          assigned_senior?: string | null
+          client_name?: string | null
+          created_at?: string | null
+          emp_id: string
+          emp_name: string
+          id?: string
+          priority?: string | null
+          progress?: number | null
+          remarks?: string | null
+          report_date?: string
+          status: string
+          task: string
+          time_spent?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          assigned_senior?: string | null
+          client_name?: string | null
+          created_at?: string | null
+          emp_id?: string
+          emp_name?: string
+          id?: string
+          priority?: string | null
+          progress?: number | null
+          remarks?: string | null
+          report_date?: string
+          status?: string
+          task?: string
+          time_spent?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
