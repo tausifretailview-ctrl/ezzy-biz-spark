@@ -59,7 +59,7 @@ const WRTable = () => {
     empId: user?.userId,
     isAdmin,
     status: statusTab !== "All" ? statusTab : undefined,
-    priority: priority || undefined,
+    priority: priority && priority !== "all_priorities" ? priority : undefined,
     dateFrom: dateFilter || undefined,
     dateTo: dateFilter || undefined,
     search: search || undefined,
