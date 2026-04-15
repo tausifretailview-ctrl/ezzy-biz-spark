@@ -1,34 +1,24 @@
 
-# Add Contact Number to Promotional Gallery
 
-## Current State
-The Promotional Gallery section currently only displays:
-- A heading ("Promotional Gallery")
-- A subtitle ("Check out our latest offers and features")
-- 6 poster images in a grid with lightbox functionality
+# Seed a Test Admin User
 
-There is **no phone number** in this section currently.
+## What
+Create one admin login credential in the `work_report_users` table by invoking the existing `work-report-auth` Edge Function with the `register` action.
 
-## What I'll Add
-Add a call-to-action with the phone number **91-7385432144** below the subtitle to encourage users to contact for inquiries about promotions.
+## Test Credentials
+- **User ID:** `admin`
+- **Password:** `admin123`
+- **Name:** Admin User
+- **Role:** admin
+- **Department:** Management
 
-## Changes
+## How
+1. Call the `work-report-auth` Edge Function with:
+   ```json
+   { "action": "register", "user_id": "admin", "password": "admin123", "name": "Admin User", "role": "admin", "department": "Management" }
+   ```
+2. Verify the user was created by querying `work_report_users`.
+3. Test login at `/work-report` with `admin` / `admin123`.
 
-### File: `src/components/landing/Gallery.tsx`
+No code or schema changes needed -- just one Edge Function call to seed data.
 
-**Add below the subtitle (line 43):**
-- A clickable phone number link styled to match the brand
-- Text: "Call: 91-7385432144" with a phone icon
-- Styled as a subtle but visible CTA
-
-**Updated subtitle section will include:**
-```
-Check out our latest offers and features
-📞 Call: 91-7385432144 for inquiries
-```
-
-## Technical Details
-- Import `Phone` icon from lucide-react
-- Add an anchor tag with `href="tel:+917385432144"`
-- Style with primary color and hover effect to match other CTAs
-- Keep it mobile-friendly with appropriate text size
