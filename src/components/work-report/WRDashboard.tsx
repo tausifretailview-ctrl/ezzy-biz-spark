@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useWorkReports } from "@/hooks/useWorkReport";
 import { useWorkReportAuth } from "./WorkReportContext";
 import { useState, useMemo } from "react";
-import { ClipboardCheck, Clock, UserCheck, PhoneCall, PhoneForwarded, ListTodo } from "lucide-react";
+import { ClipboardCheck, Clock, ArrowUp, Globe, Phone, ListTodo } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type DateRange = "today" | "week" | "month";
@@ -33,23 +33,24 @@ const WRDashboard = () => {
 
   const stats = useMemo(() => {
     if (!reports) return null;
+    const matches = (val: string | null, re: RegExp) => !!val && re.test(val);
     return {
       total: reports.length,
-      completed: reports.filter(r => r.status === "Completed" || r.status === "Call Done").length,
-      pending: reports.filter(r => r.status === "Pending").length,
-      toSenior: reports.filter(r => r.status === "Assigned to Senior").length,
-      callsBooked: reports.filter(r => r.status === "Call Booked").length,
-      callsDone: reports.filter(r => r.status === "Call Done").length,
+      finish: reports.filter(r => matches(r.work_status, /finish|done|complete/i)).length,
+      pending: reports.filter(r => matches(r.work_status, /pending/i)).length,
+      forwarded: reports.filter(r => matches(r.work_status, /forward|senior/i)).length,
+      online: reports.filter(r => r.call_type === "Online" || r.call_type === "WhatsApp Call").length,
+      telephonic: reports.filter(r => r.call_type === "Telephonic").length,
     };
   }, [reports]);
 
   const cards = [
-    { label: "Total Tasks", value: stats?.total, icon: ListTodo, color: "#22d3ee" },
-    { label: "Completed", value: stats?.completed, icon: ClipboardCheck, color: "#22c55e" },
+    { label: "Total Entries", value: stats?.total, icon: ListTodo, color: "#22d3ee" },
+    { label: "Finish", value: stats?.finish, icon: ClipboardCheck, color: "#22c55e" },
     { label: "Pending", value: stats?.pending, icon: Clock, color: "#f59e0b" },
-    { label: "To Senior", value: stats?.toSenior, icon: UserCheck, color: "#a855f7" },
-    { label: "Calls Booked", value: stats?.callsBooked, icon: PhoneCall, color: "#22d3ee" },
-    { label: "Calls Done", value: stats?.callsDone, icon: PhoneForwarded, color: "#22c55e" },
+    { label: "Forwarded", value: stats?.forwarded, icon: ArrowUp, color: "#a855f7" },
+    { label: "Online Calls", value: stats?.online, icon: Globe, color: "#3b82f6" },
+    { label: "Telephonic", value: stats?.telephonic, icon: Phone, color: "#22c55e" },
   ];
 
   return (

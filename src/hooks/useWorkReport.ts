@@ -16,6 +16,12 @@ export interface WorkReport {
   remarks: string | null;
   created_at: string;
   updated_at: string;
+  // New fields
+  customer_name: string | null;
+  problem_type: string | null;
+  call_type: string | null;
+  time_consumed: number | null;
+  work_status: string | null;
 }
 
 export interface WorkReportUser {
@@ -35,6 +41,10 @@ interface FetchReportsParams {
   status?: string;
   priority?: string;
   search?: string;
+  customer_name?: string;
+  problem_type?: string;
+  call_type?: string;
+  work_status?: string;
 }
 
 export const useWorkReports = (params: FetchReportsParams) => {
@@ -50,8 +60,12 @@ export const useWorkReports = (params: FetchReportsParams) => {
       if (params.dateTo) query = query.lte("report_date", params.dateTo);
       if (params.status && params.status !== "All") query = query.eq("status", params.status);
       if (params.priority) query = query.eq("priority", params.priority);
+      if (params.customer_name) query = query.eq("customer_name", params.customer_name);
+      if (params.problem_type) query = query.eq("problem_type", params.problem_type);
+      if (params.call_type) query = query.eq("call_type", params.call_type);
+      if (params.work_status) query = query.eq("work_status", params.work_status);
       if (params.search) {
-        query = query.or(`task.ilike.%${params.search}%,emp_name.ilike.%${params.search}%`);
+        query = query.or(`task.ilike.%${params.search}%,emp_name.ilike.%${params.search}%,customer_name.ilike.%${params.search}%`);
       }
 
       const { data, error } = await query;
