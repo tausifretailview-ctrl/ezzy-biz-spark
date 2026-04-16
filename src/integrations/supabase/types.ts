@@ -47,51 +47,96 @@ export type Database = {
       work_reports: {
         Row: {
           assigned_senior: string | null
+          call_type: string | null
           client_name: string | null
           created_at: string | null
+          customer_name: string | null
           emp_id: string
           emp_name: string
           id: string
           priority: string | null
+          problem_type: string | null
           progress: number | null
           remarks: string | null
           report_date: string
           status: string
           task: string
+          time_consumed: number | null
           time_spent: number | null
           updated_at: string | null
+          work_status: string | null
         }
         Insert: {
           assigned_senior?: string | null
+          call_type?: string | null
           client_name?: string | null
           created_at?: string | null
+          customer_name?: string | null
           emp_id: string
           emp_name: string
           id?: string
           priority?: string | null
+          problem_type?: string | null
           progress?: number | null
           remarks?: string | null
           report_date?: string
           status: string
           task: string
+          time_consumed?: number | null
           time_spent?: number | null
           updated_at?: string | null
+          work_status?: string | null
         }
         Update: {
           assigned_senior?: string | null
+          call_type?: string | null
           client_name?: string | null
           created_at?: string | null
+          customer_name?: string | null
           emp_id?: string
           emp_name?: string
           id?: string
           priority?: string | null
+          problem_type?: string | null
           progress?: number | null
           remarks?: string | null
           report_date?: string
           status?: string
           task?: string
+          time_consumed?: number | null
           time_spent?: number | null
           updated_at?: string | null
+          work_status?: string | null
+        }
+        Relationships: []
+      }
+      wr_masters: {
+        Row: {
+          created_at: string | null
+          created_by: string | null
+          id: string
+          is_active: boolean | null
+          label: string
+          master_type: string
+          sort_order: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          created_by?: string | null
+          id?: string
+          is_active?: boolean | null
+          label: string
+          master_type: string
+          sort_order?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          created_by?: string | null
+          id?: string
+          is_active?: boolean | null
+          label?: string
+          master_type?: string
+          sort_order?: number | null
         }
         Relationships: []
       }
