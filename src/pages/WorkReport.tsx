@@ -6,6 +6,7 @@ import WRDashboard from "@/components/work-report/WRDashboard";
 import WRTable from "@/components/work-report/WRTable";
 import WRCharts from "@/components/work-report/WRCharts";
 import WRUserModal from "@/components/work-report/WRUserModal";
+import WRMasters from "@/components/work-report/WRMasters";
 import { useWorkReportUsers } from "@/hooks/useWorkReport";
 import { useWorkReports } from "@/hooks/useWorkReport";
 import { Button } from "@/components/ui/button";
@@ -33,6 +34,7 @@ const WorkReportInner = () => {
 const DashboardView = () => (
   <div className="space-y-6">
     <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+    <WRMasters />
     <WRDashboard />
     <WRCharts />
   </div>
@@ -48,10 +50,13 @@ const ReportsView = () => {
 
   const handlePDF = () => {
     if (!reports?.length) return;
-    const done = reports.filter(r => r.status === "Completed" || r.status === "Call Done").length;
-    const pending = reports.filter(r => r.status === "Pending").length;
-    const toSenior = reports.filter(r => r.status === "Assigned to Senior").length;
-    exportToPDF(reports, user?.name || "", { total: reports.length, done, pending, toSenior });
+    const m = (val: string | null, re: RegExp) => !!val && re.test(val);
+    const finish = reports.filter(r => m(r.work_status, /finish|done|complete/i)).length;
+    const pending = reports.filter(r => m(r.work_status, /pending/i)).length;
+    const forwarded = reports.filter(r => m(r.work_status, /forward|senior/i)).length;
+    const online = reports.filter(r => r.call_type === "Online" || r.call_type === "WhatsApp Call").length;
+    const telephonic = reports.filter(r => r.call_type === "Telephonic").length;
+    exportToPDF(reports, user?.name || "", { total: reports.length, finish, pending, forwarded, online, telephonic });
   };
 
   return (
