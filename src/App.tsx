@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WorkReport from "./pages/WorkReport";
+import CottonPlusForm from "./pages/cotton-plus/CottonPlusForm";
+import CottonPlusThankYou from "./pages/cotton-plus/CottonPlusThankYou";
+import CottonPlusAdmin from "./pages/cotton-plus/CottonPlusAdmin";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +21,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work-report" element={<WorkReport />} />
+          <Route path="/cotton-plus" element={<CottonPlusForm />} />
+          <Route path="/cotton-plus/thank-you" element={<CottonPlusThankYou />} />
+          <Route path="/cotton-plus/admin" element={<CottonPlusAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
