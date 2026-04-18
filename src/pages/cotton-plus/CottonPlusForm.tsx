@@ -48,7 +48,13 @@ export default function CottonPlusForm() {
     }
 
     setSubmitting(true);
-    const { error } = await supabase.from("cotton_plus_customers").insert(parsed.data);
+    const { error } = await supabase.from("cotton_plus_customers").insert({
+      name: parsed.data.name,
+      mobile: parsed.data.mobile,
+      birthday: parsed.data.birthday ?? null,
+      anniversary: parsed.data.anniversary ?? null,
+      store_location: parsed.data.store_location ?? null,
+    });
     setSubmitting(false);
 
     if (error) {
