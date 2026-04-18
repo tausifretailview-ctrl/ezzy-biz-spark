@@ -14,6 +14,90 @@ export type Database = {
   }
   public: {
     Tables: {
+      cotton_plus_customers: {
+        Row: {
+          anniversary: string | null
+          birthday: string | null
+          created_at: string | null
+          id: string
+          mobile: string
+          name: string
+          store_location: string | null
+        }
+        Insert: {
+          anniversary?: string | null
+          birthday?: string | null
+          created_at?: string | null
+          id?: string
+          mobile: string
+          name: string
+          store_location?: string | null
+        }
+        Update: {
+          anniversary?: string | null
+          birthday?: string | null
+          created_at?: string | null
+          id?: string
+          mobile?: string
+          name?: string
+          store_location?: string | null
+        }
+        Relationships: []
+      }
+      cotton_plus_settings: {
+        Row: {
+          accent_color: string | null
+          facebook_url: string | null
+          form_heading: string | null
+          form_subheading: string | null
+          google_review_url: string | null
+          id: number
+          instagram_url: string | null
+          logo_url: string | null
+          primary_color: string | null
+          store_location: string | null
+          store_name: string | null
+          store_tagline: string | null
+          thank_you_message: string | null
+          updated_at: string | null
+          whatsapp_number: string | null
+        }
+        Insert: {
+          accent_color?: string | null
+          facebook_url?: string | null
+          form_heading?: string | null
+          form_subheading?: string | null
+          google_review_url?: string | null
+          id?: number
+          instagram_url?: string | null
+          logo_url?: string | null
+          primary_color?: string | null
+          store_location?: string | null
+          store_name?: string | null
+          store_tagline?: string | null
+          thank_you_message?: string | null
+          updated_at?: string | null
+          whatsapp_number?: string | null
+        }
+        Update: {
+          accent_color?: string | null
+          facebook_url?: string | null
+          form_heading?: string | null
+          form_subheading?: string | null
+          google_review_url?: string | null
+          id?: number
+          instagram_url?: string | null
+          logo_url?: string | null
+          primary_color?: string | null
+          store_location?: string | null
+          store_name?: string | null
+          store_tagline?: string | null
+          thank_you_message?: string | null
+          updated_at?: string | null
+          whatsapp_number?: string | null
+        }
+        Relationships: []
+      }
       work_report_users: {
         Row: {
           created_at: string | null
