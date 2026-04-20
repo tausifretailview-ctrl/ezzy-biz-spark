@@ -31,14 +31,17 @@ const WorkReportInner = () => {
   );
 };
 
-const DashboardView = () => (
-  <div className="space-y-6">
-    <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-    <WRMasters />
-    <WRDashboard />
-    <WRCharts />
-  </div>
-);
+const DashboardView = () => {
+  const { isAdmin } = useWorkReportAuth();
+  return (
+    <div className="space-y-6">
+      <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+      {isAdmin && <WRMasters />}
+      <WRDashboard />
+      <WRCharts />
+    </div>
+  );
+};
 
 const ReportsView = () => {
   const { user, isAdmin } = useWorkReportAuth();
