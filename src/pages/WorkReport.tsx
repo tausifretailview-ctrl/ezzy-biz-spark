@@ -31,14 +31,17 @@ const WorkReportInner = () => {
   );
 };
 
-const DashboardView = () => (
-  <div className="space-y-6">
-    <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-    <WRMasters />
-    <WRDashboard />
-    <WRCharts />
-  </div>
-);
+const DashboardView = () => {
+  const { isAdmin } = useWorkReportAuth();
+  return (
+    <div className="space-y-6">
+      <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+      {isAdmin && <WRMasters />}
+      <WRDashboard />
+      <WRCharts />
+    </div>
+  );
+};
 
 const ReportsView = () => {
   const { user, isAdmin } = useWorkReportAuth();
@@ -64,10 +67,10 @@ const ReportsView = () => {
       <div className="flex items-center justify-between flex-wrap gap-2">
         <h1 className="text-2xl font-bold text-white">Work Reports</h1>
         <div className="flex gap-2">
-          <Button size="sm" variant="outline" onClick={handleExcel} className="border-[#1f2f47] text-white">
+          <Button size="sm" variant="outline" onClick={handleExcel} className="border-[#1f2f47]" style={{ color: "#22d3ee", background: "#1a2336" }}>
             <FileSpreadsheet className="w-4 h-4 mr-1" /> Excel
           </Button>
-          <Button size="sm" variant="outline" onClick={handlePDF} className="border-[#1f2f47] text-white">
+          <Button size="sm" variant="outline" onClick={handlePDF} className="border-[#1f2f47]" style={{ color: "#22d3ee", background: "#1a2336" }}>
             <FileText className="w-4 h-4 mr-1" /> PDF
           </Button>
         </div>
