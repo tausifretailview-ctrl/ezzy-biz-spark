@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/ezzylogo.png";
+import logoAsset from "@/assets/ezzylogo.png.asset.json";
+const logo = logoAsset.url;
 
 const Footer = () => {
   return (
