@@ -1,7 +1,6 @@
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/ezzylogo.png.asset.json";
-const logo = logoAsset.url;
+import logo from "@/assets/ezzylogo.png";
 
 const Header = () => {
   return (
