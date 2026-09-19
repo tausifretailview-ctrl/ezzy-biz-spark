@@ -1,0 +1,155 @@
+/* Ezzy ERP landing page — scoped styles.
+   Everything is namespaced under .ezzy-landing so the ERP app's own
+   tokens, fonts and utilities are untouched. Import from Landing.tsx. */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+@import url('https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css');
+
+.ezzy-landing {
+  --ez-navy: #0F172A;
+  --ez-navy-soft: #16223c;
+  --ez-royal: #2563EB;
+  --ez-blue: #3B82F6;
+  --ez-blue-light: #60A5FA;
+  --ez-ink: #0F172A;
+  --ez-muted: #44536e;
+  --ez-soft: #66748c;
+  --ez-line: #e6eaf2;
+  --ez-pale: #f5f7fb;
+  --ez-r-md: 8px;
+  --ez-r-lg: 12px;
+
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  line-height: 1.5;
+  color: var(--ez-navy);
+  background: #fff;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ezzy-landing *,
+.ezzy-landing *::before,
+.ezzy-landing *::after { box-sizing: border-box; }
+
+.ezzy-landing h1,
+.ezzy-landing h2,
+.ezzy-landing h3 { font-weight: 600; }
+
+.ezzy-landing a { color: var(--ez-royal); text-decoration: none; }
+.ezzy-landing a:hover { color: #1a49b8; text-decoration: underline; }
+.ezzy-landing *:focus-visible { outline: 2px solid var(--ez-royal); outline-offset: 2px; }
+
+/* ---- layout helpers ---- */
+.ezl-wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.ezl-sec { max-width: 1280px; margin: 0 auto; padding: 76px 24px 40px; }
+.ezl-grid { display: grid; }
+.ezl-auto-330 { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 48px; }
+.ezl-auto-320 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; }
+.ezl-auto-270 { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
+.ezl-auto-250 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2px 38px; }
+.ezl-auto-255 { grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 4px 42px; }
+.ezl-auto-228 { grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 24px; }
+.ezl-auto-210 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 40px; }
+.ezl-auto-275 { grid-template-columns: repeat(auto-fit, minmax(275px, 1fr)); gap: 24px; }
+.ezl-auto-200 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+.ezl-auto-170 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px; }
+
+/* ---- type ---- */
+.ezl-h1 { margin: 24px 0 0; font-size: clamp(40px, 4.9vw, 74px); line-height: 1.02; letter-spacing: -.022em; color: #fff; text-wrap: balance; }
+.ezl-h2 { margin: 0; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.05; letter-spacing: -.02em; }
+.ezl-lead { margin: 18px 0 50px; font-size: 19px; max-width: 52ch; color: var(--ez-muted); }
+.ezl-eyebrow { margin: 0 0 16px; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--ez-royal); font-weight: 600; }
+.ezl-kicker { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ez-royal); font-weight: 600; }
+.ezl-num { font-size: clamp(44px, 4.8vw, 66px); font-weight: 600; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+
+/* ---- buttons ---- */
+.ezl-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--ez-royal); color: #fff; padding: 13px 24px;
+  border: 0; border-radius: var(--ez-r-md); font: inherit; font-weight: 600;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, .28);
+  transition: background .2s ease, transform .2s ease;
+}
+.ezzy-landing .ezl-btn { color: #fff; }
+.ezl-btn:hover { background: #1a49b8; color: #fff; text-decoration: none; transform: translateY(-1px); }
+.ezl-btn-lg { padding: 15px 28px; font-size: 17px; box-shadow: 0 10px 30px rgba(37, 99, 235, .4); }
+.ezl-btn-lg:hover { background: #3B82F6; transform: translateY(-2px); }
+.ezl-btn-ghost {
+  display: inline-flex; align-items: center; gap: 9px;
+  border: 1px solid rgba(255, 255, 255, .34); color: #fff;
+  padding: 15px 28px; border-radius: var(--ez-r-md); font-size: 17px;
+  text-decoration: none; transition: background .2s ease;
+}
+.ezzy-landing .ezl-btn-ghost { color: #fff; }
+.ezl-btn-ghost:hover { background: rgba(255, 255, 255, .1); color: #fff; text-decoration: none; }
+.ezl-round {
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .3);
+  background: transparent; color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: background .2s ease;
+}
+.ezl-round:hover { background: rgba(255, 255, 255, .12); }
+.ezl-dot { width: 38px; height: 5px; border: 0; padding: 0; border-radius: 999px; cursor: pointer; background: rgba(255, 255, 255, .28); transition: background .3s ease; }
+.ezl-dot[data-on="1"] { background: #fff; }
+
+.ezl-tab {
+  cursor: pointer; font: inherit; font-size: 15.5px; padding: 10px 20px;
+  border-radius: var(--ez-r-md); border: 1px solid #d3dcec; background: #fff;
+  color: var(--ez-navy); white-space: nowrap;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.ezl-tab[data-on="1"] { background: var(--ez-royal); border-color: var(--ez-royal); color: #fff; }
+
+/* ---- cards ---- */
+.ezl-card {
+  background: #fff; border: 1px solid var(--ez-line); border-radius: var(--ez-r-lg); padding: 30px;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.ezl-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(15, 23, 42, .12); border-color: #c9d8f7; }
+.ezl-card-sm { padding: 20px; }
+.ezl-tile { width: 52px; height: 52px; border-radius: var(--ez-r-md); display: flex; align-items: center; justify-content: center; }
+.ezl-tick { display: flex; gap: 9px; }
+.ezl-rowtop { padding: 26px 0; border-top: 1px solid var(--ez-line); }
+
+/* ---- form ---- */
+.ezl-field { display: grid; gap: 6px; }
+.ezl-field label { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--ez-soft); }
+.ezl-input {
+  font: inherit; font-size: 16px; padding: 11px 13px; width: 100%;
+  border: 1px solid #d3dcec; border-radius: var(--ez-r-md); background: #fff; color: var(--ez-navy);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.ezl-input:focus { border-color: var(--ez-royal); box-shadow: 0 0 0 3px rgba(37, 99, 235, .14); outline: none; }
+.ezl-submit {
+  cursor: pointer; font: inherit; font-size: 18px; font-weight: 600; padding: 15px;
+  border: 0; border-radius: var(--ez-r-md); background: var(--ez-royal); color: #fff;
+  box-shadow: 0 10px 26px rgba(37, 99, 235, .3); transition: background .2s ease;
+}
+.ezl-submit:hover { background: #1a49b8; }
+.ezl-submit:disabled { opacity: .55; cursor: default; }
+
+/* ---- reveal ---- */
+.ezl-reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .8s cubic-bezier(.16, .84, .28, 1); will-change: opacity, transform; }
+.ezl-reveal.is-in { opacity: 1; transform: none; }
+
+/* ---- keyframes ---- */
+@keyframes ez-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@keyframes ez-blink { 0%, 100% { opacity: 1 } 50% { opacity: .15 } }
+@keyframes ez-float { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+@keyframes ez-orb { 0%, 100% { transform: translate(0, 0) scale(1) } 50% { transform: translate(24px, -18px) scale(1.08) } }
+@keyframes ez-in { from { opacity: 0; transform: translateY(26px) } to { opacity: 1; transform: none } }
+
+.ezl-marquee-track { display: flex; width: max-content; animation: ez-marquee 36s linear infinite; }
+.ezl-float { animation: ez-float 5.5s ease-in-out infinite; }
+.ezl-float-slow { animation: ez-float 7s ease-in-out infinite; }
+.ezl-orb-a { animation: ez-orb 14s ease-in-out infinite; }
+.ezl-orb-b { animation: ez-orb 18s ease-in-out infinite reverse; }
+.ezl-slide-in { animation: ez-in .7s cubic-bezier(.16, .84, .28, 1) both; }
+
+@media (max-width: 1080px) { .ezl-navlink { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ezzy-landing *, .ezzy-landing *::before, .ezzy-landing *::after { animation: none !important; transition: none !important; }
+  .ezl-reveal { opacity: 1; transform: none; }
+}

@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      demo_requests: {
+        Row: {
+          city: string | null
+          created_at: string | null
+          id: string
+          name: string | null
+          note: string | null
+          phone: string | null
+          shop: string | null
+          trade: string | null
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          note?: string | null
+          phone?: string | null
+          shop?: string | null
+          trade?: string | null
+        }
+        Update: {
+          city?: string | null
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          note?: string | null
+          phone?: string | null
+          shop?: string | null
+          trade?: string | null
+        }
+        Relationships: []
+      }
       cotton_plus_customers: {
         Row: {
           anniversary: string | null
