@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";
 import WorkReport from "./pages/WorkReport";
 import CottonPlusForm from "./pages/cotton-plus/CottonPlusForm";
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/home" element={<Landing />} />
           <Route path="/work-report" element={<WorkReport />} />
           <Route path="/cotton-plus" element={<CottonPlusForm />} />
           <Route path="/cotton-plus/thank-you" element={<CottonPlusThankYou />} />
