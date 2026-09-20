@@ -310,7 +310,7 @@ export default function Landing() {
   return (
     <div className="ezzy-landing">
       {/* contact strip */}
-      <div style={{ background: NAVY, color: "rgba(255,255,255,.86)", fontSize: 13, letterSpacing: ".08em" }}>
+      <div className="ezl-ct" style={{ background: NAVY, color: "rgba(255,255,255,.86)", fontSize: 13, letterSpacing: ".08em" }}>
         <div className="ezl-wrap" style={{ padding: "9px 24px", display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
             <Icon name="ph-seal-check" size={16} color="#60A5FA" />
@@ -334,7 +334,7 @@ export default function Landing() {
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <a href="#demo" className="ezl-btn" style={{ padding: "11px 22px" }}>
-              <Icon name="ph-calendar-check" size={18} />Book free demo
+              <Icon name="ph-calendar-check" size={18} /><span className="ezl-cta-label">Book free demo</span><span className="ezl-cta-short" style={{ display: "none" }}>Demo</span>
             </a>
           </nav>
         </div>
@@ -363,7 +363,7 @@ export default function Landing() {
             </div>
             <figure style={{ margin: 0, position: "relative" }}>
               <img src={s.img} alt={s.alt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, boxShadow: "0 30px 70px rgba(0,0,0,.45)", border: "1px solid rgba(255,255,255,.14)" }} />
-              <div className="ezl-float" style={{ position: "absolute", left: -24, bottom: 34, background: "#fff", color: NAVY, padding: "13px 17px", borderRadius: 12, boxShadow: "0 16px 40px rgba(0,0,0,.34)", animationDuration: s.floatDur }}>
+              <div className="ezl-float ezl-hero-badge" style={{ position: "absolute", left: -24, bottom: 34, background: "#fff", color: NAVY, padding: "13px 17px", borderRadius: 12, boxShadow: "0 16px 40px rgba(0,0,0,.34)", animationDuration: s.floatDur }}>
                 <div style={{ fontSize: 10.5, letterSpacing: ".16em", textTransform: "uppercase", color: "#5b6b86" }}>{s.badgeLabel}</div>
                 <div style={{ fontSize: 29, fontWeight: 600, lineHeight: 1.1, fontVariantNumeric: "tabular-nums" }}>{s.badgeValue}</div>
               </div>
@@ -548,10 +548,10 @@ export default function Landing() {
             </div>
           </div>
           <Reveal style={{ display: "flex", justifyContent: "center", alignItems: "flex-end", gap: 18 }}>
-            <div className="ezl-float-slow" style={{ width: 186, flexShrink: 0, background: NAVY, borderRadius: 30, padding: 8, boxShadow: "0 20px 46px rgba(15,23,42,.24)" }}>
+            <div className="ezl-float-slow ezl-phone" style={{ width: 186, flexShrink: 0, background: NAVY, borderRadius: 30, padding: 8, boxShadow: "0 20px 46px rgba(15,23,42,.24)" }}>
               <img src={`${IMG}/app-newsale.jpg`} alt="EzzyERP mobile app — New sale screen with barcode search, fast picks and cash, UPI, card, later payment buttons" style={{ width: "100%", height: "auto", display: "block", borderRadius: 23 }} />
             </div>
-            <div style={{ width: 230, flexShrink: 0, background: NAVY, borderRadius: 34, padding: 9, boxShadow: "0 28px 64px rgba(15,23,42,.32)" }}>
+            <div className="ezl-phone" style={{ width: 230, flexShrink: 0, background: NAVY, borderRadius: 34, padding: 9, boxShadow: "0 28px 64px rgba(15,23,42,.32)" }}>
               <img src={`${IMG}/app-home.jpg`} alt="EzzyERP mobile app home — revenue today, gross profit, customer and supplier outstanding, and a seven-day sales chart" style={{ width: "100%", height: "auto", display: "block", borderRadius: 26 }} />
             </div>
           </Reveal>
@@ -562,7 +562,7 @@ export default function Landing() {
             <h3 style={{ margin: 0, fontSize: 25 }}>Mobile app screens</h3>
             <span style={{ fontSize: 13, letterSpacing: ".16em", textTransform: "uppercase", color: SOFT }}>Live screens from the Android app</span>
           </Reveal>
-          <div className="ezl-grid" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))", gap: 28, marginTop: 34 }}>
+          <div className="ezl-grid ezl-appgrid" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))", gap: 28, marginTop: 34 }}>
             {APP_SCREENS.map(([file, title, alt, body]) => (
               <Reveal key={file} as="figure" style={{ margin: 0 }}>
                 <div style={{ background: NAVY, borderRadius: 28, padding: 8, boxShadow: "0 18px 40px rgba(15,23,42,.16)" }}>
@@ -702,7 +702,7 @@ export default function Landing() {
         </div>
       </footer>
 
-      <a href={TEL} aria-label="Call Ezzy ERP" className="ezl-btn" style={{ position: "fixed", right: 22, bottom: 22, zIndex: 80, padding: "14px 20px", borderRadius: 999, boxShadow: "0 14px 34px rgba(37,99,235,.45)" }}>
+      <a href={TEL} aria-label="Call Ezzy ERP" className="ezl-btn ezl-callnow" style={{ position: "fixed", right: 22, bottom: 22, zIndex: 80, padding: "14px 20px", borderRadius: 999, boxShadow: "0 14px 34px rgba(37,99,235,.45)" }}>
         <Icon name="ph-phone-call" size={20} />Call now
       </a>
     </div>
