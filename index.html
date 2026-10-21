@@ -1,30 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Ezzy ERP - Smart Billing & Inventory Software</title>
-    <meta name="description" content="Smart Inventory &amp; Billing">
+    <title>Ezzy ERP — Billing, Inventory &amp; GST Software for Garment &amp; Retail Shops in India</title>
+    <meta name="description" content="Ezzy ERP is billing, POS, barcode, inventory, GST and accounting software for garment, footwear, mobile and departmental stores in India. Cloud backup, Android app, WhatsApp invoices and 24×7 support. Book a free demo." />
     <meta name="author" content="Ezzy ERP" />
-    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#0F172A" />
+    <link rel="canonical" href="https://www.ezzyerp.in/" />
+
     <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="/app-icon.png">
-    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/k0p78IwD2fff1D8nggS1CCaP55q2/social-images/social-1770100668396-ezzylogo.png">
+    <meta property="og:site_name" content="Ezzy ERP" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://www.ezzyerp.in/" />
+    <meta property="og:title" content="Ezzy ERP — Billing, Inventory &amp; GST Software for Retail Shops" />
+    <meta property="og:description" content="POS billing, barcode labels, size-colour stock, GST accounting and WhatsApp invoices for garment, footwear, electronics and departmental stores. Book a free demo." />
+    <meta property="og:image" content="https://www.ezzyerp.in/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ezzy ERP — billing, inventory and GST software for retail shops" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@EzzyERP" />
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/k0p78IwD2fff1D8nggS1CCaP55q2/social-images/social-1770100668396-ezzylogo.png">
-    <meta property="og:title" content="Ezzy ERP - Smart Billing & Inventory Software">
-    <meta name="twitter:title" content="Ezzy ERP - Smart Billing & Inventory Software">
-    <meta property="og:description" content="Smart Inventory &amp; Billing">
-    <meta name="twitter:description" content="Smart Inventory &amp; Billing">
-</head>
+    <meta name="twitter:title" content="Ezzy ERP — Billing, Inventory &amp; GST Software for Retail Shops" />
+    <meta name="twitter:description" content="POS billing, barcode labels, size-colour stock, GST accounting and WhatsApp invoices for retail and wholesale. Book a free demo." />
+    <meta name="twitter:image" content="https://www.ezzyerp.in/og-image.jpg" />
+
+    <meta name="geo.region" content="IN-MH" />
+    <meta name="geo.placename" content="Navi Mumbai" />
+    <noscript><style>.ezl-reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  </head>
 
   <body>
     <div id="root"></div>
+    <script>
+      // The build prerenders public pages into #root (data-prerendered) so search
+      // engines and AI crawlers see real content. When the SPA fallback serves
+      // that HTML for a different route, drop it before it paints.
+      (function () {
+        var root = document.getElementById("root");
+        var path = location.pathname.replace(/\/+$/, "") || "/";
+        if (path === "/home") path = "/";
+        if (root.dataset.prerendered && root.dataset.prerendered !== path) root.innerHTML = "";
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

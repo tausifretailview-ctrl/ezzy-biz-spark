@@ -19,31 +19,46 @@ export type Database = {
           city: string | null
           created_at: string | null
           id: string
+          landing_page: string | null
           name: string | null
           note: string | null
           phone: string | null
+          referrer: string | null
           shop: string | null
           trade: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
         }
         Insert: {
           city?: string | null
           created_at?: string | null
           id?: string
+          landing_page?: string | null
           name?: string | null
           note?: string | null
           phone?: string | null
+          referrer?: string | null
           shop?: string | null
           trade?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Update: {
           city?: string | null
           created_at?: string | null
           id?: string
+          landing_page?: string | null
           name?: string | null
           note?: string | null
           phone?: string | null
+          referrer?: string | null
           shop?: string | null
           trade?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Relationships: []
       }
