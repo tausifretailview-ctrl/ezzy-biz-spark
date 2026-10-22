@@ -2,10 +2,14 @@
 
 > Ezzy ERP (EzzyERP) is cloud billing, POS, barcode, inventory, GST and accounting software for retail, wholesale and distribution businesses in India, made by Adtech ERP Solutions, Navi Mumbai. It is built for garment and textile shops, footwear stores, mobile and electronics shops, and departmental stores. ISO certified, used by 2,000+ shops, with 24×7 support on call and WhatsApp.
 
-Website: https://www.ezzyerp.in/
-Free demo: https://www.ezzyerp.in/#demo
-Phone / WhatsApp: +91 95274 65086
+Website: https://ezzyerp.in/
+Free demo: https://ezzyerp.in/#demo
+Phone: +91 95274 65086
+WhatsApp: +91 84240 34844 (https://wa.me/918424034844)
+Instagram: https://www.instagram.com/software_services_online/
+Facebook: https://www.facebook.com/Softwareservicesonline
 Email: info@ezzyerp.in
+Address: Shop No. 2, Mittal Tower, Sector 1, Navi Mumbai, Maharashtra 400709, India
 
 ## Who it is for
 
@@ -39,4 +43,4 @@ Owner dashboard (today's sales, stock and dues), billing from the phone, reports
 
 ## Getting started
 
-Book a free, no-obligation demo at https://www.ezzyerp.in/#demo or call / WhatsApp +91 95274 65086. The team shows the billing screen on the shop's own products and labels, and staff are trained over the phone in their language.
+Book a free, no-obligation demo at https://ezzyerp.in/#demo, call +91 95274 65086 or WhatsApp +91 84240 34844. The team shows the billing screen on the shop's own products and labels, and staff are trained over the phone in their language.

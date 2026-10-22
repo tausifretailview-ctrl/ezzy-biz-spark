@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.ezzyerp.in/</loc>
+    <loc>https://ezzyerp.in/</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image><image:loc>https://www.ezzyerp.in/og-image.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
-    <image:image><image:loc>https://www.ezzyerp.in/landing/pos-hero.jpg</image:loc></image:image>
+    <image:image><image:loc>https://ezzyerp.in/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
+    <image:image><image:loc>https://ezzyerp.in/landing/pos-hero.jpg</image:loc></image:image>
   </url>
 </urlset>
