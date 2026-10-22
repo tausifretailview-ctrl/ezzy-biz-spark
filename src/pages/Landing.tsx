@@ -14,8 +14,11 @@ const PHONE = "+91 95274 65086";
 const TEL = "tel:+919527465086";
 const MAIL = "info@ezzyerp.in";
 const SITE = "https://ezzyerp.in";
-const ADDRESS = "Shop No. 2, Mittal Tower, Sector 1, Navi Mumbai, Maharashtra 400709";
-const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Ezzy ERP, ${ADDRESS}`)}`;
+// Same wording as the Google Business Profile, so search engines match the two.
+const STREET = "Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane";
+const ADDRESS = `${STREET}, Navi Mumbai, Maharashtra 400709`;
+const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+const DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS)}`;
 const WA_NUMBER = "918424034844";
 const WA_DISPLAY = "+91 84240 34844";
 const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
@@ -243,14 +246,14 @@ const JSON_LD = {
       "@type": "Organization",
       "@id": ORG_ID,
       name: "Ezzy ERP",
-      alternateName: "EzzyERP",
+      alternateName: ["EzzyERP", "Software Services"],
       legalName: "Adtech ERP Solutions",
       url: `${SITE}/`,
       logo: `${SITE}/app-icon.png`,
       image: `${SITE}/og-image.jpg`,
       email: MAIL,
       telephone: "+91-9527465086",
-      address: { "@type": "PostalAddress", streetAddress: "Shop No. 2, Mittal Tower, Sector 1", addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
+      address: { "@type": "PostalAddress", streetAddress: STREET, addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
       hasMap: MAP,
       areaServed: { "@type": "Country", name: "India" },
       contactPoint: [
@@ -847,6 +850,7 @@ export default function Landing() {
                 <a href={MAP} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)", fontSize: 14, maxWidth: "28ch" }}>
                   <address style={{ fontStyle: "normal" }}>{ADDRESS}</address>
                 </a>
+                <a href={DIRECTIONS} target="_blank" rel="noopener" style={{ color: "#60A5FA", fontSize: 14 }} onClick={() => track("directions_click", { location: "footer" })}>Get directions →</a>
                 <a href="#demo" className="ezl-btn" style={{ padding: "11px 20px", marginTop: 8, justifySelf: "start" }}>Book free demo</a>
               </div>
             </div>
