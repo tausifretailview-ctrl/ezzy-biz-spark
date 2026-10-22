@@ -1,4 +1,4 @@
-# Ezzy ERP — www.ezzyerp.in
+# Ezzy ERP — ezzyerp.in
 # Search engines, social link previews and AI assistants are all welcome
 # on the marketing pages. Internal tools are kept out of search.
 
@@ -33,4 +33,4 @@ Disallow: /app
 Disallow: /work-report
 Disallow: /cotton-plus
 
-Sitemap: https://www.ezzyerp.in/sitemap.xml
+Sitemap: https://ezzyerp.in/sitemap.xml
