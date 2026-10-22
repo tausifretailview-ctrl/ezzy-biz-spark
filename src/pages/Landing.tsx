@@ -24,7 +24,8 @@ const WA_DISPLAY = "+91 84240 34844";
 const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
 const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
-/** Official profiles. Fill in real URLs to show footer icons and link them in structured data. */
+/** Social profiles shown in the footer. Not listed as sameAs in the schema: they belong to the separate
+ *  "Software Services" business, and Ezzy ERP has its own Google Business Profile. */
 const SOCIAL: [icon: string, label: string, href: string][] = [
   ["ph-instagram-logo", "Instagram", "https://www.instagram.com/software_services_online/"],
   ["ph-facebook-logo", "Facebook", "https://www.facebook.com/Softwareservicesonline"],
@@ -246,7 +247,7 @@ const JSON_LD = {
       "@type": "Organization",
       "@id": ORG_ID,
       name: "Ezzy ERP",
-      alternateName: ["EzzyERP", "Software Services"],
+      alternateName: "EzzyERP",
       legalName: "Adtech ERP Solutions",
       url: `${SITE}/`,
       logo: `${SITE}/app-icon.png`,
@@ -256,11 +257,7 @@ const JSON_LD = {
       address: { "@type": "PostalAddress", streetAddress: STREET, addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
       hasMap: MAP,
       areaServed: { "@type": "Country", name: "India" },
-      contactPoint: [
-        { "@type": "ContactPoint", telephone: "+91-9527465086", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] },
-        { "@type": "ContactPoint", telephone: "+91-8424034844", contactType: "customer support", contactOption: "WhatsApp", areaServed: "IN" },
-      ],
-      ...(SOCIAL.length ? { sameAs: SOCIAL.map(([, , href]) => href) } : {}),
+      contactPoint: [{ "@type": "ContactPoint", telephone: "+91-9527465086", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] }],
     },
     {
       "@type": "WebSite",
