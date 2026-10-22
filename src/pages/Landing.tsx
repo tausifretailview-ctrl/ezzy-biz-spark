@@ -14,6 +14,8 @@ const PHONE = "+91 95274 65086";
 const TEL = "tel:+919527465086";
 const MAIL = "info@ezzyerp.in";
 const SITE = "https://ezzyerp.in";
+const ADDRESS = "Shop No. 2, Mittal Tower, Sector 1, Navi Mumbai, Maharashtra 400709";
+const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Ezzy ERP, ${ADDRESS}`)}`;
 const WA_NUMBER = "918424034844";
 const WA_DISPLAY = "+91 84240 34844";
 const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
@@ -248,7 +250,8 @@ const JSON_LD = {
       image: `${SITE}/og-image.jpg`,
       email: MAIL,
       telephone: "+91-9527465086",
-      address: { "@type": "PostalAddress", addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
+      address: { "@type": "PostalAddress", streetAddress: "Shop No. 2, Mittal Tower, Sector 1", addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
+      hasMap: MAP,
       areaServed: { "@type": "Country", name: "India" },
       contactPoint: [
         { "@type": "ContactPoint", telephone: "+91-9527465086", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] },
@@ -841,6 +844,9 @@ export default function Landing() {
                 <a href={TEL} style={{ color: "#fff", fontVariantNumeric: "tabular-nums", fontSize: 18 }}>{PHONE}</a>
                 <a href={`mailto:${MAIL}`} style={{ color: "rgba(255,255,255,.85)" }}>{MAIL}</a>
                 <a href={waLink()} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)" }}>WhatsApp us</a>
+                <a href={MAP} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)", fontSize: 14, maxWidth: "28ch" }}>
+                  <address style={{ fontStyle: "normal" }}>{ADDRESS}</address>
+                </a>
                 <a href="#demo" className="ezl-btn" style={{ padding: "11px 20px", marginTop: 8, justifySelf: "start" }}>Book free demo</a>
               </div>
             </div>
