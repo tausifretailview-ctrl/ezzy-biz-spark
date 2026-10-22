@@ -10,18 +10,21 @@ import "./landing.css";
  * ------------------------------------------------------------------ */
 
 const IMG = "/landing";
-const PHONE = "+91 95274 65086";
-const TEL = "tel:+919527465086";
+const PHONE = "+91 84240 34844";
+const TEL = "tel:+918424034844";
 const MAIL = "info@ezzyerp.in";
 const SITE = "https://ezzyerp.in";
-const ADDRESS = "Shop No. 2, Mittal Tower, Sector 1, Navi Mumbai, Maharashtra 400709";
-const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Ezzy ERP, ${ADDRESS}`)}`;
+// Same wording as the Google Business Profile, so search engines match the two.
+const STREET = "Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane";
+const ADDRESS = `${STREET}, Navi Mumbai, Maharashtra 400709`;
+const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+const DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS)}`;
 const WA_NUMBER = "918424034844";
-const WA_DISPLAY = "+91 84240 34844";
 const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
 const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
-/** Official profiles. Fill in real URLs to show footer icons and link them in structured data. */
+/** Social profiles shown in the footer. Not listed as sameAs in the schema: they belong to the separate
+ *  "Software Services" business, and Ezzy ERP has its own Google Business Profile. */
 const SOCIAL: [icon: string, label: string, href: string][] = [
   ["ph-instagram-logo", "Instagram", "https://www.instagram.com/software_services_online/"],
   ["ph-facebook-logo", "Facebook", "https://www.facebook.com/Softwareservicesonline"],
@@ -228,7 +231,7 @@ const FAQS = [
   ["Do you supply barcode printers and scanners?", "Yes. We supply and install barcode label printers, 80mm thermal receipt printers and barcode scanners with the licence, so labels print and scan from day one."],
   ["Is there a mobile app?", "Yes. The Android app shows the owner today's sales, stock and dues, lets you bill from the phone, and gives salesmen a field app for orders and collections that works offline and syncs later."],
   ["Can I manage more than one shop or branch?", "Yes. Switch between firms and branches on one login, each with its own books, and give every staff member only the menus they need."],
-  ["How do I get a demo?", `Fill in the free demo form on this page call ${PHONE} or WhatsApp ${WA_DISPLAY}. We show you the billing screen on your own products and labels, and train your staff on the phone in your language.`],
+  ["How do I get a demo?", `Fill in the free demo form on this page call or WhatsApp ${PHONE}. We show you the billing screen on your own products and labels, and train your staff on the phone in your language.`],
 ] as const;
 
 const TRADES = ["Garments & textiles", "Footwear", "Mobiles & electronics", "Departmental / general store", "Wholesale / distribution", "Something else"];
@@ -249,15 +252,11 @@ const JSON_LD = {
       logo: `${SITE}/app-icon.png`,
       image: `${SITE}/og-image.jpg`,
       email: MAIL,
-      telephone: "+91-9527465086",
-      address: { "@type": "PostalAddress", streetAddress: "Shop No. 2, Mittal Tower, Sector 1", addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
+      telephone: "+91-8424034844",
+      address: { "@type": "PostalAddress", streetAddress: STREET, addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
       hasMap: MAP,
       areaServed: { "@type": "Country", name: "India" },
-      contactPoint: [
-        { "@type": "ContactPoint", telephone: "+91-9527465086", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] },
-        { "@type": "ContactPoint", telephone: "+91-8424034844", contactType: "customer support", contactOption: "WhatsApp", areaServed: "IN" },
-      ],
-      ...(SOCIAL.length ? { sameAs: SOCIAL.map(([, , href]) => href) } : {}),
+      contactPoint: [{ "@type": "ContactPoint", telephone: "+91-8424034844", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] }],
     },
     {
       "@type": "WebSite",
@@ -758,7 +757,7 @@ export default function Landing() {
             <Reveal style={{ marginTop: 32, display: "grid", gap: 16 }}>
               {[
                 [TEL, "ph-phone-call", "#2563EB", "Call", PHONE],
-                [waLink(), "ph-whatsapp-logo", "#16A34A", "WhatsApp", WA_DISPLAY],
+                [waLink(), "ph-whatsapp-logo", "#16A34A", "WhatsApp", PHONE],
                 [`mailto:${MAIL}`, "ph-envelope-simple", "#DB2777", "Email", MAIL],
               ].map(([href, icon, color, label, value]) => (
                 <a key={label} href={href} {...(href.startsWith("https://wa.me") ? { target: "_blank", rel: "noopener", onClick: () => track("whatsapp_click", { location: "demo" }) } : {})} style={{ display: "flex", gap: 14, alignItems: "center", color: NAVY, textDecoration: "none" }}>
@@ -847,6 +846,7 @@ export default function Landing() {
                 <a href={MAP} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)", fontSize: 14, maxWidth: "28ch" }}>
                   <address style={{ fontStyle: "normal" }}>{ADDRESS}</address>
                 </a>
+                <a href={DIRECTIONS} target="_blank" rel="noopener" style={{ color: "#60A5FA", fontSize: 14 }} onClick={() => track("directions_click", { location: "footer" })}>Get directions →</a>
                 <a href="#demo" className="ezl-btn" style={{ padding: "11px 20px", marginTop: 8, justifySelf: "start" }}>Book free demo</a>
               </div>
             </div>
