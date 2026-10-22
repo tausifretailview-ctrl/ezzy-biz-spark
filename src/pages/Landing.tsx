@@ -13,6 +13,18 @@ const IMG = "/landing";
 const PHONE = "+91 95274 65086";
 const TEL = "tel:+919527465086";
 const MAIL = "info@ezzyerp.in";
+const SITE = "https://www.ezzyerp.in";
+const WA_NUMBER = "919527465086";
+const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
+const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+
+/** Official profiles. Fill in real URLs to show footer icons and link them in structured data. */
+const SOCIAL: [icon: string, label: string, href: string][] = [
+  // ["ph-instagram-logo", "Instagram", "https://www.instagram.com/…"],
+  // ["ph-facebook-logo", "Facebook", "https://www.facebook.com/…"],
+  // ["ph-youtube-logo", "YouTube", "https://www.youtube.com/@…"],
+  // ["ph-linkedin-logo", "LinkedIn", "https://www.linkedin.com/company/…"],
+];
 
 const NAVY = "#0F172A";
 const ROYAL = "#2563EB";
@@ -204,7 +216,98 @@ const QUOTES = [
   ["I can see the day's sale and who owes me from my phone, sitting at home. That alone was worth the switch.", "Distributor, mobiles & electronics"],
 ] as const;
 
+const FAQS = [
+  ["What is Ezzy ERP?", "Ezzy ERP is billing, POS, barcode, inventory, GST and accounting software for retail, wholesale and distribution businesses in India. It runs in the cloud with an Android app for owners and field sales."],
+  ["Which businesses is Ezzy ERP made for?", "Garment and textile shops, boutiques and saree shops, footwear showrooms, mobile and electronics stores, and departmental stores such as supermarkets, kirana, cosmetics and stationery — plus wholesalers and distributors in those trades."],
+  ["Does Ezzy ERP handle size and colour stock for garments?", "Yes. Purchase entry has a size grid, stock is tracked by product, size and colour, and you can print design number (D.No), size and MRP barcode labels straight from the purchase bill."],
+  ["Is Ezzy ERP GST ready?", "Yes. Every bill line carries GST, and you get a GST register, ledgers, trial balance, P&L and balance sheet, with Tally-style bill-by-bill settlement and Tally export."],
+  ["Can I send bills on WhatsApp?", "Yes. Bills, customer statements and payment reminders can be sent on WhatsApp from the billing screen."],
+  ["Do you supply barcode printers and scanners?", "Yes. We supply and install barcode label printers, 80mm thermal receipt printers and barcode scanners with the licence, so labels print and scan from day one."],
+  ["Is there a mobile app?", "Yes. The Android app shows the owner today's sales, stock and dues, lets you bill from the phone, and gives salesmen a field app for orders and collections that works offline and syncs later."],
+  ["Can I manage more than one shop or branch?", "Yes. Switch between firms and branches on one login, each with its own books, and give every staff member only the menus they need."],
+  ["How do I get a demo?", `Fill in the free demo form on this page or call / WhatsApp ${PHONE}. We show you the billing screen on your own products and labels, and train your staff on the phone in your language.`],
+] as const;
+
 const TRADES = ["Garments & textiles", "Footwear", "Mobiles & electronics", "Departmental / general store", "Wholesale / distribution", "Something else"];
+
+/* ---------- structured data (JSON-LD for Google and AI assistants) ---------- */
+
+const ORG_ID = `${SITE}/#organization`;
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: "Ezzy ERP",
+      alternateName: "EzzyERP",
+      legalName: "Adtech ERP Solutions",
+      url: `${SITE}/`,
+      logo: `${SITE}/app-icon.png`,
+      image: `${SITE}/og-image.jpg`,
+      email: MAIL,
+      telephone: "+91-9527465086",
+      address: { "@type": "PostalAddress", addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
+      areaServed: { "@type": "Country", name: "India" },
+      contactPoint: [{ "@type": "ContactPoint", telephone: "+91-9527465086", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] }],
+      ...(SOCIAL.length ? { sameAs: SOCIAL.map(([, , href]) => href) } : {}),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      url: `${SITE}/`,
+      name: "Ezzy ERP",
+      inLanguage: "en-IN",
+      publisher: { "@id": ORG_ID },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "Ezzy ERP",
+      url: `${SITE}/`,
+      applicationCategory: "BusinessApplication",
+      applicationSubCategory: "Retail POS, billing and inventory software",
+      operatingSystem: "Web, Windows, Android",
+      description: "Billing, POS, barcode, inventory, GST and accounting software for garment, footwear, electronics and departmental stores in India.",
+      image: `${SITE}/landing/shot-pos.jpg`,
+      screenshot: SHOTS.map((sh) => `${SITE}${IMG}/${sh.file}`),
+      featureList: MODULES.map(([, , title]) => title),
+      publisher: { "@id": ORG_ID },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQS.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+    },
+  ],
+};
+
+/* ---------- lead source ---------- */
+
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
+type LeadSource = Partial<Record<(typeof UTM_KEYS)[number] | "referrer" | "landing_page", string>>;
+
+/** Remembers where the visitor came from (first touch in this tab) so the demo request can be attributed. */
+function captureLeadSource(): LeadSource {
+  try {
+    const saved = sessionStorage.getItem("ezl-source");
+    if (saved) return JSON.parse(saved);
+    const params = new URLSearchParams(window.location.search);
+    const src: LeadSource = {};
+    UTM_KEYS.forEach((k) => { const v = params.get(k); if (v) src[k] = v.slice(0, 120); });
+    if (document.referrer && !document.referrer.startsWith(window.location.origin)) src.referrer = document.referrer.slice(0, 300);
+    src.landing_page = (window.location.pathname + window.location.search).slice(0, 300);
+    sessionStorage.setItem("ezl-source", JSON.stringify(src));
+    return src;
+  } catch {
+    return {};
+  }
+}
+
+/** Sends a conversion event to Google Analytics / Tag Manager when either is installed. */
+function track(event: string, params: Record<string, unknown> = {}) {
+  const w = window as Window & { gtag?: (...args: unknown[]) => void; dataLayer?: unknown[] };
+  if (typeof w.gtag === "function") w.gtag("event", event, params);
+  else if (Array.isArray(w.dataLayer)) w.dataLayer.push({ event, ...params });
+}
 
 /* ---------- small pieces ---------- */
 
@@ -268,12 +371,16 @@ export default function Landing() {
   const [paused, setPaused] = useState(false);
   const [shot, setShot] = useState(0);
   const [sent, setSent] = useState<string | null>(null);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState<string | null>(null);
+  const source = useRef<LeadSource>({});
 
   // The app's boot splash covers every route until auth resolves — this page
   // never authenticates, so dismiss it immediately.
   useEffect(() => {
     (window as any).hideAppBootSplash?.();
-    document.title = "Ezzy ERP — Billing, Barcoding & Accounting Software for Retail & Wholesale";
+    document.title = "Ezzy ERP — Billing, Inventory & GST Software for Garment & Retail Shops in India";
+    source.current = captureLeadSource();
   }, []);
 
   useEffect(() => {
@@ -287,21 +394,32 @@ export default function Landing() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const phone = String(data.get("phone") || "").trim();
+    const field = (k: string) => String(data.get(k) || "").trim() || null;
+    const phone = field("phone");
+    const lead = { name: field("name"), phone, shop: field("shop"), city: field("city"), trade: field("trade"), note: field("note") };
+    const src = source.current;
+    setSending(true);
+    setFailed(null);
 
-    // Persist the lead using the same Supabase write pattern the rest of the
-    // app uses. If the write fails we still confirm to the visitor — the team
-    // is also reachable by phone/WhatsApp shown alongside this form.
-    const { error } = await supabase.from("demo_requests").insert({
-      name: String(data.get("name") || "").trim() || null,
-      phone: phone || null,
-      shop: String(data.get("shop") || "").trim() || null,
-      city: String(data.get("city") || "").trim() || null,
-      trade: String(data.get("trade") || "").trim() || null,
-      note: String(data.get("note") || "").trim() || null,
-    });
-    if (error) console.error("demo_requests insert failed", error);
+    // Save the lead with its source. If the source columns are not live in the
+    // database yet, retry with the source folded into the note so the lead is
+    // never lost to a schema mismatch.
+    let { error } = await supabase.from("demo_requests").insert({ ...lead, ...src });
+    if (error && Object.keys(src).length) {
+      const tag = Object.entries(src).map(([k, v]) => `${k}=${v}`).join(" ");
+      ({ error } = await supabase.from("demo_requests").insert({ ...lead, note: [lead.note, `[${tag}]`].filter(Boolean).join(" ") }));
+    }
+    setSending(false);
 
+    if (error) {
+      // Last resort: hand the details to WhatsApp so the visitor can still reach us.
+      console.error("demo_requests insert failed", error);
+      setFailed(waLink(`Hi, I'd like a free Ezzy ERP demo.\nName: ${lead.name ?? ""}\nMobile: ${phone ?? ""}\nShop: ${lead.shop ?? ""}\nCity: ${lead.city ?? ""}\nTrade: ${lead.trade ?? ""}\n${lead.note ?? ""}`));
+      track("demo_request_failed");
+      return;
+    }
+
+    track("generate_lead", { form: "demo", trade: lead.trade, ...src });
     setSent(phone || "your number");
   }
 
@@ -425,7 +543,7 @@ export default function Landing() {
       {/* industries */}
       <section id="industries" className="ezl-sec" style={{ scrollMarginTop: 70 }}>
         <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "20ch" }}>Built for the counter you stand behind.</Reveal>
-        <Reveal as="p" className="ezl-lead">The same ERP, tuned per trade — because a saree shop, a shoe showroom and a mobile counter do not sell the same way.</Reveal>
+        <Reveal as="p" className="ezl-lead">One billing, inventory and GST software, tuned per trade — because a saree shop, a shoe showroom and a mobile counter do not sell the same way.</Reveal>
         <div className="ezl-grid ezl-auto-270">
           {INDUSTRIES.map((ind) => (
             <Reveal key={ind.title} className="ezl-card">
@@ -609,6 +727,20 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* faq */}
+      <section id="faq" className="ezl-sec" style={{ padding: "78px 24px 20px", scrollMarginTop: 70 }}>
+        <Reveal as="p" className="ezl-eyebrow">FAQ</Reveal>
+        <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "22ch" }}>Questions shop owners ask us.</Reveal>
+        <div style={{ marginTop: 34, borderTop: `1px solid ${LINE}` }}>
+          {FAQS.map(([q, a]) => (
+            <details key={q} className="ezl-faq">
+              <summary>{q}</summary>
+              <p>{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* demo */}
       <section id="demo" className="ezl-sec" style={{ padding: "78px 24px 90px", scrollMarginTop: 70 }}>
         <div className="ezl-grid ezl-auto-330" style={{ alignItems: "start" }}>
@@ -618,11 +750,11 @@ export default function Landing() {
             <Reveal as="p" className="ezl-lead" style={{ margin: "20px 0 0", maxWidth: "40ch" }}>Tell us what you sell. We will show you the exact billing screen your shop would use — on your products, with your labels.</Reveal>
             <Reveal style={{ marginTop: 32, display: "grid", gap: 16 }}>
               {[
-                [TEL, "ph-phone-call", "#059669", "Call or WhatsApp", PHONE],
+                [TEL, "ph-phone-call", "#2563EB", "Call", PHONE],
+                [waLink(), "ph-whatsapp-logo", "#16A34A", "WhatsApp", "Chat with us now"],
                 [`mailto:${MAIL}`, "ph-envelope-simple", "#DB2777", "Email", MAIL],
-                ["https://ezzyerp.in", "ph-globe", "#2563EB", "Website", "www.ezzyerp.in"],
               ].map(([href, icon, color, label, value]) => (
-                <a key={label} href={href} style={{ display: "flex", gap: 14, alignItems: "center", color: NAVY, textDecoration: "none" }}>
+                <a key={label} href={href} {...(href.startsWith("https://wa.me") ? { target: "_blank", rel: "noopener", onClick: () => track("whatsapp_click", { location: "demo" }) } : {})} style={{ display: "flex", gap: 14, alignItems: "center", color: NAVY, textDecoration: "none" }}>
                   <Icon name={icon} size={30} color={color} />
                   <span>
                     <span style={{ display: "block", fontSize: 11.5, letterSpacing: ".16em", textTransform: "uppercase", color: SOFT }}>{label}</span>
@@ -649,10 +781,17 @@ export default function Landing() {
               </select>
             </div>
             <div className="ezl-field"><label htmlFor="ez-note">Anything we should know?</label><input className="ezl-input" id="ez-note" name="note" type="text" placeholder="Counters, branches, current software…" /></div>
-            <button type="submit" className="ezl-submit" disabled={!!sent}>{sent ? "Thank you — we will call you" : "Book my free demo"}</button>
-            <p style={{ margin: 0, fontSize: 14, color: sent ? "#1a49b8" : SOFT, minHeight: 20 }}>
-              {sent ? `Request noted. Our team will call ${sent} today.` : "We use your number only to call you about the demo."}
-            </p>
+            <button type="submit" className="ezl-submit" disabled={!!sent || sending}>{sent ? "Thank you — we will call you" : sending ? "Sending…" : "Book my free demo"}</button>
+            {failed ? (
+              <p style={{ margin: 0, fontSize: 14, color: "#b42318" }}>
+                We could not save your request. <a href={failed} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>Send it on WhatsApp instead</a> or call {PHONE}.
+              </p>
+            ) : (
+              <p style={{ margin: 0, fontSize: 14, color: sent ? "#1a49b8" : SOFT, minHeight: 20 }}>
+                {sent ? `Request noted. Our team will call ${sent} today.` : "We use your number only to call you about the demo."}
+                {sent && <> Want to talk now? <a href={waLink()} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>WhatsApp us</a>.</>}
+              </p>
+            )}
           </Reveal>
         </div>
       </section>
@@ -671,10 +810,17 @@ export default function Landing() {
                   <span key={label} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Icon name={icon} size={17} color="#60A5FA" />{label}</span>
                 ))}
               </div>
+              {SOCIAL.length > 0 && (
+                <div style={{ display: "flex", gap: 14, marginTop: 18 }}>
+                  {SOCIAL.map(([icon, label, href]) => (
+                    <a key={label} href={href} target="_blank" rel="noopener me" aria-label={`Ezzy ERP on ${label}`} style={{ color: "#fff" }}><Icon name={icon} size={24} /></a>
+                  ))}
+                </div>
+              )}
             </div>
             {[
               ["Trades", [["#industries", "Garments & textiles"], ["#industries", "Footwear"], ["#industries", "Mobiles & electronics"], ["#industries", "Departmental stores"]]],
-              ["Product", [["#modules", "Modules"], ["#inside", "Screenshots"], ["#hardware", "Hardware"], ["#mobile", "Android app"]]],
+              ["Product", [["#modules", "Modules"], ["#inside", "Screenshots"], ["#hardware", "Hardware"], ["#mobile", "Android app"], ["#faq", "FAQ"]]],
             ].map(([heading, links]: any) => (
               <div key={heading}>
                 <div style={{ fontSize: 12, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.55)", marginBottom: 14 }}>{heading}</div>
@@ -690,7 +836,7 @@ export default function Landing() {
               <div style={{ display: "grid", gap: 9, fontSize: 15 }}>
                 <a href={TEL} style={{ color: "#fff", fontVariantNumeric: "tabular-nums", fontSize: 18 }}>{PHONE}</a>
                 <a href={`mailto:${MAIL}`} style={{ color: "rgba(255,255,255,.85)" }}>{MAIL}</a>
-                <a href="https://ezzyerp.in" style={{ color: "rgba(255,255,255,.85)" }}>www.ezzyerp.in</a>
+                <a href={waLink()} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)" }}>WhatsApp us</a>
                 <a href="#demo" className="ezl-btn" style={{ padding: "11px 20px", marginTop: 8, justifySelf: "start" }}>Book free demo</a>
               </div>
             </div>
@@ -702,9 +848,16 @@ export default function Landing() {
         </div>
       </footer>
 
-      <a href={TEL} aria-label="Call Ezzy ERP" className="ezl-btn ezl-callnow" style={{ position: "fixed", right: 22, bottom: 22, zIndex: 80, padding: "14px 20px", borderRadius: 999, boxShadow: "0 14px 34px rgba(37,99,235,.45)" }}>
-        <Icon name="ph-phone-call" size={20} />Call now
-      </a>
+      <div className="ezl-floats">
+        <a href={waLink()} target="_blank" rel="noopener" aria-label="Chat with Ezzy ERP on WhatsApp" className="ezl-btn ezl-wa" onClick={() => track("whatsapp_click", { location: "float" })}>
+          <Icon name="ph-whatsapp-logo" size={22} /><span className="ezl-float-label">WhatsApp</span>
+        </a>
+        <a href={TEL} aria-label="Call Ezzy ERP" className="ezl-btn ezl-callnow" onClick={() => track("phone_click", { location: "float" })}>
+          <Icon name="ph-phone-call" size={20} /><span className="ezl-float-label">Call now</span>
+        </a>
+      </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD).replace(/</g, "\\u003c") }} />
     </div>
   );
 }

@@ -1,0 +1,42 @@
+# Ezzy ERP
+
+> Ezzy ERP (EzzyERP) is cloud billing, POS, barcode, inventory, GST and accounting software for retail, wholesale and distribution businesses in India, made by Adtech ERP Solutions, Navi Mumbai. It is built for garment and textile shops, footwear stores, mobile and electronics shops, and departmental stores. ISO certified, used by 2,000+ shops, with 24×7 support on call and WhatsApp.
+
+Website: https://www.ezzyerp.in/
+Free demo: https://www.ezzyerp.in/#demo
+Phone / WhatsApp: +91 95274 65086
+Email: info@ezzyerp.in
+
+## Who it is for
+
+- Garments & textiles: boutiques, saree shops, kids wear, readymade wholesale. Size & colour matrix entry, design number (D.No) labels, brand and size-wise stock.
+- Footwear: showrooms, multi-brand outlets, footwear wholesale. Article & size-run stock, MRP-mode POS pricing, reorder and discount schemes.
+- Mobiles & electronics: mobile counters, electronics showrooms, appliance dealers. IMEI / serial number tracking, EMI & mixed payment billing, warranty-ready invoices.
+- Departmental stores: supermarkets, kirana, cosmetics, stationery. Fast barcode counter billing, batch & low-stock alerts, daily cash report & credit.
+
+## Modules
+
+- POS Billing: scan, bill, print; cash, UPI, card, credit, mix-pay and hold bills on function keys.
+- Barcode & Labels: auto-generate or scan barcodes; print 38×25, 40×25 2-up and 80mm thermal labels.
+- Inventory: live stock by product, variant, size and colour, with settlement and adjustments.
+- Purchase: purchase bills with size-grid review, DC purchase and returns.
+- Sales & Invoicing: quotations, sale orders, invoices, delivery challans, returns and credit notes.
+- GST & Accounting: GST register, trial balance, ledgers, Tally-style bill-by-bill settlement and Tally export.
+- Customer Ledger: party balances, advances, credit notes and statements.
+- Business Insights: profitability, stock health, sales trends and reorder analysis.
+- WhatsApp Invoices: send bills, statements and payment reminders from the billing screen.
+- Users & Rights: menu-level permissions per staff member.
+- Backup & Recycle Bin: cloud backup, deletion reasons and a recycle bin.
+- Multi-branch: switch between firms and branches on one login, each with its own books.
+
+## Hardware
+
+Ezzy ERP supplies and installs counter hardware with the licence: TSC barcode label printers, 80mm thermal receipt printers and 1D/2D handheld barcode scanners.
+
+## Android app
+
+Owner dashboard (today's sales, stock and dues), billing from the phone, reports, and a field sales app for orders and outstanding collection that works offline and syncs later.
+
+## Getting started
+
+Book a free, no-obligation demo at https://www.ezzyerp.in/#demo or call / WhatsApp +91 95274 65086. The team shows the billing screen on the shop's own products and labels, and staff are trained over the phone in their language.
