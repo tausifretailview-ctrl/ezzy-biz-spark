@@ -18,15 +18,17 @@ const SITE = "https://ezzyerp.in";
 const STREET = "Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane";
 const ADDRESS = `${STREET}, Navi Mumbai, Maharashtra 400709`;
 const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+const GOOGLE_PROFILE = "https://share.google/uam8NxEqb6fB6Bhy4";
+const INSTAGRAM = "https://www.instagram.com/ezzyerp/";
 const DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS)}`;
 const WA_NUMBER = "918424034844";
 const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
 const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
-/** Social profiles shown in the footer. Not listed as sameAs in the schema: they belong to the separate
- *  "Software Services" business, and Ezzy ERP has its own Google Business Profile. */
-const SOCIAL: [icon: string, label: string, href: string][] = [
-  ["ph-instagram-logo", "Instagram", "https://www.instagram.com/software_services_online/"],
+/** Social profiles shown in the footer. The last field marks Ezzy ERP's own brand accounts, which are also
+ *  listed as sameAs in the schema; the others belong to the separate "Software Services" business. */
+const SOCIAL: [icon: string, label: string, href: string, brand?: boolean][] = [
+  ["ph-instagram-logo", "Instagram", INSTAGRAM, true],
   ["ph-facebook-logo", "Facebook", "https://www.facebook.com/Softwareservicesonline"],
   // ["ph-youtube-logo", "YouTube", "https://www.youtube.com/@…"],
   // ["ph-linkedin-logo", "LinkedIn", "https://www.linkedin.com/company/…"],
@@ -248,13 +250,14 @@ const JSON_LD = {
       name: "Ezzy ERP",
       alternateName: "EzzyERP",
       legalName: "Adtech ERP Solutions",
+      sameAs: SOCIAL.filter(([, , , brand]) => brand).map(([, , href]) => href),
       url: `${SITE}/`,
       logo: `${SITE}/app-icon.png`,
       image: `${SITE}/og-image.jpg`,
       email: MAIL,
       telephone: "+91-8424034844",
       address: { "@type": "PostalAddress", streetAddress: STREET, addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
-      hasMap: MAP,
+      hasMap: GOOGLE_PROFILE,
       areaServed: { "@type": "Country", name: "India" },
       contactPoint: [{ "@type": "ContactPoint", telephone: "+91-8424034844", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] }],
     },
@@ -843,10 +846,11 @@ export default function Landing() {
                 <a href={TEL} style={{ color: "#fff", fontVariantNumeric: "tabular-nums", fontSize: 18 }}>{PHONE}</a>
                 <a href={`mailto:${MAIL}`} style={{ color: "rgba(255,255,255,.85)" }}>{MAIL}</a>
                 <a href={waLink()} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)" }}>WhatsApp us</a>
-                <a href={MAP} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)", fontSize: 14, maxWidth: "28ch" }}>
+                <a href={GOOGLE_PROFILE} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)", fontSize: 14, maxWidth: "28ch" }}>
                   <address style={{ fontStyle: "normal" }}>{ADDRESS}</address>
                 </a>
                 <a href={DIRECTIONS} target="_blank" rel="noopener" style={{ color: "#60A5FA", fontSize: 14 }} onClick={() => track("directions_click", { location: "footer" })}>Get directions →</a>
+                <a href={GOOGLE_PROFILE} target="_blank" rel="noopener" style={{ color: "#60A5FA", fontSize: 14 }} onClick={() => track("google_profile_click", { location: "footer" })}>Ezzy ERP on Google →</a>
                 <a href="#demo" className="ezl-btn" style={{ padding: "11px 20px", marginTop: 8, justifySelf: "start" }}>Book free demo</a>
               </div>
             </div>
@@ -858,12 +862,20 @@ export default function Landing() {
         </div>
       </footer>
 
-      <div className="ezl-floats">
-        <a href={waLink()} target="_blank" rel="noopener" aria-label="Chat with Ezzy ERP on WhatsApp" className="ezl-btn ezl-wa" onClick={() => track("whatsapp_click", { location: "float" })}>
-          <Icon name="ph-whatsapp-logo" size={22} /><span className="ezl-float-label">WhatsApp</span>
-        </a>
+      <div className="ezl-floats ezl-floats-left">
         <a href={TEL} aria-label="Call Ezzy ERP" className="ezl-btn ezl-callnow" onClick={() => track("phone_click", { location: "float" })}>
           <Icon name="ph-phone-call" size={20} /><span className="ezl-float-label">Call now</span>
+        </a>
+      </div>
+      <div className="ezl-floats">
+        <a href={INSTAGRAM} target="_blank" rel="noopener" aria-label="Ezzy ERP on Instagram" title="Ezzy ERP on Instagram" className="ezl-btn ezl-round-float ezl-ig" onClick={() => track("instagram_click", { location: "float" })}>
+          <Icon name="ph-instagram-logo" size={24} />
+        </a>
+        <a href={GOOGLE_PROFILE} target="_blank" rel="noopener" aria-label="Ezzy ERP on Google" title="Ezzy ERP on Google" className="ezl-btn ezl-round-float ezl-google" onClick={() => track("google_profile_click", { location: "float" })}>
+          <Icon name="ph-google-logo" size={24} />
+        </a>
+        <a href={waLink()} target="_blank" rel="noopener" aria-label="Chat with Ezzy ERP on WhatsApp" className="ezl-btn ezl-wa" onClick={() => track("whatsapp_click", { location: "float" })}>
+          <Icon name="ph-whatsapp-logo" size={22} /><span className="ezl-float-label">WhatsApp</span>
         </a>
       </div>
 
