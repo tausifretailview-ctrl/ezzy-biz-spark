@@ -183,7 +183,6 @@
   .ezl-appgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
   .ezl-appgrid > figure > div { border-radius: 18px !important; padding: 5px !important; }
   .ezl-appgrid > figure > div img { border-radius: 13px !important; }
-  .ezl-callnow { right: 12px !important; bottom: 12px !important; padding: 11px 15px !important; font-size: 14px !important; }
   .ezl-hero-badge { left: 6px !important; bottom: 10px !important; padding: 9px 12px !important; }
   .ezl-hero-badge > div:last-child { font-size: 21px !important; }
   .ezl-auto-330, .ezl-auto-320 { gap: 32px !important; }
@@ -214,17 +213,25 @@
 .ezzy-landing .ezl-faq p { margin: 0 0 22px; max-width: 75ch; font-size: 16px; color: #44536e; }
 
 /* floating WhatsApp + call buttons */
-.ezzy-landing .ezl-floats { position: fixed; right: 22px; bottom: 22px; z-index: 80; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+/* Call on the left; Instagram, Google and WhatsApp on the right, raised clear of the hosting badge. */
+.ezzy-landing .ezl-floats { position: fixed; right: 22px; bottom: 56px; z-index: 80; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.ezzy-landing .ezl-floats-left { right: auto; left: 22px; bottom: 22px; align-items: flex-start; }
 .ezzy-landing .ezl-floats .ezl-btn { padding: 14px 20px; border-radius: 999px; }
 .ezzy-landing .ezl-floats .ezl-callnow { box-shadow: 0 14px 34px rgba(37,99,235,.45); }
 .ezzy-landing .ezl-floats .ezl-wa { background: #16A34A; box-shadow: 0 14px 34px rgba(22,163,74,.4); }
 .ezzy-landing .ezl-floats .ezl-wa:hover { background: #15803D; }
+.ezzy-landing .ezl-floats .ezl-round-float { width: 50px; height: 50px; padding: 0; justify-content: center; }
+.ezzy-landing .ezl-floats .ezl-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: 0 10px 26px rgba(214,36,159,.35); }
+.ezzy-landing .ezl-floats .ezl-google { background: #fff; color: #4285F4; border: 1px solid #e6eaf2; box-shadow: 0 10px 26px rgba(15,23,42,.18); }
+.ezzy-landing .ezl-floats .ezl-google:hover { background: #f5f7fb; color: #4285F4; }
 @media (max-width: 820px) {
-  .ezzy-landing .ezl-floats { right: 12px; bottom: 12px; }
-  .ezzy-landing .ezl-floats .ezl-btn { padding: 11px 15px; font-size: 14px; }
+  .ezzy-landing .ezl-floats { right: 12px; bottom: 48px; }
+  .ezzy-landing .ezl-floats-left { right: auto; left: 12px; bottom: 12px; }
+  .ezzy-landing .ezl-floats .ezl-round-float { width: 44px; height: 44px; }
+  .ezzy-landing .ezl-floats .ezl-btn:not(.ezl-round-float) { padding: 11px 15px; font-size: 14px; }
 }
 @media (max-width: 560px) {
   .ezzy-landing .ezl-floats .ezl-float-label { display: none; }
-  .ezzy-landing .ezl-floats .ezl-btn { padding: 13px; }
+  .ezzy-landing .ezl-floats .ezl-btn:not(.ezl-round-float) { padding: 13px; }
   .ezzy-landing .ezl-floats .ezl-btn i { font-size: 24px !important; }
 }
