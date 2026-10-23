@@ -23,10 +23,10 @@ const WA_NUMBER = "918424034844";
 const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
 const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
-/** Social profiles shown in the footer. Not listed as sameAs in the schema: they belong to the separate
- *  "Software Services" business, and Ezzy ERP has its own Google Business Profile. */
-const SOCIAL: [icon: string, label: string, href: string][] = [
-  ["ph-instagram-logo", "Instagram", "https://www.instagram.com/software_services_online/"],
+/** Social profiles shown in the footer. The last field marks Ezzy ERP's own brand accounts, which are also
+ *  listed as sameAs in the schema; the others belong to the separate "Software Services" business. */
+const SOCIAL: [icon: string, label: string, href: string, brand?: boolean][] = [
+  ["ph-instagram-logo", "Instagram", "https://www.instagram.com/ezzyerp/", true],
   ["ph-facebook-logo", "Facebook", "https://www.facebook.com/Softwareservicesonline"],
   // ["ph-youtube-logo", "YouTube", "https://www.youtube.com/@…"],
   // ["ph-linkedin-logo", "LinkedIn", "https://www.linkedin.com/company/…"],
@@ -248,6 +248,7 @@ const JSON_LD = {
       name: "Ezzy ERP",
       alternateName: "EzzyERP",
       legalName: "Adtech ERP Solutions",
+      sameAs: SOCIAL.filter(([, , , brand]) => brand).map(([, , href]) => href),
       url: `${SITE}/`,
       logo: `${SITE}/app-icon.png`,
       image: `${SITE}/og-image.jpg`,
