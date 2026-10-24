@@ -44,16 +44,16 @@
 .ezl-wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 .ezl-sec { max-width: 1280px; margin: 0 auto; padding: 76px 24px 40px; }
 .ezl-grid { display: grid; }
-.ezl-auto-330 { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 48px; }
-.ezl-auto-320 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; }
-.ezl-auto-270 { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
-.ezl-auto-250 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2px 38px; }
-.ezl-auto-255 { grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 4px 42px; }
-.ezl-auto-228 { grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 24px; }
-.ezl-auto-210 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 40px; }
-.ezl-auto-275 { grid-template-columns: repeat(auto-fit, minmax(275px, 1fr)); gap: 24px; }
-.ezl-auto-200 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-.ezl-auto-170 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px; }
+.ezl-auto-330 { grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 48px; }
+.ezl-auto-320 { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 48px; }
+.ezl-auto-270 { grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr)); gap: 24px; }
+.ezl-auto-250 { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 2px 38px; }
+.ezl-auto-255 { grid-template-columns: repeat(auto-fit, minmax(min(255px, 100%), 1fr)); gap: 4px 42px; }
+.ezl-auto-228 { grid-template-columns: repeat(auto-fit, minmax(min(228px, 100%), 1fr)); gap: 24px; }
+.ezl-auto-210 { grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 40px; }
+.ezl-auto-275 { grid-template-columns: repeat(auto-fit, minmax(min(275px, 100%), 1fr)); gap: 24px; }
+.ezl-auto-200 { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 40px; }
+.ezl-auto-170 { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 18px; }
 
 /* ---- type ---- */
 .ezl-h1 { margin: 24px 0 0; font-size: clamp(40px, 4.9vw, 74px); line-height: 1.02; letter-spacing: -.022em; color: #fff; text-wrap: balance; }
@@ -234,4 +234,140 @@
   .ezzy-landing .ezl-floats .ezl-float-label { display: none; }
   .ezzy-landing .ezl-floats .ezl-btn:not(.ezl-round-float) { padding: 13px; }
   .ezzy-landing .ezl-floats .ezl-btn i { font-size: 24px !important; }
+}
+
+/* ================================================================== *
+ * Phones — layout polish (≤ 820px / ≤ 560px). Desktop is untouched.
+ * ================================================================== */
+@media (max-width: 820px) {
+  /* sections that already hold an .ezl-wrap were padded twice */
+  .ezzy-landing section > .ezl-wrap { padding-left: 0 !important; padding-right: 0 !important; }
+  .ezl-hero-eyebrow { max-width: 100%; font-size: 11.5px !important; letter-spacing: .14em !important; padding: 6px 13px !important; }
+  .ezl-dot, .ezl-dot[data-on="1"] { padding: 10px 0; height: 25px; background-clip: content-box; }
+
+  .ezl-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 30px 20px !important; }
+  .ezl-stats img { max-width: 100%; height: 44px !important; }
+  .ezl-stats .ezl-num { font-size: 38px !important; }
+
+  .ezl-ind .ezl-card { padding: 22px; }
+  .ezl-ind .ezl-card h3 { margin-top: 16px !important; }
+
+  /* modules and "why" rows: icon beside the title instead of on its own line */
+  .ezl-mod { display: grid; grid-template-columns: 30px minmax(0, 1fr); column-gap: 14px; align-items: center; padding-top: 20px !important; padding-bottom: 20px !important; }
+  .ezl-mod > i { font-size: 27px !important; }
+  .ezl-mod > h3 { margin: 0 !important; }
+  .ezl-mod > p { grid-column: 2; margin-top: 5px !important; }
+  .ezzy-landing .ezl-auto-250, .ezzy-landing .ezl-auto-255 { gap: 0 !important; }
+
+  /* screenshot tabs: one swipeable row */
+  .ezl-tabs { flex-wrap: nowrap !important; overflow-x: auto; scroll-snap-type: x proximity; margin-left: -18px; margin-right: -18px; padding: 2px 18px 6px; scrollbar-width: none; }
+  .ezl-tabs::-webkit-scrollbar { display: none; }
+  .ezl-tabs .ezl-tab { flex-shrink: 0; scroll-snap-align: start; padding: 9px 16px; font-size: 15px; }
+
+  .ezl-quotes blockquote { padding: 24px !important; }
+  .ezl-quotes blockquote p { font-size: 18px !important; }
+  .ezl-form { padding: 22px !important; }
+
+  .ezl-footer { padding-bottom: 104px !important; }
+  .ezl-footer .ezl-auto-200 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 34px 20px !important; }
+  .ezl-footer .ezl-auto-200 > :first-child, .ezl-footer .ezl-auto-200 > :last-child { grid-column: 1 / -1; }
+  .ezl-footer .ezl-auto-200 > div > div[style*="grid"] { gap: 2px !important; }
+  .ezl-footer .ezl-auto-200 a:not(.ezl-btn) { padding: 6px 0; }
+}
+@media (max-width: 560px) {
+  .ezl-ct { font-size: 11.5px !important; letter-spacing: .02em !important; }
+  .ezl-ct .ezl-wrap { justify-content: center !important; gap: 2px 14px !important; padding: 7px 12px !important; }
+  .ezl-ct .ezl-wrap > span:first-child i { display: none; }
+  .ezl-ct-mail { display: none; }
+
+  .ezl-hw { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 14px !important; }
+  .ezl-hw > figure { padding: 12px !important; }
+  .ezl-hw > figure:first-child { grid-column: 1 / -1; }
+  .ezl-hw > figure:first-child > div { aspect-ratio: 4 / 3 !important; }
+  .ezl-hw figcaption > div:last-of-type { font-size: 17px !important; }
+  .ezl-hw figcaption p { font-size: 13px !important; }
+
+  /* app screens: swipe sideways instead of four full-height phones */
+  .ezl-appgrid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px !important; margin: 24px -18px 0 !important; padding: 4px 18px 14px; scrollbar-width: none; }
+  .ezl-appgrid::-webkit-scrollbar { display: none; }
+  .ezl-appgrid > figure { flex: 0 0 66%; scroll-snap-align: center; }
+}
+
+/* floating buttons on phones: one size, one baseline, clear of the iPhone home bar */
+@media (max-width: 560px) {
+  .ezzy-landing .ezl-floats { right: 12px; bottom: calc(52px + env(safe-area-inset-bottom)); gap: 10px; }
+  .ezzy-landing .ezl-floats-left { left: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); }
+  .ezzy-landing .ezl-floats .ezl-btn { width: 50px; height: 50px; padding: 0 !important; justify-content: center; }
+  .ezzy-landing .ezl-floats .ezl-round-float { width: 44px; height: 44px; margin-right: 3px; }
+  .ezzy-landing .ezl-floats .ezl-round-float i { font-size: 22px !important; }
+}
+
+/* touch screens have no hover: stop cards staying "lifted" after a tap */
+@media (hover: none) {
+  .ezl-card:hover { transform: none; box-shadow: none; border-color: var(--ez-line); }
+  .ezl-card:hover .ezl-tile, .ezl-card:hover .ezl-tile i { transform: none; animation: none; }
+}
+
+/* ================================================================== *
+ * Phones — motion. Only when the visitor has not asked for reduced
+ * motion; transform/opacity only, so it stays on the compositor.
+ * ================================================================== */
+@keyframes ez-rise { from { opacity: 0; transform: translateY(18px) scale(.9) } to { opacity: 1; transform: none } }
+@keyframes ez-ring { 0% { transform: scale(1); opacity: .65 } 80%, 100% { transform: scale(1.55); opacity: 0 } }
+@keyframes ez-progress { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+@keyframes ez-drop { from { opacity: 0; transform: translateY(-6px) } to { opacity: 1; transform: none } }
+
+@media (max-width: 820px) and (prefers-reduced-motion: no-preference) {
+  /* cards slide in from alternating sides */
+  .ezl-ind > .ezl-reveal:not(.is-in):nth-child(odd),
+  .ezl-quotes > .ezl-reveal:not(.is-in):nth-child(odd) { transform: translateX(-34px); }
+  .ezl-ind > .ezl-reveal:not(.is-in):nth-child(even),
+  .ezl-quotes > .ezl-reveal:not(.is-in):nth-child(even) { transform: translateX(34px); }
+  .ezl-hw > .ezl-reveal:not(.is-in) { transform: translateY(24px) scale(.94); }
+  .ezl-hw > .ezl-reveal:nth-child(3) { transition-delay: .12s; }
+
+  /* stats arrive one after another */
+  .ezl-stats > .ezl-reveal:nth-child(2) { transition-delay: .1s; }
+  .ezl-stats > .ezl-reveal:nth-child(3) { transition-delay: .2s; }
+  .ezl-stats > .ezl-reveal:nth-child(4) { transition-delay: .3s; }
+
+  /* ticks inside each trade card follow the card in */
+  .ezl-ind .ezl-tick { transition: opacity .45s ease, transform .55s cubic-bezier(.16, .84, .28, 1); }
+  .ezl-ind .ezl-reveal:not(.is-in) .ezl-tick { opacity: 0; transform: translateX(-12px); }
+  .ezl-ind .ezl-tick:nth-child(1) { transition-delay: .3s; }
+  .ezl-ind .ezl-tick:nth-child(2) { transition-delay: .42s; }
+  .ezl-ind .ezl-tick:nth-child(3) { transition-delay: .54s; }
+  .ezl-ind .ezl-tile { transition: transform .6s cubic-bezier(.34, 1.56, .64, 1) .15s; }
+  .ezl-ind .ezl-reveal:not(.is-in) .ezl-tile { transform: scale(.6) rotate(-10deg); }
+
+  /* module / "why" icons pop in once their row appears */
+  .ezl-mod.ezl-reveal > i { transition: transform .6s cubic-bezier(.34, 1.56, .64, 1) .18s, opacity .4s ease .18s; }
+  .ezl-mod.ezl-reveal:not(.is-in) > i { opacity: 0; transform: scale(.4) rotate(-14deg); }
+
+  /* app screens and phones rise gently */
+  .ezl-appgrid > .ezl-reveal:not(.is-in) { transform: translateY(30px) scale(.94); }
+
+  /* FAQ answers ease open */
+  .ezzy-landing .ezl-faq[open] p { animation: ez-drop .35s ease both; }
+
+  /* tap feedback (there is no hover on a phone) */
+  .ezl-btn, .ezl-btn-ghost, .ezl-tab, .ezl-submit, .ezl-round { -webkit-tap-highlight-color: transparent; }
+  .ezl-btn:active, .ezl-btn-ghost:active, .ezl-tab:active, .ezl-submit:active, .ezl-round:active { transform: scale(.95) !important; transition-duration: .08s; }
+  .ezl-card:active { transform: scale(.985); transition-duration: .12s; }
+
+  /* floating buttons pop up after the page settles; WhatsApp gets a soft ring */
+  .ezzy-landing .ezl-floats > a { animation: ez-rise .55s cubic-bezier(.34, 1.4, .64, 1) both; }
+  .ezzy-landing .ezl-floats-left > a { animation-delay: .5s; }
+  .ezzy-landing .ezl-floats > a:nth-child(1) { animation-delay: .6s; }
+  .ezzy-landing .ezl-floats > a:nth-child(2) { animation-delay: .7s; }
+  .ezzy-landing .ezl-floats > a:nth-child(3) { animation-delay: .8s; }
+  .ezzy-landing .ezl-floats .ezl-wa { position: relative; overflow: visible; }
+  .ezzy-landing .ezl-floats .ezl-wa::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid #16A34A; pointer-events: none; animation: ez-ring 2.8s ease-out 1.6s infinite; }
+}
+
+/* reading-progress bar under the sticky header (browsers with scroll-driven animations only) */
+@supports (animation-timeline: scroll()) {
+  @media (max-width: 820px) and (prefers-reduced-motion: no-preference) {
+    .ezl-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, #2563EB, #60A5FA); transform-origin: 0 50%; animation: ez-progress linear both; animation-timeline: scroll(root); }
+  }
 }

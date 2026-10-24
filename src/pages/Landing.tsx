@@ -233,7 +233,7 @@ const FAQS = [
   ["Do you supply barcode printers and scanners?", "Yes. We supply and install barcode label printers, 80mm thermal receipt printers and barcode scanners with the licence, so labels print and scan from day one."],
   ["Is there a mobile app?", "Yes. The Android app shows the owner today's sales, stock and dues, lets you bill from the phone, and gives salesmen a field app for orders and collections that works offline and syncs later."],
   ["Can I manage more than one shop or branch?", "Yes. Switch between firms and branches on one login, each with its own books, and give every staff member only the menus they need."],
-  ["How do I get a demo?", `Fill in the free demo form on this page call or WhatsApp ${PHONE}. We show you the billing screen on your own products and labels, and train your staff on the phone in your language.`],
+  ["How do I get a demo?", `Fill in the free demo form on this page, or call or WhatsApp ${PHONE}. We show you the billing screen on your own products and labels, and train your staff on the phone in your language.`],
 ] as const;
 
 const TRADES = ["Garments & textiles", "Footwear", "Mobiles & electronics", "Departmental / general store", "Wholesale / distribution", "Something else"];
@@ -337,7 +337,14 @@ function Reveal({ children, as: Tag = "div", className = "", style, ...rest }: a
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
     );
     io.observe(el);
-    const failsafe = window.setTimeout(() => { setSeen(true); io.disconnect(); }, 2600);
+    // Failsafe so nothing stays hidden. On phones it only forces what is already on or above the screen,
+    // so content further down still animates in when the visitor scrolls to it.
+    const mobile = window.matchMedia("(max-width: 820px)").matches;
+    const failsafe = window.setTimeout(() => {
+      if (mobile && el.getBoundingClientRect().top > window.innerHeight) return;
+      setSeen(true);
+      io.disconnect();
+    }, 2600);
     return () => { io.disconnect(); window.clearTimeout(failsafe); };
   }, []);
   return (
@@ -444,14 +451,14 @@ export default function Landing() {
             ISO certified · 2,000+ shops billing on Ezzy ERP
           </span>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 18 }}>
-            <a href={`mailto:${MAIL}`} style={{ color: "rgba(255,255,255,.86)" }}>{MAIL}</a>
+            <a href={`mailto:${MAIL}`} className="ezl-ct-mail" style={{ color: "rgba(255,255,255,.86)" }}>{MAIL}</a>
             <a href={TEL} style={{ color: "#fff", fontVariantNumeric: "tabular-nums" }}>{PHONE}</a>
           </span>
         </div>
       </div>
 
       {/* header */}
-      <header style={{ position: "sticky", top: 0, zIndex: 60, background: "rgba(255,255,255,.93)", backdropFilter: "blur(10px)", borderBottom: `1px solid ${LINE}` }}>
+      <header className="ezl-header" style={{ position: "sticky", top: 0, zIndex: 60, background: "rgba(255,255,255,.93)", backdropFilter: "blur(10px)", borderBottom: `1px solid ${LINE}` }}>
         <div className="ezl-wrap" style={{ padding: "12px 24px", display: "flex", alignItems: "center", gap: 26 }}>
           <a href="#top" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
             <img src={`${IMG}/ezzy-logo-tight.jpg`} alt="EzzyERP — Smart Billing. Seamless Inventory. Easy Barcode Management." style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
@@ -480,7 +487,7 @@ export default function Landing() {
         <div className="ezl-wrap" style={{ position: "relative" }}>
           <div key={slide} className="ezl-grid ezl-auto-330 ezl-slide-in" style={{ alignItems: "center", padding: "72px 0 30px" }}>
             <div>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 9, fontSize: 13, letterSpacing: ".18em", textTransform: "uppercase", color: "#60A5FA", border: "1px solid rgba(96,165,250,.4)", borderRadius: 999, padding: "7px 15px" }}>{s.eyebrow}</span>
+              <span className="ezl-hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 9, fontSize: 13, letterSpacing: ".18em", textTransform: "uppercase", color: "#60A5FA", border: "1px solid rgba(96,165,250,.4)", borderRadius: 999, padding: "7px 15px" }}>{s.eyebrow}</span>
               <h1 className="ezl-h1">{s.head}</h1>
               <p style={{ margin: "24px 0 0", fontSize: 20, maxWidth: "44ch", color: "rgba(255,255,255,.78)" }}>{s.body}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 34 }}>
@@ -529,7 +536,7 @@ export default function Landing() {
 
       {/* stats */}
       <section style={{ maxWidth: 1280, margin: "0 auto", padding: "74px 24px 20px" }}>
-        <div className="ezl-grid ezl-auto-210">
+        <div className="ezl-grid ezl-auto-210 ezl-stats">
           <Reveal>
             <div className="ezl-num" style={{ color: ROYAL }}><CountUp target={2000} final="2,000+" /></div>
             <div style={{ marginTop: 10, fontSize: 15, color: MUTED, maxWidth: "22ch" }}>Shops, wholesalers and distributors running Ezzy ERP</div>
@@ -553,7 +560,7 @@ export default function Landing() {
       <section id="industries" className="ezl-sec" style={{ scrollMarginTop: 70 }}>
         <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "20ch" }}>Built for the counter you stand behind.</Reveal>
         <Reveal as="p" className="ezl-lead">One billing, inventory and GST software, tuned per trade — because a saree shop, a shoe showroom and a mobile counter do not sell the same way.</Reveal>
-        <div className="ezl-grid ezl-auto-270">
+        <div className="ezl-grid ezl-auto-270 ezl-ind">
           {INDUSTRIES.map((ind) => (
             <Reveal key={ind.title} className="ezl-card">
               <div className="ezl-tile" style={{ background: ind.tileBg }}><Icon name={ind.icon} size={28} color={ind.tileFg} /></div>
@@ -575,7 +582,7 @@ export default function Landing() {
         <Reveal as="p" className="ezl-lead" style={{ maxWidth: "54ch" }}>Twelve working modules — not a feature list. Every one of these is a screen your staff will open today.</Reveal>
         <div className="ezl-grid ezl-auto-250">
           {MODULES.map(([icon, color, title, body]) => (
-            <Reveal key={title} className="ezl-rowtop">
+            <Reveal key={title} className="ezl-rowtop ezl-mod">
               <Icon name={icon} size={32} color={color} />
               <h3 style={{ margin: "14px 0 7px", fontSize: 20 }}>{title}</h3>
               <p style={{ margin: 0, fontSize: 15, color: MUTED }}>{body}</p>
@@ -591,7 +598,7 @@ export default function Landing() {
           <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "20ch" }}>Look inside the software.</Reveal>
           <Reveal as="p" className="ezl-lead" style={{ margin: "18px 0 30px" }}>Seven screens from a live shop's books — captured as they are, not redrawn.</Reveal>
 
-          <Reveal role="tablist" style={{ display: "flex", flexWrap: "wrap", gap: 9, marginBottom: 24 }}>
+          <Reveal role="tablist" className="ezl-tabs" style={{ display: "flex", flexWrap: "wrap", gap: 9, marginBottom: 24 }}>
             {SHOTS.map((sh, i) => (
               <button key={sh.tab} type="button" className="ezl-tab" data-on={i === shot ? "1" : "0"} onClick={() => setShot(i)}>{sh.tab}</button>
             ))}
@@ -638,7 +645,7 @@ export default function Landing() {
           <img src={`${IMG}/pos-hero.jpg`} alt="Complete Ezzy ERP POS solution — barcode scanner, touch terminal running the POS billing screen, cash drawer, Epson receipt printer with a printed bill, TSC barcode printer with a T-shirt label, billing rolls and barcode label rolls" style={{ width: "100%", height: "auto", display: "block" }} />
         </Reveal>
 
-        <div className="ezl-grid ezl-auto-228" style={{ marginTop: 24 }}>
+        <div className="ezl-grid ezl-auto-228 ezl-hw" style={{ marginTop: 24 }}>
           {HARDWARE.map(([file, alt, kicker, title, body]) => (
             <Reveal key={file} as="figure" className="ezl-card ezl-card-sm" style={{ margin: 0 }}>
               <div style={{ aspectRatio: "1/1", borderRadius: 8, overflow: "hidden", background: PALE, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -712,7 +719,7 @@ export default function Landing() {
           <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "20ch", color: "#fff" }}>Why shopkeepers stay with Ezzy ERP.</Reveal>
           <div className="ezl-grid ezl-auto-255" style={{ marginTop: 42 }}>
             {WHY.map(([icon, color, title, body]) => (
-              <Reveal key={title} style={{ padding: "26px 0", borderTop: "1px solid rgba(255,255,255,.2)" }}>
+              <Reveal key={title} className="ezl-mod" style={{ padding: "26px 0", borderTop: "1px solid rgba(255,255,255,.2)" }}>
                 <Icon name={icon} size={30} color={color} />
                 <h3 style={{ margin: "13px 0 7px", fontSize: 20, color: "#fff" }}>{title}</h3>
                 <p style={{ margin: 0, fontSize: 15, color: "rgba(255,255,255,.8)" }}>{body}</p>
@@ -725,7 +732,7 @@ export default function Landing() {
       {/* testimonials — placeholder quotes, replace with approved ones */}
       <section className="ezl-sec" style={{ padding: "78px 24px 40px" }}>
         <Reveal as="h2" className="ezl-h2" style={{ margin: "0 0 44px", maxWidth: "20ch" }}>From the counter.</Reveal>
-        <div className="ezl-grid ezl-auto-275">
+        <div className="ezl-grid ezl-auto-275 ezl-quotes">
           {QUOTES.map(([quote, who]) => (
             <Reveal key={who} as="blockquote" style={{ margin: 0, background: PALE, borderRadius: 12, padding: 30 }}>
               <Icon name="ph-quotes" size={30} color="#3B82F6" />
@@ -774,7 +781,7 @@ export default function Landing() {
             </Reveal>
           </div>
 
-          <Reveal as="form" onSubmit={onSubmit} style={{ display: "grid", gap: 18, background: PALE, borderRadius: 12, padding: 34 }}>
+          <Reveal as="form" onSubmit={onSubmit} className="ezl-form" style={{ display: "grid", gap: 18, background: PALE, borderRadius: 12, padding: 34 }}>
             <div className="ezl-grid ezl-auto-170">
               <div className="ezl-field"><label htmlFor="ez-name">Your name</label><input className="ezl-input" id="ez-name" name="name" type="text" required placeholder="Full name" /></div>
               <div className="ezl-field"><label htmlFor="ez-phone">Mobile number</label><input className="ezl-input" id="ez-phone" name="phone" type="tel" required pattern="[0-9+ ]{10,15}" placeholder="10-digit mobile" /></div>
@@ -806,7 +813,7 @@ export default function Landing() {
       </section>
 
       {/* footer */}
-      <footer style={{ background: NAVY, color: "rgba(255,255,255,.8)", padding: "56px 0 32px" }}>
+      <footer className="ezl-footer" style={{ background: NAVY, color: "rgba(255,255,255,.8)", padding: "56px 0 32px" }}>
         <div className="ezl-wrap">
           <div className="ezl-grid ezl-auto-200" style={{ alignItems: "start" }}>
             <div>
