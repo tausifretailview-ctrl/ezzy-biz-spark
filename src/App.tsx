@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
+import SeoPage from "./pages/seo/SeoPage";
+import { SEO_PAGES } from "./pages/seo/pages";
 
 // Only the landing page ships in the main bundle; the other routes (and their
 // heavy PDF/Excel/chart libraries) load on demand to keep the home page fast.
@@ -27,6 +29,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Landing />} />
+          {SEO_PAGES.map((page) => (
+            <Route key={page.path} path={page.path} element={<SeoPage page={page} />} />
+          ))}
           <Route path="/app" element={<Index />} />
           <Route path="/work-report" element={<WorkReport />} />
           <Route path="/cotton-plus" element={<CottonPlusForm />} />

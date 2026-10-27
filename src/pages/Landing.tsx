@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import "./landing.css";
+import {
+  IMG, PHONE, TEL, MAIL, SITE, STREET, ADDRESS, GOOGLE_PROFILE, INSTAGRAM, DIRECTIONS, waLink, ORG_ID,
+  NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
+} from "./site";
+import { SEO_PAGES } from "./seo/pages";
 
 /* ------------------------------------------------------------------ *
  * Ezzy ERP — public marketing landing page.
@@ -9,21 +13,7 @@ import "./landing.css";
  * Images live in public/landing/ — see IMG below.
  * ------------------------------------------------------------------ */
 
-const IMG = "/landing";
-const PHONE = "+91 84240 34844";
-const TEL = "tel:+918424034844";
-const MAIL = "info@ezzyerp.in";
-const SITE = "https://ezzyerp.in";
-// Same wording as the Google Business Profile, so search engines match the two.
-const STREET = "Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane";
-const ADDRESS = `${STREET}, Navi Mumbai, Maharashtra 400709`;
 const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
-const GOOGLE_PROFILE = "https://share.google/uam8NxEqb6fB6Bhy4";
-const INSTAGRAM = "https://www.instagram.com/ezzyerp/";
-const DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS)}`;
-const WA_NUMBER = "918424034844";
-const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
-const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
 /** Social profiles shown in the footer. The last field marks Ezzy ERP's own brand accounts, which are also
  *  listed as sameAs in the schema; the others belong to the separate "Software Services" business. */
@@ -33,13 +23,6 @@ const SOCIAL: [icon: string, label: string, href: string, brand?: boolean][] = [
   // ["ph-youtube-logo", "YouTube", "https://www.youtube.com/@…"],
   // ["ph-linkedin-logo", "LinkedIn", "https://www.linkedin.com/company/…"],
 ];
-
-const NAVY = "#0F172A";
-const ROYAL = "#2563EB";
-const MUTED = "#44536e";
-const SOFT = "#66748c";
-const LINE = "#e6eaf2";
-const PALE = "#f5f7fb";
 
 type Slide = {
   eyebrow: string;
@@ -120,12 +103,14 @@ const INDUSTRIES = [
   {
     icon: "ph-t-shirt", tileBg: "#dbe7ff", tileFg: "#2563EB",
     title: "Garments & textiles",
+    href: "/garment-shop-billing-software",
     sub: "Boutiques, saree shops, kids wear, readymade wholesale",
     points: ["Size & colour matrix entry", "Design number (D.No) labels", "Brand and size-wise stock"],
   },
   {
     icon: "ph-sneaker", tileBg: "#ffe6d6", tileFg: "#D9480F",
     title: "Footwear",
+    href: "/footwear-shop-billing-software",
     sub: "Showrooms, multi-brand outlets, footwear wholesale",
     points: ["Article & size-run stock", "MRP-mode POS pricing", "Reorder & discount schemes"],
   },
@@ -240,7 +225,6 @@ const TRADES = ["Garments & textiles", "Footwear", "Mobiles & electronics", "Dep
 
 /* ---------- structured data (JSON-LD for Google and AI assistants) ---------- */
 
-const ORG_ID = `${SITE}/#organization`;
 const JSON_LD = {
   "@context": "https://schema.org",
   "@graph": [
@@ -288,35 +272,6 @@ const JSON_LD = {
     },
   ],
 };
-
-/* ---------- lead source ---------- */
-
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
-type LeadSource = Partial<Record<(typeof UTM_KEYS)[number] | "referrer" | "landing_page", string>>;
-
-/** Remembers where the visitor came from (first touch in this tab) so the demo request can be attributed. */
-function captureLeadSource(): LeadSource {
-  try {
-    const saved = sessionStorage.getItem("ezl-source");
-    if (saved) return JSON.parse(saved);
-    const params = new URLSearchParams(window.location.search);
-    const src: LeadSource = {};
-    UTM_KEYS.forEach((k) => { const v = params.get(k); if (v) src[k] = v.slice(0, 120); });
-    if (document.referrer && !document.referrer.startsWith(window.location.origin)) src.referrer = document.referrer.slice(0, 300);
-    src.landing_page = (window.location.pathname + window.location.search).slice(0, 300);
-    sessionStorage.setItem("ezl-source", JSON.stringify(src));
-    return src;
-  } catch {
-    return {};
-  }
-}
-
-/** Sends a conversion event to Google Analytics / Tag Manager when either is installed. */
-function track(event: string, params: Record<string, unknown> = {}) {
-  const w = window as Window & { gtag?: (...args: unknown[]) => void; dataLayer?: unknown[] };
-  if (typeof w.gtag === "function") w.gtag("event", event, params);
-  else if (Array.isArray(w.dataLayer)) w.dataLayer.push({ event, ...params });
-}
 
 /* ---------- small pieces ---------- */
 
@@ -420,6 +375,8 @@ export default function Landing() {
     // Save the lead with its source. If the source columns are not live in the
     // database yet, retry with the source folded into the note so the lead is
     // never lost to a schema mismatch.
+    // Loaded on submit so the database client stays out of the page's first download.
+    const { supabase } = await import("@/integrations/supabase/client");
     let { error } = await supabase.from("demo_requests").insert({ ...lead, ...src });
     if (error && Object.keys(src).length) {
       const tag = Object.entries(src).map(([k, v]) => `${k}=${v}`).join(" ");
@@ -571,6 +528,7 @@ export default function Landing() {
                   <span key={p} className="ezl-tick"><Icon name="ph-check-circle" size={19} color="#16A34A" style={{ flexShrink: 0 }} />{p}</span>
                 ))}
               </div>
+              {ind.href && <a href={ind.href} style={{ display: "inline-block", marginTop: 16, fontSize: 15 }}>{ind.title} billing software →</a>}
             </Reveal>
           ))}
         </div>
@@ -835,7 +793,7 @@ export default function Landing() {
               )}
             </div>
             {[
-              ["Trades", [["#industries", "Garments & textiles"], ["#industries", "Footwear"], ["#industries", "Mobiles & electronics"], ["#industries", "Departmental stores"]]],
+              ["Solutions", [...SEO_PAGES.map((p) => [p.path, p.label]), ["#industries", "Mobiles & electronics"], ["#industries", "Departmental stores"]]],
               ["Product", [["#modules", "Modules"], ["#inside", "Screenshots"], ["#hardware", "Hardware"], ["#mobile", "Android app"], ["#faq", "FAQ"]]],
             ].map(([heading, links]: any) => (
               <div key={heading}>

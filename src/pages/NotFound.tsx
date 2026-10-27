@@ -6,6 +6,12 @@ const NotFound = () => {
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    // The host answers unknown URLs with the app shell and a 200, so tell search engines not to index them.
+    const robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex";
+    document.head.appendChild(robots);
+    return () => robots.remove();
   }, [location.pathname]);
 
   return (
