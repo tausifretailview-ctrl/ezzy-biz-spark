@@ -763,6 +763,7 @@ export default function Landing() {
             ) : (
               <p style={{ margin: 0, fontSize: 14, color: sent ? "#1a49b8" : SOFT, minHeight: 20 }}>
                 {sent ? `Request noted. Our team will call ${sent} today.` : "We use your number only to call you about the demo."}
+                {!sent && <> <a href="/privacy-policy">Privacy policy</a></>}
                 {sent && <> Want to talk now? <a href={waLink()} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>WhatsApp us</a>.</>}
               </p>
             )}
@@ -822,7 +823,10 @@ export default function Landing() {
           </div>
           <div style={{ marginTop: 42, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,.16)", display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "space-between", fontSize: 13, color: "rgba(255,255,255,.55)" }}>
             <span>© 2026 EzzyERP · Adtech ERP Solutions, Navi Mumbai</span>
-            <span>Made for Indian retail counters</span>
+            <span style={{ display: "flex", gap: 18 }}>
+              <a href="/privacy-policy" style={{ color: "rgba(255,255,255,.7)" }}>Privacy policy</a>
+              <span>Made for Indian retail counters</span>
+            </span>
           </div>
         </div>
       </footer>

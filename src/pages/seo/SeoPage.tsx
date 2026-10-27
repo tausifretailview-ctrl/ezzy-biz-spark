@@ -244,8 +244,9 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
               </div>
             </div>
           </div>
-          <div style={{ marginTop: 36, paddingTop: 18, borderTop: "1px solid rgba(255,255,255,.16)", fontSize: 13, color: "rgba(255,255,255,.55)" }}>
-            © 2026 EzzyERP · Adtech ERP Solutions, Navi Mumbai
+          <div style={{ marginTop: 36, paddingTop: 18, borderTop: "1px solid rgba(255,255,255,.16)", display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "space-between", fontSize: 13, color: "rgba(255,255,255,.55)" }}>
+            <span>© 2026 EzzyERP · Adtech ERP Solutions, Navi Mumbai</span>
+            <a href="/privacy-policy" style={{ color: "rgba(255,255,255,.7)" }}>Privacy policy</a>
           </div>
         </div>
       </footer>

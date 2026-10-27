@@ -3,10 +3,11 @@ import { QRCodeCanvas } from "qrcode.react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download } from "lucide-react";
+import { TOOLS_ORIGIN } from "@/pages/site";
 
 export function QrCodeTab() {
   const ref = useRef<HTMLDivElement>(null);
-  const url = "https://ezzyerp.in/cotton-plus";
+  const url = `${TOOLS_ORIGIN}/cotton-plus`;
 
   function download() {
     const canvas = ref.current?.querySelector("canvas") as HTMLCanvasElement | null;
