@@ -2,8 +2,8 @@
    Everything is namespaced under .ezzy-landing so the ERP app's own
    tokens, fonts and utilities are untouched. Import from Landing.tsx. */
 
-/* The Source Serif 4 font and the Phosphor duotone icon stylesheet are linked
-   from index.html, so they download alongside this file instead of after it. */
+@import "./fonts.css";
+@import "./icons.css";
 
 .ezzy-landing {
   --ez-navy: #0F172A;
@@ -13,7 +13,7 @@
   --ez-blue-light: #60A5FA;
   --ez-ink: #0F172A;
   --ez-muted: #44536e;
-  --ez-soft: #66748c;
+  --ez-soft: #5f6d85;
   --ez-line: #e6eaf2;
   --ez-pale: #f5f7fb;
   --ez-r-md: 8px;

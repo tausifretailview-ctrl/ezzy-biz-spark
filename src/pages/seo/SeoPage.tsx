@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "../landing.css";
 import {
-  IMG, PHONE, TEL, MAIL, SITE, ADDRESS, GOOGLE_PROFILE, DIRECTIONS, waLink, ORG_ID,
+  IMG, LOGO, HIGH_PRIORITY, PHONE, TEL, MAIL, SITE, ADDRESS, GOOGLE_PROFILE, DIRECTIONS, waLink, webpSet, ORG_ID,
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track,
 } from "../site";
 import { SEO_PAGES, type SeoPageData } from "./pages";
@@ -104,7 +104,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
       <header className="ezl-header" style={{ position: "sticky", top: 0, zIndex: 60, background: "rgba(255,255,255,.93)", backdropFilter: "blur(10px)", borderBottom: `1px solid ${LINE}` }}>
         <div className="ezl-wrap" style={{ padding: "12px 24px", display: "flex", alignItems: "center", gap: 26 }}>
           <a href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
-            <img src={`${IMG}/ezzy-logo-tight.jpg`} alt="EzzyERP home" style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
+            <img src={LOGO} width={620} height={115} alt="EzzyERP home" style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
             {[["/#industries", "Industries"], ["/#modules", "Modules"], ["/#inside", "Software"], ["/#hardware", "Hardware"], ["/#mobile", "Mobile app"]].map(([href, label]) => (
@@ -138,7 +138,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
                 </div>
               </div>
               <figure style={{ margin: 0 }}>
-                <img src={`${IMG}/${page.heroShot[0]}`} alt={page.heroShot[1]} style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, boxShadow: "0 30px 70px rgba(0,0,0,.45)", border: "1px solid rgba(255,255,255,.14)" }} />
+                <img src={`${IMG}/${page.heroShot[0]}`} srcSet={webpSet(`${IMG}/${page.heroShot[0]}`)} sizes="(max-width: 820px) 92vw, 600px" width={1366} height={700} {...HIGH_PRIORITY} alt={page.heroShot[1]} style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, boxShadow: "0 30px 70px rgba(0,0,0,.45)", border: "1px solid rgba(255,255,255,.14)" }} />
               </figure>
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
             )}
             {sec.shot && (
               <figure style={{ margin: "36px 0 0", maxWidth: 980 }}>
-                <img src={`${IMG}/${sec.shot[0]}`} alt={sec.shot[1]} loading="lazy" style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, border: `1px solid ${LINE}` }} />
+                <img src={`${IMG}/${sec.shot[0]}`} srcSet={webpSet(`${IMG}/${sec.shot[0]}`)} sizes="(max-width: 1030px) 92vw, 980px" width={1366} height={700} alt={sec.shot[1]} loading="lazy" style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, border: `1px solid ${LINE}` }} />
               </figure>
             )}
             {i === 0 && (
@@ -220,7 +220,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
           <div className="ezl-grid ezl-auto-200" style={{ alignItems: "start" }}>
             <div>
               <a href="/" style={{ display: "inline-flex", background: "#fff", borderRadius: 8, padding: "9px 14px" }}>
-                <img src={`${IMG}/ezzy-logo-tight.jpg`} alt="EzzyERP" style={{ height: 30, width: "auto" }} />
+                <img src={LOGO} width={620} height={115} loading="lazy" alt="EzzyERP" style={{ height: 30, width: "auto" }} />
               </a>
               <p style={{ margin: "16px 0 0", fontSize: 15, maxWidth: "30ch" }}>Billing, inventory, barcode and GST software for retail, wholesale and distribution.</p>
             </div>

@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { lazy, Suspense, useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, type ComponentType, type ReactNode } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./pages/Landing";
 import SeoPage from "./pages/seo/SeoPage";
@@ -40,12 +40,14 @@ function ToolPage({ title, children }: { title: string; children: ReactNode }) {
 
 const queryClient = new QueryClient();
 
-const App = () => (
+/** The browser uses BrowserRouter. The build-time prerender (src/entry-server.tsx) passes a StaticRouter,
+ *  so the prerendered HTML is exactly what the browser hydrates. */
+const App = ({ Router = BrowserRouter }: { Router?: ComponentType<{ children?: ReactNode }> }) => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <Router>
         <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -70,7 +72,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
-      </BrowserRouter>
+      </Router>
     </TooltipProvider>
   </QueryClientProvider>
 );

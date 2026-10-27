@@ -2,14 +2,22 @@
 
 > Ezzy ERP (EzzyERP) is cloud billing, POS, barcode, inventory, GST and accounting software for retail, wholesale and distribution businesses in India, made by Adtech ERP Solutions, Navi Mumbai. It is built for garment and textile shops, footwear stores, mobile and electronics shops, and departmental stores. ISO certified, used by 2,000+ shops, with 24×7 support on call and WhatsApp.
 
-Website: https://ezzyerp.in/
-Free demo: https://ezzyerp.in/#demo
-Phone / WhatsApp: +91 84240 34844
-Instagram: https://www.instagram.com/ezzyerp/
-Google Business Profile: https://share.google/uam8NxEqb6fB6Bhy4
-Facebook: https://www.facebook.com/Softwareservicesonline
-Email: info@ezzyerp.in
-Address: Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane, Navi Mumbai, Maharashtra 400709, India
+- [Website](https://ezzyerp.in/)
+- [Book a free demo](https://ezzyerp.in/#demo)
+- Phone / WhatsApp: [+91 84240 34844](https://wa.me/918424034844)
+- [Instagram](https://www.instagram.com/ezzyerp/)
+- [Google Business Profile](https://share.google/uam8NxEqb6fB6Bhy4)
+- [Facebook](https://www.facebook.com/Softwareservicesonline)
+- Email: [info@ezzyerp.in](mailto:info@ezzyerp.in)
+- Address: Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane, Navi Mumbai, Maharashtra 400709, India
+
+## Pages
+
+- [Billing software for small business](https://ezzyerp.in/billing-software-for-small-business): billing, stock and GST for small shops in India.
+- [Garment shop billing software](https://ezzyerp.in/garment-shop-billing-software): size and colour stock, design-number labels, garment wholesale.
+- [Footwear shop billing software](https://ezzyerp.in/footwear-shop-billing-software): article and size-run stock, MRP billing for footwear stores.
+- [Billing software in Navi Mumbai](https://ezzyerp.in/billing-software-navi-mumbai): on-site setup and support in Navi Mumbai, Thane and Mumbai.
+- [Privacy policy](https://ezzyerp.in/privacy-policy)
 
 ## Who it is for
 
@@ -43,4 +51,4 @@ Owner dashboard (today's sales, stock and dues), billing from the phone, reports
 
 ## Getting started
 
-Book a free, no-obligation demo at https://ezzyerp.in/#demo, call or WhatsApp +91 84240 34844 (https://wa.me/918424034844). The team shows the billing screen on the shop's own products and labels, and staff are trained over the phone in their language.
+Book a free, no-obligation demo at [ezzyerp.in/#demo](https://ezzyerp.in/#demo), or call or [WhatsApp](https://wa.me/918424034844) +91 84240 34844. The team shows the billing screen on the shop's own products and labels, and staff are trained over the phone in their language.
