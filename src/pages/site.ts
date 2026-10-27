@@ -16,6 +16,14 @@ export const WA_NUMBER = "918424034844";
 export const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
 export const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 export const ORG_ID = `${SITE}/#organization`;
+export const LOGO = `${IMG}/ezzy-logo-tight.webp`;
+
+/** The page's main image: React 18 has no fetchPriority prop, so the attribute is passed through as is. */
+export const HIGH_PRIORITY = { fetchpriority: "high" } as Record<string, string>;
+
+/** srcSet for a JPG in public/landing, using the WebP copies written by scripts/optimize-images.py. */
+export const webpSet = (src: string, widths: [number, number] = [800, 1366]) =>
+  widths.map((w) => `${src.replace(/\.jpg$/, "")}-${w}.webp ${w}w`).join(", ");
 
 /** The privacy policy page (pages/PrivacyPolicy.tsx) and its <head> values for the prerender. */
 export const PRIVACY_PATH = "/privacy-policy";
@@ -24,15 +32,13 @@ export const PRIVACY_HEAD = {
   description: "How Ezzy ERP (Adtech ERP Solutions, Navi Mumbai) uses the details you share when you book a demo or contact us.",
 };
 
-/** Where the Cotton Plus and Work Report tools run: the project's own Lovable address, not ezzyerp.in (see App.tsx). */
-export const TOOLS_ORIGIN = "https://ezzy-biz-spark.lovable.app";
 /** True on ezzyerp.in itself; false on the Lovable address, previews and localhost. */
 export const isMarketingHost = () => typeof window !== "undefined" && /(^|\.)ezzyerp\.in$/.test(window.location.hostname);
 
 export const NAVY = "#0F172A";
 export const ROYAL = "#2563EB";
 export const MUTED = "#44536e";
-export const SOFT = "#66748c";
+export const SOFT = "#5f6d85";
 export const LINE = "#e6eaf2";
 export const PALE = "#f5f7fb";
 

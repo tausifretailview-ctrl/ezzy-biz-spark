@@ -60,8 +60,12 @@ function prerenderPlugin(): Plugin {
       });
       try {
         const { routes, heads, render } = await server.ssrLoadModule("/src/entry-server.tsx");
-        const template = fs.readFileSync(path.join(outDir, "index.html"), "utf-8");
-        for (const route of Object.keys(routes)) {
+        // Inline the app's stylesheet so the first paint doesn't wait for a separate CSS request.
+        const template = fs.readFileSync(path.join(outDir, "index.html"), "utf-8").replace(
+          /<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/,
+          (_, href) => `<style>${fs.readFileSync(path.join(outDir, href), "utf-8")}</style>`,
+        );
+        for (const route of routes) {
           const html = withHead(template, route, heads[route])
             .replace('<div id="root"></div>', `<div id="root" data-prerendered="${route}">${render(route)}</div>`);
           // Hosts differ on which file answers /page (no trailing slash): some use page/index.html,

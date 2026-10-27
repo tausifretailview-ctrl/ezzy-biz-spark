@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./landing.css";
-import { IMG, PHONE, TEL, MAIL, SITE, ADDRESS, NAVY, MUTED, LINE, PRIVACY_PATH, PRIVACY_HEAD } from "./site";
+import { LOGO, PHONE, TEL, MAIL, SITE, ADDRESS, NAVY, MUTED, LINE, PRIVACY_PATH, PRIVACY_HEAD } from "./site";
 
 /* ------------------------------------------------------------------ *
  * /privacy-policy — what the website collects through the demo form
@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
       <header className="ezl-header" style={{ background: "#fff", borderBottom: `1px solid ${LINE}` }}>
         <div className="ezl-wrap" style={{ padding: "12px 24px", display: "flex", alignItems: "center", gap: 26 }}>
           <a href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
-            <img src={`${IMG}/ezzy-logo-tight.jpg`} alt="EzzyERP home" style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
+            <img src={LOGO} alt="EzzyERP home" width={620} height={115} style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <a href="/#demo" className="ezl-btn" style={{ padding: "11px 22px", marginLeft: "auto" }}>Book free demo</a>
         </div>

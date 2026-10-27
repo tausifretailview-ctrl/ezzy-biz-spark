@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import "./landing.css";
 import {
-  IMG, PHONE, TEL, MAIL, SITE, STREET, ADDRESS, GOOGLE_PROFILE, INSTAGRAM, DIRECTIONS, waLink, ORG_ID,
+  IMG, LOGO, HIGH_PRIORITY, PHONE, TEL, MAIL, SITE, STREET, ADDRESS, GOOGLE_PROFILE, INSTAGRAM, DIRECTIONS, waLink, webpSet, ORG_ID,
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
 import { SEO_PAGES } from "./seo/pages";
@@ -340,6 +340,8 @@ function CountUp({ target, final }: { target: number; final: string }) {
 export default function Landing() {
   const [slide, setSlide] = useState(0);
   const [paused, setPaused] = useState(false);
+  // The first slide is on screen from the first paint; only later slide changes animate in.
+  const [slid, setSlid] = useState(false);
   const [shot, setShot] = useState(0);
   const [sent, setSent] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
@@ -356,11 +358,11 @@ export default function Landing() {
 
   useEffect(() => {
     if (paused) return;
-    const id = window.setInterval(() => setSlide((s) => (s + 1) % SLIDES.length), 6000);
+    const id = window.setInterval(() => { setSlid(true); setSlide((s) => (s + 1) % SLIDES.length); }, 6000);
     return () => window.clearInterval(id);
   }, [paused]);
 
-  const go = (n: number) => { setPaused(true); setSlide(((n % SLIDES.length) + SLIDES.length) % SLIDES.length); };
+  const go = (n: number) => { setPaused(true); setSlid(true); setSlide(((n % SLIDES.length) + SLIDES.length) % SLIDES.length); };
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -418,7 +420,7 @@ export default function Landing() {
       <header className="ezl-header" style={{ position: "sticky", top: 0, zIndex: 60, background: "rgba(255,255,255,.93)", backdropFilter: "blur(10px)", borderBottom: `1px solid ${LINE}` }}>
         <div className="ezl-wrap" style={{ padding: "12px 24px", display: "flex", alignItems: "center", gap: 26 }}>
           <a href="#top" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
-            <img src={`${IMG}/ezzy-logo-tight.jpg`} alt="EzzyERP — Smart Billing. Seamless Inventory. Easy Barcode Management." style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
+            <img src={LOGO} width={620} height={115} alt="EzzyERP — Smart Billing. Seamless Inventory. Easy Barcode Management." style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
             {[["#industries", "Industries"], ["#modules", "Modules"], ["#inside", "Software"], ["#hardware", "Hardware"], ["#mobile", "Mobile app"]].map(([href, label]) => (
@@ -442,7 +444,7 @@ export default function Landing() {
         <div className="ezl-orb-b" style={{ position: "absolute", bottom: -180, left: -100, width: 460, height: 460, borderRadius: "50%", background: "radial-gradient(circle,rgba(37,99,235,.3),transparent 68%)", filter: "blur(10px)" }} />
 
         <div className="ezl-wrap" style={{ position: "relative" }}>
-          <div key={slide} className="ezl-grid ezl-auto-330 ezl-slide-in" style={{ alignItems: "center", padding: "72px 0 30px" }}>
+          <div key={slide} className={`ezl-grid ezl-auto-330${slid ? " ezl-slide-in" : ""}`} style={{ alignItems: "center", padding: "72px 0 30px" }}>
             <div>
               <span className="ezl-hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 9, fontSize: 13, letterSpacing: ".18em", textTransform: "uppercase", color: "#60A5FA", border: "1px solid rgba(96,165,250,.4)", borderRadius: 999, padding: "7px 15px" }}>{s.eyebrow}</span>
               <h1 className="ezl-h1">{s.head}</h1>
@@ -453,7 +455,7 @@ export default function Landing() {
               </div>
             </div>
             <figure style={{ margin: 0, position: "relative" }}>
-              <img src={s.img} alt={s.alt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, boxShadow: "0 30px 70px rgba(0,0,0,.45)", border: "1px solid rgba(255,255,255,.14)" }} />
+              <img src={s.img} srcSet={webpSet(s.img)} sizes="(max-width: 820px) 92vw, 600px" width={1366} height={676} {...HIGH_PRIORITY} alt={s.alt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, boxShadow: "0 30px 70px rgba(0,0,0,.45)", border: "1px solid rgba(255,255,255,.14)" }} />
               <div className="ezl-float ezl-hero-badge" style={{ position: "absolute", left: -24, bottom: 34, background: "#fff", color: NAVY, padding: "13px 17px", borderRadius: 12, boxShadow: "0 16px 40px rgba(0,0,0,.34)", animationDuration: s.floatDur }}>
                 <div style={{ fontSize: 10.5, letterSpacing: ".16em", textTransform: "uppercase", color: "#5b6b86" }}>{s.badgeLabel}</div>
                 <div style={{ fontSize: 29, fontWeight: 600, lineHeight: 1.1, fontVariantNumeric: "tabular-nums" }}>{s.badgeValue}</div>
@@ -507,7 +509,7 @@ export default function Landing() {
             <div style={{ marginTop: 10, fontSize: 15, color: MUTED, maxWidth: "22ch" }}>Verticals: garments, footwear, electronics, departmental</div>
           </Reveal>
           <Reveal>
-            <img src={`${IMG}/iso-certified-logo.jpg`} alt="ISO certified" style={{ height: 54, width: "auto", mixBlendMode: "multiply" }} />
+            <img src={`${IMG}/iso-certified-logo.jpg`} width={300} height={85} loading="lazy" alt="ISO certified" style={{ height: 54, width: "auto", mixBlendMode: "multiply" }} />
             <div style={{ marginTop: 10, fontSize: 15, color: MUTED, maxWidth: "22ch" }}>ISO certified software house with real onboarding</div>
           </Reveal>
         </div>
@@ -558,12 +560,12 @@ export default function Landing() {
 
           <Reveal role="tablist" className="ezl-tabs" style={{ display: "flex", flexWrap: "wrap", gap: 9, marginBottom: 24 }}>
             {SHOTS.map((sh, i) => (
-              <button key={sh.tab} type="button" className="ezl-tab" data-on={i === shot ? "1" : "0"} onClick={() => setShot(i)}>{sh.tab}</button>
+              <button key={sh.tab} type="button" role="tab" aria-selected={i === shot} aria-controls="ezl-shot" className="ezl-tab" data-on={i === shot ? "1" : "0"} onClick={() => setShot(i)}>{sh.tab}</button>
             ))}
           </Reveal>
 
           <Reveal as="figure" style={{ margin: 0 }}>
-            <div style={{ background: NAVY, borderRadius: 14, padding: "11px 11px 0", boxShadow: "0 30px 66px rgba(15,23,42,.22)" }}>
+            <div id="ezl-shot" role="tabpanel" aria-label={SHOTS[shot].tab} style={{ background: NAVY, borderRadius: 14, padding: "11px 11px 0", boxShadow: "0 30px 66px rgba(15,23,42,.22)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 7, padding: "0 4px 10px" }}>
                 {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
                   <span key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
@@ -577,6 +579,8 @@ export default function Landing() {
                   <img
                     key={sh.file}
                     src={`${IMG}/${sh.file}`}
+                    srcSet={webpSet(`${IMG}/${sh.file}`)}
+                    sizes="(max-width: 820px) 92vw, 1150px"
                     alt={sh.alt}
                     loading="lazy"
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center top", opacity: i === shot ? 1 : 0, transition: "opacity .45s ease" }}
@@ -600,7 +604,7 @@ export default function Landing() {
         </div>
 
         <Reveal as="figure" style={{ margin: "46px 0 0", borderRadius: 12, overflow: "hidden", boxShadow: "0 26px 60px rgba(15,23,42,.18)" }}>
-          <img src={`${IMG}/pos-hero.jpg`} alt="Complete Ezzy ERP POS solution — barcode scanner, touch terminal running the POS billing screen, cash drawer, Epson receipt printer with a printed bill, TSC barcode printer with a T-shirt label, billing rolls and barcode label rolls" style={{ width: "100%", height: "auto", display: "block" }} />
+          <img src={`${IMG}/pos-hero.jpg`} srcSet={webpSet(`${IMG}/pos-hero.jpg`)} sizes="(max-width: 820px) 92vw, 1232px" width={1536} height={927} loading="lazy" alt="Complete Ezzy ERP POS solution — barcode scanner, touch terminal running the POS billing screen, cash drawer, Epson receipt printer with a printed bill, TSC barcode printer with a T-shirt label, billing rolls and barcode label rolls" style={{ width: "100%", height: "auto", display: "block" }} />
         </Reveal>
 
         <div className="ezl-grid ezl-auto-228 ezl-hw" style={{ marginTop: 24 }}>
@@ -641,10 +645,10 @@ export default function Landing() {
           </div>
           <Reveal style={{ display: "flex", justifyContent: "center", alignItems: "flex-end", gap: 18 }}>
             <div className="ezl-float-slow ezl-phone" style={{ width: 186, flexShrink: 0, background: NAVY, borderRadius: 30, padding: 8, boxShadow: "0 20px 46px rgba(15,23,42,.24)" }}>
-              <img src={`${IMG}/app-newsale.jpg`} alt="EzzyERP mobile app — New sale screen with barcode search, fast picks and cash, UPI, card, later payment buttons" style={{ width: "100%", height: "auto", display: "block", borderRadius: 23 }} />
+              <img src={`${IMG}/app-newsale.jpg`} srcSet={webpSet(`${IMG}/app-newsale.jpg`, [280, 560])} sizes="186px" width={560} height={1115} loading="lazy" alt="EzzyERP mobile app — New sale screen with barcode search, fast picks and cash, UPI, card, later payment buttons" style={{ width: "100%", height: "auto", display: "block", borderRadius: 23 }} />
             </div>
             <div className="ezl-phone" style={{ width: 230, flexShrink: 0, background: NAVY, borderRadius: 34, padding: 9, boxShadow: "0 28px 64px rgba(15,23,42,.32)" }}>
-              <img src={`${IMG}/app-home.jpg`} alt="EzzyERP mobile app home — revenue today, gross profit, customer and supplier outstanding, and a seven-day sales chart" style={{ width: "100%", height: "auto", display: "block", borderRadius: 26 }} />
+              <img src={`${IMG}/app-home.jpg`} srcSet={webpSet(`${IMG}/app-home.jpg`, [280, 560])} sizes="230px" width={560} height={1115} loading="lazy" alt="EzzyERP mobile app home — revenue today, gross profit, customer and supplier outstanding, and a seven-day sales chart" style={{ width: "100%", height: "auto", display: "block", borderRadius: 26 }} />
             </div>
           </Reveal>
         </div>
@@ -658,7 +662,7 @@ export default function Landing() {
             {APP_SCREENS.map(([file, title, alt, body]) => (
               <Reveal key={file} as="figure" style={{ margin: 0 }}>
                 <div style={{ background: NAVY, borderRadius: 28, padding: 8, boxShadow: "0 18px 40px rgba(15,23,42,.16)" }}>
-                  <img src={`${IMG}/${file}`} alt={alt} loading="lazy" style={{ width: "100%", height: "auto", display: "block", borderRadius: 21 }} />
+                  <img src={`${IMG}/${file}`} srcSet={webpSet(`${IMG}/${file}`, [280, 560])} sizes="(max-width: 820px) 45vw, 280px" width={560} height={1115} alt={alt} loading="lazy" style={{ width: "100%", height: "auto", display: "block", borderRadius: 21 }} />
                 </div>
                 <figcaption style={{ marginTop: 14 }}>
                   <div style={{ fontSize: 17, fontWeight: 600 }}>{title}</div>
@@ -763,7 +767,7 @@ export default function Landing() {
             ) : (
               <p style={{ margin: 0, fontSize: 14, color: sent ? "#1a49b8" : SOFT, minHeight: 20 }}>
                 {sent ? `Request noted. Our team will call ${sent} today.` : "We use your number only to call you about the demo."}
-                {!sent && <> <a href="/privacy-policy">Privacy policy</a></>}
+                {!sent && <> <a href="/privacy-policy" style={{ textDecoration: "underline" }}>Privacy policy</a></>}
                 {sent && <> Want to talk now? <a href={waLink()} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>WhatsApp us</a>.</>}
               </p>
             )}
@@ -777,7 +781,7 @@ export default function Landing() {
           <div className="ezl-grid ezl-auto-200" style={{ alignItems: "start" }}>
             <div>
               <span style={{ display: "inline-flex", background: "#fff", borderRadius: 8, padding: "9px 14px" }}>
-                <img src={`${IMG}/ezzy-logo-tight.jpg`} alt="EzzyERP" style={{ height: 30, width: "auto" }} />
+                <img src={LOGO} width={620} height={115} loading="lazy" alt="EzzyERP" style={{ height: 30, width: "auto" }} />
               </span>
               <p style={{ margin: "16px 0 0", fontSize: 15, maxWidth: "30ch" }}>Smart Billing. Seamless Inventory. Easy Barcode Management. ERP for retail, wholesale and distribution.</p>
               <div style={{ display: "flex", gap: 18, marginTop: 20, fontSize: 12.5, color: "rgba(255,255,255,.62)" }}>
