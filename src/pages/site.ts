@@ -32,8 +32,6 @@ export const PRIVACY_HEAD = {
   description: "How Ezzy ERP (Adtech ERP Solutions, Navi Mumbai) uses the details you share when you book a demo or contact us.",
 };
 
-/** Where the Cotton Plus and Work Report tools run: the project's own Lovable address, not ezzyerp.in (see App.tsx). */
-export const TOOLS_ORIGIN = "https://ezzy-biz-spark.lovable.app";
 /** True on ezzyerp.in itself; false on the Lovable address, previews and localhost. */
 export const isMarketingHost = () => typeof window !== "undefined" && /(^|\.)ezzyerp\.in$/.test(window.location.hostname);
 

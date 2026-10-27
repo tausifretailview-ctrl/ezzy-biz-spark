@@ -13,15 +13,11 @@ import { isMarketingHost, PRIVACY_PATH } from "./pages/site";
 // Only the landing page ships in the main bundle; the other routes (and their
 // heavy PDF/Excel/chart libraries) load on demand to keep the home page fast.
 const NotFound = lazy(() => import("./pages/NotFound"));
-const ToolMoved = lazy(() => import("./pages/ToolMoved"));
 const WorkReport = lazy(() => import("./pages/WorkReport"));
-const CottonPlusForm = lazy(() => import("./pages/cotton-plus/CottonPlusForm"));
-const CottonPlusThankYou = lazy(() => import("./pages/cotton-plus/CottonPlusThankYou"));
-const CottonPlusAdmin = lazy(() => import("./pages/cotton-plus/CottonPlusAdmin"));
 
-// Cotton Plus (another shop's customer form) and Work Report (staff logins) are not part of the
-// Ezzy ERP website. Google flagged ezzyerp.in for "deceptive pages" while it hosted them, so they
-// only run on the project's Lovable address (TOOLS_ORIGIN in pages/site.ts), never on ezzyerp.in.
+// Work Report (staff logins) is not part of the Ezzy ERP website. Google flagged ezzyerp.in for
+// "deceptive pages" while it hosted login pages, so it only runs on the project's Lovable address
+// (https://ezzy-biz-spark.lovable.app/work-report), never on ezzyerp.in.
 const showTools = !isMarketingHost();
 
 /** Gives a tool its own tab title and keeps it out of search, instead of the Ezzy ERP home page's head. */
@@ -58,16 +54,7 @@ const App = ({ Router = BrowserRouter }: { Router?: ComponentType<{ children?: R
           <Route path={PRIVACY_PATH} element={<PrivacyPolicy />} />
           {/* The old landing page, with out-of-date phone numbers. */}
           <Route path="/app" element={<Navigate to="/" replace />} />
-          {showTools ? (
-            <>
-              <Route path="/work-report" element={<ToolPage title="Work Report"><WorkReport /></ToolPage>} />
-              <Route path="/cotton-plus" element={<ToolPage title="Cotton Plus"><CottonPlusForm /></ToolPage>} />
-              <Route path="/cotton-plus/thank-you" element={<ToolPage title="Cotton Plus"><CottonPlusThankYou /></ToolPage>} />
-              <Route path="/cotton-plus/admin" element={<ToolPage title="Cotton Plus Admin"><CottonPlusAdmin /></ToolPage>} />
-            </>
-          ) : (
-            <Route path="/cotton-plus" element={<ToolMoved />} />
-          )}
+          {showTools && <Route path="/work-report" element={<ToolPage title="Work Report"><WorkReport /></ToolPage>} />}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
