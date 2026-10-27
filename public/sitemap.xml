@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ezzyerp.in/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://ezzyerp.in/og-image.jpg</image:loc></image:image>
@@ -10,5 +10,33 @@
     <image:image><image:loc>https://ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
     <image:image><image:loc>https://ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
     <image:image><image:loc>https://ezzyerp.in/landing/pos-hero.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/billing-software-for-small-business</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/garment-shop-billing-software</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/footwear-shop-billing-software</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/billing-software-navi-mumbai</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
   </url>
 </urlset>

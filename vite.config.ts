@@ -11,6 +11,29 @@ import { componentTagger } from "lovable-tagger";
  * The browser still mounts the normal React app on top. If prerendering
  * fails for any reason the build keeps the plain SPA output.
  */
+const SITE = "https://ezzyerp.in";
+const escapeHtml = (v: string) => v.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/** Swaps the home page's title, description, canonical and social tags for a route's own. */
+function withHead(template: string, route: string, head?: { title: string; description: string }) {
+  if (!head) return template;
+  const title = escapeHtml(head.title);
+  const description = escapeHtml(head.description);
+  const url = `${SITE}${route}`;
+  const meta = (attr: string, key: string, value: string) => (html: string) =>
+    html.replace(new RegExp(`(<meta ${attr}="${key}" content=")[^"]*(")`), `$1${value}$2`);
+  return [
+    (html: string) => html.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`),
+    (html: string) => html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`),
+    meta("name", "description", description),
+    meta("property", "og:url", url),
+    meta("property", "og:title", title),
+    meta("property", "og:description", description),
+    meta("name", "twitter:title", title),
+    meta("name", "twitter:description", description),
+  ].reduce((html, fn) => fn(html), template);
+}
+
 function prerenderPlugin(): Plugin {
   let outDir = "dist";
   return {
@@ -36,13 +59,19 @@ function prerenderPlugin(): Plugin {
         },
       });
       try {
-        const { routes, render } = await server.ssrLoadModule("/src/entry-server.tsx");
+        const { routes, heads, render } = await server.ssrLoadModule("/src/entry-server.tsx");
         const template = fs.readFileSync(path.join(outDir, "index.html"), "utf-8");
         for (const route of Object.keys(routes)) {
-          const html = template.replace('<div id="root"></div>', `<div id="root" data-prerendered="${route}">${render(route)}</div>`);
-          const file = path.join(outDir, route, "index.html");
-          fs.mkdirSync(path.dirname(file), { recursive: true });
-          fs.writeFileSync(file, html);
+          const html = withHead(template, route, heads[route])
+            .replace('<div id="root"></div>', `<div id="root" data-prerendered="${route}">${render(route)}</div>`);
+          // Hosts differ on which file answers /page (no trailing slash): some use page/index.html,
+          // others page.html. Write both so the prerendered page is served either way.
+          const files = route === "/" ? ["index.html"] : [path.join(route, "index.html"), `${route}.html`];
+          for (const name of files) {
+            const file = path.join(outDir, name);
+            fs.mkdirSync(path.dirname(file), { recursive: true });
+            fs.writeFileSync(file, html);
+          }
           console.log(`prerendered ${route}`);
         }
       } catch (err) {
