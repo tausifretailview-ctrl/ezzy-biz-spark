@@ -17,6 +17,18 @@ export const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
 export const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 export const ORG_ID = `${SITE}/#organization`;
 
+/** The privacy policy page (pages/PrivacyPolicy.tsx) and its <head> values for the prerender. */
+export const PRIVACY_PATH = "/privacy-policy";
+export const PRIVACY_HEAD = {
+  title: "Privacy Policy — Ezzy ERP",
+  description: "How Ezzy ERP (Adtech ERP Solutions, Navi Mumbai) uses the details you share when you book a demo or contact us.",
+};
+
+/** Where the Cotton Plus and Work Report tools run: the project's own Lovable address, not ezzyerp.in (see App.tsx). */
+export const TOOLS_ORIGIN = "https://ezzy-biz-spark.lovable.app";
+/** True on ezzyerp.in itself; false on the Lovable address, previews and localhost. */
+export const isMarketingHost = () => typeof window !== "undefined" && /(^|\.)ezzyerp\.in$/.test(window.location.hostname);
+
 export const NAVY = "#0F172A";
 export const ROYAL = "#2563EB";
 export const MUTED = "#44536e";

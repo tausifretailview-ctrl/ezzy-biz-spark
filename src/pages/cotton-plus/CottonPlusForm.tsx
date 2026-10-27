@@ -143,7 +143,12 @@ export default function CottonPlusForm() {
           </Button>
         </form>
 
-        <p className="text-center text-[10px] text-gray-400 mt-6">
+        {/* Says who receives the details and why, so the form is not mistaken for phishing. */}
+        <p className="text-center text-xs text-gray-500 mt-5">
+          Your details are shared only with {settings?.store_name || "the store"}, to send you birthday and
+          anniversary offers.
+        </p>
+        <p className="text-center text-[10px] text-gray-400 mt-3">
           Powered by{" "}
           <a
             href="https://ezzyerp.in"

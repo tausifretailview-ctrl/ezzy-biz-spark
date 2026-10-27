@@ -1,6 +1,8 @@
 import { renderToString } from "react-dom/server";
 import Landing from "./pages/Landing";
 import SeoPage from "./pages/seo/SeoPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import { PRIVACY_PATH, PRIVACY_HEAD } from "./pages/site";
 import { SEO_PAGES } from "./pages/seo/pages";
 
 /**
@@ -11,12 +13,14 @@ import { SEO_PAGES } from "./pages/seo/pages";
 export const routes: Record<string, () => JSX.Element> = {
   "/": () => <Landing />,
   ...Object.fromEntries(SEO_PAGES.map((page) => [page.path, () => <SeoPage page={page} />])),
+  [PRIVACY_PATH]: () => <PrivacyPolicy />,
 };
 
 /** Per-route <head> values that replace the home page's in the HTML template. Routes not listed keep the template's. */
-export const heads: Record<string, { title: string; description: string }> = Object.fromEntries(
-  SEO_PAGES.map((page) => [page.path, { title: page.title, description: page.description }]),
-);
+export const heads: Record<string, { title: string; description: string }> = {
+  ...Object.fromEntries(SEO_PAGES.map((page) => [page.path, { title: page.title, description: page.description }])),
+  [PRIVACY_PATH]: PRIVACY_HEAD,
+};
 
 export function render(route: string): string {
   return renderToString(routes[route]());

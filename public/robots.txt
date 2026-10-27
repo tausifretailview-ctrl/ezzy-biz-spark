@@ -1,12 +1,10 @@
 # Ezzy ERP — ezzyerp.in
 # Search engines, social link previews and AI assistants are all welcome
-# on the marketing pages. Internal tools are kept out of search.
+# on every page. Pages that should stay out of search carry a noindex tag
+# instead of a Disallow, so Google can crawl them and see it.
 
 User-agent: *
 Allow: /
-Disallow: /app
-Disallow: /work-report
-Disallow: /cotton-plus
 
 # AI search and assistant crawlers (listed explicitly so the intent is clear)
 User-agent: GPTBot
@@ -29,8 +27,5 @@ User-agent: Twitterbot
 User-agent: LinkedInBot
 User-agent: WhatsApp
 Allow: /
-Disallow: /app
-Disallow: /work-report
-Disallow: /cotton-plus
 
 Sitemap: https://ezzyerp.in/sitemap.xml
