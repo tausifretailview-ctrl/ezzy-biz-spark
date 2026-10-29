@@ -4,6 +4,7 @@ import { StaticRouter } from "react-router-dom/server";
 import App from "./App";
 import { PRIVACY_PATH, PRIVACY_HEAD } from "./pages/site";
 import { SEO_PAGES } from "./pages/seo/pages";
+import { BLOG_PATH, BLOG_HEAD, BLOG_POSTS } from "./pages/blog/posts";
 
 /**
  * Build-time prerender entry (see prerenderPlugin in vite.config.ts).
@@ -11,11 +12,13 @@ import { SEO_PAGES } from "./pages/seo/pages";
  * so crawlers that don't run JavaScript still see the full content.
  * The whole app is rendered, so the browser can hydrate the HTML as is.
  */
-export const routes: string[] = ["/", ...SEO_PAGES.map((page) => page.path), PRIVACY_PATH];
+export const routes: string[] = ["/", ...SEO_PAGES.map((page) => page.path), BLOG_PATH, ...BLOG_POSTS.map((post) => post.path), PRIVACY_PATH];
 
 /** Per-route <head> values that replace the home page's in the HTML template. Routes not listed keep the template's. */
 export const heads: Record<string, { title: string; description: string }> = {
   ...Object.fromEntries(SEO_PAGES.map((page) => [page.path, { title: page.title, description: page.description }])),
+  [BLOG_PATH]: BLOG_HEAD,
+  ...Object.fromEntries(BLOG_POSTS.map((post) => [post.path, { title: post.title, description: post.description }])),
   [PRIVACY_PATH]: PRIVACY_HEAD,
 };
 

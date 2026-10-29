@@ -8,6 +8,9 @@ import Landing from "./pages/Landing";
 import SeoPage from "./pages/seo/SeoPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { SEO_PAGES } from "./pages/seo/pages";
+import BlogIndex from "./pages/blog/BlogIndex";
+import BlogPostPage from "./pages/blog/BlogPostPage";
+import { BLOG_PATH, BLOG_POSTS } from "./pages/blog/posts";
 import { isMarketingHost, PRIVACY_PATH } from "./pages/site";
 
 // Only the landing page ships in the main bundle; the other routes (and their
@@ -50,6 +53,10 @@ const App = ({ Router = BrowserRouter }: { Router?: ComponentType<{ children?: R
           <Route path="/home" element={<Landing />} />
           {SEO_PAGES.map((page) => (
             <Route key={page.path} path={page.path} element={<SeoPage page={page} />} />
+          ))}
+          <Route path={BLOG_PATH} element={<BlogIndex />} />
+          {BLOG_POSTS.map((post) => (
+            <Route key={post.path} path={post.path} element={<BlogPostPage post={post} />} />
           ))}
           <Route path={PRIVACY_PATH} element={<PrivacyPolicy />} />
           {/* The old landing page, with out-of-date phone numbers. */}
