@@ -39,4 +39,31 @@
     <priority>0.8</priority>
     <image:image><image:loc>https://ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://ezzyerp.in/blog</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/gst-on-clothes-above-2500</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/garment-barcode-label-size</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/pos-hero.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/size-and-colour-stock-management-garment-shop</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
+  </url>
 </urlset>

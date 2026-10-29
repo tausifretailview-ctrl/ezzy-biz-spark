@@ -799,7 +799,7 @@ export default function Landing() {
             </div>
             {[
               ["Solutions", [...SEO_PAGES.map((p) => [p.path, p.label]), ["#industries", "Mobiles & electronics"], ["#industries", "Departmental stores"]]],
-              ["Product", [["#modules", "Modules"], ["#inside", "Screenshots"], ["#hardware", "Hardware"], ["#mobile", "Android app"], ["#faq", "FAQ"]]],
+              ["Product", [["#modules", "Modules"], ["#inside", "Screenshots"], ["#hardware", "Hardware"], ["#mobile", "Android app"], ["#faq", "FAQ"], ["/blog", "Blog"]]],
             ].map(([heading, links]: any) => (
               <div key={heading}>
                 <div style={{ fontSize: 12, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.55)", marginBottom: 14 }}>{heading}</div>
