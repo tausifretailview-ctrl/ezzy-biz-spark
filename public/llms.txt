@@ -21,6 +21,11 @@
 - [GST on clothes: 5% up to ₹2,500, 18% above](https://ezzyerp.in/blog/gst-on-clothes-above-2500): how the per-piece slab, discounts and MRP-inclusive prices work.
 - [Barcode label sizes for clothing tags](https://ezzyerp.in/blog/garment-barcode-label-size): 38×25 vs 40×25 vs 50×25 mm, 2-up rolls, what to print.
 - [Size and colour stock in a garment shop](https://ezzyerp.in/blog/size-and-colour-stock-management-garment-shop): design numbers, size grids, size-wise reports.
+- [Best billing software for garment shops (2026 buyer's guide)](https://ezzyerp.in/blog/best-billing-software-for-garment-shop): features that matter, app vs accounting software vs garment ERP, demo questions.
+- [Which barcode printer to buy for a garment shop](https://ezzyerp.in/blog/barcode-printer-for-garment-shop): 4-inch 203 dpi thermal transfer; TSC, TVS, Zebra.
+- [Footwear stock by article and size run](https://ezzyerp.in/blog/footwear-stock-management-size-run): size grids, box labels, size-wise reorders.
+- [Dead stock in a garment shop](https://ezzyerp.in/blog/dead-stock-in-garment-shop): finding stock by days idle and clearing it.
+- [How to start a readymade garment shop in India](https://ezzyerp.in/blog/how-to-start-garment-shop-in-india): niche, location, registrations, suppliers, counter setup.
 - [Privacy policy](https://ezzyerp.in/privacy-policy)
 
 ## Who it is for

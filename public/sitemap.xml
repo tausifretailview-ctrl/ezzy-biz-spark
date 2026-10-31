@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://ezzyerp.in/blog</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -65,5 +65,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/best-billing-software-for-garment-shop</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/barcode-printer-for-garment-shop</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/pos-hero.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/footwear-stock-management-size-run</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-purchase.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/dead-stock-in-garment-shop</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-insights.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/how-to-start-garment-shop-in-india</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/pos-hero.jpg</image:loc></image:image>
   </url>
 </urlset>
