@@ -348,6 +348,158 @@ export const SEO_PAGES: SeoPageData[] = [
     guides: ["/blog/size-and-colour-stock-management-garment-shop", "/blog/garment-barcode-label-size"],
   },
   {
+    path: "/billing-software-for-manufacturers",
+    label: "Billing software for manufacturers",
+    title: "Billing Software for Manufacturers — Quotation, Sale Order, E-Invoice & GST | Ezzy ERP",
+    description: "Billing and stock software for manufacturers and industrial units in India: quotations, sale orders, challans, GST invoices with e-invoice IRN, GSTR-1 file, ledgers and accounts.",
+    eyebrow: "Manufacturers · Industrial units",
+    h1: "Billing software for manufacturers and industrial units",
+    intro: [
+      "A manufacturer sells differently from a shop. You send a quotation, the buyer confirms an order, goods go out in parts on challans, and once your turnover crosses the limit every B2B bill needs an e-invoice. Then GST returns, party outstanding and accounts have to match at month end.",
+      "Ezzy ERP keeps this whole chain in one login: quotation to sale order to challan to GST invoice, with e-invoice IRN generated from the bill, stock that updates with every purchase and dispatch, and books your CA can use.",
+    ],
+    heroShot: ["shot-accounts.jpg", "Ezzy ERP accounts screen with customer ledger, outstanding and net receivable"],
+    sections: [
+      {
+        h2: "From quotation to payment, without typing it twice",
+        points: [
+          ["Quotations", "Make a quotation with your rates, GST and terms, send it on WhatsApp, and convert it into a sale order when the buyer confirms."],
+          ["Sale orders with pending quantity", "Track each order as confirmed, partly delivered or completed, and see the quantity still to be dispatched."],
+          ["Delivery challans", "Send goods on a challan and turn it into a GST invoice later, without re-entering the items."],
+          ["GST invoices with e-invoice", "Generate the e-invoice IRN and signed QR code from the sale bill, and print them on the invoice. Cancel an IRN from the same screen when needed."],
+          ["Purchase orders and purchase bills", "Order raw material and goods from suppliers, then receive them on a purchase bill that adds stock."],
+          ["Party ledgers and outstanding", "Customer and supplier balances, advances, credit notes and bill-by-bill settlement, with statements and reminders on WhatsApp."],
+        ],
+        shot: ["shot-gl.jpg", "Ezzy ERP general ledger with debit, credit and running balance"],
+      },
+      {
+        h2: "GST returns and accounts, ready for your CA",
+        paras: [
+          "Ezzy ERP prepares the GSTR-1 file from your sales, ready to upload on the GST portal, and shows the GSTR-3B figures, so month-end is a review instead of a re-entry. A filing tracker reminds you which return is due and records when it was filed.",
+          "Ledgers, trial balance, P&L and balance sheet are kept as you bill, with Tally export when your accountant prefers Tally.",
+        ],
+      },
+      {
+        h2: "Stock you can trust across your units",
+        points: [
+          ["Live stock", "Purchases add stock, challans and sales reduce it, and you see stock by item at any time, with low-stock and reorder reports."],
+          ["More than one unit or branch", "Run each unit or branch with its own stock and books on one login, and transfer stock between them."],
+          ["Staff rights", "Give every staff member only the menus they need, with an audit log and a recycle bin for deleted entries."],
+          ["Dealer orders on the phone", "Your salesmen take orders and collect payments on the Android field sales app, even offline."],
+        ],
+      },
+      {
+        h2: "Garment and textile manufacturing",
+        paras: [
+          "For garment and textile units, Ezzy ERP also runs production: design cards with fabric and trims per piece, fabric stock in metres, production lots, process stages and job workers. See garment manufacturing software for the details.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Which manufacturing businesses use Ezzy ERP?", "Manufacturers and industrial units that sell to dealers, distributors and other businesses, and need quotations, sale orders, challans, GST invoices with e-invoice, stock and accounts in one place. Garment and textile units can also run production in it."],
+      ["Can I convert a quotation into a sale order and then a bill?", "Yes. A quotation converts into a sale order, the order can be delivered in parts on challans, and a challan or order converts into a GST invoice without typing the items again."],
+      ["Does Ezzy ERP generate e-invoices?", "Yes. You can generate the e-invoice IRN and signed QR code from the sale bill and print them on the invoice, and cancel an IRN from the same screen."],
+      ["Can it file my GST returns?", "Ezzy ERP prepares the GSTR-1 file to upload on the GST portal and shows the GSTR-3B figures. You or your CA then file on the portal, and you mark the return as filed in Ezzy ERP."],
+      ["Can I manage more than one factory or godown?", "You can run each unit or branch with its own stock and books on one login, and transfer stock between them. Tell us how your locations work on the demo and we will show you the best setup."],
+      DEMO_FAQ,
+    ],
+    trade: "Manufacturing / industrial",
+  },
+  {
+    path: "/e-invoice-software",
+    label: "E-invoice software",
+    title: "E-Invoice Software for GST — Generate IRN & QR from Your Bill | Ezzy ERP",
+    description: "GST e-invoice software for Indian businesses: generate IRN and signed QR code from the sale bill, print them on the invoice, cancel an IRN, and track e-invoices in a report.",
+    eyebrow: "GST e-invoicing",
+    h1: "E-invoice software that generates the IRN from your bill",
+    intro: [
+      "Once your business crosses the e-invoice turnover limit, every B2B invoice needs an IRN and a signed QR code from the Invoice Registration Portal. Typing each bill again on the government portal, or uploading files one by one, takes time and invites mistakes.",
+      "In Ezzy ERP you make the sale bill as usual and generate the e-invoice from it. The IRN, acknowledgement number and QR code come back into the bill and print on the invoice.",
+    ],
+    heroShot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with sales, invoices, stock value and receivables"],
+    sections: [
+      {
+        h2: "How e-invoicing works in Ezzy ERP",
+        points: [
+          ["Bill as usual", "Make the GST invoice with party GSTIN, HSN codes and tax, the same way you bill today."],
+          ["Generate the IRN", "Send the invoice to the Invoice Registration Portal from the bill. The IRN, acknowledgement number and date are saved on it."],
+          ["Print with the QR code", "The invoice prints with the IRN and the signed QR code, ready to hand over or send on WhatsApp."],
+          ["Cancel when needed", "Cancel an IRN from the same screen, within the time the GST rules allow."],
+          ["E-invoice report", "See which B2B bills have an IRN and which are still pending, so none is missed."],
+          ["Connection test", "Check your e-invoice login and connection before your first bill. We help you set it up."],
+        ],
+      },
+      {
+        h2: "Who needs e-invoicing",
+        paras: [
+          "Under GST, a business whose aggregate turnover has crossed ₹5 crore in any financial year since 2017-18 must issue e-invoices for business-to-business sales, exports, and credit and debit notes. Bills to consumers (B2C) do not need an IRN. Ask your CA to confirm the rules for your business, as limits and time limits are changed by notification.",
+          "Because the IRN is generated from the same bill that updates your stock, ledgers and GST reports, your e-invoices, GSTR-1 and books always match.",
+        ],
+      },
+      {
+        h2: "More than an e-invoice tool",
+        points: [
+          ["Quotation to invoice", "Quotations, sale orders, delivery challans and GST invoices in one flow."],
+          ["GST returns", "GSTR-1 file ready to upload on the GST portal, and GSTR-3B figures."],
+          ["Stock and accounts", "Live stock, party ledgers, trial balance, P&L and Tally export."],
+          ["WhatsApp", "Send the e-invoice, statements and payment reminders on WhatsApp."],
+        ],
+        shot: ["shot-accounts.jpg", "Ezzy ERP accounts screen with customer ledger, outstanding and net receivable"],
+      },
+    ],
+    faqs: [
+      ["What is an e-invoice under GST?", "An e-invoice is a B2B GST invoice that is registered on the government's Invoice Registration Portal (IRP). The portal returns an Invoice Reference Number (IRN) and a signed QR code, which must appear on the invoice."],
+      ["Who has to generate e-invoices?", "Businesses whose aggregate turnover has crossed ₹5 crore in any financial year since 2017-18, for B2B sales, exports and credit or debit notes. Check with your CA for your business."],
+      ["Can Ezzy ERP generate the IRN directly from my bill?", "Yes. You generate the e-invoice from the sale bill. The IRN, acknowledgement number and signed QR code are saved and printed on the invoice."],
+      ["Can I cancel an e-invoice?", "Yes. You can cancel the IRN from Ezzy ERP within the time the GST rules allow, and then correct the bill."],
+      ["Do I need a separate e-invoice software?", "No. E-invoicing is part of Ezzy ERP's billing, so the same bill updates stock, ledgers and GST reports."],
+      DEMO_FAQ,
+    ],
+    trade: "Manufacturing / industrial",
+  },
+  {
+    path: "/garment-manufacturing-software",
+    label: "Garment manufacturing software",
+    title: "Garment Manufacturing Software — Fabric, Lots, Job Work & Billing | Ezzy ERP",
+    description: "Software for garment and textile manufacturers in India: design cards with fabric per piece, fabric stock in metres, production lots, stages, job workers, plus billing, e-invoice and GST.",
+    eyebrow: "Garment & textile manufacturing",
+    h1: "Garment manufacturing software, from fabric to finished piece to bill",
+    intro: [
+      "A garment unit buys fabric in metres, cuts it into lots, sends pieces to job workers for stages like stitching, buttons and ironing, and then sells finished pieces by size and colour. When this is tracked on paper, nobody knows how much fabric is left, which worker has how many pieces, or what a piece really cost.",
+      "Ezzy ERP connects production with billing and stock. Plan each design, issue fabric to a lot, follow pieces through every stage, and sell the finished goods from the same software.",
+    ],
+    heroShot: ["shot-purchase.jpg", "Ezzy ERP purchase bill entry with size grid and item details"],
+    sections: [
+      {
+        h2: "Production, step by step",
+        points: [
+          ["Design cards", "For each design, list the fabric and trims needed for one piece, the allowed wastage and other costs, and see the standard cost per piece."],
+          ["Fabric stock in metres", "Buy fabric in metres with roll-wise entry, and see how many pieces you can make now from the fabric in stock."],
+          ["Production lots and cutting", "Start a lot, issue fabric to it, and count the pieces on the cutting screen."],
+          ["Your own process stages", "Set stages like cutting, colouring, buttons and ironing, done by your staff, outside job workers, or both."],
+          ["Job workers and late work", "Set the rate per piece and allowed days for each stage, and see the pieces pending with each worker and which are late."],
+          ["Finished goods into stock", "Finished pieces come into stock by size and colour, ready for barcode labels and billing."],
+        ],
+      },
+      {
+        h2: "Selling what you make",
+        paras: [
+          "Send quotations and take sale orders from retailers and wholesalers, dispatch on delivery challans, and bill with GST and e-invoice IRN. Size and colour stock, design number labels and party-wise rates work the same way as in our garment shop software.",
+          "Party ledgers, GSTR-1 file, GSTR-3B figures, P&L and Tally export are kept as you work.",
+        ],
+        shot: ["shot-insights.jpg", "Ezzy ERP business insights with sales trends and stock health"],
+      },
+    ],
+    faqs: [
+      ["Can Ezzy ERP track fabric used per piece?", "Yes. Each design card lists the fabric and trims needed for one piece with an allowed wastage, and fabric stock is kept in metres, so you can see how many pieces the fabric in stock can make."],
+      ["Can I track pieces given to job workers?", "Yes. Set your process stages and job workers with a rate per piece and allowed days, and see pending and late pieces for each worker."],
+      ["Does it also do billing and GST?", "Yes. The same software makes quotations, sale orders, challans and GST invoices with e-invoice, and keeps stock, ledgers and GST reports."],
+      ["Can I print barcode labels for finished garments?", "Yes. Print design number, size and MRP barcode labels for finished pieces, on the barcode printers we supply."],
+      DEMO_FAQ,
+    ],
+    trade: "Manufacturing / industrial",
+  },
+  {
     path: "/billing-software-navi-mumbai",
     label: "Billing software in Navi Mumbai",
     title: "Billing Software in Navi Mumbai, Thane & Mumbai | Ezzy ERP, Kopar Khairane",

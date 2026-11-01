@@ -47,6 +47,7 @@
 .ezl-auto-330 { grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 48px; }
 .ezl-auto-320 { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 48px; }
 .ezl-auto-270 { grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr)); gap: 24px; }
+@media (min-width: 900px) { .ezl-ind { grid-template-columns: repeat(3, 1fr); } }
 .ezl-auto-250 { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 2px 38px; }
 .ezl-auto-255 { grid-template-columns: repeat(auto-fit, minmax(min(255px, 100%), 1fr)); gap: 4px 42px; }
 .ezl-auto-228 { grid-template-columns: repeat(auto-fit, minmax(min(228px, 100%), 1fr)); gap: 24px; }
