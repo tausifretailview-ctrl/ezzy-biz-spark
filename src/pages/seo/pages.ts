@@ -350,8 +350,8 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/billing-software-for-manufacturers",
     label: "Billing software for manufacturers",
-    title: "Billing Software for Manufacturers — Quotation, Sale Order, E-Invoice & GST | Ezzy ERP",
-    description: "Billing and stock software for manufacturers and industrial units in India: quotations, sale orders, challans, GST invoices with e-invoice IRN, GSTR-1 file, ledgers and accounts.",
+    title: "Billing Software for Manufacturers — Quotation, E-Invoice, E-Way Bill & Stock | Ezzy ERP",
+    description: "ERP for manufacturers and industrial units in India: quotations, sale orders, GST invoices, e-invoice, e-way bill, warehouse stock, GST returns, accounts and asset management.",
     eyebrow: "Manufacturers · Industrial units",
     h1: "Billing software for manufacturers and industrial units",
     intro: [
@@ -369,6 +369,7 @@ export const SEO_PAGES: SeoPageData[] = [
           ["GST invoices with e-invoice", "Generate the e-invoice IRN and signed QR code from the sale bill, and print them on the invoice. Cancel an IRN from the same screen when needed."],
           ["Purchase orders and purchase bills", "Order raw material and goods from suppliers, then receive them on a purchase bill that adds stock."],
           ["Party ledgers and outstanding", "Customer and supplier balances, advances, credit notes and bill-by-bill settlement, with statements and reminders on WhatsApp."],
+          ["E-way bill", "Make the e-way bill for goods you dispatch, along with the GST invoice and e-invoice."],
         ],
         shot: ["shot-gl.jpg", "Ezzy ERP general ledger with debit, credit and running balance"],
       },
@@ -380,10 +381,12 @@ export const SEO_PAGES: SeoPageData[] = [
         ],
       },
       {
-        h2: "Stock you can trust across your units",
+        h2: "Stock, warehouses and assets",
         points: [
           ["Live stock", "Purchases add stock, challans and sales reduce it, and you see stock by item at any time, with low-stock and reorder reports."],
+          ["Warehouse management", "Keep stock in more than one warehouse or godown, see stock warehouse-wise, and move stock between them."],
           ["More than one unit or branch", "Run each unit or branch with its own stock and books on one login, and transfer stock between them."],
+          ["Asset management", "Keep a register of your machines, vehicles and other fixed assets alongside your accounts."],
           ["Staff rights", "Give every staff member only the menus they need, with an audit log and a recycle bin for deleted entries."],
           ["Dealer orders on the phone", "Your salesmen take orders and collect payments on the Android field sales app, even offline."],
         ],
@@ -400,7 +403,8 @@ export const SEO_PAGES: SeoPageData[] = [
       ["Can I convert a quotation into a sale order and then a bill?", "Yes. A quotation converts into a sale order, the order can be delivered in parts on challans, and a challan or order converts into a GST invoice without typing the items again."],
       ["Does Ezzy ERP generate e-invoices?", "Yes. You can generate the e-invoice IRN and signed QR code from the sale bill and print them on the invoice, and cancel an IRN from the same screen."],
       ["Can it file my GST returns?", "Ezzy ERP prepares the GSTR-1 file to upload on the GST portal and shows the GSTR-3B figures. You or your CA then file on the portal, and you mark the return as filed in Ezzy ERP."],
-      ["Can I manage more than one factory or godown?", "You can run each unit or branch with its own stock and books on one login, and transfer stock between them. Tell us how your locations work on the demo and we will show you the best setup."],
+      ["Can I manage more than one warehouse or godown?", "Yes. Keep stock in more than one warehouse or godown, see stock warehouse-wise and move stock between them. Each unit or branch can also run with its own books on one login."],
+      ["Does Ezzy ERP make e-way bills?", "Yes. You can make the e-way bill for goods you dispatch, along with the GST invoice and e-invoice."],
       DEMO_FAQ,
     ],
     trade: "Manufacturing / industrial",
@@ -440,6 +444,7 @@ export const SEO_PAGES: SeoPageData[] = [
         h2: "More than an e-invoice tool",
         points: [
           ["Quotation to invoice", "Quotations, sale orders, delivery challans and GST invoices in one flow."],
+          ["E-way bill", "Make the e-way bill for goods you dispatch, from the same software."],
           ["GST returns", "GSTR-1 file ready to upload on the GST portal, and GSTR-3B figures."],
           ["Stock and accounts", "Live stock, party ledgers, trial balance, P&L and Tally export."],
           ["WhatsApp", "Send the e-invoice, statements and payment reminders on WhatsApp."],

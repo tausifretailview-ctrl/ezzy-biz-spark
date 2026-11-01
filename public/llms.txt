@@ -18,7 +18,7 @@
 - [Footwear shop billing software](https://ezzyerp.in/footwear-shop-billing-software): article and size-run stock, MRP billing for footwear stores.
 - [Wholesale billing software](https://ezzyerp.in/wholesale-billing-software): sale orders, delivery challans, party rates, ledgers and a field sales app.
 - [Retail inventory management software](https://ezzyerp.in/retail-inventory-management-software): live stock by size and colour, barcodes, reorder and dead stock reports.
-- [Billing software for manufacturers](https://ezzyerp.in/billing-software-for-manufacturers): quotation, sale order, challan, GST invoice with e-invoice, GSTR-1 file, stock and accounts for manufacturers and industrial units.
+- [Billing software for manufacturers](https://ezzyerp.in/billing-software-for-manufacturers): quotation, sale order, challan, GST invoice with e-invoice, e-way bill, GSTR-1 file, warehouse stock, accounts and assets for manufacturers and industrial units.
 - [E-invoice software](https://ezzyerp.in/e-invoice-software): generate GST e-invoice IRN and signed QR code from the sale bill, cancel IRN, e-invoice report.
 - [Garment manufacturing software](https://ezzyerp.in/garment-manufacturing-software): design cards with fabric per piece, fabric stock in metres, production lots, stages and job workers.
 - [Billing software in Navi Mumbai](https://ezzyerp.in/billing-software-navi-mumbai): on-site setup and support in Navi Mumbai, Thane and Mumbai.
@@ -40,7 +40,7 @@
 - Mobiles & electronics: mobile counters, electronics showrooms, appliance dealers. IMEI / serial number tracking, EMI & mixed payment billing, warranty-ready invoices.
 - Departmental stores: supermarkets, kirana, cosmetics, stationery. Fast barcode counter billing, batch & low-stock alerts, daily cash report & credit.
 - Wholesale & distribution: sale orders, delivery challans, party-wise rates, ledgers and a field sales app.
-- Manufacturers & industrial units: quotation to sale order to challan to GST invoice, e-invoice IRN, GSTR-1 file, stock across units and accounts. Garment and textile units can also run production (design cards, fabric in metres, lots, stages, job workers).
+- Manufacturers & industrial units: quotation to sale order to challan to GST invoice, e-invoice IRN, e-way bill, GSTR-1 file, multi-warehouse stock, accounts and asset management. Garment and textile units can also run production (design cards, fabric in metres, lots, stages, job workers).
 
 ## Modules
 
@@ -50,6 +50,9 @@
 - Purchase: purchase bills with size-grid review, DC purchase and returns.
 - Sales & Invoicing: quotations, sale orders, invoices, delivery challans, returns and credit notes.
 - E-invoice: generate and cancel GST e-invoice IRN with signed QR code from the sale bill.
+- E-way bill: make e-way bills for dispatched goods.
+- Warehouse management: stock in more than one warehouse or godown, with transfers between them.
+- Asset management: register of machines, vehicles and other fixed assets.
 - GST returns: GSTR-1 file for upload on the GST portal, GSTR-3B figures and a filing tracker.
 - GST & Accounting: GST register, trial balance, ledgers, Tally-style bill-by-bill settlement and Tally export.
 - Customer Ledger: party balances, advances, credit notes and statements.

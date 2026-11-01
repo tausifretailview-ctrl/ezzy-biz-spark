@@ -140,7 +140,7 @@ const INDUSTRIES = [
     href: "/billing-software-for-manufacturers",
     linkLabel: "Billing software for manufacturers",
     sub: "Factories, workshops, garment & textile units",
-    points: ["Quotation → sale order → bill", "GST e-invoice (IRN & QR)", "Stock, GSTR-1 file & accounts"],
+    points: ["Quotation → sale order → bill", "E-invoice & e-way bill", "Warehouse stock, GST & assets"],
   },
 ];
 
@@ -227,9 +227,9 @@ const QUOTES = [
 
 const FAQS = [
   ["What is Ezzy ERP?", "Ezzy ERP is billing, POS, barcode, inventory, GST and accounting software for retail, wholesale, distribution and manufacturing businesses in India. It runs in the cloud with an Android app for owners and field sales."],
-  ["Which businesses is Ezzy ERP made for?", "Garment and textile shops, boutiques and saree shops, footwear showrooms, mobile and electronics stores, and departmental stores such as supermarkets, kirana, cosmetics and stationery — plus wholesalers, distributors, and manufacturers and industrial units that need quotations, sale orders, GST invoices with e-invoice, stock and accounts."],
+  ["Which businesses is Ezzy ERP made for?", "Garment and textile shops, boutiques and saree shops, footwear showrooms, mobile and electronics stores, and departmental stores such as supermarkets, kirana, cosmetics and stationery — plus wholesalers, distributors, and manufacturers and industrial units that need quotations, sale orders, GST invoices with e-invoice and e-way bill, stock across warehouses, accounts and asset management."],
   ["Does Ezzy ERP handle size and colour stock for garments?", "Yes. Purchase entry has a size grid, stock is tracked by product, size and colour, and you can print design number (D.No), size and MRP barcode labels straight from the purchase bill."],
-  ["Does Ezzy ERP generate GST e-invoices?", "Yes. Generate the e-invoice IRN and signed QR code from the sale bill, print them on the invoice, and cancel an IRN from the same screen. Ezzy ERP also prepares the GSTR-1 file for upload on the GST portal."],
+  ["Does Ezzy ERP do GST e-invoice and e-way bill?", "Yes. Generate the e-invoice IRN and signed QR code from the sale bill, print them on the invoice, and cancel an IRN from the same screen. You can also make e-way bills for dispatches, and Ezzy ERP prepares the GSTR-1 file for upload on the GST portal."],
   ["Is Ezzy ERP GST ready?", "Yes. Every bill line carries GST, and you get a GST register, ledgers, trial balance, P&L and balance sheet, with Tally-style bill-by-bill settlement and Tally export."],
   ["Can I send bills on WhatsApp?", "Yes. Bills, customer statements and payment reminders can be sent on WhatsApp from the billing screen."],
   ["Do you supply barcode printers and scanners?", "Yes. We supply and install barcode label printers, 80mm thermal receipt printers and barcode scanners with the licence, so labels print and scan from day one."],
