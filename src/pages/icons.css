@@ -149,6 +149,14 @@
   content: "\e227";
   margin-left: -1em;
 }
+.ph-duotone.ph-factory:before {
+  content: "\e760";
+  opacity: 0.2;
+}
+.ph-duotone.ph-factory:after {
+  content: "\e761";
+  margin-left: -1em;
+}
 .ph-duotone.ph-google-logo:before {
   content: "\e292";
   opacity: 0.2;
@@ -307,6 +315,14 @@
 }
 .ph-duotone.ph-trend-up:after {
   content: "\e4af";
+  margin-left: -1em;
+}
+.ph-duotone.ph-truck:before {
+  content: "\e4b4";
+  opacity: 0.2;
+}
+.ph-duotone.ph-truck:after {
+  content: "\e4b5";
   margin-left: -1em;
 }
 .ph-duotone.ph-users-three:before {

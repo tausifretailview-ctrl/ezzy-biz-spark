@@ -53,7 +53,7 @@ const SLIDES: Slide[] = [
         <span style={{ color: "#60A5FA" }}>Easy Barcode Management.</span>
       </>
     ),
-    body: "Complete ERP for retail, wholesale and distribution — garments, footwear, electronics and departmental stores. Software, printers and onboarding from one team.",
+    body: "Complete ERP for retail, wholesale, distribution and manufacturing — garments, footwear, electronics, departmental stores and industrial units. Software, printers and onboarding from one team.",
     ctaHref: "#demo",
     ctaIcon: "ph-calendar-check",
     ctaLabel: "Book a free demo",
@@ -126,6 +126,22 @@ const INDUSTRIES = [
     sub: "Supermarkets, kirana, cosmetics, stationery",
     points: ["Fast barcode counter billing", "Batch & low-stock alerts", "Daily cash report & credit"],
   },
+  {
+    icon: "ph-truck", tileBg: "#e0f2fe", tileFg: "#0369A1",
+    title: "Wholesale & distribution",
+    href: "/wholesale-billing-software",
+    linkLabel: "Wholesale billing software",
+    sub: "Traders, distributors, stockists, dealers",
+    points: ["Sale orders & delivery challans", "Party-wise rates & ledgers", "Field sales app for orders"],
+  },
+  {
+    icon: "ph-factory", tileBg: "#fef3c7", tileFg: "#B45309",
+    title: "Manufacturers & industrial units",
+    href: "/billing-software-for-manufacturers",
+    linkLabel: "Billing software for manufacturers",
+    sub: "Factories, workshops, garment & textile units",
+    points: ["Quotation → sale order → bill", "E-invoice & e-way bill", "Warehouse stock, GST & assets"],
+  },
 ];
 
 const MODULES = [
@@ -133,8 +149,8 @@ const MODULES = [
   ["ph-barcode", "#0E7490", "Barcode & Labels", "Auto-generate or scan barcodes, then print 38×25, 40×25 2-up and 80mm thermal labels."],
   ["ph-package", "#D9480F", "Inventory", "Live stock by product, variant, size and colour, with settlement and adjustments."],
   ["ph-shopping-bag-open", "#7C3AED", "Purchase", "Purchase bills with size-grid review, inline calculator, DC purchase and returns."],
-  ["ph-receipt", "#059669", "Sales & Invoicing", "Quotations, sale orders, invoices, delivery challans, returns and credit notes."],
-  ["ph-calculator", "#B45309", "GST & Accounting", "GST register, trial balance, ledgers and Tally-style bill-by-bill settlement."],
+  ["ph-receipt", "#059669", "Sales & Invoicing", "Quotations, sale orders, invoices, delivery challans, returns, credit notes and GST e-invoice."],
+  ["ph-calculator", "#B45309", "GST & Accounting", "GST register, GSTR-1 file, trial balance, ledgers and Tally-style bill-by-bill settlement."],
   ["ph-users-three", "#DB2777", "Customer Ledger", "Party balances, advances, credit notes and statements you can send in one tap."],
   ["ph-chart-line-up", "#0891B2", "Business Insights", "Executive summary, profitability, stock health, sales trends, reorder analysis."],
   ["ph-whatsapp-logo", "#16A34A", "WhatsApp Invoices", "Send the bill, the statement and payment reminders from the billing screen."],
@@ -210,9 +226,10 @@ const QUOTES = [
 ] as const;
 
 const FAQS = [
-  ["What is Ezzy ERP?", "Ezzy ERP is billing, POS, barcode, inventory, GST and accounting software for retail, wholesale and distribution businesses in India. It runs in the cloud with an Android app for owners and field sales."],
-  ["Which businesses is Ezzy ERP made for?", "Garment and textile shops, boutiques and saree shops, footwear showrooms, mobile and electronics stores, and departmental stores such as supermarkets, kirana, cosmetics and stationery — plus wholesalers and distributors in those trades."],
+  ["What is Ezzy ERP?", "Ezzy ERP is billing, POS, barcode, inventory, GST and accounting software for retail, wholesale, distribution and manufacturing businesses in India. It runs in the cloud with an Android app for owners and field sales."],
+  ["Which businesses is Ezzy ERP made for?", "Garment and textile shops, boutiques and saree shops, footwear showrooms, mobile and electronics stores, and departmental stores such as supermarkets, kirana, cosmetics and stationery — plus wholesalers, distributors, and manufacturers and industrial units that need quotations, sale orders, GST invoices with e-invoice and e-way bill, stock across warehouses, accounts and asset management."],
   ["Does Ezzy ERP handle size and colour stock for garments?", "Yes. Purchase entry has a size grid, stock is tracked by product, size and colour, and you can print design number (D.No), size and MRP barcode labels straight from the purchase bill."],
+  ["Does Ezzy ERP do GST e-invoice and e-way bill?", "Yes. Generate the e-invoice IRN and signed QR code from the sale bill, print them on the invoice, and cancel an IRN from the same screen. You can also make e-way bills for dispatches, and Ezzy ERP prepares the GSTR-1 file for upload on the GST portal."],
   ["Is Ezzy ERP GST ready?", "Yes. Every bill line carries GST, and you get a GST register, ledgers, trial balance, P&L and balance sheet, with Tally-style bill-by-bill settlement and Tally export."],
   ["Can I send bills on WhatsApp?", "Yes. Bills, customer statements and payment reminders can be sent on WhatsApp from the billing screen."],
   ["Do you supply barcode printers and scanners?", "Yes. We supply and install barcode label printers, 80mm thermal receipt printers and barcode scanners with the licence, so labels print and scan from day one."],
@@ -221,7 +238,7 @@ const FAQS = [
   ["How do I get a demo?", `Fill in the free demo form on this page, or call or WhatsApp ${PHONE}. We show you the billing screen on your own products and labels, and train your staff on the phone in your language.`],
 ] as const;
 
-const TRADES = ["Garments & textiles", "Footwear", "Mobiles & electronics", "Departmental / general store", "Wholesale / distribution", "Something else"];
+const TRADES = ["Garments & textiles", "Footwear", "Mobiles & electronics", "Departmental / general store", "Wholesale / distribution", "Manufacturing / industrial", "Something else"];
 
 /* ---------- structured data (JSON-LD for Google and AI assistants) ---------- */
 
@@ -260,7 +277,7 @@ const JSON_LD = {
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Retail POS, billing and inventory software",
       operatingSystem: "Web, Windows, Android",
-      description: "Billing, POS, barcode, inventory, GST and accounting software for garment, footwear, electronics and departmental stores in India.",
+      description: "Billing, POS, barcode, inventory, GST, e-invoice and accounting software for garment, footwear, electronics and departmental stores, wholesalers and manufacturers in India.",
       image: `${SITE}/landing/shot-pos.jpg`,
       screenshot: SHOTS.map((sh) => `${SITE}${IMG}/${sh.file}`),
       featureList: MODULES.map(([, , title]) => title),
@@ -506,8 +523,8 @@ export default function Landing() {
             <div style={{ marginTop: 10, fontSize: 15, color: MUTED, maxWidth: "22ch" }}>Support on call and WhatsApp, in your language</div>
           </Reveal>
           <Reveal>
-            <div className="ezl-num">4</div>
-            <div style={{ marginTop: 10, fontSize: 15, color: MUTED, maxWidth: "22ch" }}>Verticals: garments, footwear, electronics, departmental</div>
+            <div className="ezl-num">6</div>
+            <div style={{ marginTop: 10, fontSize: 15, color: MUTED, maxWidth: "22ch" }}>Verticals: garments, footwear, electronics, departmental, wholesale, manufacturing</div>
           </Reveal>
           <Reveal>
             <img src={`${IMG}/iso-certified-logo.jpg`} width={300} height={85} loading="lazy" alt="ISO certified" style={{ height: 54, width: "auto", mixBlendMode: "multiply" }} />
@@ -518,8 +535,8 @@ export default function Landing() {
 
       {/* industries */}
       <section id="industries" className="ezl-sec" style={{ scrollMarginTop: 70 }}>
-        <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "20ch" }}>Built for the counter you stand behind.</Reveal>
-        <Reveal as="p" className="ezl-lead">One billing, inventory and GST software, tuned per trade — because a saree shop, a shoe showroom and a mobile counter do not sell the same way.</Reveal>
+        <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "20ch" }}>Built for the way your business sells.</Reveal>
+        <Reveal as="p" className="ezl-lead">One billing, inventory and GST software, tuned per trade — because a saree shop, a mobile counter and a factory selling to dealers do not sell the same way.</Reveal>
         <div className="ezl-grid ezl-auto-270 ezl-ind">
           {INDUSTRIES.map((ind) => (
             <Reveal key={ind.title} className="ezl-card">
@@ -531,7 +548,7 @@ export default function Landing() {
                   <span key={p} className="ezl-tick"><Icon name="ph-check-circle" size={19} color="#16A34A" style={{ flexShrink: 0 }} />{p}</span>
                 ))}
               </div>
-              {ind.href && <a href={ind.href} style={{ display: "inline-block", marginTop: 16, fontSize: 15 }}>{ind.title} billing software →</a>}
+              {ind.href && <a href={ind.href} style={{ display: "inline-block", marginTop: 16, fontSize: 15 }}>{ind.linkLabel ?? `${ind.title} billing software`} →</a>}
             </Reveal>
           ))}
         </div>
