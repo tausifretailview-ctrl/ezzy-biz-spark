@@ -28,6 +28,8 @@ export type SeoPageData = {
   faqs: [q: string, a: string][];
   /** Value preselected in the demo form's "What do you sell?" field. */
   trade?: string;
+  /** Blog posts (paths from ../blog/posts.ts) listed under "Guides for shop owners". */
+  guides?: string[];
 };
 
 const DEMO_FAQ: [string, string] = [
@@ -138,15 +140,35 @@ export const SEO_PAGES: SeoPageData[] = [
           ["GST and accounts", "GST register, ledgers, P&L and Tally export at month end."],
         ],
       },
+      {
+        h2: "GST on clothes, worked out per piece",
+        paras: [
+          "Readymade garments carry 5% GST up to ₹2,500 per piece and 18% above it. The slab depends on the value of each piece after discount, not the total of the bill, so a single bill can have both rates.",
+          "Every bill line in Ezzy ERP carries its own GST rate, so a ₹1,800 kurta and a ₹3,200 blazer on the same bill are each taxed correctly, and your GST register is ready for your CA at month end.",
+        ],
+      },
+      {
+        h2: "From demo to first bill",
+        points: [
+          ["1. Free demo", "We show the billing screen with your own designs, sizes and tags, on a call or at your shop."],
+          ["2. Setup with your labels", "We set up your size grids, label format and printers, so the first purchase bill prints tags that scan."],
+          ["3. Staff training", "Your staff are trained on the phone in English, Hindi or Marathi. Most learn billing in a day."],
+          ["4. Support every day", "Call or WhatsApp us 24×7, including during the festival and wedding season rush."],
+        ],
+      },
     ],
     faqs: [
       ["Which billing software is best for a garment shop?", "Choose software that tracks stock by size and colour, prints barcode tags from the purchase bill, and handles exchanges. Ezzy ERP does all three, along with GST billing, customer ledgers and an Android app."],
       ["Can Ezzy ERP print garment barcode tags?", "Yes. Print design number, size, colour and MRP labels straight from the purchase bill on 38×25 or 40×25 2-up labels, using a TSC or similar barcode printer that we can supply."],
       ["Does it work for garment wholesale?", "Yes. Wholesalers use sale orders, delivery challans, party-wise rates, credit notes and customer ledgers, with statements sent on WhatsApp."],
       ["Can I see stock size-wise?", "Yes. Stock is tracked by product, size and colour, and the reports show size-wise stock, top sellers and dead stock."],
+      ["Does it apply 5% and 18% GST on clothes correctly?", "Yes. Each bill line carries its own GST rate, so pieces up to ₹2,500 and pieces above ₹2,500 on the same bill are taxed at the right rate."],
+      ["Can a saree shop or boutique use it?", "Yes. Saree and dress material shops, boutiques, kids wear stores and men's and ladies' readymade shops all use the same size, colour and design number features."],
+      ["Does it work on a phone?", "Yes. The Android app shows the owner today's sale, stock and dues, and you can bill from the phone."],
       DEMO_FAQ,
     ],
     trade: "Garments & textiles",
+    guides: ["/blog/gst-on-clothes-above-2500", "/blog/garment-barcode-label-size", "/blog/size-and-colour-stock-management-garment-shop"],
   },
   {
     path: "/footwear-shop-billing-software",
@@ -184,15 +206,146 @@ export const SEO_PAGES: SeoPageData[] = [
           "We supply barcode label printers, 80mm thermal receipt printers and scanners with the software, set them up, and train your staff on the phone in your language. Support is available 24×7 on call and WhatsApp.",
         ],
       },
+      {
+        h2: "A footwear sale in Ezzy ERP, step by step",
+        points: [
+          ["1. Purchase in a size grid", "Enter the article once, with a column for each size and a row for each colour."],
+          ["2. Label every box", "Print article, size, colour and MRP labels from the same purchase entry."],
+          ["3. Scan and bill at MRP", "Scan the box label. The right article, size and price come up, with GST inside the MRP."],
+          ["4. Exchange a size", "Swap a size 8 for a 9 on the billing screen, and both sizes are corrected in stock."],
+          ["5. Reorder what sells", "Size-wise stock and sales show which sizes of each article to buy again."],
+          ["6. Clear broken size runs", "Dead stock reports find articles left only in end sizes, so you can clear them before the season ends."],
+        ],
+      },
+      {
+        h2: "GST on footwear, bill by bill",
+        paras: [
+          "Footwear carries 5% GST up to ₹2,500 per pair and 18% above it. Each bill line in Ezzy ERP carries its own GST rate, so a bill with a pair of slippers and a pair of branded shoes is taxed correctly, and your GST register is ready at month end.",
+        ],
+      },
     ],
     faqs: [
       ["What is the best billing software for a footwear shop?", "Pick software that tracks stock by article and size, bills at MRP, and prints barcode labels for every box. Ezzy ERP does this, along with GST, schemes, customer ledgers and an Android app."],
       ["Can I track footwear stock size-wise?", "Yes. Purchases are entered in a size grid and stock is kept by article, size and colour, with reorder and dead stock reports."],
       ["Does it support MRP billing with GST?", "Yes. The POS has an MRP pricing mode, and every bill line carries GST for your GST register and returns."],
       ["Can I run more than one footwear showroom?", "Yes. Switch between firms and branches on one login, each with its own books and staff rights."],
+      ["How do I handle size exchanges?", "Do the exchange on the billing screen. The returned pair goes back into stock in its size and the new pair comes out, so stock stays correct."],
+      ["Does it work for footwear wholesale?", "Yes. Wholesalers use sale orders, delivery challans, party-wise rates and customer ledgers, with statements and payment reminders on WhatsApp."],
       DEMO_FAQ,
     ],
     trade: "Footwear",
+    guides: ["/blog/garment-barcode-label-size", "/blog/gst-on-clothes-above-2500"],
+  },
+  {
+    path: "/wholesale-billing-software",
+    label: "Wholesale billing software",
+    title: "Wholesale Billing Software — Orders, Challans, Party Rates & GST | Ezzy ERP",
+    description: "Billing software for wholesalers and distributors in India: sale orders, delivery challans, party-wise rates, customer ledgers, GST, WhatsApp statements and a field sales app.",
+    eyebrow: "Wholesale · Distribution",
+    h1: "Wholesale billing software for traders and distributors",
+    intro: [
+      "A wholesaler does not just print bills. You take orders, send goods on challan, sell to each party at its own rate, give credit, and chase payments. When this lives in registers and spreadsheets, stock and dues never quite match.",
+      "Ezzy ERP brings orders, challans, invoices, stock, party ledgers and GST into one login, with an Android app for your salesmen and statements sent on WhatsApp.",
+    ],
+    heroShot: ["shot-accounts.jpg", "Ezzy ERP accounts screen with customer ledger, outstanding and net receivable"],
+    sections: [
+      {
+        h2: "Everything a wholesale counter needs",
+        points: [
+          ["Sale orders to invoices", "Take an order, send the goods on a delivery challan, and turn it into an invoice without typing it again."],
+          ["Party-wise rates", "The rate you last gave each party comes up when you bill them again, so regular buyers get their usual price."],
+          ["Customer ledgers and credit", "Party balances, advances, credit notes and bill-by-bill settlement, Tally style."],
+          ["Statements and reminders on WhatsApp", "Send ledgers, invoices and payment reminders from the billing screen."],
+          ["Stock by item, size and colour", "Purchases add stock, challans and sales reduce it, and you see live stock at any time."],
+          ["GST and accounts", "GST register, trial balance, ledgers, P&L and Tally export, ready for your CA."],
+        ],
+        shot: ["shot-customers.jpg", "Ezzy ERP customer list with balances and lifetime sale"],
+      },
+      {
+        h2: "A field sales app for your salesmen",
+        paras: [
+          "Your salesmen take orders and collect outstanding on the Android app, even without internet. It syncs when they are back online, so the office sees new orders and payments without phone calls.",
+          "The owner app shows today's sale, stock and dues from anywhere.",
+        ],
+      },
+      {
+        h2: "Made for these wholesale trades",
+        points: [
+          ["Garment and textile wholesale", "Size and colour stock, design number labels and party-wise rates."],
+          ["Footwear wholesale", "Article and size-run stock, challans and party ledgers."],
+          ["Mobile and electronics distribution", "IMEI and serial number tracking with mixed payments."],
+          ["General goods distribution", "Fast barcode billing, low-stock alerts and outstanding reports."],
+        ],
+      },
+      {
+        h2: "One team for software, hardware and support",
+        paras: [
+          "We supply barcode label printers, receipt printers and scanners, set up the software for your firm and branches, and train your staff on the phone in English, Hindi or Marathi. Support is on call and WhatsApp, 24×7.",
+        ],
+      },
+    ],
+    faqs: [
+      ["What is the best billing software for a wholesale business?", "Pick software that handles sale orders, delivery challans, party-wise rates and customer ledgers along with GST, not just invoices. Ezzy ERP does all of this, with WhatsApp statements and a field sales app."],
+      ["Can I give different rates to different customers?", "Yes. When you bill a party, Ezzy ERP shows the rate you last sold that item to them at, so each buyer keeps their usual price."],
+      ["Can I make a delivery challan and bill it later?", "Yes. Send goods on a delivery challan and convert it into an invoice when you bill, without re-entering the items."],
+      ["Can my salesmen take orders on a phone?", "Yes. The Android field sales app takes orders and collections, works offline, and syncs later."],
+      ["Can I run retail and wholesale together?", "Yes. The same login handles counter billing and wholesale orders, and you can switch between firms and branches, each with its own books."],
+      DEMO_FAQ,
+    ],
+    trade: "Wholesale / distribution",
+  },
+  {
+    path: "/retail-inventory-management-software",
+    label: "Retail inventory management software",
+    title: "Retail Inventory Management Software — Size, Barcode & Reorder | Ezzy ERP",
+    description: "Inventory software for retail shops in India: live stock by size and colour, barcode labels, purchase entry, low-stock and reorder reports, dead stock and stock value. Free demo.",
+    eyebrow: "Retail · Stock · Barcode",
+    h1: "Retail inventory management software that matches your shelf",
+    intro: [
+      "Most shops know their sale for the day. Far fewer know what is really on the shelf, which items are running out, and how much money is stuck in stock that is not selling.",
+      "Ezzy ERP keeps stock right automatically: purchases add it, bills reduce it, returns put it back, and every item has a barcode. Billing and inventory are the same system, so the counter and the stock room always agree.",
+    ],
+    heroShot: ["shot-insights.jpg", "Ezzy ERP business insights with stock health, sales trends and reorder analysis"],
+    sections: [
+      {
+        h2: "How Ezzy ERP keeps your stock right",
+        points: [
+          ["Live stock by item and variant", "See stock by product, size and colour at any time, across firms and branches."],
+          ["Purchase entry that adds stock", "Enter purchase bills (with a size grid for garments and footwear), DC purchases and purchase returns."],
+          ["Barcode on every item", "Auto-generate or scan barcodes and print labels, so every sale takes the right item out of stock."],
+          ["Low-stock and reorder reports", "Know what to buy before it runs out, with batch and low-stock alerts."],
+          ["Dead stock and stock health", "Find items that have not sold in 60 or 90 days, and see the value of your stock."],
+          ["Stock settlement and adjustments", "Count the shelf, correct the difference, and keep a record of every adjustment."],
+        ],
+        shot: ["shot-purchase.jpg", "Ezzy ERP purchase bill entry with a size grid, barcode column and Print Barcodes button"],
+      },
+      {
+        h2: "Why inventory and billing should be one system",
+        paras: [
+          "When stock lives in a separate register or spreadsheet, it is always a few days behind. In Ezzy ERP every bill, return and purchase updates stock the moment it is saved, so reorder and dead stock reports are based on what really happened today.",
+          "The owner sees stock, sale and dues on the Android app, and staff only see what their rights allow.",
+        ],
+      },
+      {
+        h2: "Inventory for every kind of shop",
+        points: [
+          ["Garment and textile shops", "Size and colour matrix, design number labels and size-wise reports."],
+          ["Footwear shops", "Article and size-run stock with box labels."],
+          ["Mobile and electronics stores", "IMEI and serial number tracking for every unit."],
+          ["Supermarkets and kirana", "Fast barcode billing with batch and low-stock alerts."],
+        ],
+        shot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with stock value, sales and receivables"],
+      },
+    ],
+    faqs: [
+      ["What is retail inventory management software?", "It keeps track of the stock in your shop: what you bought, what you sold, what is left and what to reorder. In Ezzy ERP it works together with billing, so stock updates with every bill and purchase."],
+      ["Can I track stock size-wise and colour-wise?", "Yes. Stock is kept by product, size and colour, with size-wise stock and sales reports."],
+      ["Does it show which items to reorder?", "Yes. Low-stock alerts and reorder reports show what is running out, and dead stock reports show what is not selling."],
+      ["Can I print barcode labels for my items?", "Yes. Print 38×25, 40×25 2-up and other labels from the purchase bill or item list, on printers we supply and set up."],
+      ["Can I see stock for more than one branch?", "Yes. Switch between firms and branches on one login, each with its own stock and books."],
+      DEMO_FAQ,
+    ],
+    guides: ["/blog/size-and-colour-stock-management-garment-shop", "/blog/garment-barcode-label-size"],
   },
   {
     path: "/billing-software-navi-mumbai",

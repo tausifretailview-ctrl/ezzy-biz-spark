@@ -6,6 +6,7 @@ import {
 } from "../site";
 import { SEO_PAGES, type SeoPageData } from "./pages";
 import { Icon, SiteHeader, SiteFooter, Floats } from "./SiteChrome";
+import { BLOG_POSTS } from "../blog/posts";
 
 /* ------------------------------------------------------------------ *
  * Keyword landing page (e.g. /garment-shop-billing-software).
@@ -79,6 +80,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
   }, []);
 
   const related = SEO_PAGES.filter((p) => p.path !== page.path);
+  const guides = BLOG_POSTS.filter((post) => page.guides?.includes(post.path));
   const waText = `Hi, I found Ezzy ERP while looking for ${page.label.toLowerCase()}. Please share a demo.`;
 
   return (
@@ -140,6 +142,21 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
             )}
           </section>
         ))}
+
+        {/* guides from the blog */}
+        {guides.length > 0 && (
+          <section className="ezl-sec" style={{ paddingBottom: 20 }}>
+            <h2 className="ezl-h2">Guides for shop owners</h2>
+            <div className="ezl-grid ezl-auto-270" style={{ marginTop: 28 }}>
+              {guides.map((post) => (
+                <a key={post.path} href={post.path} className="ezl-card ezl-card-sm" style={{ color: NAVY, textDecoration: "none" }}>
+                  <span style={{ fontSize: 19, fontWeight: 600 }}>{post.label}</span>
+                  <span style={{ display: "block", marginTop: 6, fontSize: 15, color: SOFT }}>{post.readMinutes} min read</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* faq */}
         <section className="ezl-sec">

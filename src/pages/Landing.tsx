@@ -43,7 +43,7 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    eyebrow: "Billing · Barcoding · Accounting",
+    eyebrow: "Garment & footwear billing software",
     head: (
       <>
         Smart Billing.
@@ -352,7 +352,7 @@ export default function Landing() {
   // never authenticates, so dismiss it immediately.
   useEffect(() => {
     (window as any).hideAppBootSplash?.();
-    document.title = "Ezzy ERP — Billing, Inventory & GST Software for Garment & Retail Shops in India";
+    document.title = "Ezzy ERP: Garment & Footwear Billing Software with Barcode & GST";
     source.current = captureLeadSource();
   }, []);
 
@@ -452,6 +452,7 @@ export default function Landing() {
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 34 }}>
                 <a href={s.ctaHref} className="ezl-btn ezl-btn-lg"><Icon name={s.ctaIcon} size={20} />{s.ctaLabel}</a>
                 <a href={s.altHref} className="ezl-btn-ghost">{s.altIcon && <Icon name={s.altIcon} size={20} />}{s.altLabel}</a>
+                <a href={waLink()} target="_blank" rel="noopener" className="ezl-btn-ghost" onClick={() => track("whatsapp_click", { location: "hero" })}><Icon name="ph-whatsapp-logo" size={20} color="#4ADE80" />WhatsApp</a>
               </div>
             </div>
             <figure style={{ margin: 0, position: "relative" }}>
