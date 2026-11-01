@@ -44,6 +44,373 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    path: "/blog/best-billing-software-for-garment-shop",
+    label: "Best billing software for garment shops (2026)",
+    title: "Best Billing Software for Garment Shops in India (2026 Buyer's Guide) | Ezzy ERP",
+    description: "How to choose billing software for a garment or clothing shop in India: the 8 features that matter, free apps vs accounting software vs retail ERP, and questions to ask in a demo.",
+    h1: "Best billing software for garment shops in India: a 2026 buyer's guide",
+    published: "2026-10-31",
+    updated: "2026-10-31",
+    readMinutes: 7,
+    intro: [
+      "Search for garment billing software and you get dozens of names, all promising GST bills and inventory. The difference shows only after you have entered your first big purchase: can the software keep stock by size and colour, print the tags, and handle an exchange at the counter without a mess?",
+      "This guide lists what a clothing shop actually needs, compares the three kinds of software shop owners usually pick from, and gives you questions to ask in any demo, including ours.",
+    ],
+    heroShot: ["shot-purchase.jpg", "Garment purchase entry in a size grid with barcode, rates and GST in Ezzy ERP"],
+    body: [
+      {
+        h2: "The 8 features a garment shop really needs",
+        list: [
+          "Size and colour stock: one design in many sizes and colours, entered in a size grid, not as twenty separate items.",
+          "Barcode tags from the purchase bill, with design number, size, colour and MRP, on 38×25 or 40×25 2-up labels.",
+          "One-scan billing at the counter, with hold bills for rush hours.",
+          "Exchanges and returns that put the right size back in stock.",
+          "Per-line GST that applies 5% or 18% by the value of each piece. See our guide to [GST on clothes above ₹2,500](/blog/gst-on-clothes-above-2500).",
+          "Customer history and credit (udhaar), with bills and reminders on WhatsApp.",
+          "Reports a garment owner uses: size-wise stock and sales, dead stock, profit by item.",
+          "Hardware and support from one team, so labels print and scan on day one.",
+        ],
+      },
+      {
+        h2: "Three kinds of software, and who each suits",
+        table: {
+          head: ["Type", "Examples", "Good for", "Where it falls short"],
+          rows: [
+            ["Free or low-cost GST billing apps", "Vyapar, myBillBook", "New or very small shops printing a few bills a day", "Size and colour stock, garment tags and exchanges usually need workarounds"],
+            ["Accounting software", "Tally, BUSY", "Books, GST returns and your CA's work", "Built for accounts first; counter speed and size-wise stock take extra setup"],
+            ["Garment retail software / ERP", "Ezzy ERP and other garment-focused systems", "Shops with stock in sizes and colours, tags and regular customers", "More to learn than a basic app, so ask for training"],
+          ],
+        },
+        note: "Many shops run billing software at the counter and send data to Tally for their CA. Ezzy ERP has Tally export for this reason.",
+      },
+      {
+        h2: "Questions to ask in any demo",
+        list: [
+          "Show me a purchase of one design in 4 colours and 6 sizes. How long does entry take?",
+          "Print the tags from that purchase. Can I choose 38×25 or 40×25 2-up labels?",
+          "Bill two pieces, one at ₹1,800 and one at ₹3,200. Does each line get the right GST?",
+          "Do an exchange of M for L. Does stock update for both sizes?",
+          "Show me size-wise stock and dead stock for last season.",
+          "Who installs the barcode printer, and who answers the phone on a Diwali Sunday?",
+        ],
+      },
+      {
+        h2: "Where Ezzy ERP fits",
+        paras: [
+          "Ezzy ERP is [billing software for garment shops](/garment-shop-billing-software) built around the size and colour matrix: size-grid purchase entry, design number tags printed from the bill, one-scan billing and exchanges, per-line GST, customer credit on WhatsApp, and an Android app. We supply and set up TSC barcode printers, receipt printers and scanners, and support is on call and WhatsApp 24×7.",
+          "It is used by more than 2,000 shops, wholesalers and distributors in India. Ask us the same demo questions above and judge for yourself.",
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with size and colour columns"],
+      },
+    ],
+    faqs: [
+      ["Which is the best billing software for a garment shop in India?", "The best one handles size and colour stock, prints barcode tags from the purchase bill, applies the right GST per piece and handles exchanges. Garment-focused software such as Ezzy ERP does all four; basic billing apps usually need workarounds."],
+      ["Is Tally enough for a garment shop?", "Tally is excellent for accounts and GST returns, but most garment shops use separate billing software at the counter for size-wise stock, tags and fast billing, and export the data to Tally."],
+      ["Can I use free billing software for a clothing shop?", "Yes, for a small shop that prints a few bills a day. Once you hold stock in many sizes and colours or print barcode tags, garment billing software saves time and stock mistakes."],
+      ["Does Ezzy ERP give a free demo?", "Yes. Book on the website or call or WhatsApp +91 84240 34844, and we show the billing screen with your own products and labels."],
+    ],
+    related: ["/garment-shop-billing-software", "/billing-software-for-small-business"],
+  },
+  {
+    path: "/blog/barcode-printer-for-garment-shop",
+    label: "Which barcode printer to buy for a garment shop",
+    title: "Barcode Printer for Garment Shop: How to Choose (TSC, TVS, Zebra) | Ezzy ERP",
+    description: "Which barcode printer to buy for a clothing shop in India: 203 vs 300 dpi, thermal transfer vs direct thermal, 4-inch width for 2-up tags, ribbons, labels and setup tips.",
+    h1: "Which barcode printer to buy for a garment shop (TSC, TVS, Zebra)",
+    published: "2026-10-31",
+    updated: "2026-10-31",
+    readMinutes: 6,
+    intro: [
+      "A garment shop prints hundreds of tags after every purchase, so the barcode printer is the one piece of hardware you will use every week. The good news is that you do not need an expensive industrial machine. A 4-inch desktop label printer from a known brand does the job for most shops.",
+      "Here is what to look for, how the common brands compare, and the mistakes that make tags fail to scan.",
+    ],
+    heroShot: ["pos-hero.jpg", "Counter setup with a TSC barcode printer printing a garment tag, scanner, receipt printer and label rolls"],
+    body: [
+      {
+        h2: "What to look for",
+        table: {
+          head: ["Spec", "What a garment shop needs", "Why"],
+          rows: [
+            ["Print width", "4 inch (about 104 mm)", "Fits 2-up 38×25 or 40×25 rolls, so two tags print at each step"],
+            ["Resolution", "203 dpi", "Sharp enough for Code 128 barcodes on clothing tags; 300 dpi only for very small labels"],
+            ["Print method", "Thermal transfer (with ribbon), plus direct thermal", "Ribbon prints last the season and do not fade in sunlight"],
+            ["Connection", "USB; Ethernet if two counters share it", "USB is simplest for one billing PC"],
+            ["Support", "Service and spares in your city", "A printer down during a sale stops tagging"],
+          ],
+        },
+      },
+      {
+        h2: "TSC, TVS and Zebra compared",
+        paras: [
+          "TSC desktop printers such as the TE244 are common in Indian garment shops: 4-inch, 203 dpi, thermal transfer and direct thermal, and simple to set up. This is the model we supply and set up with Ezzy ERP.",
+          "TVS Electronics makes desktop label printers sold widely through Indian dealers, which makes local service easy to find.",
+          "Zebra is a global brand with a strong range of desktop and industrial printers. Desktop models suit shops; industrial models suit warehouses printing thousands of labels a day.",
+          "All three work with garment billing software that sends standard label formats. Pick the one with the best local service where you are.",
+        ],
+      },
+      {
+        h2: "Ribbons and labels",
+        list: [
+          "Use a wax ribbon with paper (chromo) labels; it is the cheapest and is enough for hang tags.",
+          "Use wax-resin ribbon with polyester labels for stickers that get handled or rubbed.",
+          "Buy ribbon a little wider than your label roll, and check that the ribbon's ink side matches your printer (inside or outside wound).",
+          "Read our guide to [barcode label sizes for clothing tags](/blog/garment-barcode-label-size) before ordering rolls.",
+        ],
+      },
+      {
+        h2: "Mistakes that make tags fail to scan",
+        list: [
+          "Print darkness set too low, so bars are grey and broken.",
+          "Barcode printed to the edge of the label with no blank space on the sides.",
+          "Wrong label size set in the driver, so tags print across the gap between labels.",
+          "Direct thermal labels left in a sunny window, which fade within weeks.",
+        ],
+        note: "When we install a printer with Ezzy ERP, we set the label size, darkness and layout and print test tags from a real purchase bill before we leave.",
+      },
+      {
+        h2: "Print tags straight from the purchase bill",
+        paras: [
+          "The printer is only half the job. With [garment billing software](/garment-shop-billing-software) that prints from the purchase entry, the right number of tags for every size and colour comes out in one go, already linked to the item for one-scan billing. Footwear shops can do the same for every box with [footwear billing software](/footwear-shop-billing-software).",
+        ],
+        shot: ["shot-purchase.jpg", "Ezzy ERP purchase bill with a size grid and a Print Barcodes button"],
+      },
+    ],
+    faqs: [
+      ["Which barcode printer is best for a garment shop?", "A 4-inch, 203 dpi desktop thermal transfer printer from a brand with local service, such as TSC, TVS or Zebra. Ezzy ERP supplies and sets up the TSC TE244."],
+      ["Do I need 300 dpi for clothing tags?", "No. 203 dpi prints clear Code 128 barcodes on 38×25 and larger tags. 300 dpi helps only for very small labels."],
+      ["Thermal transfer or direct thermal for garments?", "Thermal transfer, with a ribbon. The print lasts through the season and does not fade with heat or sunlight."],
+      ["Can one barcode printer serve two billing counters?", "Yes, with a network (Ethernet) printer or by sharing it from one PC. For most shops, printing tags happens at the purchase desk, not the counter."],
+    ],
+    related: ["/garment-shop-billing-software", "/footwear-shop-billing-software"],
+  },
+  {
+    path: "/blog/footwear-stock-management-size-run",
+    label: "Footwear stock by article and size run",
+    title: "Footwear Stock Management by Article and Size Run: A Simple Method | Ezzy ERP",
+    description: "How footwear shops in India can track stock by article, size and colour: size runs, box labels, MRP billing, size-wise reorders and dead stock, step by step.",
+    h1: "Footwear shop stock by article and size run: a simple method",
+    published: "2026-10-31",
+    updated: "2026-10-31",
+    readMinutes: 6,
+    intro: [
+      "In a footwear shop the stock problem is not how many pairs you have. It is whether you have a size 8 in black when the customer is standing at the counter. One article in eight sizes and three colours is twenty-four different stock items, and the size you run out of is the sale you lose.",
+      "This method keeps footwear stock right by article and size run, without counting the shelves every week.",
+    ],
+    heroShot: ["shot-purchase.jpg", "Footwear purchase entry in a size grid with article, colour and sizes 6 to 11"],
+    body: [
+      {
+        h2: "Step 1: Article number first",
+        paras: [
+          "Use the brand's article number (or your own) as the main item, with colour and size under it. Reports then read \"Article 7712, black: sizes 6 and 11 left\", which is what you need to reorder.",
+        ],
+      },
+      {
+        h2: "Step 2: Fix your size runs",
+        table: {
+          head: ["Category", "Typical size run"],
+          rows: [
+            ["Men's", "6 to 11 (UK/India)"],
+            ["Women's", "3 to 8"],
+            ["Kids", "By age or size number, e.g. 8C to 13C, 1 to 5"],
+            ["Sports shoes", "Often include half sizes; set them up once"],
+          ],
+        },
+        paras: ["Set each run once in your software and reuse it on every purchase."],
+      },
+      {
+        h2: "Step 3: Enter purchases in a size grid and label every box",
+        paras: [
+          "Enter one row per article and colour, with a column for each size. Then print a label for every box with article, size, colour and MRP from the same entry. A box without a label is the box that gets billed wrong.",
+          "See [which barcode printer to buy](/blog/barcode-printer-for-garment-shop) if you are setting one up.",
+        ],
+      },
+      {
+        h2: "Step 4: Bill at MRP, by scan",
+        paras: [
+          "Footwear is sold at MRP with GST inside the price. Scanning the box label brings up the right article, size and price, and takes that pair out of stock. Footwear up to ₹2,500 a pair carries 5% GST and above that 18%, so per-line GST matters here too; our [GST guide](/blog/gst-on-clothes-above-2500) explains how discounts affect the slab.",
+          "Do size exchanges on the billing screen, so the returned pair goes back into stock in its size.",
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen used at a footwear counter"],
+      },
+      {
+        h2: "Step 5: Reorder by size, not by article",
+        list: [
+          "Size-wise stock: which sizes are left in each article and colour.",
+          "Size-wise sales: your real size curve. In most shops the middle sizes sell several times more than the ends of the run.",
+          "Reorder the sizes that sell, instead of buying a full size run again.",
+        ],
+      },
+      {
+        h2: "Step 6: Clear broken size runs early",
+        paras: [
+          "An article left with only sizes 6 and 11 rarely sells at full price. Find broken runs and slow articles with a dead stock report every month, and move them to a discount rack before the season ends. Our guide on [finding dead stock](/blog/dead-stock-in-garment-shop) shows how.",
+        ],
+      },
+      {
+        h2: "Software that does this for you",
+        paras: [
+          "[Ezzy ERP footwear billing software](/footwear-shop-billing-software) has size-grid purchase entry, box labels from the purchase bill, MRP-mode billing, size exchanges, reorder and dead stock reports, and multi-branch stock, with printers and scanners supplied and set up by our team.",
+        ],
+      },
+    ],
+    faqs: [
+      ["How do footwear shops manage stock size-wise?", "By keeping each article as one item with colour and size under it, entering purchases in a size grid, labelling every box and billing by scan. Stock by size then stays correct automatically."],
+      ["What is a size run in footwear?", "The range of sizes an article comes in, for example 6 to 11 for men's shoes. Shops track stock and sales for each size in the run."],
+      ["How do I know which footwear sizes to reorder?", "Use a size-wise sales report. It shows which sizes sell fastest for each article, so you reorder those sizes instead of a full run."],
+      ["What is the GST on footwear?", "5% for footwear up to ₹2,500 per pair and 18% above it, from 22 September 2025. Confirm HSN codes with your CA."],
+    ],
+    related: ["/footwear-shop-billing-software", "/garment-shop-billing-software"],
+  },
+  {
+    path: "/blog/dead-stock-in-garment-shop",
+    label: "How to find and clear dead stock in a clothing shop",
+    title: "Dead Stock in a Garment Shop: How to Find and Clear It Before the Season Ends | Ezzy ERP",
+    description: "How clothing and footwear shops can find dead stock by days idle, why it builds up, and practical ways to clear it before the season ends without killing margins.",
+    h1: "How to find dead stock in a clothing shop before the season ends",
+    published: "2026-10-31",
+    updated: "2026-10-31",
+    readMinutes: 5,
+    intro: [
+      "Dead stock is the money you cannot see. A rack of last season's designs looks like stock, but it is cash you paid to suppliers that is not coming back until it sells. In fashion, every week it waits, it is worth less.",
+      "The fix is to spot slow stock early, while it can still sell at a fair price. Here is how.",
+    ],
+    heroShot: ["shot-insights.jpg", "Ezzy ERP business insights with stock health and slow-moving items"],
+    body: [
+      {
+        h2: "What counts as dead stock",
+        paras: [
+          "Use days since the last sale, not days since purchase. A practical rule for clothing: items with no sale in 60 days are slow, and items with no sale in 90 days are dead for this season. Footwear and basics can wait longer; fashion and festival wear cannot.",
+        ],
+      },
+      {
+        h2: "Why it builds up",
+        list: [
+          "Buying full size runs when only the middle sizes sell.",
+          "Re-ordering a design because it sold well last year, without checking this year's sale.",
+          "Untagged or wrongly tagged pieces that stock reports cannot see.",
+          "Broken size and colour sets: one design left only in XXL or in one colour.",
+        ],
+      },
+      {
+        h2: "How to find it every month",
+        list: [
+          "Run a dead stock report by days idle (60 and 90 days), sorted by stock value.",
+          "Check size-wise stock for broken sets in designs that are still selling.",
+          "Walk the racks with the report and a barcode scanner, and pull the pieces out.",
+          "Note the supplier and design of each dead item, so you buy less of it next time.",
+        ],
+        shot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with stock value and sales figures"],
+      },
+      {
+        h2: "Ways to clear it",
+        list: [
+          "Move it to the front of the shop and change the display before discounting.",
+          "Bundle offers: two slow pieces for the price of one and a half.",
+          "Send a WhatsApp offer to regular customers who bought that brand or size before.",
+          "Return or exchange with the supplier, if your terms allow, before the season ends.",
+          "End-of-season sale. Remember GST is charged on the sale value after the discount; see our [GST on clothes guide](/blog/gst-on-clothes-above-2500).",
+        ],
+      },
+      {
+        h2: "Prevent it next season",
+        paras: [
+          "Plan purchases from your size-wise sales, not from memory. Our guide to [size and colour stock](/blog/size-and-colour-stock-management-garment-shop) explains how to read your size curve.",
+          "[Ezzy ERP garment billing software](/garment-shop-billing-software) shows dead stock by days idle, size-wise stock and sales, and profit by item, and sends offers to customers on WhatsApp. Footwear shops get the same reports in [Ezzy ERP for footwear](/footwear-shop-billing-software).",
+        ],
+      },
+    ],
+    faqs: [
+      ["What is dead stock in a garment shop?", "Clothing that has not sold for a long time, usually 90 days or more since the last sale, and is unlikely to sell at full price this season."],
+      ["How do I find dead stock?", "Run a report of items with no sale in 60 or 90 days, sorted by stock value, then check them on the racks with a barcode scanner."],
+      ["How can I clear dead stock without big losses?", "Act early: change the display, make bundle offers, message regular customers, return to suppliers where possible, and keep deep discounts for the end of season."],
+      ["Can billing software show dead stock?", "Yes. Ezzy ERP has a dead stock report by days idle, along with size-wise stock and profit by item."],
+    ],
+    related: ["/garment-shop-billing-software", "/footwear-shop-billing-software"],
+  },
+  {
+    path: "/blog/how-to-start-garment-shop-in-india",
+    label: "How to start a readymade garment shop in India",
+    title: "How to Start a Readymade Garment Shop in India: Licences, Stock and Software | Ezzy ERP",
+    description: "Step-by-step guide to starting a clothing shop in India: choosing a niche and location, registrations (Shop Act, GST, Udyam), buying stock, setting up the counter and billing software.",
+    h1: "How to start a readymade garment shop in India: licences, stock and software",
+    published: "2026-10-31",
+    updated: "2026-10-31",
+    readMinutes: 7,
+    intro: [
+      "A readymade garment shop is one of the most common first businesses in India, and one of the most competitive. The shops that last are the ones that pick a clear customer, buy carefully, and know their stock and cash from day one.",
+      "This guide walks through the steps in order, from choosing what to sell to billing your first customer.",
+    ],
+    heroShot: ["pos-hero.jpg", "A complete shop counter setup: billing screen, barcode scanner, receipt printer and barcode label printer"],
+    body: [
+      {
+        h2: "1. Pick your niche and customer",
+        paras: [
+          "Decide who you are selling to before you choose a shop: men's casual wear, ladies' ethnic wear, kids wear, sarees, or a family store. A clear niche makes buying, display and marketing simpler, and helps you stand out from the shops around you.",
+        ],
+      },
+      {
+        h2: "2. Choose the location",
+        list: [
+          "Footfall of your target customer, not just total footfall.",
+          "Nearby competition: a cluster of clothing shops can help if your niche is different.",
+          "Rent you can pay from sales in a slow month, not a festival month.",
+          "Space for trial rooms, display and a small stock room.",
+        ],
+      },
+      {
+        h2: "3. Registrations you will need",
+        table: {
+          head: ["Registration", "What it is"],
+          rows: [
+            ["Shop and Establishment registration", "Under your state's Shops and Establishments Act, from the local municipal or labour office"],
+            ["GST registration", "Required once turnover crosses the limit for goods (₹40 lakh in most states); many shops register earlier to claim input tax credit and buy from GST suppliers"],
+            ["Udyam (MSME) registration", "Free online registration that helps with bank loans and schemes"],
+            ["Current account", "A bank account in the shop's name for UPI and card payments"],
+            ["Trade licence", "Required by some municipal corporations; check locally"],
+          ],
+        },
+        note: "Rules and limits vary by state and change from time to time. Check with your CA before you open.",
+      },
+      {
+        h2: "4. Find suppliers and buy your first stock",
+        paras: [
+          "Most shops buy from wholesale markets and manufacturers' agents. Well-known hubs include Surat for sarees and dress material, Tiruppur for knitwear and T-shirts, Ludhiana for woollens, and the wholesale markets of Mumbai, Delhi and Kolkata for readymade garments.",
+          "Buy less than you think for the first season. Buy the middle sizes deeper and the end sizes thinner, and keep cash for re-orders of what sells.",
+        ],
+      },
+      {
+        h2: "5. Set up the counter",
+        list: [
+          "A computer or tablet with billing software, or the Android app for a small start.",
+          "An 80mm thermal receipt printer and a barcode scanner.",
+          "A barcode label printer for tags; see [which barcode printer to buy](/blog/barcode-printer-for-garment-shop).",
+          "UPI QR code and a card machine.",
+        ],
+      },
+      {
+        h2: "6. Get the GST and stock right from day one",
+        paras: [
+          "Clothing GST is 5% up to ₹2,500 a piece and 18% above it, decided per piece. Our [GST on clothes guide](/blog/gst-on-clothes-above-2500) explains how to bill it.",
+          "Enter every purchase in a size grid and tag every piece before it goes on the rack. Our guide to [size and colour stock](/blog/size-and-colour-stock-management-garment-shop) shows the method.",
+        ],
+      },
+      {
+        h2: "7. Choose billing software that grows with you",
+        paras: [
+          "Pick software you will not have to change when you add a second counter or branch. [Ezzy ERP garment billing software](/garment-shop-billing-software) gives you size-colour stock, barcode tags, GST billing, customer credit on WhatsApp and an Android app, with hardware, setup and training from one team. Read our [buyer's guide](/blog/best-billing-software-for-garment-shop) for questions to ask in any demo.",
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen"],
+      },
+    ],
+    faqs: [
+      ["What licences do I need to start a clothing shop in India?", "Usually a Shop and Establishment registration, GST registration (compulsory above the turnover limit, often taken earlier), a current account, and optionally Udyam registration and a local trade licence. Check your state's rules with a CA."],
+      ["Is GST registration compulsory for a garment shop?", "It is compulsory once turnover for goods crosses the limit, ₹40 lakh in most states. Many shops register earlier so they can claim input tax credit on purchases."],
+      ["Where can I buy wholesale clothes for my shop?", "Common hubs include Surat (sarees, dress material), Tiruppur (knitwear), Ludhiana (woollens) and the wholesale markets of Mumbai, Delhi and Kolkata, as well as brand distributors."],
+      ["Do I need billing software for a new garment shop?", "It is the easiest way to keep size-wise stock, GST and customer credit right from day one. Ezzy ERP offers a free demo with your own products."],
+    ],
+    related: ["/garment-shop-billing-software", "/billing-software-navi-mumbai"],
+  },
+  {
     path: "/blog/gst-on-clothes-above-2500",
     label: "GST on clothes: 5% up to ₹2,500, 18% above",
     title: "GST on Clothes in 2026: 5% up to ₹2,500, 18% Above — How to Bill It | Ezzy ERP",
