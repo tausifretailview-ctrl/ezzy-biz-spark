@@ -59,7 +59,7 @@ export function SiteHeader() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP home" style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {[["/#industries", "Industries"], ["/#modules", "Modules"], ["/#inside", "Software"], ["/#hardware", "Hardware"], ["/#mobile", "Mobile app"]].map(([href, label]) => (
+            {[["/", "Home"], ["/#industries", "Industries"], ["/#modules", "Modules"], ["/#inside", "Software"], ["/#hardware", "Hardware"], ["/#mobile", "Mobile app"]].map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <BlogMenu />
