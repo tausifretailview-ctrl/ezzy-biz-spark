@@ -5,6 +5,7 @@ import {
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
 import { SEO_PAGES } from "./seo/pages";
+import { BlogMenu } from "./seo/SiteChrome";
 
 /* ------------------------------------------------------------------ *
  * Ezzy ERP — public marketing landing page.
@@ -15,11 +16,11 @@ import { SEO_PAGES } from "./seo/pages";
 
 const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
 
-/** Social profiles shown in the footer. The last field marks Ezzy ERP's own brand accounts, which are also
- *  listed as sameAs in the schema; the others belong to the separate "Software Services" business. */
+/** Ezzy ERP's own social profiles, shown in the footer. The last field marks accounts that are also listed
+ *  as sameAs in the schema. Do not add the separate "Software Services" business's accounts here. */
 const SOCIAL: [icon: string, label: string, href: string, brand?: boolean][] = [
   ["ph-instagram-logo", "Instagram", INSTAGRAM, true],
-  ["ph-facebook-logo", "Facebook", "https://www.facebook.com/Softwareservicesonline"],
+  // ["ph-facebook-logo", "Facebook", "https://www.facebook.com/…"],
   // ["ph-youtube-logo", "YouTube", "https://www.youtube.com/@…"],
   // ["ph-linkedin-logo", "LinkedIn", "https://www.linkedin.com/company/…"],
 ];
@@ -444,6 +445,7 @@ export default function Landing() {
             {[["#industries", "Industries"], ["#modules", "Modules"], ["#inside", "Software"], ["#hardware", "Hardware"], ["#mobile", "Mobile app"]].map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
+            <BlogMenu />
             <a href="#demo" className="ezl-btn" style={{ padding: "11px 22px" }}>
               <Icon name="ph-calendar-check" size={18} /><span className="ezl-cta-label">Book free demo</span><span className="ezl-cta-short" style={{ display: "none" }}>Demo</span>
             </a>
@@ -797,7 +799,7 @@ export default function Landing() {
       {/* footer */}
       <footer className="ezl-footer" style={{ background: NAVY, color: "rgba(255,255,255,.8)", padding: "56px 0 32px" }}>
         <div className="ezl-wrap">
-          <div className="ezl-grid ezl-auto-200" style={{ alignItems: "start" }}>
+          <div className="ezl-grid ezl-auto-200 ezl-foot4" style={{ alignItems: "start" }}>
             <div>
               <span style={{ display: "inline-flex", background: "#fff", borderRadius: 8, padding: "9px 14px" }}>
                 <img src={LOGO} width={620} height={115} loading="lazy" alt="EzzyERP" style={{ height: 30, width: "auto" }} />
@@ -818,11 +820,11 @@ export default function Landing() {
             </div>
             {[
               ["Solutions", [...SEO_PAGES.map((p) => [p.path, p.label]), ["#industries", "Mobiles & electronics"], ["#industries", "Departmental stores"]]],
-              ["Product", [["#modules", "Modules"], ["#inside", "Screenshots"], ["#hardware", "Hardware"], ["#mobile", "Android app"], ["#faq", "FAQ"], ["/blog", "Blog"]]],
+              ["Product", [["#modules", "Modules"], ["#inside", "Screenshots"], ["#hardware", "Hardware"], ["#mobile", "Android app"], ["#faq", "FAQ"], ["/blog", "Blogs"]]],
             ].map(([heading, links]: any) => (
-              <div key={heading}>
+              <div key={heading} className={heading === "Solutions" ? "ezl-foot-wide" : undefined}>
                 <div style={{ fontSize: 12, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.55)", marginBottom: 14 }}>{heading}</div>
-                <div style={{ display: "grid", gap: 9, fontSize: 15 }}>
+                <div className={heading === "Solutions" ? "ezl-foot-links" : undefined} style={{ display: "grid", gap: 9, fontSize: 15 }}>
                   {links.map(([href, label]: [string, string], i: number) => (
                     <a key={`${label}-${i}`} href={href} style={{ color: "rgba(255,255,255,.85)" }}>{label}</a>
                   ))}

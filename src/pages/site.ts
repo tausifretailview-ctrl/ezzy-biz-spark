@@ -4,7 +4,7 @@
 export const IMG = "/landing";
 export const PHONE = "+91 84240 34844";
 export const TEL = "tel:+918424034844";
-export const MAIL = "info@ezzyerp.in";
+export const MAIL = "sales@ezzyerp.in";
 export const SITE = "https://ezzyerp.in";
 // Same wording as the Google Business Profile, so search engines match the two.
 export const STREET = "Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane";

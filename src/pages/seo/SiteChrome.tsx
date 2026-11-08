@@ -1,6 +1,6 @@
 import { APP_LOGIN, LOGO, PHONE, TEL, MAIL, ADDRESS, GOOGLE_PROFILE, DIRECTIONS, waLink, NAVY, LINE, track } from "../site";
 import { SEO_PAGES } from "./pages";
-import { BLOG_PATH } from "../blog/posts";
+import { BLOG_PATH, BLOG_POSTS } from "../blog/posts";
 
 /* ------------------------------------------------------------------ *
  * Header, footer and floating call/WhatsApp buttons shared by the
@@ -9,6 +9,29 @@ import { BLOG_PATH } from "../blog/posts";
 
 export function Icon({ name, size, color }: { name: string; size: number; color?: string }) {
   return <i className={`ph-duotone ${name}`} style={{ fontSize: size, color }} aria-hidden="true" />;
+}
+
+/** "Blogs" item for the main menu: links to /blog and opens a list of every post on hover or keyboard focus.
+ *  Like the other menu links it is hidden on phones and small tablets (landing.css). */
+export function BlogMenu() {
+  return (
+    <div className="ezl-navlink ezl-navdrop">
+      <a href={BLOG_PATH} aria-haspopup="true" style={{ color: NAVY, whiteSpace: "nowrap" }}>
+        Blogs
+        <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      </a>
+      <div className="ezl-navdrop-panel">
+        <div className="ezl-navdrop-inner">
+          <div className="ezl-navdrop-grid">
+            {BLOG_POSTS.map((p) => (
+              <a key={p.path} href={p.path} lang={p.lang}>{p.label}</a>
+            ))}
+          </div>
+          <a href={BLOG_PATH} className="ezl-navdrop-all">All guides for shop owners →</a>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function SiteHeader() {
@@ -36,9 +59,10 @@ export function SiteHeader() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP home" style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {[["/#industries", "Industries"], ["/#modules", "Modules"], ["/#inside", "Software"], ["/#hardware", "Hardware"], ["/#mobile", "Mobile app"], [BLOG_PATH, "Blog"]].map(([href, label]) => (
+            {[["/#industries", "Industries"], ["/#modules", "Modules"], ["/#inside", "Software"], ["/#hardware", "Hardware"], ["/#mobile", "Mobile app"]].map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
+            <BlogMenu />
             <a href="/#demo" className="ezl-btn" style={{ padding: "11px 22px" }}>
               <Icon name="ph-calendar-check" size={18} /><span className="ezl-cta-label">Book free demo</span><span className="ezl-cta-short" style={{ display: "none" }}>Demo</span>
             </a>
@@ -53,16 +77,16 @@ export function SiteFooter() {
   return (
     <footer className="ezl-footer" style={{ background: NAVY, color: "rgba(255,255,255,.8)", padding: "48px 0 30px" }}>
       <div className="ezl-wrap">
-        <div className="ezl-grid ezl-auto-200" style={{ alignItems: "start" }}>
+        <div className="ezl-grid ezl-auto-200 ezl-foot3" style={{ alignItems: "start" }}>
           <div>
             <a href="/" style={{ display: "inline-flex", background: "#fff", borderRadius: 8, padding: "9px 14px" }}>
               <img src={LOGO} width={620} height={115} loading="lazy" alt="EzzyERP" style={{ height: 30, width: "auto" }} />
             </a>
             <p style={{ margin: "16px 0 0", fontSize: 15, maxWidth: "30ch" }}>Billing, inventory, barcode and GST software for retail, wholesale and distribution.</p>
           </div>
-          <div>
+          <div className="ezl-foot-wide">
             <div style={{ fontSize: 12, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.55)", marginBottom: 14 }}>Solutions</div>
-            <div style={{ display: "grid", gap: 9, fontSize: 15 }}>
+            <div className="ezl-foot-links" style={{ display: "grid", gap: 9, fontSize: 15 }}>
               {SEO_PAGES.map((p) => (
                 <a key={p.path} href={p.path} style={{ color: "rgba(255,255,255,.85)" }}>{p.label}</a>
               ))}
