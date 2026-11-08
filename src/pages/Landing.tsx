@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import "./landing.css";
 import {
-  IMG, LOGO, HIGH_PRIORITY, PHONE, TEL, MAIL, SITE, STREET, ADDRESS, GOOGLE_PROFILE, INSTAGRAM, DIRECTIONS, waLink, webpSet, ORG_ID,
+  APP_LOGIN, IMG, LOGO, HIGH_PRIORITY, PHONE, TEL, MAIL, SITE, STREET, ADDRESS, GOOGLE_PROFILE, INSTAGRAM, DIRECTIONS, waLink, webpSet, ORG_ID,
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
 import { SEO_PAGES } from "./seo/pages";
@@ -429,6 +429,7 @@ export default function Landing() {
           <span style={{ display: "inline-flex", alignItems: "center", gap: 18 }}>
             <a href={`mailto:${MAIL}`} className="ezl-ct-mail" style={{ color: "rgba(255,255,255,.86)" }}>{MAIL}</a>
             <a href={TEL} style={{ color: "#fff", fontVariantNumeric: "tabular-nums" }}>{PHONE}</a>
+            <a href={APP_LOGIN} rel="noopener" style={{ color: "#60A5FA" }} onClick={() => track("login_click", { location: "top" })}>Customer login</a>
           </span>
         </div>
       </div>
@@ -846,6 +847,7 @@ export default function Landing() {
           <div style={{ marginTop: 42, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,.16)", display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "space-between", fontSize: 13, color: "rgba(255,255,255,.55)" }}>
             <span>© 2026 EzzyERP · Adtech ERP Solutions, Navi Mumbai</span>
             <span style={{ display: "flex", gap: 18 }}>
+              <a href={APP_LOGIN} rel="noopener" style={{ color: "rgba(255,255,255,.7)" }}>Customer login</a>
               <a href="/privacy-policy" style={{ color: "rgba(255,255,255,.7)" }}>Privacy policy</a>
               <span>Made for Indian retail counters</span>
             </span>
