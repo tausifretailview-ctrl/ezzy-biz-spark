@@ -63,7 +63,7 @@ function jsonLd(post: BlogPost) {
         image: `${SITE}${IMG}/${post.heroShot[0]}`,
         datePublished: post.published,
         dateModified: post.updated,
-        inLanguage: "en-IN",
+        inLanguage: post.lang === "hi" ? "hi-IN" : "en-IN",
         author: { "@id": ORG_ID },
         publisher: { "@id": ORG_ID },
         isPartOf: { "@id": `${SITE}${BLOG_PATH}#blog` },
@@ -84,6 +84,12 @@ function jsonLd(post: BlogPost) {
   };
 }
 
+/** Article text for posts written in Hindi; everything else stays in English. */
+const TEXT = {
+  en: { by: "By the Ezzy ERP team", read: "min read", faq: "Frequently asked questions", ctaH: "Want your billing to do this for you?", ctaP: "See Ezzy ERP on your own products in a free demo. Call or WhatsApp", demo: "Book a free demo", wa: "WhatsApp us" },
+  hi: { by: "Ezzy ERP टीम", read: "मिनट में पढ़ें", faq: "अक्सर पूछे जाने वाले सवाल", ctaH: "क्या आप चाहते हैं कि आपका बिलिंग सॉफ्टवेयर यह अपने आप करे?", ctaP: "अपने प्रोडक्ट्स पर Ezzy ERP का फ्री डेमो देखें। कॉल या WhatsApp करें", demo: "फ्री डेमो बुक करें", wa: "WhatsApp करें" },
+};
+
 const prose = { margin: "18px 0 0", fontSize: 18, lineHeight: 1.7, color: MUTED, maxWidth: "70ch" } as const;
 
 export default function BlogPostPage({ post }: { post: BlogPost }) {
@@ -93,6 +99,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
     captureLeadSource();
   }, []);
 
+  const t = TEXT[post.lang ?? "en"];
   const waText = `Hi, I read your article "${post.label}" on the Ezzy ERP website. Please share a demo.`;
   const products = SEO_PAGES.filter((p) => post.related.includes(p.path));
   const more = BLOG_POSTS.filter((p) => p.path !== post.path);
@@ -102,7 +109,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
       <SiteHeader />
 
       <main>
-        <article>
+        <article lang={post.lang}>
           <header style={{ background: NAVY, color: "#fff" }}>
             <div className="ezl-wrap" style={{ padding: "28px 24px 56px", maxWidth: 900 }}>
               <nav aria-label="Breadcrumb" style={{ fontSize: 14, color: "rgba(255,255,255,.62)" }}>
@@ -111,7 +118,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
               </nav>
               <h1 className="ezl-h1" style={{ fontSize: "clamp(30px,3.6vw,50px)", marginTop: 22 }}>{post.h1}</h1>
               <p style={{ margin: "18px 0 0", fontSize: 15, color: "rgba(255,255,255,.7)" }}>
-                By the Ezzy ERP team · <time dateTime={post.updated}>{longDate(post.updated)}</time> · {post.readMinutes} min read
+                {t.by} · <time dateTime={post.updated}>{longDate(post.updated)}</time> · {post.readMinutes} {t.read}
               </p>
             </div>
           </header>
@@ -161,7 +168,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
             ))}
 
             <section style={{ marginTop: 56 }}>
-              <h2 style={{ margin: 0, fontSize: "clamp(24px,2.4vw,32px)" }}>Frequently asked questions</h2>
+              <h2 style={{ margin: 0, fontSize: "clamp(24px,2.4vw,32px)" }}>{t.faq}</h2>
               <div style={{ marginTop: 22, display: "grid", gap: 12 }}>
                 {post.faqs.map(([q, a]) => (
                   <details key={q} style={{ border: `1px solid ${LINE}`, borderRadius: 10, padding: "16px 20px", background: "#fff" }}>
@@ -175,13 +182,13 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
         </article>
 
         {/* call to action */}
-        <section className="ezl-wrap" style={{ padding: "50px 24px 0", maxWidth: 900 }}>
+        <section lang={post.lang} className="ezl-wrap" style={{ padding: "50px 24px 0", maxWidth: 900 }}>
           <div style={{ background: PALE, border: `1px solid ${LINE}`, borderRadius: 14, padding: "28px 26px" }}>
-            <h2 style={{ margin: 0, fontSize: 26 }}>Want your billing to do this for you?</h2>
-            <p style={{ margin: "10px 0 0", fontSize: 17, color: MUTED }}>See Ezzy ERP on your own products in a free demo. Call or WhatsApp {PHONE}.</p>
+            <h2 style={{ margin: 0, fontSize: 26 }}>{t.ctaH}</h2>
+            <p style={{ margin: "10px 0 0", fontSize: 17, color: MUTED }}>{t.ctaP} {PHONE}.</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 20 }}>
-              <a href="/#demo" className="ezl-btn ezl-btn-lg"><Icon name="ph-calendar-check" size={20} />Book a free demo</a>
-              <a href={waLink(waText)} target="_blank" rel="noopener" className="ezl-btn ezl-btn-lg ezl-wa" onClick={() => track("whatsapp_click", { location: post.path })}><Icon name="ph-whatsapp-logo" size={20} />WhatsApp us</a>
+              <a href="/#demo" className="ezl-btn ezl-btn-lg"><Icon name="ph-calendar-check" size={20} />{t.demo}</a>
+              <a href={waLink(waText)} target="_blank" rel="noopener" className="ezl-btn ezl-btn-lg ezl-wa" onClick={() => track("whatsapp_click", { location: post.path })}><Icon name="ph-whatsapp-logo" size={20} />{t.wa}</a>
             </div>
             {products.length > 0 && (
               <p style={{ margin: "20px 0 0", fontSize: 16 }}>

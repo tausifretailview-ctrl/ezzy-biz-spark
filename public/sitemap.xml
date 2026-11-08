@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://ezzyerp.in/footwear-shop-billing-software</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
@@ -163,5 +163,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://ezzyerp.in/landing/shot-customers.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/kapdon-par-gst-2026</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/gst-on-footwear-2026</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
   </url>
 </urlset>
