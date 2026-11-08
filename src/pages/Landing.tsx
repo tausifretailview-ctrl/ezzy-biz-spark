@@ -364,6 +364,7 @@ export default function Landing() {
   const [sent, setSent] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState<string | null>(null);
+  const [waSent, setWaSent] = useState<string | null>(null);
   const source = useRef<LeadSource>({});
 
   // The app's boot splash covers every route until auth resolves — this page
@@ -392,6 +393,26 @@ export default function Landing() {
     setSending(true);
     setFailed(null);
 
+    // Every demo request also lands on our WhatsApp with the details filled in.
+    // Open the tab now, inside the click, because browsers block pop-ups opened
+    // after an await. It is pointed at WhatsApp once the lead is saved.
+    const waText = [
+      "Hi Ezzy ERP, I'd like to book a free demo.",
+      `Name: ${lead.name ?? ""}`,
+      `Mobile: ${phone ?? ""}`,
+      lead.shop && `Shop: ${lead.shop}`,
+      lead.city && `City: ${lead.city}`,
+      lead.trade && `I sell: ${lead.trade}`,
+      lead.note && `Notes: ${lead.note}`,
+    ].filter(Boolean).join("\n");
+    const waUrl = waLink(waText);
+    const waTab = window.open("", "_blank");
+    if (waTab) waTab.opener = null;
+    const openWhatsApp = () => {
+      if (waTab && !waTab.closed) waTab.location.href = waUrl;
+      else window.location.href = waUrl;
+    };
+
     // Save the lead with its source. If the source columns are not live in the
     // database yet, retry with the source folded into the note so the lead is
     // never lost to a schema mismatch.
@@ -407,13 +428,16 @@ export default function Landing() {
     if (error) {
       // Last resort: hand the details to WhatsApp so the visitor can still reach us.
       console.error("demo_requests insert failed", error);
-      setFailed(waLink(`Hi, I'd like a free Ezzy ERP demo.\nName: ${lead.name ?? ""}\nMobile: ${phone ?? ""}\nShop: ${lead.shop ?? ""}\nCity: ${lead.city ?? ""}\nTrade: ${lead.trade ?? ""}\n${lead.note ?? ""}`));
+      setFailed(waUrl);
       track("demo_request_failed");
+      openWhatsApp();
       return;
     }
 
     track("generate_lead", { form: "demo", trade: lead.trade, ...src });
     setSent(phone || "your number");
+    setWaSent(waUrl);
+    openWhatsApp();
   }
 
   const s = SLIDES[slide];
@@ -783,13 +807,13 @@ export default function Landing() {
             <button type="submit" className="ezl-submit" disabled={!!sent || sending}>{sent ? "Thank you — we will call you" : sending ? "Sending…" : "Book my free demo"}</button>
             {failed ? (
               <p style={{ margin: 0, fontSize: 14, color: "#b42318" }}>
-                We could not save your request. <a href={failed} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>Send it on WhatsApp instead</a> or call {PHONE}.
+                We could not save your request here. <a href={failed} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>Send it on WhatsApp instead</a> or call {PHONE}.
               </p>
             ) : (
               <p style={{ margin: 0, fontSize: 14, color: sent ? "#1a49b8" : SOFT, minHeight: 20 }}>
                 {sent ? `Request noted. Our team will call ${sent} today.` : "We use your number only to call you about the demo."}
                 {!sent && <> <a href="/privacy-policy" style={{ textDecoration: "underline" }}>Privacy policy</a></>}
-                {sent && <> Want to talk now? <a href={waLink()} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>WhatsApp us</a>.</>}
+                {sent && <> WhatsApp did not open? <a href={waSent ?? waLink()} target="_blank" rel="noopener" style={{ color: "#16A34A", fontWeight: 600 }}>Send your request on WhatsApp</a>.</>}
               </p>
             )}
           </Reveal>
