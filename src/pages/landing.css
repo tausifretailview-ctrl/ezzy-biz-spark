@@ -372,3 +372,33 @@
     .ezl-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, #2563EB, #60A5FA); transform-origin: 0 50%; animation: ez-progress linear both; animation-timeline: scroll(root); }
   }
 }
+
+/* ---- "Blogs" menu: list of every post on hover / keyboard focus (desktop only, see .ezl-navlink above) ---- */
+.ezl-navdrop { position: relative; align-items: center; }
+.ezl-navdrop > a { display: inline-flex; align-items: center; gap: 5px; padding: 6px 0; }
+.ezl-navdrop-panel { position: absolute; top: 100%; right: -150px; padding-top: 12px; display: none; z-index: 70; }
+.ezl-navdrop:hover .ezl-navdrop-panel, .ezl-navdrop:focus-within .ezl-navdrop-panel { display: block; }
+.ezl-navdrop > a svg { transition: transform .2s; }
+.ezl-navdrop:hover > a svg, .ezl-navdrop:focus-within > a svg { transform: rotate(180deg); }
+.ezl-navdrop-inner { width: min(660px, 92vw); background: #fff; border: 1px solid #E2E8F0; border-radius: 14px; box-shadow: 0 20px 50px rgba(11, 22, 46, .16); padding: 14px; }
+.ezl-navdrop-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 12px; }
+.ezl-navdrop-grid a { display: block; padding: 9px 12px; border-radius: 8px; font-size: 14.5px; line-height: 1.35; color: #0B162E; white-space: normal; }
+.ezl-navdrop-grid a:hover, .ezl-navdrop-grid a:focus-visible { background: #EFF6FF; color: #1D4ED8; }
+.ezl-navdrop-all { display: block; margin-top: 8px; padding: 11px 12px 4px; border-top: 1px solid #E2E8F0; font-size: 14.5px; font-weight: 600; color: #1D4ED8; }
+
+/* ---- footer: Solutions links in two columns ---- */
+.ezl-foot-links { grid-template-columns: repeat(2, minmax(0, max-content)); column-gap: 32px !important; }
+@media (min-width: 1081px) {
+  .ezl-footer .ezl-foot3 { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.1fr); }
+  .ezl-footer .ezl-foot4 { grid-template-columns: minmax(0, .85fr) minmax(0, 2.6fr) minmax(0, .6fr) minmax(0, 1fr); gap: 32px; }
+  .ezl-footer .ezl-foot4 .ezl-foot-links { column-gap: 28px !important; }
+}
+@media (min-width: 821px) and (max-width: 1080px) {
+  .ezl-footer .ezl-foot3, .ezl-footer .ezl-foot4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 820px) {
+  .ezl-footer .ezl-auto-200 > .ezl-foot-wide { grid-column: 1 / -1; }
+  .ezl-footer .ezl-auto-200 > div > .ezl-foot-links { column-gap: 20px !important; }
+}
+@media (max-width: 820px) { .ezl-footer .ezl-foot-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 400px) { .ezl-footer .ezl-foot-links { grid-template-columns: 1fr; } }
