@@ -16,6 +16,9 @@ export const WA_NUMBER = "918424034844";
 export const WA_TEXT = "Hi, I'm interested in Ezzy ERP. Please share a demo.";
 export const waLink = (text = WA_TEXT) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 export const ORG_ID = `${SITE}/#organization`;
+// The Ezzy ERP app itself. Customers search "ezzy login" and land here, so the site links out to the
+// app's own sign-in. Never host a login form on ezzyerp.in (Google flagged the site for that once).
+export const APP_LOGIN = "https://app.inventoryshop.in/";
 export const LOGO = `${IMG}/ezzy-logo-tight.webp`;
 
 /** The page's main image: React 18 has no fetchPriority prop, so the attribute is passed through as is. */
