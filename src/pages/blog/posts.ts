@@ -40,9 +40,170 @@ export type BlogPost = {
   faqs: [q: string, a: string][];
   /** Keyword pages this post points readers to. */
   related: string[];
+  /** Set for a post written in Hindi; posts are English by default. */
+  lang?: "hi";
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    path: "/blog/kapdon-par-gst-2026",
+    lang: "hi",
+    label: "कपड़ों पर GST 2026: ₹2,500 तक 5%, ऊपर 18%",
+    title: "कपड़ों पर कितना GST लगता है 2026? ₹2,500 तक 5%, उससे ऊपर 18% | Ezzy ERP",
+    description: "2026 में कपड़ों पर GST: एक पीस ₹2,500 या उससे कम में बिके तो 5%, उससे ज़्यादा में बिके तो 18%. HSN कोड, उदाहरण, डिस्काउंट और MRP के नियम आसान हिंदी में।",
+    h1: "कपड़ों पर कितना GST लगता है 2026: ₹2,500 तक 5%, उससे ऊपर 18%",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    readMinutes: 5,
+    intro: [
+      "सीधा जवाब: 2026 में कपड़ों पर GST 5% है, अगर एक पीस ₹2,500 या उससे कम में बिकता है। अगर पीस ₹2,500 से ज़्यादा में बिकता है, तो GST 18% है। रेट हर पीस के हिसाब से तय होता है, पूरे बिल के हिसाब से नहीं। जूते-चप्पल पर भी ₹2,500 प्रति जोड़ी का यही नियम है।",
+      "यह नियम 22 सितंबर 2025 से लागू है। इससे पहले सीमा ₹1,000 थी: ₹1,000 तक 5% और उससे ऊपर 12%.",
+      "Read in English: [GST on clothes 2026](/blog/gst-on-clothes-above-2500)",
+    ],
+    heroShot: ["shot-pos.jpg", "Ezzy ERP बिलिंग स्क्रीन जिसमें हर लाइन पर अलग GST रेट है"],
+    body: [
+      {
+        h2: "कपड़ों पर GST रेट एक नज़र में",
+        table: {
+          head: ["क्या बेचते हैं", "HSN चैप्टर", "₹2,500 तक", "₹2,500 से ऊपर"],
+          rows: [
+            ["बुने हुए (knitted) कपड़े: टी-शर्ट, इनरवियर, स्वेटर", "61", "5%", "18%"],
+            ["शर्ट, पैंट, कुर्ता, सूट, ब्लेज़र", "62", "5%", "18%"],
+            ["बेडशीट, पर्दे, तौलिये", "63", "5%", "18%"],
+            ["जूते-चप्पल (प्रति जोड़ी)", "64", "5%", "18%"],
+          ],
+        },
+        note: "कपड़ा (फ़ैब्रिक), धागा और कुछ ख़ास चीज़ों के रेट अलग हैं। हर प्रोडक्ट का HSN कोड और रेट एक बार अपने CA से ज़रूर कन्फ़र्म करें।",
+      },
+      {
+        h2: "उदाहरण",
+        paras: ["नीचे दी गई कीमतें GST से पहले की, प्रति पीस बिक्री कीमत हैं।"],
+        table: {
+          head: ["आइटम", "बिक्री कीमत", "GST रेट", "GST"],
+          rows: [
+            ["कॉटन शर्ट", "₹1,200", "5%", "₹60"],
+            ["जींस", "₹2,400", "5%", "₹120"],
+            ["₹2,800 का कुर्ता, 20% छूट पर", "₹2,240", "5%", "₹112"],
+            ["ब्लेज़र", "₹3,200", "18%", "₹576"],
+            ["शेरवानी", "₹8,000", "18%", "₹1,440"],
+          ],
+        },
+      },
+      {
+        h2: "रेट हर पीस पर लगता है, पूरे बिल पर नहीं",
+        paras: [
+          "अगर ग्राहक ₹900 वाली चार शर्ट ख़रीदता है, तो बिल ₹3,600 का होने पर भी हर शर्ट पर 5% GST लगेगा। अगर कोई ₹3,200 का एक ब्लेज़र ख़रीदता है, तो उस ब्लेज़र पर 18% लगेगा, भले ही बाकी बिल में मोज़े और रुमाल 5% वाले हों।",
+          "इसलिए एक ही बिल में दो GST रेट हो सकते हैं। आपका बिलिंग सॉफ्टवेयर हर लाइन पर उस पीस की कीमत से रेट तय करे, पूरे बिल पर एक रेट न लगाए।",
+        ],
+      },
+      {
+        h2: "डिस्काउंट से रेट कैसे बदलता है",
+        paras: [
+          "GST उस कीमत पर लगता है जिस पर आप पीस असल में बेचते हैं। अगर डिस्काउंट बिल पर ही, बिक्री के समय दिया गया है, तो स्लैब डिस्काउंट के बाद की कीमत से तय होता है।",
+          "₹2,800 का कुर्ता 20% छूट पर ₹2,240 में बिकता है, तो उस पर 5% लगेगा, 18% नहीं। सेल के समय यह हर बिल पर फ़र्क़ डालता है।",
+        ],
+        list: [
+          "डिस्काउंट बिल पर उसी आइटम के सामने दिखाएं।",
+          "बिल के बाद नकद में दिया गया डिस्काउंट GST कम नहीं करता।",
+          "बाद में मिलने वाली स्कीम या साल के आख़िर का डिस्काउंट GST क्रेडिट नोट से एडजस्ट होता है। देखें: [1 नवंबर 2026 से GST बदलाव](/blog/gst-changes-november-2026) (अंग्रेज़ी में).",
+        ],
+      },
+      {
+        h2: "जब MRP में GST शामिल हो",
+        paras: [
+          "ज़्यादातर कपड़े ऐसी MRP पर बिकते हैं जिसमें टैक्स शामिल होता है। स्लैब देखने के लिए पहले कीमत से GST निकालें।",
+          "5% पर, ₹2,625 तक की MRP (GST सहित) वाले पीस की कीमत GST से पहले ₹2,500 तक आती है (₹2,625 ÷ 1.05), इसलिए वह 5% में रहता है। इससे ऊपर की MRP पर 18% लगता है।",
+          "₹2,625 से थोड़ी ऊपर की MRP पर हिसाब उलझ जाता है, क्योंकि 18% निकालने पर कीमत फिर ₹2,500 से कम आती है। इस रेंज के लिए अपने CA से नियम तय करें, या इस रेंज में टैग कीमत रखने से बचें।",
+        ],
+      },
+      {
+        h2: "बिलिंग सॉफ्टवेयर में सही सेटिंग",
+        list: [
+          "हर प्रोडक्ट पर अपना HSN कोड और GST रेट हो, ताकि एक बिल में 5% और 18% दोनों आइटम आ सकें।",
+          "रेट हर पीस की बिक्री कीमत से, लाइन डिस्काउंट के बाद, ₹2,500 के नियम से तय हो।",
+          "MRP में GST शामिल वाली बिलिंग हो।",
+          "महीने के आख़िर में GST रजिस्टर में बिक्री 5% और 18% में अलग-अलग दिखे।",
+        ],
+        paras: [
+          "[Ezzy ERP गारमेंट बिलिंग सॉफ्टवेयर](/garment-shop-billing-software) में यह सब अपने आप होता है: हर लाइन पर GST रेट, साइज़-कलर स्टॉक, बारकोड टैग और WhatsApp पर बिल। जूतों की दुकान के लिए देखें [फ़ुटवियर बिलिंग सॉफ्टवेयर](/footwear-shop-billing-software).",
+        ],
+        shot: ["shot-gl.jpg", "Ezzy ERP में GST रिपोर्टिंग के लिए लेजर स्क्रीन"],
+      },
+    ],
+    faqs: [
+      ["कपड़ों पर कितना GST लगता है 2026 में?", "₹2,500 या उससे कम में बिकने वाले पीस पर 5% और ₹2,500 से ज़्यादा में बिकने वाले पीस पर 18% GST लगता है। यह 22 सितंबर 2025 से लागू है।"],
+      ["₹2,500 की सीमा पूरे बिल पर है या हर पीस पर?", "हर पीस पर। एक ही बिल में कुछ आइटम 5% और कुछ 18% वाले हो सकते हैं।"],
+      ["क्या डिस्काउंट से GST रेट बदलता है?", "हाँ, अगर डिस्काउंट बिक्री के समय बिल पर दिया गया हो। स्लैब डिस्काउंट के बाद की कीमत से तय होता है।"],
+      ["क्या ₹1,000 से ऊपर के कपड़ों पर अब भी 12% GST है?", "नहीं। 22 सितंबर 2025 से कपड़ों का 12% स्लैब हट गया है। अब ₹2,500 तक 5% और उससे ऊपर 18% है।"],
+      ["जूतों पर कितना GST है?", "₹2,500 प्रति जोड़ी तक 5% और उससे ऊपर 18%."],
+    ],
+    related: ["/garment-shop-billing-software", "/footwear-shop-billing-software"],
+  },
+  {
+    path: "/blog/gst-on-footwear-2026",
+    label: "GST on footwear 2026: 5% up to ₹2,500 a pair",
+    title: "GST on Footwear 2026: 5% up to ₹2,500 per Pair, 18% Above (HSN 64) | Ezzy ERP",
+    description: "GST on shoes, sandals and slippers in 2026: 5% up to ₹2,500 per pair and 18% above. HSN 64, examples, MRP-inclusive pricing, discounts and how footwear shops should bill it.",
+    h1: "GST on footwear in 2026: 5% up to ₹2,500 a pair, 18% above",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    readMinutes: 4,
+    intro: [
+      "Quick answer: GST on footwear in 2026 is 5% when a pair sells for ₹2,500 or less, and 18% when it sells for more. The rate is decided for each pair, after any discount on the bill.",
+      "This applies since 22 September 2025. Before that, footwear up to ₹1,000 a pair carried 12% and above that 18%, so most everyday chappals, sandals and school shoes are now cheaper to bill.",
+    ],
+    heroShot: ["shot-pos.jpg", "Ezzy ERP POS billing screen used at a footwear counter"],
+    body: [
+      {
+        h2: "Footwear GST at a glance",
+        table: {
+          head: ["Selling price per pair", "GST", "HSN"],
+          rows: [
+            ["Up to ₹2,500", "5%", "Chapter 64"],
+            ["Above ₹2,500", "18%", "Chapter 64"],
+          ],
+        },
+        note: "Parts of footwear and some special items can have other rates. Confirm the HSN code of each product with your CA.",
+      },
+      {
+        h2: "Examples",
+        paras: ["Prices below are the selling price per pair before GST."],
+        table: {
+          head: ["Item", "Selling price", "GST rate", "GST"],
+          rows: [
+            ["Rubber slippers", "₹250", "5%", "₹12.50"],
+            ["School shoes", "₹900", "5%", "₹45"],
+            ["Sports shoes", "₹2,400", "5%", "₹120"],
+            ["Branded sneakers tagged ₹3,000, sold at 20% off", "₹2,400", "5%", "₹120"],
+            ["Leather formal shoes", "₹4,500", "18%", "₹810"],
+          ],
+        },
+      },
+      {
+        h2: "MRP, discounts and schemes",
+        list: [
+          "Footwear is sold at MRP with GST inside the price. At 5%, an MRP of up to ₹2,625 keeps the value within ₹2,500 (₹2,625 ÷ 1.05).",
+          "A discount shown on the bill at the time of sale lowers the value the slab is checked on, so a ₹3,000 pair sold at ₹2,400 is taxed at 5%.",
+          "Brand schemes and year-end discounts given later are settled by GST credit note; see [GST changes from 1 November 2026](/blog/gst-changes-november-2026).",
+          "The same rules apply to clothing; see [GST on clothes 2026](/blog/gst-on-clothes-above-2500).",
+        ],
+      },
+      {
+        h2: "Bill it right at the counter",
+        paras: [
+          "A footwear bill often mixes a ₹300 pair of slippers with a ₹4,000 pair of shoes. Each line needs its own rate. [Ezzy ERP footwear billing software](/footwear-shop-billing-software) keeps a GST rate on every bill line, bills at MRP with GST inside the price, tracks stock by article and size, and prints a label for every box. Read our guide to [footwear stock by size run](/blog/footwear-stock-management-size-run) for the stock side.",
+        ],
+        shot: ["shot-purchase.jpg", "Ezzy ERP purchase entry with a size grid for footwear articles"],
+      },
+    ],
+    faqs: [
+      ["What is the GST on footwear in 2026?", "5% for footwear sold at ₹2,500 or less per pair, and 18% above ₹2,500 per pair, from 22 September 2025."],
+      ["What is the GST on shoes above ₹1,000?", "If the pair sells for ₹2,500 or less, 5%. The old 12% rate for footwear above ₹1,000 no longer applies."],
+      ["What is the HSN code for footwear?", "Footwear falls under HSN chapter 64. Use the full code for each product as advised by your CA."],
+      ["Does a discount change the GST on footwear?", "Yes, when the discount is on the bill at the time of sale. The slab is checked on the price after the discount."],
+    ],
+    related: ["/footwear-shop-billing-software", "/garment-shop-billing-software"],
+  },
   {
     path: "/blog/gst-changes-november-2026",
     label: "GST changes from 1 November 2026",
@@ -719,30 +880,46 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/gst-on-clothes-above-2500",
     label: "GST on clothes: 5% up to ₹2,500, 18% above",
-    title: "GST on Clothes in 2026: 5% up to ₹2,500, 18% Above — How to Bill It | Ezzy ERP",
-    description: "GST on readymade garments is 5% up to ₹2,500 per piece and 18% above it. How the slab is decided, what discounts and MRP-inclusive prices do to it, and how to bill it right.",
+    title: "GST on Clothes 2026: 5% or 18%? Rate Above ₹2,500, HSN Codes & Examples | Ezzy ERP",
+    description: "GST on clothes in 2026 is 5% if a piece sells for ₹2,500 or less and 18% above it. Rate table with HSN codes, worked examples for shirts, kurtas and blazers, and how discounts change the rate.",
     h1: "GST on clothes in 2026: 5% up to ₹2,500, 18% above, and how to bill it right",
     published: "2026-10-29",
     updated: "2026-11-08",
     readMinutes: 6,
     intro: [
-      "Since 22 September 2025, readymade garments in India carry GST of 5% when the sale value of a piece is ₹2,500 or less, and 18% when it is more. Before that the line was ₹1,000, with 5% below it and 12% above.",
+      "Quick answer: GST on clothes in 2026 is 5% when a piece sells for ₹2,500 or less, and 18% when it sells for more. The rate is decided for each piece, after any discount on the bill. Footwear follows the same ₹2,500 rule per pair.",
+      "This has applied since 22 September 2025. Before that the line was ₹1,000, with 5% below it and 12% above, so a shirt sold at ₹1,800 now carries 5% instead of 12%.",
       "The rule is simple to state but easy to get wrong at the counter, because the slab depends on the value of each piece, not the bill, and discounts can move a piece from one slab to the other. This guide explains how it works and how to set up your billing so every line gets the right rate.",
+      "हिंदी में पढ़ें: [कपड़ों पर कितना GST लगता है 2026](/blog/kapdon-par-gst-2026)",
     ],
     heroShot: ["shot-pos.jpg", "Ezzy ERP POS billing screen where each bill line carries its own GST rate"],
     body: [
       {
         h2: "The GST rates on clothing at a glance",
         table: {
-          head: ["What you sell", "Value per piece", "GST"],
+          head: ["What you sell", "HSN chapter", "Up to ₹2,500", "Above ₹2,500"],
           rows: [
-            ["Readymade garments and made-up textile articles", "Up to ₹2,500", "5%"],
-            ["Readymade garments and made-up textile articles", "Above ₹2,500", "18%"],
-            ["Footwear", "Up to ₹2,500 per pair", "5%"],
-            ["Footwear", "Above ₹2,500 per pair", "18%"],
+            ["Knitted garments: T-shirts, innerwear, sweaters", "61", "5%", "18%"],
+            ["Woven garments: shirts, trousers, kurtas, suits, blazers", "62", "5%", "18%"],
+            ["Made-up textiles: bedsheets, curtains, towels", "63", "5%", "18%"],
+            ["Footwear (per pair)", "64", "5%", "18%"],
           ],
         },
         note: "Rates as notified from 22 September 2025. Fabric, yarn and some specific items have their own rates, so confirm the HSN code and rate of each product with your CA.",
+      },
+      {
+        h2: "Examples: shirts, kurtas and blazers",
+        paras: ["Prices below are the selling price per piece before GST."],
+        table: {
+          head: ["Item", "Selling price", "GST rate", "GST"],
+          rows: [
+            ["Cotton shirt", "₹1,200", "5%", "₹60"],
+            ["Jeans", "₹2,400", "5%", "₹120"],
+            ["Kurta tagged ₹2,800, sold at 20% off", "₹2,240", "5%", "₹112"],
+            ["Blazer", "₹3,200", "18%", "₹576"],
+            ["Sherwani", "₹8,000", "18%", "₹1,440"],
+          ],
+        },
       },
       {
         h2: "The slab is decided per piece, not per bill",
@@ -800,6 +977,9 @@ export const BLOG_POSTS: BlogPost[] = [
       ["Is the ₹2,500 limit per bill or per piece?", "Per piece. A bill can have some items at 5% and others at 18%, depending on the value of each piece."],
       ["Does a discount change the GST rate on clothes?", "Yes, when the discount is given on the invoice at the time of sale. The slab is checked on the value after the discount, so a ₹2,800 piece sold at ₹2,240 is taxed at 5%."],
       ["What was the GST on clothes before September 2025?", "5% for a piece up to ₹1,000 and 12% above ₹1,000."],
+      ["Is GST on clothes above ₹1,000 still 12%?", "No. The 12% slab for clothing was removed from 22 September 2025. Clothes up to ₹2,500 per piece now carry 5%, and above ₹2,500 carry 18%."],
+      ["What is the GST on shirts?", "5% if the shirt sells for ₹2,500 or less, and 18% if it sells for more. The same rule applies to T-shirts, trousers, kurtas and other readymade garments."],
+      ["What is the HSN code for readymade garments?", "Knitted garments fall under HSN chapter 61 and woven garments under chapter 62. Made-up textiles such as bedsheets fall under chapter 63. Use the full code for each product as advised by your CA."],
       ["Can billing software apply 5% and 18% automatically?", "Yes. Garment billing software such as Ezzy ERP keeps a GST rate on every bill line, so one bill can carry both rates, and the GST register splits sales by rate for filing."],
     ],
     related: ["/garment-shop-billing-software", "/billing-software-for-small-business"],
