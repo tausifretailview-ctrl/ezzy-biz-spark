@@ -15,11 +15,11 @@ import { SEO_PAGES } from "./seo/pages";
 
 const MAP = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
 
-/** Social profiles shown in the footer. The last field marks Ezzy ERP's own brand accounts, which are also
- *  listed as sameAs in the schema; the others belong to the separate "Software Services" business. */
+/** Ezzy ERP's own social profiles, shown in the footer. The last field marks accounts that are also listed
+ *  as sameAs in the schema. Do not add the separate "Software Services" business's accounts here. */
 const SOCIAL: [icon: string, label: string, href: string, brand?: boolean][] = [
   ["ph-instagram-logo", "Instagram", INSTAGRAM, true],
-  ["ph-facebook-logo", "Facebook", "https://www.facebook.com/Softwareservicesonline"],
+  // ["ph-facebook-logo", "Facebook", "https://www.facebook.com/…"],
   // ["ph-youtube-logo", "YouTube", "https://www.youtube.com/@…"],
   // ["ph-linkedin-logo", "LinkedIn", "https://www.linkedin.com/company/…"],
 ];
