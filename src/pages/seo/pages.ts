@@ -407,6 +407,7 @@ export const SEO_PAGES: SeoPageData[] = [
       ["Does Ezzy ERP make e-way bills?", "Yes. You can make the e-way bill for goods you dispatch, along with the GST invoice and e-invoice."],
       DEMO_FAQ,
     ],
+    guides: ["/blog/e-invoice-limit-2026", "/blog/e-way-bill-rules-2026", "/blog/gst-changes-november-2026"],
     trade: "Manufacturing / industrial",
   },
   {
@@ -460,6 +461,7 @@ export const SEO_PAGES: SeoPageData[] = [
       ["Do I need a separate e-invoice software?", "No. E-invoicing is part of Ezzy ERP's billing, so the same bill updates stock, ledgers and GST reports."],
       DEMO_FAQ,
     ],
+    guides: ["/blog/e-invoice-limit-2026", "/blog/gst-changes-november-2026"],
     trade: "Manufacturing / industrial",
   },
   {

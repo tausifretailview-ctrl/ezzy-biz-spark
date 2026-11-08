@@ -44,6 +44,312 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    path: "/blog/gst-changes-november-2026",
+    label: "GST changes from 1 November 2026",
+    title: "GST Changes from 1 November 2026: Discounts, Credit Notes, Refunds, Scrap | Ezzy ERP",
+    description: "What changed in GST from 1 November 2026 for shops, wholesalers and manufacturers: post-sale discounts by credit note, faster refunds, scrap registration and TDS, and what comes next.",
+    h1: "GST changes from 1 November 2026: what shops, wholesalers and manufacturers need to know",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    readMinutes: 6,
+    intro: [
+      "A set of GST changes came into force on 1 November 2026, with more planned for 1 January and 1 April 2027. Most of them are about how discounts, credit notes and refunds work, which touches almost every trader who gives or receives schemes, and every manufacturer who sells scrap.",
+      "Here is a plain summary of what changed, who it affects, and what to do in your billing. It is a guide, not legal advice: confirm the details for your business with your CA.",
+    ],
+    heroShot: ["shot-gl.jpg", "Ezzy ERP general ledger with debit, credit and running balance"],
+    body: [
+      {
+        h2: "1. Discounts after the sale: a credit note is now enough",
+        paras: [
+          "Until October 2026, a discount given after the sale (a year-end scheme, a turnover discount, a rate difference) reduced the taxable value only if it was agreed before the sale and linked to specific invoices. Many brand and distributor schemes failed that test, so GST stayed on the full invoice value.",
+          "From 1 November 2026, those two conditions are gone. A post-sale discount reduces the taxable value when the supplier issues a GST credit note and the buyer reverses the input tax credit on it.",
+        ],
+        note: "Example: a distributor sells goods for ₹1,00,000 + 18% GST and later gives a 5% scheme of ₹5,000. It issues a credit note for ₹5,000 + ₹900 GST, and the buyer reverses ₹900 of input tax credit.",
+        list: [
+          "If you give schemes: issue proper GST credit notes, not plain discount letters or cash adjustments.",
+          "If you receive schemes: reverse the input tax credit shown on the supplier's credit note in your return.",
+          "If you are above the e-invoice limit, credit notes need an IRN too. See our [e-invoice limit guide](/blog/e-invoice-limit-2026).",
+        ],
+      },
+      {
+        h2: "2. Refunds get faster",
+        paras: [
+          "The time for the department to acknowledge a refund application or point out deficiencies has been cut from 15 days to 10 days, and automated, risk-based processing of refunds is being rolled out for new claims. Exporters and businesses with an inverted duty structure (input taxed higher than output, common in textiles and some manufacturing) are the main gainers, including refunds of credit on input services availed from 1 November 2026.",
+        ],
+      },
+      {
+        h2: "3. Scrap and waste: registration and 2% TDS",
+        paras: [
+          "Suppliers of metal scrap, plastic waste, tyre waste, used cooking oil and e-waste now have to register for GST, and reverse charge applies when unregistered persons sell some of these to registered buyers.",
+          "Registered buyers of these goods must deduct 2% GST TDS on purchases from registered sellers above ₹2.5 lakh per contract, file the TDS return and register as a tax deductor. Manufacturers who sell production scrap, and units that buy it, should check both sides of this rule with their CA.",
+        ],
+      },
+      {
+        h2: "4. Smaller changes worth knowing",
+        list: [
+          "Delivery through e-commerce operators is now taxed at 5% without input tax credit, with the operator paying the tax in most cases.",
+          "Retreaded tractor tyres move from 18% to 5%, and psyllium (isabgol) seeds are exempt.",
+          "Draft new GSTR-1, GSTR-1A and IFF forms were released for comment; the revised forms are planned from 1 April 2027.",
+        ],
+      },
+      {
+        h2: "5. What is coming next",
+        list: [
+          "From 1 January 2027: e-invoicing extends to certain reverse-charge purchases from unregistered persons and to import of services, for businesses that are already under e-invoicing.",
+          "Approved in principle: an optional annual-return, quarterly-payment scheme for businesses up to ₹5 crore that sell only to unregistered customers (most retail shops fall here), and a late fee waiver for small taxpayers who file within the month.",
+          "Planned for 1 April 2027: changes to e-way bill provisions, a higher prosecution threshold, and the new return forms. See our [e-way bill rules guide](/blog/e-way-bill-rules-2026) for the rules as they stand today.",
+        ],
+        note: "Dates for the approved-in-principle items have not been notified yet. Watch for notifications before you change how you file.",
+      },
+      {
+        h2: "What to set up in your billing software",
+        paras: [
+          "Most of these changes land on credit notes and returns, so the safest place to handle them is the software you bill from. [Ezzy ERP](/billing-software-for-manufacturers) issues GST credit notes against the sale, generates the e-invoice IRN where you need one, and prepares the GSTR-1 file and GSTR-3B figures with the credit notes already in them. Shops get the same from [Ezzy ERP for garment shops](/garment-shop-billing-software).",
+        ],
+      },
+    ],
+    faqs: [
+      ["What changed in GST on 1 November 2026?", "Post-sale discounts no longer need a prior agreement or invoice-wise linking; a GST credit note plus input tax credit reversal by the buyer is enough. Refund timelines were shortened, scrap and waste suppliers must register, and buyers of scrap must deduct 2% TDS above ₹2.5 lakh per contract."],
+      ["Do I need a credit note for a year-end discount?", "Yes. To reduce GST on a discount given after the sale, the supplier must issue a GST credit note, and the buyer must reverse the input tax credit on it."],
+      ["Does the new discount rule apply to discounts on the bill?", "No. A discount shown on the invoice at the time of sale already reduces the taxable value. The change is about discounts given later."],
+      ["Are GST return forms changing?", "Draft GSTR-1, GSTR-1A and IFF forms were released for comment in November 2026. The revised forms are planned from 1 April 2027."],
+    ],
+    related: ["/billing-software-for-manufacturers", "/wholesale-billing-software"],
+  },
+  {
+    path: "/blog/e-invoice-limit-2026",
+    label: "E-invoice limit 2026: ₹5 crore and the 30-day rule",
+    title: "E-Invoice Limit 2026: ₹5 Crore Turnover, 30-Day Rule & Who Must Comply | Ezzy ERP",
+    description: "Who must issue GST e-invoices in 2026: the ₹5 crore turnover limit, which documents need an IRN, the 30-day reporting rule for ₹10 crore+ businesses, exemptions and what happens if you miss it.",
+    h1: "E-invoice limit in 2026: the ₹5 crore rule, the 30-day rule and who must comply",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    readMinutes: 6,
+    intro: [
+      "E-invoicing is now part of daily billing for most growing manufacturers, wholesalers and distributors in India. The rules are short, but two details trip people up: the turnover limit is checked on every year since 2017-18, and bigger businesses get only 30 days to report an invoice.",
+      "Here is what applies in 2026, and how to make e-invoicing part of your normal billing instead of a second job on the portal.",
+    ],
+    heroShot: ["shot-accounts.jpg", "Ezzy ERP accounts screen with customer ledger, outstanding and net receivable"],
+    body: [
+      {
+        h2: "Who must issue e-invoices",
+        paras: [
+          "A registered business must issue e-invoices if its aggregate turnover crossed ₹5 crore in any financial year from 2017-18 onwards. Aggregate turnover is counted for the whole PAN, across all GST registrations in all states.",
+          "Once you cross the limit in any one year, e-invoicing applies from then on, even if turnover later falls.",
+        ],
+        table: {
+          head: ["Turnover (any year since 2017-18)", "E-invoice", "30-day reporting limit"],
+          rows: [
+            ["Up to ₹5 crore", "Not required", "Not applicable"],
+            ["Above ₹5 crore, below ₹10 crore", "Required for covered documents", "Not applied at present"],
+            ["₹10 crore and above", "Required for covered documents", "Report within 30 days of the document date"],
+          ],
+        },
+      },
+      {
+        h2: "Which documents need an IRN",
+        list: [
+          "Tax invoices for sales to registered businesses (B2B).",
+          "Exports and supplies to SEZ units.",
+          "Credit notes and debit notes on those sales. This matters more now that post-sale discounts are settled by credit note; see [GST changes from 1 November 2026](/blog/gst-changes-november-2026).",
+        ],
+        paras: [
+          "Ordinary bills to consumers (B2C) do not need an IRN. A shop that sells only to walk-in customers is outside e-invoicing even above ₹5 crore, but its B2B sales to other businesses are covered.",
+        ],
+      },
+      {
+        h2: "The 30-day rule for ₹10 crore+ businesses",
+        paras: [
+          "Since 1 April 2025, businesses with aggregate turnover of ₹10 crore or more cannot report an invoice, credit note or debit note to the Invoice Registration Portal once it is more than 30 days old. The portal simply rejects it.",
+          "In practice this means e-invoices must be generated as you bill, not collected at month end. A bill left without an IRN for a month cannot be fixed later.",
+        ],
+      },
+      {
+        h2: "Who is exempt",
+        paras: [
+          "Some classes are exempt regardless of turnover, including banks, insurance companies, NBFCs and other specified financial institutions, goods transport agencies, passenger transport services, specified cinema admissions, and SEZ units. The exemption is for the entity, so check yours with your CA.",
+        ],
+      },
+      {
+        h2: "What happens if you miss it",
+        list: [
+          "An invoice that should have had an IRN is not a valid tax invoice under the GST rules, which puts your buyer's input tax credit at risk. Buyers notice this quickly.",
+          "Penalties can apply under the GST Act.",
+          "Filing GSTR-1 does not fix a missing IRN.",
+        ],
+      },
+      {
+        h2: "Make it part of billing",
+        paras: [
+          "The simplest way to stay inside the rules is to generate the IRN from the same bill you print. In [Ezzy ERP e-invoice software](/e-invoice-software) you make the GST invoice as usual and generate the e-invoice from it; the IRN, acknowledgement number and signed QR code are saved on the bill and printed on it. An e-invoice report shows any B2B bill still without an IRN, and you can cancel an IRN from the same screen within the time the rules allow (24 hours on the portal).",
+          "Manufacturers get quotations, sale orders, challans, e-way bills and GST returns in the same system. See [billing software for manufacturers](/billing-software-for-manufacturers).",
+        ],
+      },
+    ],
+    faqs: [
+      ["What is the e-invoice limit in 2026?", "₹5 crore aggregate turnover in any financial year from 2017-18 onwards, counted across all GST registrations on the same PAN."],
+      ["Do retailers need e-invoices?", "Not for bills to consumers (B2C). A retailer above ₹5 crore must still issue e-invoices for sales to registered businesses."],
+      ["What is the 30-day rule for e-invoices?", "Businesses with turnover of ₹10 crore or more must report invoices, credit notes and debit notes to the portal within 30 days of the document date. Older documents are rejected."],
+      ["Can an e-invoice be cancelled?", "Yes, within 24 hours of generating the IRN on the portal. After that, issue a credit note instead."],
+      ["Can my billing software generate the IRN?", "Yes. Ezzy ERP generates the IRN and signed QR code from the sale bill and prints them on the invoice."],
+    ],
+    related: ["/e-invoice-software", "/billing-software-for-manufacturers"],
+  },
+  {
+    path: "/blog/e-way-bill-rules-2026",
+    label: "E-way bill rules 2026: limit, validity, extension",
+    title: "E-Way Bill Rules 2026: ₹50,000 Limit, Validity, 180-Day & Extension Rules | Ezzy ERP",
+    description: "E-way bill rules for manufacturers and wholesalers in 2026: when you need one, the ₹50,000 limit and state limits, validity by distance, the 180-day and 360-day rules, job work and penalties.",
+    h1: "E-way bill rules in 2026: limit, validity, extension and common mistakes",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    readMinutes: 6,
+    intro: [
+      "Every manufacturer, wholesaler and distributor who dispatches goods by road deals with e-way bills. The rules have not changed much in 2026, but the limits introduced from 1 January 2025 still catch people out, and a truck stopped without a valid e-way bill can mean detained goods and a penalty.",
+      "Here are the rules that apply today, in the order you meet them when goods leave your godown.",
+    ],
+    heroShot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with sales, invoices, stock value and receivables"],
+    body: [
+      {
+        h2: "When you need an e-way bill",
+        paras: [
+          "An e-way bill is needed when goods worth more than ₹50,000 move in one consignment, whether for a sale, a stock transfer between your own branches, a return or job work. The value is taken from the invoice, bill or delivery challan, including GST.",
+          "States can set their own limit for movement within the state. Maharashtra, for example, uses ₹1 lakh for intra-state movement. Check the limit for each state you dispatch from.",
+        ],
+        note: "Goods sent to a job worker in another state need an e-way bill whatever their value.",
+      },
+      {
+        h2: "Part A and Part B",
+        list: [
+          "Part A: the document (invoice, challan or bill), GSTIN of the buyer, place of delivery, HSN code, value and reason for transport.",
+          "Part B: the vehicle number or transport document. The e-way bill is valid for movement only once Part B is filled.",
+          "If you hand goods to a transporter, you can fill Part A and let the transporter fill Part B with their GSTIN or transporter ID.",
+        ],
+      },
+      {
+        h2: "How long an e-way bill is valid",
+        table: {
+          head: ["Cargo", "Validity"],
+          rows: [
+            ["Regular cargo", "1 day for up to 200 km, plus 1 day for every further 200 km or part of it"],
+            ["Over-dimensional cargo", "1 day for up to 20 km, plus 1 day for every further 20 km or part of it"],
+          ],
+        },
+        paras: [
+          "A day ends at midnight of the following day, counted from when Part B is first entered. A 450 km trip of regular cargo gets 3 days.",
+        ],
+      },
+      {
+        h2: "The 180-day and 360-day limits",
+        list: [
+          "Since 1 January 2025, you can generate an e-way bill only for documents dated within the last 180 days. Old challans and invoices cannot be used.",
+          "An e-way bill can be extended, but only up to 360 days from the date it was first generated.",
+          "Extension is allowed from 8 hours before to 8 hours after expiry, with the reason, such as a breakdown or a transhipment.",
+        ],
+      },
+      {
+        h2: "Cancelling and correcting",
+        paras: [
+          "An e-way bill can be cancelled within 24 hours of generation if the goods have not moved or the details are wrong, and it has not been verified on the way. Part A cannot be edited; cancel and generate a new one instead. The vehicle number in Part B can be updated during the journey, for example when goods change trucks.",
+        ],
+      },
+      {
+        h2: "Mistakes that lead to detained goods",
+        list: [
+          "Moving goods before Part B is filled, so the e-way bill is not yet valid.",
+          "Vehicle changed on the way without updating Part B.",
+          "E-way bill expired because the extension was not done in the 8-hour window.",
+          "Invoice value, quantity or HSN code on the e-way bill not matching the invoice in the truck.",
+          "Splitting one consignment into many small bills to stay under the limit.",
+        ],
+        note: "Changes to e-way bill provisions are planned from 1 April 2027 along with other GST amendments. See [GST changes from 1 November 2026](/blog/gst-changes-november-2026) for what has been announced.",
+      },
+      {
+        h2: "Make e-way bills from the same bill",
+        paras: [
+          "Typing the same invoice into the e-way bill portal is where mismatches start. With [Ezzy ERP for manufacturers](/billing-software-for-manufacturers) you make the e-way bill for goods you dispatch along with the GST invoice and e-invoice, from the same entry, so the value, HSN and GSTIN always match. Wholesalers get the same in [wholesale billing software](/wholesale-billing-software).",
+        ],
+      },
+    ],
+    faqs: [
+      ["What is the e-way bill limit in 2026?", "₹50,000 per consignment for inter-state movement. States set their own limit for movement within the state; Maharashtra uses ₹1 lakh."],
+      ["How long is an e-way bill valid?", "For regular cargo, 1 day for every 200 km or part of it. For over-dimensional cargo, 1 day for every 20 km or part of it."],
+      ["Can I make an e-way bill for an old invoice?", "Only if the invoice or challan is dated within the last 180 days."],
+      ["How many times can an e-way bill be extended?", "It can be extended within 8 hours before or after expiry, up to a total of 360 days from when it was first generated."],
+      ["Is an e-way bill needed for job work?", "Yes, for goods sent to a job worker in another state an e-way bill is needed whatever the value. Within the state, the normal limit applies."],
+    ],
+    related: ["/billing-software-for-manufacturers", "/wholesale-billing-software"],
+  },
+  {
+    path: "/blog/wedding-season-sale-checklist-garment-shop",
+    label: "Wedding season checklist for garment and footwear shops",
+    title: "Wedding Season Sale Checklist for Garment & Footwear Shops (2026) | Ezzy ERP",
+    description: "Get your clothing or footwear shop ready for the wedding season: stock by size, GST on wedding wear above ₹2,500, faster billing, alterations, exchanges and WhatsApp offers.",
+    h1: "Wedding season checklist for garment and footwear shops",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    readMinutes: 5,
+    intro: [
+      "After Diwali, the wedding season brings some of the biggest bills of the year: sherwanis, lehengas, sarees, suits, and footwear for the whole family. It also brings the most mistakes, because the bills are larger, the counter is crowded and many pieces cross the ₹2,500 GST line.",
+      "Use this checklist to get stock, billing and staff ready before the rush.",
+    ],
+    heroShot: ["shot-customers.jpg", "Ezzy ERP customer list with lifetime sale and visit history"],
+    body: [
+      {
+        h2: "1. Stock: buy by size, not by design",
+        list: [
+          "Check last wedding season's size-wise sales for ethnic wear, suits and footwear, and buy the sizes that sold, not full size sets.",
+          "Clear broken size sets and slow pieces from the festive season first; see [how to find dead stock](/blog/dead-stock-in-garment-shop).",
+          "Tag every new piece before it reaches the rack, with size, colour and MRP. Our [label size guide](/blog/garment-barcode-label-size) helps you pick the right tag.",
+        ],
+      },
+      {
+        h2: "2. GST: most wedding wear is above ₹2,500",
+        paras: [
+          "Clothing and footwear sold above ₹2,500 a piece (or a pair) carry 18% GST; up to ₹2,500 they carry 5%. A wedding bill often mixes both, and a discount can move a piece from one slab to the other. Make sure your software picks the rate per line after the discount. Our [GST on clothes guide](/blog/gst-on-clothes-above-2500) explains the rule with examples.",
+        ],
+      },
+      {
+        h2: "3. Billing: keep the counter moving",
+        list: [
+          "Scan tags instead of typing items, and use hold bills so one family's long bill does not block the queue.",
+          "Accept split payments (part UPI, part card, part cash) on one bill.",
+          "Take advances for orders and alterations against the customer's name, so the balance is clear at delivery.",
+          "Print a clear exchange policy on the bill, and do exchanges on the billing screen so the size goes back into stock.",
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with hold bills and mixed payment modes"],
+      },
+      {
+        h2: "4. Customers: bring last year's buyers back",
+        list: [
+          "Send a WhatsApp message to customers who bought ethnic wear or wedding footwear last season.",
+          "Offer something for the whole family's bill, not a flat discount on every piece.",
+          "Send the bill on WhatsApp, so the customer can find it when they come back for an exchange.",
+        ],
+      },
+      {
+        h2: "5. Staff and hardware",
+        list: [
+          "Train extra staff on billing and exchanges a week before the rush.",
+          "Keep spare receipt rolls, label rolls and a ribbon for the barcode printer.",
+          "Give each staff member their own login, so every bill and discount has a name on it.",
+        ],
+      },
+      {
+        h2: "Software that is ready for the rush",
+        paras: [
+          "[Ezzy ERP garment billing software](/garment-shop-billing-software) and [footwear billing software](/footwear-shop-billing-software) give you one-scan billing, hold bills, split payments, per-line GST, exchanges, customer history and WhatsApp bills, with 24×7 support on the busiest days.",
+        ],
+      },
+    ],
+    faqs: [
+      ["What GST applies to wedding wear?", "Clothing and footwear above ₹2,500 per piece or pair carry 18% GST, and items up to ₹2,500 carry 5%, decided per piece after any discount on the bill."],
+      ["How should a garment shop prepare for the wedding season?", "Buy by size from last season's sales, tag every piece, set up fast billing with hold bills and split payments, and message past customers on WhatsApp."],
+      ["How do I handle advances for wedding orders?", "Record the advance against the customer in your billing software, and adjust it in the final bill at delivery so the balance is always clear."],
+    ],
+    related: ["/garment-shop-billing-software", "/footwear-shop-billing-software"],
+  },
+  {
     path: "/blog/best-billing-software-for-garment-shop",
     label: "Best billing software for garment shops (2026)",
     title: "Best Billing Software for Garment Shops in India (2026 Buyer's Guide) | Ezzy ERP",
@@ -417,7 +723,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description: "GST on readymade garments is 5% up to ₹2,500 per piece and 18% above it. How the slab is decided, what discounts and MRP-inclusive prices do to it, and how to bill it right.",
     h1: "GST on clothes in 2026: 5% up to ₹2,500, 18% above, and how to bill it right",
     published: "2026-10-29",
-    updated: "2026-10-29",
+    updated: "2026-11-08",
     readMinutes: 6,
     intro: [
       "Since 22 September 2025, readymade garments in India carry GST of 5% when the sale value of a piece is ₹2,500 or less, and 18% when it is more. Before that the line was ₹1,000, with 5% below it and 12% above.",
@@ -454,7 +760,7 @@ export const BLOG_POSTS: BlogPost[] = [
         list: [
           "Show the discount on the invoice against the item, so the value that sets the slab is clear.",
           "Do not apply a bill-level discount and then use the tag price to decide the rate. That over-charges GST.",
-          "Discounts given later, such as a year-end scheme from the brand, follow different rules. Ask your CA.",
+          "Discounts given later, such as a year-end scheme from the brand, are settled by a GST credit note. See [GST changes from 1 November 2026](/blog/gst-changes-november-2026).",
         ],
       },
       {

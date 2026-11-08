@@ -76,13 +76,13 @@
   </url>
   <url>
     <loc>https://ezzyerp.in/blog</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ezzyerp.in/blog/gst-on-clothes-above-2500</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
@@ -135,5 +135,33 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://ezzyerp.in/landing/pos-hero.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/gst-changes-november-2026</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-gl.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/e-invoice-limit-2026</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-accounts.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/e-way-bill-rules-2026</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/blog/wedding-season-sale-checklist-garment-shop</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-customers.jpg</image:loc></image:image>
   </url>
 </urlset>
