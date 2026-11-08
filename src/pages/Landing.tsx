@@ -442,7 +442,7 @@ export default function Landing() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP — Smart Billing. Seamless Inventory. Easy Barcode Management." style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {[["#industries", "Industries"], ["#modules", "Modules"], ["#inside", "Software"], ["#hardware", "Hardware"], ["#mobile", "Mobile app"]].map(([href, label]) => (
+            {[["#top", "Home"], ["#industries", "Industries"], ["#modules", "Modules"], ["#inside", "Software"], ["#hardware", "Hardware"], ["#mobile", "Mobile app"]].map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <BlogMenu />
@@ -858,6 +858,9 @@ export default function Landing() {
       </footer>
 
       <div className="ezl-floats ezl-floats-left">
+        <a href={GOOGLE_PROFILE} target="_blank" rel="noopener" aria-label="Ezzy ERP on Google" title="Ezzy ERP on Google" className="ezl-btn ezl-round-float ezl-google" onClick={() => track("google_profile_click", { location: "float" })}>
+          <Icon name="ph-google-logo" size={24} />
+        </a>
         <a href={TEL} aria-label="Call Ezzy ERP" className="ezl-btn ezl-callnow" onClick={() => track("phone_click", { location: "float" })}>
           <Icon name="ph-phone-call" size={20} /><span className="ezl-float-label">Call now</span>
         </a>
@@ -865,9 +868,6 @@ export default function Landing() {
       <div className="ezl-floats">
         <a href={INSTAGRAM} target="_blank" rel="noopener" aria-label="Ezzy ERP on Instagram" title="Ezzy ERP on Instagram" className="ezl-btn ezl-round-float ezl-ig" onClick={() => track("instagram_click", { location: "float" })}>
           <Icon name="ph-instagram-logo" size={24} />
-        </a>
-        <a href={GOOGLE_PROFILE} target="_blank" rel="noopener" aria-label="Ezzy ERP on Google" title="Ezzy ERP on Google" className="ezl-btn ezl-round-float ezl-google" onClick={() => track("google_profile_click", { location: "float" })}>
-          <Icon name="ph-google-logo" size={24} />
         </a>
         <a href={waLink()} target="_blank" rel="noopener" aria-label="Chat with Ezzy ERP on WhatsApp" className="ezl-btn ezl-wa" onClick={() => track("whatsapp_click", { location: "float" })}>
           <Icon name="ph-whatsapp-logo" size={22} /><span className="ezl-float-label">WhatsApp</span>

@@ -301,6 +301,7 @@
   .ezzy-landing .ezl-floats .ezl-btn { width: 50px; height: 50px; padding: 0 !important; justify-content: center; }
   .ezzy-landing .ezl-floats .ezl-round-float { width: 44px; height: 44px; margin-right: 3px; }
   .ezzy-landing .ezl-floats .ezl-round-float i { font-size: 22px !important; }
+  .ezzy-landing .ezl-floats-left .ezl-round-float { margin-right: 0; margin-left: 3px; }
 }
 
 /* touch screens have no hover: stop cards staying "lifted" after a tap */
