@@ -4,6 +4,7 @@ import { IMG, HIGH_PRIORITY, PHONE, SITE, ORG_ID, LOGO, waLink, webpSet, NAVY, M
 import { SEO_PAGES } from "../seo/pages";
 import { Icon, SiteHeader, SiteFooter, Floats } from "../seo/SiteChrome";
 import { BLOG_PATH, BLOG_POSTS, type BlogPost } from "./posts";
+import GstCalculator from "./GstCalculator";
 
 /* ------------------------------------------------------------------ *
  * One blog article (e.g. /blog/gst-on-clothes-above-2500).
@@ -86,8 +87,8 @@ function jsonLd(post: BlogPost) {
 
 /** Article text for posts written in Hindi; everything else stays in English. */
 const TEXT = {
-  en: { by: "By the Ezzy ERP team", read: "min read", faq: "Frequently asked questions", ctaH: "Want your billing to do this for you?", ctaP: "See Ezzy ERP on your own products in a free demo. Call or WhatsApp", demo: "Book a free demo", wa: "WhatsApp us" },
-  hi: { by: "Ezzy ERP टीम", read: "मिनट में पढ़ें", faq: "अक्सर पूछे जाने वाले सवाल", ctaH: "क्या आप चाहते हैं कि आपका बिलिंग सॉफ्टवेयर यह अपने आप करे?", ctaP: "अपने प्रोडक्ट्स पर Ezzy ERP का फ्री डेमो देखें। कॉल या WhatsApp करें", demo: "फ्री डेमो बुक करें", wa: "WhatsApp करें" },
+  en: { by: "By the Ezzy ERP team", read: "min read", faq: "Frequently asked questions", ctaH: "Want your billing to do this for you?", ctaP: "See Ezzy ERP on your own products in a free demo. Call or WhatsApp", demo: "Book a free demo", wa: "WhatsApp us", midLead: "Looking for", midQ: "?", midTail: "See Ezzy ERP on your own products." },
+  hi: { by: "Ezzy ERP टीम", read: "मिनट में पढ़ें", faq: "अक्सर पूछे जाने वाले सवाल", ctaH: "क्या आप चाहते हैं कि आपका बिलिंग सॉफ्टवेयर यह अपने आप करे?", ctaP: "अपने प्रोडक्ट्स पर Ezzy ERP का फ्री डेमो देखें। कॉल या WhatsApp करें", demo: "फ्री डेमो बुक करें", wa: "WhatsApp करें", midLead: "देखें:", midQ: "।", midTail: "अपने प्रोडक्ट्स पर Ezzy ERP का फ्री डेमो देखें।" },
 };
 
 const prose = { margin: "18px 0 0", fontSize: 18, lineHeight: 1.7, color: MUTED, maxWidth: "70ch" } as const;
@@ -103,6 +104,9 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
   const waText = `Hi, I read your article "${post.label}" on the Ezzy ERP website. Please share a demo.`;
   const products = SEO_PAGES.filter((p) => post.related.includes(p.path));
   const more = BLOG_POSTS.filter((p) => p.path !== post.path);
+  // Most readers never reach the call to action under the FAQs, so longer posts also get a short one part-way down.
+  // Posts with the GST calculator already carry one above the fold.
+  const midProduct = !post.calculator && post.body.length >= 4 ? SEO_PAGES.find((p) => p.path === post.related[0]) : undefined;
 
   return (
     <div className="ezzy-landing">
@@ -127,12 +131,14 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
             {post.intro.map((p, i) => (
               <p key={i} style={{ ...prose, fontSize: 19.5, color: NAVY }}><Rich text={p} /></p>
             ))}
+            {post.calculator && <GstCalculator unit={post.calculator} lang={post.lang} productPath={post.related[0]} />}
             <figure style={{ margin: "34px 0 0" }}>
               <img src={`${IMG}/${post.heroShot[0]}`} srcSet={webpSet(`${IMG}/${post.heroShot[0]}`)} sizes="(max-width: 900px) 92vw, 852px" width={1366} height={700} {...HIGH_PRIORITY} alt={post.heroShot[1]} style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, border: `1px solid ${LINE}` }} />
             </figure>
 
-            {post.body.map((block) => (
-              <section key={block.h2} style={{ marginTop: 48 }}>
+            {post.body.map((block, blockIndex) => (
+              <Fragment key={block.h2}>
+              <section style={{ marginTop: 48 }}>
                 <h2 style={{ margin: 0, fontSize: "clamp(24px,2.4vw,32px)", lineHeight: 1.2 }}>{block.h2}</h2>
                 {block.paras?.map((p, i) => <p key={i} style={prose}><Rich text={p} /></p>)}
                 {block.table && (
@@ -165,6 +171,15 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                   </figure>
                 )}
               </section>
+              {midProduct && blockIndex === 1 && (
+                <aside style={{ margin: "40px 0 0", padding: "18px 22px", background: PALE, border: `1px solid ${LINE}`, borderRadius: 12, display: "flex", flexWrap: "wrap", gap: "12px 20px", alignItems: "center", justifyContent: "space-between" }}>
+                  <p style={{ margin: 0, fontSize: 17, color: NAVY, maxWidth: "46ch" }}>
+                    {t.midLead} <a href={midProduct.path}>{midProduct.label.charAt(0).toLowerCase() + midProduct.label.slice(1)}</a>{t.midQ} {t.midTail}
+                  </p>
+                  <a href="/#demo" className="ezl-btn" onClick={() => track("demo_click", { location: "blog_mid", post: post.path })}><Icon name="ph-calendar-check" size={18} />{t.demo}</a>
+                </aside>
+              )}
+              </Fragment>
             ))}
 
             <section style={{ marginTop: 56 }}>

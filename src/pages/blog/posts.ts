@@ -42,18 +42,24 @@ export type BlogPost = {
   related: string[];
   /** Set for a post written in Hindi; posts are English by default. */
   lang?: "hi";
+  /** Path of the same article in the other language. Both posts must point at each other (hreflang). */
+  alternate?: string;
+  /** Shows the 5% / 18% GST calculator under the intro, per piece of clothing or per pair of footwear. */
+  calculator?: "piece" | "pair";
 };
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/kapdon-par-gst-2026",
     lang: "hi",
+    alternate: "/blog/gst-on-clothes-above-2500",
+    calculator: "piece",
     label: "कपड़ों पर GST 2026: ₹2,500 तक 5%, ऊपर 18%",
     title: "कपड़ों पर कितना GST लगता है 2026? ₹2,500 तक 5%, उससे ऊपर 18% | Ezzy ERP",
     description: "2026 में कपड़ों पर GST: एक पीस ₹2,500 या उससे कम में बिके तो 5%, उससे ज़्यादा में बिके तो 18%. HSN कोड, उदाहरण, डिस्काउंट और MRP के नियम आसान हिंदी में।",
     h1: "कपड़ों पर कितना GST लगता है 2026: ₹2,500 तक 5%, उससे ऊपर 18%",
     published: "2026-11-08",
-    updated: "2026-11-08",
+    updated: "2026-11-20",
     readMinutes: 5,
     intro: [
       "सीधा जवाब: 2026 में कपड़ों पर GST 5% है, अगर एक पीस ₹2,500 या उससे कम में बिकता है। अगर पीस ₹2,500 से ज़्यादा में बिकता है, तो GST 18% है। रेट हर पीस के हिसाब से तय होता है, पूरे बिल के हिसाब से नहीं। जूते-चप्पल पर भी ₹2,500 प्रति जोड़ी का यही नियम है।",
@@ -141,12 +147,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     path: "/blog/gst-on-footwear-2026",
+    calculator: "pair",
     label: "GST on footwear 2026: 5% up to ₹2,500 a pair",
     title: "GST on Footwear 2026: 5% up to ₹2,500 per Pair, 18% Above (HSN 64) | Ezzy ERP",
     description: "GST on shoes, sandals and slippers in 2026: 5% up to ₹2,500 per pair and 18% above. HSN 64, examples, MRP-inclusive pricing, discounts and how footwear shops should bill it.",
     h1: "GST on footwear in 2026: 5% up to ₹2,500 a pair, 18% above",
     published: "2026-11-08",
-    updated: "2026-11-08",
+    updated: "2026-11-20",
     readMinutes: 4,
     intro: [
       "Quick answer: GST on footwear in 2026 is 5% when a pair sells for ₹2,500 or less, and 18% when it sells for more. The rate is decided for each pair, after any discount on the bill.",
@@ -359,11 +366,11 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/e-way-bill-rules-2026",
     label: "E-way bill rules 2026: limit, validity, extension",
-    title: "E-Way Bill Rules 2026: ₹50,000 Limit, Validity, 180-Day & Extension Rules | Ezzy ERP",
-    description: "E-way bill rules for manufacturers and wholesalers in 2026: when you need one, the ₹50,000 limit and state limits, validity by distance, the 180-day and 360-day rules, job work and penalties.",
-    h1: "E-way bill rules in 2026: limit, validity, extension and common mistakes",
+    title: "E-Way Bill Limit 2026: ₹50,000, and ₹1 Lakh in Maharashtra, Delhi & Bihar | Ezzy ERP",
+    description: "E-way bill limit in 2026: ₹50,000 between states, ₹1 lakh within Maharashtra, Delhi and Bihar. Plus validity by distance, the 180-day and 360-day rules, job work and common mistakes.",
+    h1: "E-way bill limit and rules in 2026: state limits, validity, extension and common mistakes",
     published: "2026-11-08",
-    updated: "2026-11-08",
+    updated: "2026-11-20",
     readMinutes: 6,
     intro: [
       "Every manufacturer, wholesaler and distributor who dispatches goods by road deals with e-way bills. The rules have not changed much in 2026, but the limits introduced from 1 January 2025 still catch people out, and a truck stopped without a valid e-way bill can mean detained goods and a penalty.",
@@ -375,9 +382,29 @@ export const BLOG_POSTS: BlogPost[] = [
         h2: "When you need an e-way bill",
         paras: [
           "An e-way bill is needed when goods worth more than ₹50,000 move in one consignment, whether for a sale, a stock transfer between your own branches, a return or job work. The value is taken from the invoice, bill or delivery challan, including GST.",
-          "States can set their own limit for movement within the state. Maharashtra, for example, uses ₹1 lakh for intra-state movement. Check the limit for each state you dispatch from.",
+          "That ₹50,000 limit applies to every movement between two states. For movement within one state, the state can set its own limit, and several have set it higher.",
         ],
         note: "Goods sent to a job worker in another state need an e-way bill whatever their value.",
+      },
+      {
+        h2: "E-way bill limit in Maharashtra, Delhi, Bihar and other states",
+        paras: ["The limit depends on whether the goods cross a state border."],
+        table: {
+          head: ["Movement", "E-way bill needed above"],
+          rows: [
+            ["From one state to another (all states)", "₹50,000"],
+            ["Within Maharashtra", "₹1,00,000"],
+            ["Within Delhi", "₹1,00,000"],
+            ["Within Bihar", "₹1,00,000"],
+            ["Within most other states", "₹50,000"],
+          ],
+        },
+        list: [
+          "A ₹80,000 consignment from Bhiwandi to Pune stays within Maharashtra, so it does not need an e-way bill. The same consignment from Bhiwandi to Surat crosses into Gujarat and does.",
+          "Tamil Nadu, Rajasthan, Punjab, Madhya Pradesh and Jharkhand also use higher limits within the state, some of them only for certain goods.",
+          "A few goods need an e-way bill at lower values or are exempt altogether, depending on the state.",
+        ],
+        note: "State limits are set by state notification and do change. Check the current notification for each state you dispatch from, or ask your CA, before relying on a limit.",
       },
       {
         h2: "Part A and Part B",
@@ -433,7 +460,9 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
     faqs: [
-      ["What is the e-way bill limit in 2026?", "₹50,000 per consignment for inter-state movement. States set their own limit for movement within the state; Maharashtra uses ₹1 lakh."],
+      ["What is the e-way bill limit in 2026?", "₹50,000 per consignment for movement between states. States set their own limit for movement within the state: Maharashtra, Delhi and Bihar use ₹1 lakh."],
+      ["What is the e-way bill limit in Maharashtra in 2026?", "₹1,00,000 for goods moving within Maharashtra, and ₹50,000 for goods moving from Maharashtra to another state or coming in from one."],
+      ["What is the e-way bill limit in Delhi and Bihar?", "₹1,00,000 for movement within Delhi and within Bihar. Movement to or from another state needs an e-way bill above ₹50,000."],
       ["How long is an e-way bill valid?", "For regular cargo, 1 day for every 200 km or part of it. For over-dimensional cargo, 1 day for every 20 km or part of it."],
       ["Can I make an e-way bill for an old invoice?", "Only if the invoice or challan is dated within the last 180 days."],
       ["How many times can an e-way bill be extended?", "It can be extended within 8 hours before or after expiry, up to a total of 360 days from when it was first generated."],
@@ -513,14 +542,14 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/best-billing-software-for-garment-shop",
     label: "Best billing software for garment shops (2026)",
-    title: "Best Billing Software for Garment Shops in India (2026 Buyer's Guide) | Ezzy ERP",
-    description: "How to choose billing software for a garment or clothing shop in India: the 8 features that matter, free apps vs accounting software vs retail ERP, and questions to ask in a demo.",
-    h1: "Best billing software for garment shops in India: a 2026 buyer's guide",
+    title: "Best Billing Software for Garment & Cloth Shops in India (2026 Guide) | Ezzy ERP",
+    description: "How to choose billing software for a garment, cloth or readymade shop in India: the 8 features that matter, free apps vs accounting software vs retail ERP, and questions to ask in a demo.",
+    h1: "Best billing software for garment and cloth shops in India: a 2026 buyer's guide",
     published: "2026-10-31",
-    updated: "2026-10-31",
+    updated: "2026-11-20",
     readMinutes: 7,
     intro: [
-      "Search for garment billing software and you get dozens of names, all promising GST bills and inventory. The difference shows only after you have entered your first big purchase: can the software keep stock by size and colour, print the tags, and handle an exchange at the counter without a mess?",
+      "Search for billing software for a garment shop, cloth shop or readymade store and you get dozens of names, all promising GST bills and inventory. The difference shows only after you have entered your first big purchase: can the software keep stock by size and colour, print the tags, and handle an exchange at the counter without a mess?",
       "This guide lists what a clothing shop actually needs, compares the three kinds of software shop owners usually pick from, and gives you questions to ask in any demo, including ours.",
     ],
     heroShot: ["shot-purchase.jpg", "Garment purchase entry in a size grid with barcode, rates and GST in Ezzy ERP"],
@@ -879,12 +908,14 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     path: "/blog/gst-on-clothes-above-2500",
+    alternate: "/blog/kapdon-par-gst-2026",
+    calculator: "piece",
     label: "GST on clothes: 5% up to ₹2,500, 18% above",
-    title: "GST on Clothes 2026: 5% or 18%? Rate Above ₹2,500, HSN Codes & Examples | Ezzy ERP",
-    description: "GST on clothes in 2026 is 5% if a piece sells for ₹2,500 or less and 18% above it. Rate table with HSN codes, worked examples for shirts, kurtas and blazers, and how discounts change the rate.",
+    title: "GST on Clothes 2026: 5% or 18%? Calculator, HSN Codes & Examples | Ezzy ERP",
+    description: "GST on clothes in 2026 is 5% if a piece sells for ₹2,500 or less and 18% above it. Free calculator for MRP and discounts, rate table with HSN codes, and worked examples.",
     h1: "GST on clothes in 2026: 5% up to ₹2,500, 18% above, and how to bill it right",
     published: "2026-10-29",
-    updated: "2026-11-08",
+    updated: "2026-11-20",
     readMinutes: 6,
     intro: [
       "Quick answer: GST on clothes in 2026 is 5% when a piece sells for ₹2,500 or less, and 18% when it sells for more. The rate is decided for each piece, after any discount on the bill. Footwear follows the same ₹2,500 rule per pair.",

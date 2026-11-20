@@ -13,7 +13,7 @@
 ## Pages
 
 - [Billing software for small business](https://ezzyerp.in/billing-software-for-small-business): billing, stock and GST for small shops in India.
-- [Garment shop billing software](https://ezzyerp.in/garment-shop-billing-software): size and colour stock, design-number labels, garment wholesale.
+- [Garment shop billing software](https://ezzyerp.in/garment-shop-billing-software): for garment, cloth, saree and readymade shops: size and colour stock, design-number labels, garment wholesale.
 - [Footwear shop billing software](https://ezzyerp.in/footwear-shop-billing-software): article and size-run stock, MRP billing for footwear stores.
 - [Wholesale billing software](https://ezzyerp.in/wholesale-billing-software): sale orders, delivery challans, party rates, ledgers and a field sales app.
 - [Retail inventory management software](https://ezzyerp.in/retail-inventory-management-software): live stock by size and colour, barcodes, reorder and dead stock reports.
@@ -22,7 +22,7 @@
 - [Garment manufacturing software](https://ezzyerp.in/garment-manufacturing-software): design cards with fabric per piece, fabric stock in metres, production lots, stages and job workers.
 - [Billing software in Navi Mumbai](https://ezzyerp.in/billing-software-navi-mumbai): on-site setup and support in Navi Mumbai, Thane and Mumbai.
 - [Blog](https://ezzyerp.in/blog): guides for Indian shop owners.
-- [GST on clothes: 5% up to ₹2,500, 18% above](https://ezzyerp.in/blog/gst-on-clothes-above-2500): how the per-piece slab, discounts and MRP-inclusive prices work.
+- [GST on clothes: 5% up to ₹2,500, 18% above](https://ezzyerp.in/blog/gst-on-clothes-above-2500): GST calculator, and how the per-piece slab, discounts and MRP-inclusive prices work.
 - [Barcode label sizes for clothing tags](https://ezzyerp.in/blog/garment-barcode-label-size): 38×25 vs 40×25 vs 50×25 mm, 2-up rolls, what to print.
 - [Size and colour stock in a garment shop](https://ezzyerp.in/blog/size-and-colour-stock-management-garment-shop): design numbers, size grids, size-wise reports.
 - [Best billing software for garment shops (2026 buyer's guide)](https://ezzyerp.in/blog/best-billing-software-for-garment-shop): features that matter, app vs accounting software vs garment ERP, demo questions.
@@ -32,7 +32,7 @@
 - [How to start a readymade garment shop in India](https://ezzyerp.in/blog/how-to-start-garment-shop-in-india): niche, location, registrations, suppliers, counter setup.
 - [GST changes from 1 November 2026](https://ezzyerp.in/blog/gst-changes-november-2026): post-sale discounts by credit note, refunds, scrap registration and TDS, what comes next.
 - [E-invoice limit 2026](https://ezzyerp.in/blog/e-invoice-limit-2026): ₹5 crore rule, 30-day reporting for ₹10 crore+, exemptions.
-- [E-way bill rules 2026](https://ezzyerp.in/blog/e-way-bill-rules-2026): ₹50,000 limit, validity, 180-day and 360-day rules, job work.
+- [E-way bill limit and rules 2026](https://ezzyerp.in/blog/e-way-bill-rules-2026): ₹50,000 between states, ₹1 lakh within Maharashtra, Delhi and Bihar, validity, 180-day and 360-day rules, job work.
 - [Wedding season checklist for garment and footwear shops](https://ezzyerp.in/blog/wedding-season-sale-checklist-garment-shop): stock, GST above ₹2,500, billing and WhatsApp offers.
 - [कपड़ों पर GST 2026 (Hindi)](https://ezzyerp.in/blog/kapdon-par-gst-2026): ₹2,500 तक 5%, ऊपर 18%.
 - [GST on footwear 2026](https://ezzyerp.in/blog/gst-on-footwear-2026): 5% up to ₹2,500 a pair, 18% above.
