@@ -14,11 +14,18 @@ import { BLOG_PATH, BLOG_HEAD, BLOG_POSTS } from "./pages/blog/posts";
  */
 export const routes: string[] = ["/", ...SEO_PAGES.map((page) => page.path), BLOG_PATH, ...BLOG_POSTS.map((post) => post.path), PRIVACY_PATH];
 
-/** Per-route <head> values that replace the home page's in the HTML template. Routes not listed keep the template's. */
-export const heads: Record<string, { title: string; description: string }> = {
+const hreflang = (post: { lang?: "hi" }) => (post.lang === "hi" ? "hi-IN" : "en-IN");
+
+/** Per-route <head> values that replace the home page's in the HTML template. Routes not listed keep the template's.
+ *  `alternates` lists the language versions of an article (itself included) as [hreflang, path]. */
+export const heads: Record<string, { title: string; description: string; alternates?: [string, string][] }> = {
   ...Object.fromEntries(SEO_PAGES.map((page) => [page.path, { title: page.title, description: page.description }])),
   [BLOG_PATH]: BLOG_HEAD,
-  ...Object.fromEntries(BLOG_POSTS.map((post) => [post.path, { title: post.title, description: post.description }])),
+  ...Object.fromEntries(BLOG_POSTS.map((post) => {
+    const other = BLOG_POSTS.find((p) => p.path === post.alternate);
+    const alternates: [string, string][] | undefined = other && [[hreflang(post), post.path], [hreflang(other), other.path]];
+    return [post.path, { title: post.title, description: post.description, alternates }];
+  })),
   [PRIVACY_PATH]: PRIVACY_HEAD,
 };
 

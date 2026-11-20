@@ -97,10 +97,10 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/garment-shop-billing-software",
     label: "Garment shop billing software",
-    title: "Garment Shop Billing Software — Size, Colour & Barcode | Ezzy ERP",
-    description: "Billing and inventory software for garment, clothing, saree and readymade shops: size-colour stock, design number barcode labels, GST and WhatsApp bills. Free demo.",
-    eyebrow: "Garments · Textiles · Readymade",
-    h1: "Billing software for garment and clothing shops",
+    title: "Garment Shop Billing Software for Cloth & Readymade Shops | Ezzy ERP",
+    description: "Billing software for garment, cloth, saree and readymade shops in India: size-colour stock, design number barcode tags, 5%/18% GST and WhatsApp bills. Free demo.",
+    eyebrow: "Garments · Cloth shops · Readymade",
+    h1: "Billing software for garment, cloth and readymade shops",
     intro: [
       "A garment shop does not sell “a shirt”. It sells a shirt in five sizes and four colours, from a design number, at an MRP printed on a tag. Ordinary billing software cannot keep that stock straight.",
       "Ezzy ERP was built around the size and colour matrix. Enter the purchase bill once in a size grid, print the barcode tags from the same screen, and bill at the counter with one scan.",
@@ -122,7 +122,7 @@ export const SEO_PAGES: SeoPageData[] = [
       {
         h2: "For every kind of clothing business",
         paras: [
-          "Ezzy ERP is used by boutiques, saree and dress material shops, kids wear stores, men's and ladies' readymade shops, and garment wholesalers. Wholesalers get sale orders, delivery challans, party-wise rates and ledgers in the same system.",
+          "Ezzy ERP is used by retail cloth shops, boutiques, saree and dress material shops, kids wear stores, men's and ladies' readymade garment shops, and garment wholesalers. Wholesalers get sale orders, delivery challans, party-wise rates and ledgers in the same system.",
         ],
       },
       {
@@ -159,6 +159,7 @@ export const SEO_PAGES: SeoPageData[] = [
     ],
     faqs: [
       ["Which billing software is best for a garment shop?", "Choose software that tracks stock by size and colour, prints barcode tags from the purchase bill, and handles exchanges. Ezzy ERP does all three, along with GST billing, customer ledgers and an Android app."],
+      ["Is it billing software for a cloth shop or readymade garment shop?", "Yes. Retail cloth shops and readymade garment shops use the same size grid, design number barcode tags, exchange billing and per-piece GST, whether they sell menswear, ladies wear, kids wear or sarees."],
       ["Can Ezzy ERP print garment barcode tags?", "Yes. Print design number, size, colour and MRP labels straight from the purchase bill on 38×25 or 40×25 2-up labels, using a TSC or similar barcode printer that we can supply."],
       ["Does it work for garment wholesale?", "Yes. Wholesalers use sale orders, delivery challans, party-wise rates, credit notes and customer ledgers, with statements sent on WhatsApp."],
       ["Can I see stock size-wise?", "Yes. Stock is tracked by product, size and colour, and the reports show size-wise stock, top sellers and dead stock."],
