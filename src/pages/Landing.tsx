@@ -5,7 +5,7 @@ import {
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
 import { SEO_PAGES } from "./seo/pages";
-import { BlogMenu } from "./seo/SiteChrome";
+import { BlogMenu, MobileMenu, navLinks } from "./seo/SiteChrome";
 
 /* ------------------------------------------------------------------ *
  * Ezzy ERP — public marketing landing page.
@@ -466,13 +466,14 @@ export default function Landing() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP — Smart Billing. Seamless Inventory. Easy Barcode Management." style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {[["#top", "Home"], ["#industries", "Industries"], ["#modules", "Modules"], ["#inside", "Software"], ["#hardware", "Hardware"], ["#mobile", "Mobile app"]].map(([href, label]) => (
+            {navLinks(true).map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <BlogMenu />
             <a href="#demo" className="ezl-btn" style={{ padding: "11px 22px" }}>
               <Icon name="ph-calendar-check" size={18} /><span className="ezl-cta-label">Book free demo</span><span className="ezl-cta-short" style={{ display: "none" }}>Demo</span>
             </a>
+            <MobileMenu home />
           </nav>
         </div>
       </header>
