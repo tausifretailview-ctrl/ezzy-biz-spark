@@ -1,3 +1,4 @@
+import { useRef, type MouseEvent } from "react";
 import { APP_LOGIN, LOGO, PHONE, TEL, MAIL, ADDRESS, GOOGLE_PROFILE, DIRECTIONS, waLink, NAVY, LINE, track } from "../site";
 import { SEO_PAGES } from "./pages";
 import { BLOG_PATH, BLOG_POSTS } from "../blog/posts";
@@ -12,7 +13,7 @@ export function Icon({ name, size, color }: { name: string; size: number; color?
 }
 
 /** "Blogs" item for the main menu: links to /blog and opens a list of every post on hover or keyboard focus.
- *  Like the other menu links it is hidden on phones and small tablets (landing.css). */
+ *  Like the other menu links it is hidden on phones and small tablets (landing.css), where MobileMenu takes over. */
 export function BlogMenu() {
   return (
     <div className="ezl-navlink ezl-navdrop">
@@ -31,6 +32,41 @@ export function BlogMenu() {
         </div>
       </div>
     </div>
+  );
+}
+
+/** The main menu's section links. `home` is true on the landing page, where they are in-page anchors. */
+export const navLinks = (home = false): [href: string, label: string][] =>
+  ([["top", "Home"], ["industries", "Industries"], ["modules", "Modules"], ["inside", "Software"], ["hardware", "Hardware"], ["mobile", "Mobile app"]] as const)
+    .map(([id, label]) => [home ? `#${id}` : id === "top" ? "/" : `/#${id}`, label]);
+
+/** The menu for phones and tablets, where the row of menu links does not fit (landing.css shows it at 1080px and
+ *  below). Built on <details> so it opens before the page's JavaScript has loaded. */
+export function MobileMenu({ home = false }: { home?: boolean }) {
+  const menu = useRef<HTMLDetailsElement>(null);
+  // An in-page link (#modules) doesn't reload the page, so close the menu by hand.
+  const closeOnLink = (e: MouseEvent) => { if ((e.target as HTMLElement).closest("a")) menu.current?.removeAttribute("open"); };
+  const chevron = <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+  return (
+    <details className="ezl-mnav" ref={menu}>
+      <summary aria-label="Menu">
+        <svg className="ezl-mnav-open" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        <svg className="ezl-mnav-close" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+      </summary>
+      <div className="ezl-mnav-panel" onClick={closeOnLink}>
+        {navLinks(home).map(([href, label]) => <a key={href} href={href}>{label}</a>)}
+        <details className="ezl-mnav-sub">
+          <summary>Solutions{chevron}</summary>
+          {SEO_PAGES.map((p) => <a key={p.path} href={p.path}>{p.label}</a>)}
+        </details>
+        <details className="ezl-mnav-sub" open>
+          <summary>Blogs{chevron}</summary>
+          <a href={BLOG_PATH} style={{ fontWeight: 600, color: "#1D4ED8" }}>All guides for shop owners →</a>
+          {BLOG_POSTS.map((p) => <a key={p.path} href={p.path} lang={p.lang}>{p.label}</a>)}
+        </details>
+        <a href={APP_LOGIN} rel="noopener" onClick={() => track("login_click", { location: "menu" })}>Customer login</a>
+      </div>
+    </details>
   );
 }
 
@@ -59,13 +95,14 @@ export function SiteHeader() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP home" style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {[["/", "Home"], ["/#industries", "Industries"], ["/#modules", "Modules"], ["/#inside", "Software"], ["/#hardware", "Hardware"], ["/#mobile", "Mobile app"]].map(([href, label]) => (
+            {navLinks().map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <BlogMenu />
             <a href="/#demo" className="ezl-btn" style={{ padding: "11px 22px" }}>
               <Icon name="ph-calendar-check" size={18} /><span className="ezl-cta-label">Book free demo</span><span className="ezl-cta-short" style={{ display: "none" }}>Demo</span>
             </a>
+            <MobileMenu />
           </nav>
         </div>
       </header>
