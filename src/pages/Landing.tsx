@@ -4,8 +4,8 @@ import {
   APP_LOGIN, IMG, LOGO, HIGH_PRIORITY, PHONE, TEL, MAIL, SITE, STREET, ADDRESS, GOOGLE_PROFILE, INSTAGRAM, DIRECTIONS, waLink, webpSet, ORG_ID,
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
-import { SEO_PAGES } from "./seo/pages";
-import { BlogMenu, MobileMenu, navLinks } from "./seo/SiteChrome";
+import { SEO_PAGES, SERVICE_PAGES } from "./seo/pages";
+import { BlogMenu, MobileMenu, navLinks, SERVICES_LINK } from "./seo/SiteChrome";
 
 /* ------------------------------------------------------------------ *
  * Ezzy ERP — public marketing landing page.
@@ -466,7 +466,7 @@ export default function Landing() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP — Smart Billing. Seamless Inventory. Easy Barcode Management." style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {navLinks(true).map(([href, label]) => (
+            {[...navLinks(true), SERVICES_LINK].map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <BlogMenu />
@@ -746,6 +746,23 @@ export default function Landing() {
               <Icon name="ph-quotes" size={30} color="#3B82F6" />
               <p style={{ margin: "14px 0 0", fontSize: 20, fontStyle: "italic", lineHeight: 1.45 }}>{quote}</p>
               <footer style={{ marginTop: 18, fontSize: 13.5, letterSpacing: ".06em", textTransform: "uppercase", color: SOFT }}>{who}</footer>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* custom development services */}
+      <section id="services" className="ezl-sec" style={{ padding: "78px 24px 20px", scrollMarginTop: 70 }}>
+        <Reveal as="p" className="ezl-eyebrow">Custom development</Reveal>
+        <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "22ch" }}>Need something built for your business?</Reveal>
+        <Reveal as="p" className="ezl-lead">The team that builds Ezzy ERP also takes up custom projects for industrial units, corporate offices, wholesalers and retailers.</Reveal>
+        <div className="ezl-grid ezl-auto-270" style={{ marginTop: 34 }}>
+          {SERVICE_PAGES.map((page) => (
+            <Reveal key={page.path} className="ezl-card">
+              <div className="ezl-tile" style={{ background: "#EFF6FF" }}><Icon name={page.service!.icon} size={28} color="#2563EB" /></div>
+              <h3 style={{ margin: "20px 0 6px", fontSize: 23, lineHeight: 1.15 }}>{page.label}</h3>
+              <p style={{ margin: 0, fontSize: 15.5, color: SOFT }}>{page.service!.summary}</p>
+              <a href={page.path} style={{ display: "inline-block", marginTop: 16, fontSize: 15 }}>{page.label} →</a>
             </Reveal>
           ))}
         </div>

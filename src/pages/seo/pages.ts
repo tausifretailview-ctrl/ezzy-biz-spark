@@ -12,6 +12,8 @@ export type SeoSection = {
   paras?: string[];
   points?: [title: string, text: string][];
   shot?: [file: string, alt: string];
+  /** Phone screenshots (public/landing/app-*.jpg) shown side by side under the section. */
+  phones?: [file: string, alt: string][];
 };
 
 export type SeoPageData = {
@@ -30,7 +32,22 @@ export type SeoPageData = {
   trade?: string;
   /** Blog posts (paths from ../blog/posts.ts) listed under "Guides for shop owners". */
   guides?: string[];
+  /**
+   * Set on the custom development pages. They sell the team's time, not Ezzy ERP, so the page
+   * asks for a project enquiry instead of a demo and carries its own enquiry form.
+   * `name` is the service as it appears in the form, WhatsApp message and schema.
+   */
+  service?: { name: string; icon: string; summary: string };
 };
+
+const ENQUIRY_FAQ: [string, string] = [
+  "How do we start?",
+  `Send the enquiry form on this page, or call or WhatsApp ${PHONE}. We talk through what you need, and then share a written scope and quotation.`,
+];
+const COST_FAQ: [string, string] = [
+  "How much does it cost?",
+  "It depends on what has to be built. We first understand the requirement, then give a written scope and quotation, so you know what is included before work starts.",
+];
 
 const DEMO_FAQ: [string, string] = [
   "How do I get a free demo?",
@@ -568,4 +585,190 @@ export const SEO_PAGES: SeoPageData[] = [
       DEMO_FAQ,
     ],
   },
+
+  /* ---- Custom development services (same team, sold as projects, not as Ezzy ERP) ---- */
+  {
+    path: "/custom-software-development",
+    label: "Custom software development",
+    title: "Custom Software Development Company in Navi Mumbai, India | Ezzy ERP",
+    description: "Custom software for industrial units and corporate offices in India: ERP, production, dispatch, dealer and approval systems, built by the Navi Mumbai team behind Ezzy ERP. Send an enquiry.",
+    eyebrow: "Industrial · Corporate · Custom software",
+    h1: "Custom software development for industrial and corporate businesses",
+    intro: [
+      "Packaged software fits most shops. A factory, a distributor network or a corporate office often does not fit: the process is your own, and work ends up in spreadsheets, registers and WhatsApp groups around the software.",
+      "Our development team builds software around that process. It is the same team that builds and supports Ezzy ERP, the billing, inventory and GST software used by more than 2,000 shops, wholesalers and distributors in India.",
+    ],
+    heroShot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with sales, invoices, stock value and receivables, built and supported by our development team"],
+    service: { name: "Custom software", icon: "ph-factory", summary: "Software built around your own process, for factories, distributors and corporate offices." },
+    sections: [
+      {
+        h2: "What we build",
+        points: [
+          ["Custom ERP and business software", "Sales, purchase, stock, accounts and reports shaped to how your company already works."],
+          ["Production and job work", "Orders into production, material issued, stages, job workers and finished goods into stock."],
+          ["Inventory and warehouse", "Stock by location, batch or serial number, with barcode labels, transfers and stock checks."],
+          ["Dealer and distributor systems", "Dealer orders, schemes, dispatch and outstanding, with a login for each dealer or salesman."],
+          ["Approvals and internal workflows", "Requests, approvals and records that today move on paper, email or chat."],
+          ["Dashboards and MIS reports", "The figures the owner and managers ask for every week, ready without anyone compiling them."],
+        ],
+        shot: ["shot-insights.jpg", "Business insights screen from Ezzy ERP with sales trends, stock health and reorder analysis"],
+      },
+      {
+        h2: "Why work with the team behind Ezzy ERP",
+        points: [
+          ["We run software in daily use", "Ezzy ERP bills at shop counters every day, so we build for speed, wrong entries, power cuts and busy days, not only for a demo."],
+          ["Indian business rules are familiar", "GST invoices, e-invoice, e-way bill, party ledgers and Tally export are already part of what we build."],
+          ["Web, Android and Windows", "One system the office uses on a computer and the field team uses on a phone."],
+          ["Barcode and printing", "Barcode labels, scanners and thermal printers set up to work with the software."],
+          ["Support after go-live", "The team that builds your software trains your staff and supports it, in English, Hindi or Marathi."],
+          ["A Navi Mumbai office", "You can meet us at Kopar Khairane, Navi Mumbai. We work with companies across India on call and video."],
+        ],
+      },
+      {
+        h2: "How a project runs",
+        points: [
+          ["1. Understand the work", "We sit with the people who do the work, and note every step, form and report you use today."],
+          ["2. Written scope and quotation", "You get the screens, reports and users we will deliver, in writing, before anything is built."],
+          ["3. Build in stages", "You see working screens at each stage and correct them early, instead of waiting for one big handover."],
+          ["4. Data, training and go-live", "We help move your masters and opening data, train your staff and stay with you through the first days."],
+          ["5. Support and changes", "Your business will change. We keep the software running and add to it when it does."],
+        ],
+      },
+      {
+        h2: "Should you build custom software or buy ready software?",
+        paras: [
+          "Ready software is quicker and costs less when your work matches it. If you run a shop, a wholesale counter or a small manufacturing unit, look at Ezzy ERP first: billing, stock, GST, accounts and a mobile app are already there.",
+          "Custom software is worth it when the process itself is your advantage, when several departments must work in one system, or when you have tried packaged software and still depend on spreadsheets. We will tell you plainly which one suits you.",
+        ],
+      },
+    ],
+    faqs: [
+      ["What kind of companies do you build software for?", "Industrial units, manufacturers, distributors and corporate offices that need software shaped to their own process, as well as retail and wholesale businesses that have outgrown packaged software."],
+      ["Do you also build mobile apps and online stores?", "Yes. We build Android apps for owners, staff and field teams, and e-commerce and B2B ordering websites. See the mobile app development and e-commerce development pages."],
+      ["Can the software handle GST, e-invoice and e-way bill?", "Yes. GST invoices, e-invoice IRN, e-way bill, ledgers and Tally export are part of Ezzy ERP, and we build the same into custom systems where your work needs them."],
+      ["Will you support the software after it is delivered?", "Yes. The team that builds it trains your staff and supports it after go-live, and takes up changes as your business grows."],
+      ["Where are you located?", "Ezzy ERP (Adtech ERP Solutions) is at Shop No.2, Mittal Tower, Sector 1, Kopar Khairane, Navi Mumbai. We work with companies across India."],
+      COST_FAQ,
+      ENQUIRY_FAQ,
+    ],
+    trade: "Custom software",
+  },
+  {
+    path: "/mobile-app-development",
+    label: "Mobile app development",
+    title: "Mobile App Development for Business — Android Apps | Ezzy ERP, Navi Mumbai",
+    description: "Android app development for Indian businesses: owner dashboards, field sales and order apps that work offline, dealer and customer apps. Built by the team behind the Ezzy ERP app.",
+    eyebrow: "Android apps · Field teams · Owners",
+    h1: "Mobile app development for your business",
+    intro: [
+      "A business app has one job: put the right figure or the right form in someone's hand when they are away from the desk. The owner wants today's sale. The salesman wants to book an order in the market, where the network drops.",
+      "We build these apps for a living. The Ezzy ERP Android app gives owners their sales, stock and dues, and lets salesmen take orders and collect outstanding offline, then sync later.",
+    ],
+    heroShot: ["shot-insights.jpg", "Sales trends and stock health in Ezzy ERP, the data our mobile apps show owners on the phone"],
+    service: { name: "Mobile app", icon: "ph-device-mobile-camera", summary: "Android apps for owners, staff and field teams, including apps that work offline." },
+    sections: [
+      {
+        h2: "Apps we build",
+        points: [
+          ["Owner and management apps", "Sales, stock, collections and dues on the phone, in a read-only view that is safe to share."],
+          ["Field sales and order apps", "Salesmen book orders, record visits and collect payments at the customer's shop."],
+          ["Apps that work offline", "Entries are saved on the phone when there is no network and synced when it returns."],
+          ["Dealer and customer apps", "Your dealers or customers place orders, see their ledger and track dispatch themselves."],
+          ["Staff and operations apps", "Stock checks, barcode scanning, delivery updates and approvals from the shop floor or godown."],
+          ["Apps for your existing software", "A mobile front end for the ERP or billing software your office already uses."],
+        ],
+        phones: [
+          ["app-newsale.jpg", "Ezzy ERP Android app, new sale screen with barcode search and payment modes"],
+          ["app-home.jpg", "Ezzy ERP Android app home with today's revenue, profit and outstanding"],
+          ["app-reports.jpg", "Ezzy ERP Android app reports screen"],
+        ],
+      },
+      {
+        h2: "What makes a business app work",
+        points: [
+          ["Few taps for the daily job", "The screen a salesman uses fifty times a day is designed first, and kept short."],
+          ["One source of data", "The app and the office software read the same data, so nobody types an order twice."],
+          ["Logins and rights", "Each user sees only their own customers, orders and reports."],
+          ["Built for ordinary phones", "Apps are tested on the mid-range Android phones your staff actually carry."],
+        ],
+      },
+      {
+        h2: "From idea to an app on your team's phones",
+        points: [
+          ["1. Agree the screens", "We list who will use the app and what each person must be able to do in it."],
+          ["2. Written scope and quotation", "You get the screens and features we will deliver, in writing."],
+          ["3. Build and try", "Your team tries working builds and we correct them before the full rollout."],
+          ["4. Roll out and support", "We help install the app, train your team and support it afterwards."],
+        ],
+      },
+    ],
+    faqs: [
+      ["Which kind of mobile apps do you build?", "Android apps for business use: owner dashboards, field sales and order apps, dealer and customer apps, and staff apps for stock, delivery and approvals."],
+      ["Can the app work without internet?", "Yes. We build apps that save entries on the phone when there is no network and sync when it returns, the way the Ezzy ERP field sales app does."],
+      ["Can the app connect to our existing software?", "Usually yes, if your software can share its data. We check this first and tell you what is possible before quoting."],
+      ["Do you also build the office software behind the app?", "Yes. Most business apps need a web panel for the office. See custom software development."],
+      COST_FAQ,
+      ENQUIRY_FAQ,
+    ],
+    trade: "Mobile app",
+  },
+  {
+    path: "/ecommerce-development",
+    label: "E-commerce development",
+    title: "E-Commerce Website Development & B2B Ordering Portals | Ezzy ERP, Navi Mumbai",
+    description: "E-commerce solutions for Indian businesses: online stores, B2B dealer ordering portals and catalogues, with orders and stock kept in step with your billing. Send an enquiry.",
+    eyebrow: "Online store · B2B ordering · Catalogue",
+    h1: "E-commerce solutions for retailers, wholesalers and manufacturers",
+    intro: [
+      "Selling online is easy to start and hard to run. Orders arrive on a website, stock sits in the shop, and someone copies one into the other every evening. Stock goes wrong, and a customer orders a piece that was sold at the counter that morning.",
+      "We build online stores and ordering portals as part of your business system, not beside it. Our team makes Ezzy ERP, so stock, billing and GST are where we start from.",
+    ],
+    heroShot: ["shot-pos.jpg", "Ezzy ERP billing screen, where online and counter sales share the same stock"],
+    service: { name: "E-commerce", icon: "ph-shopping-cart-simple", summary: "Online stores and B2B ordering portals that stay in step with your stock and billing." },
+    sections: [
+      {
+        h2: "What we build",
+        points: [
+          ["Online store for your shop or brand", "Your products with photos, sizes, colours and prices, a cart and checkout, on your own domain."],
+          ["B2B ordering portal", "Dealers and retailers log in, see their own rates and place orders at any hour."],
+          ["Product catalogue", "A catalogue your customers browse and enquire from on WhatsApp, when you are not ready for full checkout."],
+          ["Orders into billing and stock", "Online orders become invoices, and stock is reduced once, in one place."],
+          ["Payments and delivery", "Online payment and cash on delivery options, with order status your customer can follow."],
+          ["Offers and customer accounts", "Coupons, schemes, order history and repeat orders for returning customers."],
+        ],
+        shot: ["shot-purchase.jpg", "Size grid purchase entry in Ezzy ERP, the stock that an online store sells from"],
+      },
+      {
+        h2: "Built for how Indian businesses sell",
+        points: [
+          ["Size and colour variants", "One design in many sizes and colours, with stock shown for each, as garment and footwear sellers need."],
+          ["GST on every order", "Tax worked out per item, with invoices your accountant can use."],
+          ["Retail and wholesale together", "Retail prices for the public and party-wise rates for dealers, on one system."],
+          ["WhatsApp in the flow", "Order updates and invoices sent to the customer on WhatsApp."],
+        ],
+      },
+      {
+        h2: "From product list to first online order",
+        points: [
+          ["1. Decide what to sell online", "We agree the products, prices, delivery areas and who can order."],
+          ["2. Written scope and quotation", "You get the pages and features we will deliver, in writing."],
+          ["3. Build and load products", "We set up the store, help load your products and test orders end to end."],
+          ["4. Launch and support", "We train your staff to handle orders and support the store after launch."],
+        ],
+      },
+    ],
+    faqs: [
+      ["Do you build online stores for small shops as well as large businesses?", "Yes. A single shop can start with a catalogue or a simple store, and a wholesaler or manufacturer can run a full B2B ordering portal for dealers."],
+      ["Can the online store share stock with my shop?", "That is how we prefer to build it: one stock for the counter and the website, so an item sold in the shop is not sold again online."],
+      ["Can dealers get their own prices?", "Yes. In a B2B portal each dealer logs in and sees the rates and schemes that apply to them."],
+      ["Do you also build a mobile app for the store?", "Yes. See mobile app development for ordering apps for customers, dealers and salesmen."],
+      COST_FAQ,
+      ENQUIRY_FAQ,
+    ],
+    trade: "E-commerce",
+  },
 ];
+
+/** Custom development pages, and the Ezzy ERP pages without them. */
+export const SERVICE_PAGES = SEO_PAGES.filter((page) => page.service);
+export const PRODUCT_PAGES = SEO_PAGES.filter((page) => !page.service);

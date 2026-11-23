@@ -4,8 +4,9 @@ import {
   IMG, HIGH_PRIORITY, PHONE, TEL, MAIL, SITE, waLink, webpSet, ORG_ID,
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track,
 } from "../site";
-import { SEO_PAGES, type SeoPageData } from "./pages";
+import { PRODUCT_PAGES, SERVICE_PAGES, type SeoPageData } from "./pages";
 import { Icon, SiteHeader, SiteFooter, Floats } from "./SiteChrome";
+import EnquiryForm from "./EnquiryForm";
 import { BLOG_POSTS } from "../blog/posts";
 
 /* ------------------------------------------------------------------ *
@@ -64,6 +65,18 @@ function jsonLd(page: SeoPageData) {
           { "@type": "ListItem", position: 2, name: page.label, item: url },
         ],
       },
+      ...(page.service
+        ? [{
+            "@type": "Service",
+            "@id": `${url}#service`,
+            name: page.label,
+            serviceType: page.label,
+            description: page.description,
+            url,
+            provider: { "@id": ORG_ID },
+            areaServed: { "@type": "Country", name: "India" },
+          }]
+        : []),
       {
         "@type": "FAQPage",
         mainEntity: page.faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
@@ -79,9 +92,16 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
     captureLeadSource();
   }, []);
 
-  const related = SEO_PAGES.filter((p) => p.path !== page.path);
+  // A development page lists the other services first; an Ezzy ERP page lists the other Ezzy ERP pages first.
+  const related = (page.service ? [...SERVICE_PAGES, ...PRODUCT_PAGES] : [...PRODUCT_PAGES, ...SERVICE_PAGES]).filter((p) => p.path !== page.path);
   const guides = BLOG_POSTS.filter((post) => page.guides?.includes(post.path));
-  const waText = `Hi, I found Ezzy ERP while looking for ${page.label.toLowerCase()}. Please share a demo.`;
+  const waText = page.service
+    ? `Hi, I found Ezzy ERP while looking for ${page.label.toLowerCase()}. I'd like to discuss a project.`
+    : `Hi, I found Ezzy ERP while looking for ${page.label.toLowerCase()}. Please share a demo.`;
+  // The development pages ask for a project enquiry, on the page itself, instead of a demo.
+  const cta = page.service
+    ? { href: "#enquiry", icon: "ph-envelope-simple", label: "Discuss your project" }
+    : { href: "/#demo", icon: "ph-calendar-check", label: "Book a free demo" };
 
   return (
     <div className="ezzy-landing">
@@ -103,7 +123,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
                   <p key={i} style={{ margin: "20px 0 0", fontSize: 19, maxWidth: "52ch", color: "rgba(255,255,255,.8)" }}>{p}</p>
                 ))}
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 32 }}>
-                  <a href="/#demo" className="ezl-btn ezl-btn-lg"><Icon name="ph-calendar-check" size={20} />Book a free demo</a>
+                  <a href={cta.href} className="ezl-btn ezl-btn-lg"><Icon name={cta.icon} size={20} />{cta.label}</a>
                   <a href={waLink(waText)} target="_blank" rel="noopener" className="ezl-btn-ghost" onClick={() => track("whatsapp_click", { location: page.path })}><Icon name="ph-whatsapp-logo" size={20} />WhatsApp {PHONE}</a>
                 </div>
               </div>
@@ -135,7 +155,16 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
                 <img src={`${IMG}/${sec.shot[0]}`} srcSet={webpSet(`${IMG}/${sec.shot[0]}`)} sizes="(max-width: 1030px) 92vw, 980px" width={1366} height={700} alt={sec.shot[1]} loading="lazy" style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, border: `1px solid ${LINE}` }} />
               </figure>
             )}
-            {i === 0 && (
+            {sec.phones && (
+              <div style={{ display: "grid", gridTemplateColumns: `repeat(${sec.phones.length}, minmax(0, 200px))`, gap: "clamp(10px, 2.4vw, 22px)", margin: "40px 0 0" }}>
+                {sec.phones.map(([file, alt]) => (
+                  <figure key={file} style={{ margin: 0, background: NAVY, borderRadius: "clamp(16px, 4vw, 30px)", padding: "clamp(4px, 1vw, 8px)", boxShadow: "0 20px 46px rgba(15,23,42,.24)" }}>
+                    <img src={`${IMG}/${file}`} srcSet={webpSet(`${IMG}/${file}`, [280, 560])} sizes="(max-width: 560px) 30vw, 200px" width={560} height={1115} alt={alt} loading="lazy" style={{ width: "100%", height: "auto", display: "block", borderRadius: "clamp(12px, 3vw, 23px)" }} />
+                  </figure>
+                ))}
+              </div>
+            )}
+            {i === 0 && !page.service && (
               <p style={{ margin: "30px 0 0", fontSize: 17 }}>
                 <a href="/#modules">See all 12 modules</a> · <a href="/#inside">Look inside the software</a> · <a href="/#hardware">Printers and scanners</a>
               </p>
@@ -160,7 +189,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
 
         {/* faq */}
         <section className="ezl-sec">
-          <h2 className="ezl-h2">Questions shop owners ask us</h2>
+          <h2 className="ezl-h2">{page.service ? "Questions clients ask us" : "Questions shop owners ask us"}</h2>
           <div style={{ marginTop: 28, display: "grid", gap: 12, maxWidth: 900 }}>
             {page.faqs.map(([q, a]) => (
               <details key={q} style={{ border: `1px solid ${LINE}`, borderRadius: 10, padding: "16px 20px", background: "#fff" }}>
@@ -184,7 +213,25 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
           </div>
         </section>
 
+        {/* project enquiry (development pages) */}
+        {page.service && (
+          <section id="enquiry" className="ezl-sec" style={{ padding: "60px 24px 30px", scrollMarginTop: 80 }}>
+            <div className="ezl-grid ezl-auto-330" style={{ alignItems: "start" }}>
+              <div>
+                <p className="ezl-eyebrow">Project enquiry · no obligation</p>
+                <h2 className="ezl-h2" style={{ fontSize: "clamp(30px,3.4vw,48px)", lineHeight: 1.06, maxWidth: "18ch" }}>Tell us what you need built.</h2>
+                <p className="ezl-lead" style={{ margin: "18px 0 0", maxWidth: "42ch" }}>A few lines are enough. Our team calls you to understand the requirement, and then shares a written scope and quotation.</p>
+                <p style={{ margin: "24px 0 0", fontSize: 18 }}>
+                  Prefer to talk? <a href={TEL} onClick={() => track("phone_click", { location: `${page.path}#enquiry` })}>{PHONE}</a> · <a href={waLink(waText)} target="_blank" rel="noopener" onClick={() => track("whatsapp_click", { location: `${page.path}#enquiry` })}>WhatsApp</a> · <a href={`mailto:${MAIL}`}>{MAIL}</a>
+                </p>
+              </div>
+              <EnquiryForm service={page.service.name} />
+            </div>
+          </section>
+        )}
+
         {/* closing cta */}
+        {!page.service && (
         <section style={{ background: PALE, marginTop: 50 }}>
           <div className="ezl-wrap" style={{ padding: "60px 24px", display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between" }}>
             <div>
@@ -197,6 +244,7 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
             </div>
           </div>
         </section>
+        )}
       </main>
 
       <SiteFooter />

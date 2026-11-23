@@ -21,6 +21,9 @@
 - [E-invoice software](https://ezzyerp.in/e-invoice-software): generate GST e-invoice IRN and signed QR code from the sale bill, cancel IRN, e-invoice report.
 - [Garment manufacturing software](https://ezzyerp.in/garment-manufacturing-software): design cards with fabric per piece, fabric stock in metres, production lots, stages and job workers.
 - [Billing software in Navi Mumbai](https://ezzyerp.in/billing-software-navi-mumbai): on-site setup and support in Navi Mumbai, Thane and Mumbai.
+- [Custom software development](https://ezzyerp.in/custom-software-development): custom ERP, production, dispatch, dealer and approval systems for industrial units and corporate offices, by the team behind Ezzy ERP.
+- [Mobile app development](https://ezzyerp.in/mobile-app-development): Android apps for owners, field sales teams, dealers and staff, including apps that work offline.
+- [E-commerce development](https://ezzyerp.in/ecommerce-development): online stores, B2B dealer ordering portals and catalogues that stay in step with stock and billing.
 - [Blog](https://ezzyerp.in/blog): guides for Indian shop owners.
 - [GST on clothes: 5% up to ₹2,500, 18% above](https://ezzyerp.in/blog/gst-on-clothes-above-2500): GST calculator, and how the per-piece slab, discounts and MRP-inclusive prices work.
 - [Barcode label sizes for clothing tags](https://ezzyerp.in/blog/garment-barcode-label-size): 38×25 vs 40×25 vs 50×25 mm, 2-up rolls, what to print.
