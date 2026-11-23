@@ -5,6 +5,7 @@ import {
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
 import { SEO_PAGES, SERVICE_PAGES } from "./seo/pages";
+import { SAVE_WAIT_MS, saveLead, settleWithin, startWhatsAppChat } from "./leads";
 import { BlogMenu, MobileMenu, navLinks, SERVICES_LINK } from "./seo/SiteChrome";
 
 /* ------------------------------------------------------------------ *
@@ -393,9 +394,8 @@ export default function Landing() {
     setSending(true);
     setFailed(null);
 
-    // Every demo request also lands on our WhatsApp with the details filled in.
-    // Open the tab now, inside the click, because browsers block pop-ups opened
-    // after an await. It is pointed at WhatsApp once the lead is saved.
+    // Every demo request also lands in a WhatsApp chat with our number, the
+    // details already typed, as soon as the lead is saved (see ./leads.ts).
     const waText = [
       "Hi Ezzy ERP, I'd like to book a free demo.",
       `Name: ${lead.name ?? ""}`,
@@ -406,38 +406,28 @@ export default function Landing() {
       lead.note && `Notes: ${lead.note}`,
     ].filter(Boolean).join("\n");
     const waUrl = waLink(waText);
-    const waTab = window.open("", "_blank");
-    if (waTab) waTab.opener = null;
-    const openWhatsApp = () => {
-      if (waTab && !waTab.closed) waTab.location.href = waUrl;
-      else window.location.href = waUrl;
+    const chat = startWhatsAppChat(waText);
+
+    const finish = (saved: boolean) => {
+      setSending(false);
+      if (!saved) {
+        // The details still reach us on WhatsApp.
+        setFailed(waUrl);
+        track("demo_request_failed");
+        return;
+      }
+      track("generate_lead", { form: "demo", trade: lead.trade, ...src });
+      setSent(phone || "your number");
+      setWaSent(waUrl);
     };
 
-    // Save the lead with its source. If the source columns are not live in the
-    // database yet, retry with the source folded into the note so the lead is
-    // never lost to a schema mismatch.
-    // Loaded on submit so the database client stays out of the page's first download.
-    const { supabase } = await import("@/integrations/supabase/client");
-    let { error } = await supabase.from("demo_requests").insert({ ...lead, ...src });
-    if (error && Object.keys(src).length) {
-      const tag = Object.entries(src).map(([k, v]) => `${k}=${v}`).join(" ");
-      ({ error } = await supabase.from("demo_requests").insert({ ...lead, note: [lead.note, `[${tag}]`].filter(Boolean).join(" ") }));
-    }
-    setSending(false);
-
-    if (error) {
-      // Last resort: hand the details to WhatsApp so the visitor can still reach us.
-      console.error("demo_requests insert failed", error);
-      setFailed(waUrl);
-      track("demo_request_failed");
-      openWhatsApp();
-      return;
-    }
-
-    track("generate_lead", { form: "demo", trade: lead.trade, ...src });
-    setSent(phone || "your number");
-    setWaSent(waUrl);
-    openWhatsApp();
+    // Save the lead with its source, then straight into the WhatsApp chat (whether or
+    // not the save worked). A slow save does not hold WhatsApp back.
+    const saving = saveLead(lead, src);
+    const early = await settleWithin(saving, SAVE_WAIT_MS);
+    if (early !== null) finish(early);
+    chat.go();
+    if (early === null) finish(await saving);
   }
 
   const s = SLIDES[slide];

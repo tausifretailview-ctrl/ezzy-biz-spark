@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { PHONE, PALE, SOFT, captureLeadSource, track, waLink } from "../site";
+import { SAVE_WAIT_MS, saveLead, settleWithin, startWhatsAppChat } from "../leads";
 import { SERVICE_PAGES } from "./pages";
 
 /* ------------------------------------------------------------------ *
@@ -9,9 +10,9 @@ import { SERVICE_PAGES } from "./pages";
  * It saves to the same demo_requests table as the home page's demo
  * form, with `trade` set to the service ("Custom software", "Mobile
  * app", "E-commerce"), so these leads sit in the same list and can be
- * told apart. Like the demo form it also opens WhatsApp with the
- * details filled in, so an enquiry reaches the team even if the save
- * fails.
+ * told apart. Like the demo form it then opens a WhatsApp chat with
+ * our number, the details already typed, so an enquiry reaches the
+ * team even if the save fails.
  * ------------------------------------------------------------------ */
 
 const NEEDS = [...SERVICE_PAGES.map((page) => page.service!.name), "Not sure yet"];
@@ -43,36 +44,27 @@ export default function EnquiryForm({ service }: { service: string }) {
       lead.note && `Requirement: ${lead.note}`,
     ].filter(Boolean).join("\n");
     const waUrl = waLink(waText);
-    // Opened inside the click: browsers block pop-ups opened after an await.
-    const waTab = window.open("", "_blank");
-    if (waTab) waTab.opener = null;
-    const openWhatsApp = () => {
-      if (waTab && !waTab.closed) waTab.location.href = waUrl;
-      else window.location.href = waUrl;
+    const chat = startWhatsAppChat(waText);
+
+    const finish = (saved: boolean) => {
+      setSending(false);
+      if (!saved) {
+        setFailed(waUrl);
+        track("demo_request_failed", { form: "enquiry" });
+        return;
+      }
+      track("generate_lead", { form: "enquiry", trade: lead.trade, ...src });
+      setSent(phone || "your number");
+      setWaSent(waUrl);
     };
 
-    // Loaded on submit so the database client stays out of the page's first download.
-    const { supabase } = await import("@/integrations/supabase/client");
-    let { error } = await supabase.from("demo_requests").insert({ ...lead, ...src });
-    if (error && Object.keys(src).length) {
-      // Source columns missing in the database: keep the lead, with its source in the note.
-      const tag = Object.entries(src).map(([k, v]) => `${k}=${v}`).join(" ");
-      ({ error } = await supabase.from("demo_requests").insert({ ...lead, note: [lead.note, `[${tag}]`].filter(Boolean).join(" ") }));
-    }
-    setSending(false);
-
-    if (error) {
-      console.error("demo_requests insert failed", error);
-      setFailed(waUrl);
-      track("demo_request_failed", { form: "enquiry" });
-      openWhatsApp();
-      return;
-    }
-
-    track("generate_lead", { form: "enquiry", trade: lead.trade, ...src });
-    setSent(phone || "your number");
-    setWaSent(waUrl);
-    openWhatsApp();
+    // Save first, then straight into the WhatsApp chat (whether or not the save worked).
+    // A slow save does not hold WhatsApp back: it finishes in the background.
+    const saving = saveLead(lead, src);
+    const early = await settleWithin(saving, SAVE_WAIT_MS);
+    if (early !== null) finish(early);
+    chat.go();
+    if (early === null) finish(await saving);
   }
 
   return (
