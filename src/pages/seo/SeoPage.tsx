@@ -74,7 +74,7 @@ function jsonLd(page: SeoPageData) {
             description: page.description,
             url,
             provider: { "@id": ORG_ID },
-            areaServed: { "@type": "Country", name: "India" },
+            areaServed: "Worldwide",
           }]
         : []),
       {

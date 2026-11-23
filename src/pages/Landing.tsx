@@ -755,7 +755,7 @@ export default function Landing() {
       <section id="services" className="ezl-sec" style={{ padding: "78px 24px 20px", scrollMarginTop: 70 }}>
         <Reveal as="p" className="ezl-eyebrow">Custom development</Reveal>
         <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "22ch" }}>Need something built for your business?</Reveal>
-        <Reveal as="p" className="ezl-lead">The team that builds Ezzy ERP also takes up custom projects for industrial units, corporate offices, wholesalers and retailers.</Reveal>
+        <Reveal as="p" className="ezl-lead">The team that builds Ezzy ERP also takes up custom projects for industrial units, corporate offices, wholesalers and retailers, in India and worldwide.</Reveal>
         <div className="ezl-grid ezl-auto-270" style={{ marginTop: 34 }}>
           {SERVICE_PAGES.map((page) => (
             <Reveal key={page.path} className="ezl-card">

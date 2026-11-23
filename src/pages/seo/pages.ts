@@ -44,6 +44,10 @@ const ENQUIRY_FAQ: [string, string] = [
   "How do we start?",
   `Send the enquiry form on this page, or call or WhatsApp ${PHONE}. We talk through what you need, and then share a written scope and quotation.`,
 ];
+const WORLDWIDE_FAQ: [string, string] = [
+  "Do you work with clients outside India?",
+  "Yes. Our office is in Navi Mumbai, and we take up and deliver projects for clients across India and in other countries.",
+];
 const COST_FAQ: [string, string] = [
   "How much does it cost?",
   "It depends on what has to be built. We first understand the requirement, then give a written scope and quotation, so you know what is included before work starts.",
@@ -591,7 +595,7 @@ export const SEO_PAGES: SeoPageData[] = [
     path: "/custom-software-development",
     label: "Custom software development",
     title: "Custom Software Development Company in Navi Mumbai, India | Ezzy ERP",
-    description: "Custom software for industrial units and corporate offices in India: ERP, production, dispatch, dealer and approval systems, built by the Navi Mumbai team behind Ezzy ERP. Send an enquiry.",
+    description: "Custom cloud and Windows software for industrial units and corporate offices: ERP, production, dispatch, dealer and approval systems, by the Navi Mumbai team behind Ezzy ERP. Delivered worldwide.",
     eyebrow: "Industrial · Corporate · Custom software",
     h1: "Custom software development for industrial and corporate businesses",
     intro: [
@@ -599,7 +603,7 @@ export const SEO_PAGES: SeoPageData[] = [
       "Our development team builds software around that process. It is the same team that builds and supports Ezzy ERP, the billing, inventory and GST software used by more than 2,000 shops, wholesalers and distributors in India.",
     ],
     heroShot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with sales, invoices, stock value and receivables, built and supported by our development team"],
-    service: { name: "Custom software", icon: "ph-factory", summary: "Software built around your own process, for factories, distributors and corporate offices." },
+    service: { name: "Custom software", icon: "ph-factory", summary: "Cloud and Windows software built around your own process, for factories, distributors and corporate offices." },
     sections: [
       {
         h2: "What we build",
@@ -618,10 +622,10 @@ export const SEO_PAGES: SeoPageData[] = [
         points: [
           ["We run software in daily use", "Ezzy ERP bills at shop counters every day, so we build for speed, wrong entries, power cuts and busy days, not only for a demo."],
           ["Indian business rules are familiar", "GST invoices, e-invoice, e-way bill, party ledgers and Tally export are already part of what we build."],
-          ["Web, Android and Windows", "One system the office uses on a computer and the field team uses on a phone."],
+          ["Cloud, Windows, Android and iPhone", "Cloud-based and Windows applications for the office, with Android and iPhone apps for owners and field teams."],
           ["Barcode and printing", "Barcode labels, scanners and thermal printers set up to work with the software."],
           ["Support after go-live", "The team that builds your software trains your staff and supports it, in English, Hindi or Marathi."],
-          ["A Navi Mumbai office", "You can meet us at Kopar Khairane, Navi Mumbai. We work with companies across India on call and video."],
+          ["Based in Navi Mumbai, delivering worldwide", "You can meet us at Kopar Khairane, Navi Mumbai. We deliver projects for clients across India and in other countries."],
         ],
       },
       {
@@ -644,10 +648,12 @@ export const SEO_PAGES: SeoPageData[] = [
     ],
     faqs: [
       ["What kind of companies do you build software for?", "Industrial units, manufacturers, distributors and corporate offices that need software shaped to their own process, as well as retail and wholesale businesses that have outgrown packaged software."],
-      ["Do you also build mobile apps and online stores?", "Yes. We build Android apps for owners, staff and field teams, and e-commerce and B2B ordering websites. See the mobile app development and e-commerce development pages."],
+      ["Do you build cloud software or Windows software?", "Both. We build cloud-based applications that run in a browser from anywhere, and Windows applications for the office, and we advise which suits your work."],
+      ["Do you also build mobile apps and online stores?", "Yes. We build Android and iPhone apps for owners, staff and field teams, and e-commerce and B2B ordering websites. See the mobile app development and e-commerce development pages."],
       ["Can the software handle GST, e-invoice and e-way bill?", "Yes. GST invoices, e-invoice IRN, e-way bill, ledgers and Tally export are part of Ezzy ERP, and we build the same into custom systems where your work needs them."],
       ["Will you support the software after it is delivered?", "Yes. The team that builds it trains your staff and supports it after go-live, and takes up changes as your business grows."],
-      ["Where are you located?", "Ezzy ERP (Adtech ERP Solutions) is at Shop No.2, Mittal Tower, Sector 1, Kopar Khairane, Navi Mumbai. We work with companies across India."],
+      ["Where are you located?", "Ezzy ERP (Adtech ERP Solutions) is at Shop No.2, Mittal Tower, Sector 1, Kopar Khairane, Navi Mumbai. We deliver projects across India and worldwide."],
+      WORLDWIDE_FAQ,
       COST_FAQ,
       ENQUIRY_FAQ,
     ],
@@ -656,16 +662,16 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/mobile-app-development",
     label: "Mobile app development",
-    title: "Mobile App Development for Business — Android Apps | Ezzy ERP, Navi Mumbai",
-    description: "Android app development for Indian businesses: owner dashboards, field sales and order apps that work offline, dealer and customer apps. Built by the team behind the Ezzy ERP app.",
-    eyebrow: "Android apps · Field teams · Owners",
+    title: "Mobile App Development Company — Android & iPhone Apps | Ezzy ERP",
+    description: "Android and iPhone (iOS) app development for business: owner dashboards, field sales and order apps that work offline, dealer and customer apps. By the Navi Mumbai team behind Ezzy ERP, delivered worldwide.",
+    eyebrow: "Android · iPhone · Business apps",
     h1: "Mobile app development for your business",
     intro: [
       "A business app has one job: put the right figure or the right form in someone's hand when they are away from the desk. The owner wants today's sale. The salesman wants to book an order in the market, where the network drops.",
-      "We build these apps for a living. The Ezzy ERP Android app gives owners their sales, stock and dues, and lets salesmen take orders and collect outstanding offline, then sync later.",
+      "We build these apps for Android and iPhone. Our own Ezzy ERP Android app gives owners their sales, stock and dues, and lets salesmen take orders and collect outstanding offline, then sync later.",
     ],
     heroShot: ["shot-insights.jpg", "Sales trends and stock health in Ezzy ERP, the data our mobile apps show owners on the phone"],
-    service: { name: "Mobile app", icon: "ph-device-mobile-camera", summary: "Android apps for owners, staff and field teams, including apps that work offline." },
+    service: { name: "Mobile app", icon: "ph-device-mobile-camera", summary: "Android and iPhone apps for owners, staff and field teams, including apps that work offline." },
     sections: [
       {
         h2: "Apps we build",
@@ -689,7 +695,7 @@ export const SEO_PAGES: SeoPageData[] = [
           ["Few taps for the daily job", "The screen a salesman uses fifty times a day is designed first, and kept short."],
           ["One source of data", "The app and the office software read the same data, so nobody types an order twice."],
           ["Logins and rights", "Each user sees only their own customers, orders and reports."],
-          ["Built for ordinary phones", "Apps are tested on the mid-range Android phones your staff actually carry."],
+          ["Android and iPhone", "Apps for both, so staff on Android phones and owners on iPhones work on one system."],
         ],
       },
       {
@@ -703,10 +709,12 @@ export const SEO_PAGES: SeoPageData[] = [
       },
     ],
     faqs: [
-      ["Which kind of mobile apps do you build?", "Android apps for business use: owner dashboards, field sales and order apps, dealer and customer apps, and staff apps for stock, delivery and approvals."],
+      ["Which kind of mobile apps do you build?", "Android and iPhone apps for business use: owner dashboards, field sales and order apps, dealer and customer apps, and staff apps for stock, delivery and approvals."],
+      ["Do you build for both Android and iPhone?", "Yes. We build apps for Android and for iPhone (iOS), and for both together when your users are on both."],
       ["Can the app work without internet?", "Yes. We build apps that save entries on the phone when there is no network and sync when it returns, the way the Ezzy ERP field sales app does."],
       ["Can the app connect to our existing software?", "Usually yes, if your software can share its data. We check this first and tell you what is possible before quoting."],
-      ["Do you also build the office software behind the app?", "Yes. Most business apps need a web panel for the office. See custom software development."],
+      ["Do you also build the office software behind the app?", "Yes. Most business apps need a cloud or Windows application for the office. See custom software development."],
+      WORLDWIDE_FAQ,
       COST_FAQ,
       ENQUIRY_FAQ,
     ],
@@ -716,7 +724,7 @@ export const SEO_PAGES: SeoPageData[] = [
     path: "/ecommerce-development",
     label: "E-commerce development",
     title: "E-Commerce Website Development & B2B Ordering Portals | Ezzy ERP, Navi Mumbai",
-    description: "E-commerce solutions for Indian businesses: online stores, B2B dealer ordering portals and catalogues, with orders and stock kept in step with your billing. Send an enquiry.",
+    description: "E-commerce solutions for retailers, wholesalers and manufacturers: online stores, B2B dealer ordering portals and catalogues, with orders and stock kept in step with your billing. Delivered worldwide.",
     eyebrow: "Online store · B2B ordering · Catalogue",
     h1: "E-commerce solutions for retailers, wholesalers and manufacturers",
     intro: [
@@ -761,7 +769,8 @@ export const SEO_PAGES: SeoPageData[] = [
       ["Do you build online stores for small shops as well as large businesses?", "Yes. A single shop can start with a catalogue or a simple store, and a wholesaler or manufacturer can run a full B2B ordering portal for dealers."],
       ["Can the online store share stock with my shop?", "That is how we prefer to build it: one stock for the counter and the website, so an item sold in the shop is not sold again online."],
       ["Can dealers get their own prices?", "Yes. In a B2B portal each dealer logs in and sees the rates and schemes that apply to them."],
-      ["Do you also build a mobile app for the store?", "Yes. See mobile app development for ordering apps for customers, dealers and salesmen."],
+      ["Do you also build a mobile app for the store?", "Yes. See mobile app development for Android and iPhone ordering apps for customers, dealers and salesmen."],
+      WORLDWIDE_FAQ,
       COST_FAQ,
       ENQUIRY_FAQ,
     ],
