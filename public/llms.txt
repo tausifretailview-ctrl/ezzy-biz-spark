@@ -21,6 +21,11 @@
 - [E-invoice software](https://ezzyerp.in/e-invoice-software): generate GST e-invoice IRN and signed QR code from the sale bill, cancel IRN, e-invoice report.
 - [Garment manufacturing software](https://ezzyerp.in/garment-manufacturing-software): design cards with fabric per piece, fabric stock in metres, production lots, stages and job workers.
 - [Billing software in Navi Mumbai](https://ezzyerp.in/billing-software-navi-mumbai): on-site setup and support in Navi Mumbai, Thane and Mumbai.
+- [Mobile shop billing software](https://ezzyerp.in/mobile-shop-billing-software): IMEI and serial number tracking, EMI and mixed payments, for mobile and electronics stores.
+- [Supermarket and kirana billing software](https://ezzyerp.in/supermarket-billing-software): fast barcode billing, batch and low-stock alerts, customer credit and a daily cash report.
+- [Saree shop and boutique billing software](https://ezzyerp.in/saree-shop-billing-software): a barcode tag on every piece, stock by design and colour, exchange billing.
+- [Billing software in Mumbai](https://ezzyerp.in/billing-software-mumbai): software, printers, setup and support for shops and wholesalers in Mumbai.
+- [Billing software in Thane](https://ezzyerp.in/billing-software-thane): for shops, wholesalers, godowns and garment units in Thane, Kalyan, Dombivli, Bhiwandi and Ulhasnagar.
 - [Custom software development](https://ezzyerp.in/custom-software-development): custom cloud and Windows software (ERP, production, dispatch, dealer and approval systems) for industrial units and corporate offices, by the team behind Ezzy ERP, delivered worldwide.
 - [Mobile app development](https://ezzyerp.in/mobile-app-development): Android and iPhone (iOS) apps for owners, field sales teams, dealers and staff, including apps that work offline.
 - [E-commerce development](https://ezzyerp.in/ecommerce-development): online stores, B2B dealer ordering portals and catalogues that stay in step with stock and billing.

@@ -473,7 +473,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/wedding-season-sale-checklist-garment-shop",
     label: "Wedding season checklist for garment and footwear shops",
-    title: "Wedding Season Sale Checklist for Garment & Footwear Shops (2026) | Ezzy ERP",
+    title: "Wedding Season Sale Checklist for Garment & Footwear Shops",
     description: "Get your clothing or footwear shop ready for the wedding season: stock by size, GST on wedding wear above ₹2,500, faster billing, alterations, exchanges and WhatsApp offers.",
     h1: "Wedding season checklist for garment and footwear shops",
     published: "2026-11-08",
@@ -542,7 +542,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/best-billing-software-for-garment-shop",
     label: "Best billing software for garment shops (2026)",
-    title: "Best Billing Software for Garment & Cloth Shops in India (2026 Guide) | Ezzy ERP",
+    title: "Best Billing Software for Garment & Cloth Shops in India (2026)",
     description: "How to choose billing software for a garment, cloth or readymade shop in India: the 8 features that matter, free apps vs accounting software vs retail ERP, and questions to ask in a demo.",
     h1: "Best billing software for garment and cloth shops in India: a 2026 buyer's guide",
     published: "2026-10-31",
@@ -760,7 +760,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/dead-stock-in-garment-shop",
     label: "How to find and clear dead stock in a clothing shop",
-    title: "Dead Stock in a Garment Shop: How to Find and Clear It Before the Season Ends | Ezzy ERP",
+    title: "Dead Stock in a Garment Shop: How to Find It and Clear It",
     description: "How clothing and footwear shops can find dead stock by days idle, why it builds up, and practical ways to clear it before the season ends without killing margins.",
     h1: "How to find dead stock in a clothing shop before the season ends",
     published: "2026-10-31",
@@ -826,7 +826,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/how-to-start-garment-shop-in-india",
     label: "How to start a readymade garment shop in India",
-    title: "How to Start a Readymade Garment Shop in India: Licences, Stock and Software | Ezzy ERP",
+    title: "How to Start a Readymade Garment Shop in India: Licences & Stock",
     description: "Step-by-step guide to starting a clothing shop in India: choosing a niche and location, registrations (Shop Act, GST, Udyam), buying stock, setting up the counter and billing software.",
     h1: "How to start a readymade garment shop in India: licences, stock and software",
     published: "2026-10-31",
@@ -1087,7 +1087,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     path: "/blog/size-and-colour-stock-management-garment-shop",
     label: "Managing size and colour stock in a garment shop",
-    title: "Size-wise Stock Management for Garment Shops: Size and Colour Made Simple | Ezzy ERP",
+    title: "Size-wise Stock Management for Garment Shops: Size & Colour",
     description: "How to manage garment stock by size and colour: design numbers, size grids, tags from the purchase bill, size-wise reports, reorders and stock checks.",
     h1: "How to manage size and colour stock in a garment shop",
     published: "2026-10-29",

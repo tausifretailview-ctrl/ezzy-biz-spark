@@ -62,7 +62,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/billing-software-for-small-business",
     label: "Billing software for small business",
-    title: "Billing Software for Small Business in India — GST, POS & Stock | Ezzy ERP",
+    title: "Billing Software for Small Business in India: GST, POS & Stock",
     description: "Easy GST billing software for small shops in India: fast POS bills, barcode labels, stock, customer credit, WhatsApp invoices and an Android app. Book a free demo.",
     eyebrow: "Small business · GST billing",
     h1: "Billing software for small business, built for the Indian shop counter",
@@ -195,7 +195,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/footwear-shop-billing-software",
     label: "Footwear shop billing software",
-    title: "Footwear Shop Billing & ERP Software — Size-Run Stock, Barcode, GST | Ezzy ERP",
+    title: "Footwear Shop Billing & ERP Software with Size Stock & Barcode",
     description: "Footwear billing and retail ERP software for shops, showrooms and wholesalers in India: article and size-run stock, MRP billing, box labels, 5%/18% GST, branches and WhatsApp bills. Free demo.",
     eyebrow: "Footwear · Showrooms · Wholesale",
     h1: "Footwear billing and ERP software for shops, showrooms and wholesalers",
@@ -274,7 +274,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/wholesale-billing-software",
     label: "Wholesale billing software",
-    title: "Wholesale Billing Software — Orders, Challans, Party Rates & GST | Ezzy ERP",
+    title: "Wholesale Billing Software: Orders, Challans, Party Rates & GST",
     description: "Billing software for wholesalers and distributors in India: sale orders, delivery challans, party-wise rates, customer ledgers, GST, WhatsApp statements and a field sales app.",
     eyebrow: "Wholesale · Distribution",
     h1: "Wholesale billing software for traders and distributors",
@@ -332,7 +332,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/retail-inventory-management-software",
     label: "Retail inventory management software",
-    title: "Retail Inventory Management Software — Size, Barcode & Reorder | Ezzy ERP",
+    title: "Retail Inventory Management Software: Size, Barcode & Reorder",
     description: "Inventory software for retail shops in India: live stock by size and colour, barcode labels, purchase entry, low-stock and reorder reports, dead stock and stock value. Free demo.",
     eyebrow: "Retail · Stock · Barcode",
     h1: "Retail inventory management software that matches your shelf",
@@ -385,7 +385,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/billing-software-for-manufacturers",
     label: "Billing software for manufacturers",
-    title: "Billing Software for Manufacturers — Quotation, E-Invoice, E-Way Bill & Stock | Ezzy ERP",
+    title: "Billing Software for Manufacturers: E-Invoice, E-Way Bill, Stock",
     description: "ERP for manufacturers and industrial units in India: quotations, sale orders, GST invoices, e-invoice, e-way bill, warehouse stock, GST returns, accounts and asset management.",
     eyebrow: "Manufacturers · Industrial units",
     h1: "Billing software for manufacturers and industrial units",
@@ -448,7 +448,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/e-invoice-software",
     label: "E-invoice software",
-    title: "E-Invoice Software for GST — Generate IRN & QR from Your Bill | Ezzy ERP",
+    title: "E-Invoice Software for GST: Generate IRN & QR from Your Bill",
     description: "GST e-invoice software for Indian businesses: generate IRN and signed QR code from the sale bill, print them on the invoice, cancel an IRN, and track e-invoices in a report.",
     eyebrow: "GST e-invoicing",
     h1: "E-invoice software that generates the IRN from your bill",
@@ -502,7 +502,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/garment-manufacturing-software",
     label: "Garment manufacturing software",
-    title: "Garment Manufacturing Software — Fabric, Lots, Job Work & Billing | Ezzy ERP",
+    title: "Garment Manufacturing Software: Fabric, Lots, Job Work, Billing",
     description: "Software for garment and textile manufacturers in India: design cards with fabric per piece, fabric stock in metres, production lots, stages, job workers, plus billing, e-invoice and GST.",
     eyebrow: "Garment & textile manufacturing",
     h1: "Garment manufacturing software, from fabric to finished piece to bill",
@@ -544,7 +544,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/billing-software-navi-mumbai",
     label: "Billing software in Navi Mumbai",
-    title: "Billing Software in Navi Mumbai, Thane & Mumbai | Ezzy ERP, Kopar Khairane",
+    title: "Billing Software in Navi Mumbai, Thane & Mumbai | Ezzy ERP",
     description: "Retail billing, barcode and GST software from a local team in Kopar Khairane, Navi Mumbai. Software, printers, setup and support for shops in Navi Mumbai, Thane and Mumbai.",
     eyebrow: "Navi Mumbai · Thane · Mumbai",
     h1: "Billing and inventory software in Navi Mumbai, Thane and Mumbai",
@@ -590,11 +590,342 @@ export const SEO_PAGES: SeoPageData[] = [
     ],
   },
 
+  /* ---- Trades the home page lists that had no page of their own ---- */
+  {
+    path: "/mobile-shop-billing-software",
+    label: "Mobile shop billing software",
+    title: "Mobile Shop Billing Software with IMEI Tracking | Ezzy ERP",
+    description: "Billing software for mobile and electronics shops in India: IMEI and serial number tracking, EMI and mixed payments, GST bills, stock and WhatsApp invoices. Free demo.",
+    eyebrow: "Mobiles · Electronics · Appliances",
+    h1: "Billing software for mobile shops and electronics stores",
+    intro: [
+      "A mobile shop sells the same model to ten customers, but every handset has its own IMEI. When a customer returns with a complaint, or you need to know which pieces are still unsold, the model name is not enough. You need the exact unit.",
+      "Ezzy ERP tracks each handset and appliance by its IMEI or serial number, from the purchase bill to the customer's invoice, along with GST billing, stock, customer ledgers and an Android app for the owner.",
+    ],
+    heroShot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with barcode field, customer lookup and payment modes on function keys"],
+    sections: [
+      {
+        h2: "Built for IMEI and serial number stock",
+        points: [
+          ["Every unit by its own number", "Handsets and appliances are tracked by IMEI or serial number, so you know exactly which pieces are in stock."],
+          ["The number on the invoice", "The bill carries the IMEI or serial number of the unit sold, ready for a warranty claim."],
+          ["EMI and mixed payments", "Take part of a bill in cash, part on UPI or card and the rest on finance, all on one bill."],
+          ["Fast counter billing", "Scan the barcode or search by name, and print the bill in seconds. Hold a bill while the customer decides."],
+          ["Accessories on the same bill", "Covers, chargers and earphones are billed by barcode along with the handset, each line with its own GST."],
+          ["Returns and credit notes", "Sales returns and credit notes put the unit back into stock and keep the customer's account right."],
+        ],
+        shot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with total sales, invoices, stock value, receivables and cash collection"],
+      },
+      {
+        h2: "For mobile counters, electronics showrooms and appliance dealers",
+        paras: [
+          "Ezzy ERP is made for mobile counters, electronics showrooms and appliance dealers. A single shop bills from one counter. A dealer with several showrooms runs each branch with its own stock and books on the same login, and gives every salesman only the menus he needs.",
+        ],
+      },
+      {
+        h2: "What the owner sees every day",
+        points: [
+          ["Live stock", "Stock by product at any time, with low-stock and reorder reports before a fast-moving model runs out."],
+          ["Slow stock", "Items that have not sold in 60 or 90 days, so money is not stuck in old models."],
+          ["Profit, not just sale", "Net profit by item with cost of goods and margin."],
+          ["Dues and credit", "Customer balances, advances and credit notes, with statements and reminders on WhatsApp."],
+          ["The shop on your phone", "Today's sale, stock and dues on the Android app, wherever you are."],
+        ],
+      },
+      {
+        h2: "GST and accounts kept as you bill",
+        paras: [
+          "Every bill line carries GST, and the GST register, ledgers, trial balance, P&L and balance sheet are ready when your accountant asks, with Tally export. Ezzy ERP also prepares the GSTR-1 file for the GST portal, and generates e-invoices for business customers when your turnover needs them.",
+        ],
+      },
+      {
+        h2: "Printers, scanners and training from one team",
+        paras: [
+          "We supply barcode label printers, 80mm thermal receipt printers and scanners with the software, set them up, and train your staff on the phone in English, Hindi or Marathi. Support is on call and WhatsApp, 24×7.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Which billing software is best for a mobile shop?", "Choose software that tracks every handset by its IMEI, prints that number on the bill, and takes cash, UPI, card and finance on one bill. Ezzy ERP does this, along with GST, stock, customer ledgers and an Android app."],
+      ["Can Ezzy ERP track IMEI numbers?", "Yes. Mobiles and electronics are tracked by IMEI or serial number, and the number appears on the customer's invoice."],
+      ["Can I take EMI or finance payments on a bill?", "Yes. The billing screen takes mixed payments, so part of a bill can be cash, UPI or card and the rest on finance."],
+      ["Does it work for electronics and appliance showrooms?", "Yes. Appliances and electronics are tracked by serial number in the same way, with warranty-ready invoices."],
+      ["Can I run more than one mobile shop?", "Yes. Switch between firms and branches on one login, each with its own stock, books and staff rights."],
+      ["Does it work on a phone?", "Yes. The Android app shows the owner today's sale, stock and dues, and you can bill from the phone."],
+      DEMO_FAQ,
+    ],
+    trade: "Mobiles & electronics",
+  },
+  {
+    path: "/supermarket-billing-software",
+    label: "Supermarket & kirana billing software",
+    title: "Supermarket & Kirana Store Billing Software | Ezzy ERP",
+    description: "Billing software for supermarkets, kirana and general stores in India: fast barcode billing, low-stock alerts, customer credit, daily cash report and GST. Free demo.",
+    eyebrow: "Supermarket · Kirana · General store",
+    h1: "Billing software for supermarkets, kirana and general stores",
+    intro: [
+      "A general store sells hundreds of small items to a queue of customers. The counter has to be fast, the shelf has to be full, and at night the cash in the drawer has to match the day's bills.",
+      "Ezzy ERP is made for that counter: barcode billing in seconds, an alert before an item runs out, customer credit you can track, and a daily cash report, with GST and accounts kept as you bill.",
+    ],
+    heroShot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with barcode field, customer lookup and payment modes on function keys"],
+    sections: [
+      {
+        h2: "A counter that keeps the queue moving",
+        points: [
+          ["Fast barcode billing", "Scan the item and it is on the bill. Search by name for anything without a barcode."],
+          ["Hold a bill", "Hold a half-finished bill on a function key and serve the next customer."],
+          ["Every way of paying", "Cash, UPI, card or credit, or split between them on one bill."],
+          ["Thermal receipts", "Bills print on an 80mm thermal printer, which we supply and set up."],
+          ["Bills on WhatsApp", "Send the bill to the customer's phone from the billing screen."],
+          ["Staff see only the counter", "Give counter staff the billing screen only, and keep profit and settings for the owner."],
+        ],
+        shot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with total sales, invoices, stock value, receivables and cash collection"],
+      },
+      {
+        h2: "Stock that stays on the shelf",
+        points: [
+          ["Purchases add stock", "Enter the supplier's bill once. Stock goes up, and every sale brings it down."],
+          ["A barcode for every item", "Scan the maker's barcode, or generate your own and print labels for loose and repacked items."],
+          ["Batch and low-stock alerts", "Know what is running low before the shelf is empty."],
+          ["Reorder reports", "A list of what to buy, based on what actually sold."],
+          ["Stock that is not moving", "Items that have not sold in 60 or 90 days, and the money held in them."],
+          ["Stock check", "Count the shelf, correct the difference, and keep a record of every adjustment."],
+        ],
+      },
+      {
+        h2: "Customer credit and the day's cash",
+        paras: [
+          "Regular customers buy on credit. Ezzy ERP keeps each customer's balance, advances and payments, and sends the statement or a payment reminder on WhatsApp, so udhaar does not live in a notebook.",
+          "At closing time the daily cash report shows the day's bills by cash, UPI, card and credit, so the drawer can be checked against the software.",
+        ],
+      },
+      {
+        h2: "For every kind of general store",
+        points: [
+          ["Supermarkets", "Several counters, many items, and reorder reports for the purchase manager."],
+          ["Kirana stores", "Quick bills, customer credit and a simple daily cash report."],
+          ["Cosmetics shops", "Many small items by barcode, with batch and low-stock alerts."],
+          ["Stationery shops", "Barcode billing for small-value items, with stock you can trust at season time."],
+        ],
+        shot: ["shot-customers.jpg", "Ezzy ERP customer list with balances and lifetime sale"],
+      },
+      {
+        h2: "Software, hardware and training from one team",
+        paras: [
+          "We supply barcode label printers, 80mm thermal receipt printers and barcode scanners with the software, set them up, and train your staff on the phone in English, Hindi or Marathi. Most staff learn the billing screen in a day. Support is on call and WhatsApp, 24×7.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Which billing software is best for a supermarket or kirana store?", "Choose software that bills by barcode quickly, warns you before items run out, tracks customer credit and gives a daily cash report. Ezzy ERP does this, with GST, accounts and an Android app for the owner."],
+      ["Can I print barcodes for items that do not have one?", "Yes. Ezzy ERP generates barcodes and prints labels, on printers we supply and set up, so loose and repacked items can be scanned too."],
+      ["Can I keep customer credit (udhaar)?", "Yes. Each customer has a ledger with balances, advances and payments, and you can send statements and reminders on WhatsApp."],
+      ["Does it give a daily cash report?", "Yes. The daily cash report shows the day's collection by payment mode, to check against the cash drawer."],
+      ["Can I add a second counter or branch later?", "Yes. Each staff member gets a login with only the menus they need, and you can run more than one branch on the same login, each with its own books."],
+      ["Is it GST ready?", "Yes. Every bill line carries GST, and you get a GST register, ledgers, trial balance, P&L and balance sheet, with Tally export."],
+      DEMO_FAQ,
+    ],
+    trade: "Departmental / general store",
+  },
+  {
+    path: "/saree-shop-billing-software",
+    label: "Saree shop & boutique billing software",
+    title: "Saree Shop & Boutique Billing Software with Barcode | Ezzy ERP",
+    description: "Billing software for saree shops, boutiques and dress material stores: a barcode tag on every piece, design and colour stock, exchange billing, GST and WhatsApp bills. Free demo.",
+    eyebrow: "Sarees · Boutiques · Dress material",
+    h1: "Billing software for saree shops and boutiques",
+    intro: [
+      "A saree shop does not stock sizes. It stocks pieces: every saree has its own design, colour and price, and two that look alike on the shelf can differ by a thousand rupees. Billing from memory or a handwritten tag is where margin leaks.",
+      "Ezzy ERP gives every piece a barcode tag with its design number and MRP, bills it with one scan, and shows which designs and colours are selling and which have sat on the shelf since last season.",
+    ],
+    heroShot: ["shot-purchase.jpg", "Ezzy ERP purchase bill entry with barcode column, purchase and sale rate, GST and a Print Barcodes button"],
+    sections: [
+      {
+        h2: "Every piece tagged, every piece counted",
+        points: [
+          ["Design number tags", "Print design number (D.No), colour and MRP tags straight from the purchase bill, on 38×25 or 40×25 2-up labels."],
+          ["One-scan billing", "Scan the tag and the right piece and price come up. No reading prices off a sticker."],
+          ["Stock by design and colour", "See what is left in each design and colour, by brand or supplier."],
+          ["Sarees and stitched wear together", "Sarees as single pieces, and blouses, kurtis or lehengas in a size grid, in the same software."],
+          ["Exchange and returns", "Exchanges and returns that put the piece back into stock and settle the difference on the bill."],
+          ["A note on the bill", "Add a note for fall and pico or alteration details, so the counter and the tailor read the same thing."],
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with size and colour columns for garment billing"],
+      },
+      {
+        h2: "For saree shops, boutiques and dress material stores",
+        paras: [
+          "Ezzy ERP is used by boutiques and by saree and dress material shops, from a single counter to showrooms with several branches. Saree wholesalers get sale orders, delivery challans, party-wise rates and customer ledgers in the same system.",
+          "In the wedding and festival season, bills can be held on function keys while a family is still choosing, so the counter keeps moving.",
+        ],
+      },
+      {
+        h2: "Know what sells before you buy again",
+        points: [
+          ["Dead stock by days idle", "Find designs that have not sold in 60 or 90 days, and clear them before the next season's buying."],
+          ["Profit by item", "Net profit with cost of goods and margin, not just turnover."],
+          ["Your best customers", "VIP, regular and at-risk customers by lifetime sale."],
+          ["Bills and offers on WhatsApp", "Send the bill, and festival or new-arrival offers, to the customer's phone."],
+        ],
+      },
+      {
+        h2: "GST on every line of the bill",
+        paras: [
+          "Each bill line in Ezzy ERP carries its own HSN code and GST rate, so a bill with a saree, a blouse piece and a stitched garment taxes each one correctly, and the GST register is ready for your CA at month end.",
+          "Sarees, dress material and stitched garments do not all carry the same rate. Ask your CA for the HSN code and rate of each category once, and set it on the product.",
+        ],
+      },
+      {
+        h2: "Tags that print and scan from day one",
+        paras: [
+          "We supply barcode label printers, 80mm receipt printers and handheld scanners with the software, and set up your label format so the first purchase bill prints usable tags. Staff are trained on the phone in English, Hindi or Marathi, and support is on call and WhatsApp, 24×7.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Which billing software is best for a saree shop?", "Choose software that tags every piece with a barcode, keeps stock by design and colour, and handles exchanges. Ezzy ERP does all three, along with GST billing, customer ledgers and an Android app."],
+      ["Can I print barcode tags for sarees?", "Yes. Print design number, colour and MRP tags from the purchase bill on 38×25 or 40×25 2-up labels, using a barcode printer that we can supply."],
+      ["Is it suitable for a small boutique?", "Yes. A boutique with one counter uses the same tags, billing and stock reports, and can bill from a computer or the Android app."],
+      ["Does it handle exchanges?", "Yes. Do the exchange on the billing screen. The returned piece goes back into stock and the difference is settled on the new bill."],
+      ["Does it work for saree wholesale?", "Yes. Wholesalers use sale orders, delivery challans, party-wise rates and customer ledgers, with statements sent on WhatsApp."],
+      ["Does it work on a phone?", "Yes. The Android app shows the owner today's sale, stock and dues, and you can bill from the phone."],
+      DEMO_FAQ,
+    ],
+    trade: "Garments & textiles",
+    guides: ["/blog/barcode-printer-for-garment-shop", "/blog/garment-barcode-label-size", "/blog/dead-stock-in-garment-shop", "/blog/wedding-season-sale-checklist-garment-shop"],
+  },
+
+  /* ---- City pages. Each one is about that city's own markets, not the Navi Mumbai page with the name changed. ---- */
+  {
+    path: "/billing-software-mumbai",
+    label: "Billing software in Mumbai",
+    title: "Billing Software in Mumbai for Shops & Wholesalers | Ezzy ERP",
+    description: "GST billing, barcode and inventory software for shops and wholesalers in Mumbai, with printers, setup at your shop and support from our team in Navi Mumbai. Free demo.",
+    eyebrow: "Mumbai · Retail · Wholesale",
+    h1: "Billing software in Mumbai for shops and wholesalers",
+    intro: [
+      "Mumbai's markets move fast. A cloth wholesaler near Mangaldas Market, a garment shop in Dadar, a footwear showroom on Linking Road and a mobile counter in Borivali all need the same thing: a bill in seconds, and stock and dues that are right at the end of the day.",
+      "Ezzy ERP is made by Adtech ERP Solutions in Kopar Khairane, Navi Mumbai, just across the creek. Shops in Mumbai get the software, barcode printers, setup and support from one team close by.",
+    ],
+    heroShot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with sales, purchase, stock value and receivables"],
+    sections: [
+      {
+        h2: "What a Mumbai shop gets from us",
+        points: [
+          ["A demo at your shop or on a call", "We show the billing screen with your own products and labels before you decide."],
+          ["Hardware from the same team", "Barcode label printers, 80mm receipt printers and scanners, supplied and set up with the software."],
+          ["Setup at your counter", "We set up the software, printers and label format at shops in Mumbai, so the first bill prints right."],
+          ["Training in your language", "Staff are trained in English, Hindi or Marathi, and most learn billing in a day."],
+          ["24×7 call and WhatsApp support", "A real person answers, including on festival days when Mumbai shops bill the most."],
+        ],
+      },
+      {
+        h2: "Software for Mumbai's trades",
+        points: [
+          ["Cloth and garment shops", "Size and colour stock, design number tags and exchange billing."],
+          ["Saree shops and boutiques", "A barcode tag on every piece, with stock by design and colour."],
+          ["Footwear showrooms", "Article and size-run stock with MRP billing."],
+          ["Mobile and electronics stores", "IMEI and serial number tracking with EMI and mixed payments."],
+          ["Supermarkets and general stores", "Fast barcode billing, low-stock alerts and a daily cash report."],
+          ["Wholesalers and distributors", "Sale orders, challans, party-wise rates, ledgers and a field sales app."],
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with barcode field, customer lookup and payment modes"],
+      },
+      {
+        h2: "More than one outlet in the city",
+        paras: [
+          "Many Mumbai businesses run a shop in one suburb and a godown or second outlet in another. Ezzy ERP runs every branch on one login, each with its own stock and books, and moves stock between them.",
+          "The owner sees the day's sale, stock and dues for each outlet on the Android app, without calling the shop, and every staff member gets only the menus they need.",
+        ],
+      },
+      {
+        h2: "GST, e-invoice and e-way bill",
+        paras: [
+          "Every bill carries GST, and the GST register, GSTR-1 file, ledgers and P&L are kept as you bill, with Tally export for your CA. Wholesalers and manufacturers generate the e-invoice IRN and the e-way bill from the same sale bill.",
+          "Goods moving within Maharashtra and goods leaving the state follow different e-way bill limits. Our guide to e-way bill rules, linked below, explains them.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Do you provide billing software in Mumbai?", "Yes. We supply Ezzy ERP billing, barcode and inventory software to shops and wholesalers across Mumbai, with printers, setup and training."],
+      ["Where is your office?", "Ezzy ERP (Adtech ERP Solutions) is at Shop No.2, Mittal Tower, Sector Number 1 Rd, Sector 1, Kopar Khairane, Navi Mumbai, Maharashtra 400709."],
+      ["Do you come to the shop for setup?", "Yes. We set up the software, printers and labels at shops in Mumbai, Thane and Navi Mumbai, and support you on call and WhatsApp afterwards."],
+      ["Which areas of Mumbai do you serve?", "All of Mumbai, from South Mumbai markets to the western and central suburbs, including Dadar, Bandra, Andheri, Borivali, Ghatkopar and Mulund."],
+      ["Do you supply barcode printers in Mumbai?", "Yes. We supply barcode label printers, 80mm thermal receipt printers and barcode scanners with the software, and set them up for your labels and bills."],
+      ["Which languages does your support team speak?", "English, Hindi and Marathi."],
+      DEMO_FAQ,
+    ],
+    guides: ["/blog/e-way-bill-rules-2026", "/blog/best-billing-software-for-garment-shop", "/blog/how-to-start-garment-shop-in-india"],
+  },
+  {
+    path: "/billing-software-thane",
+    label: "Billing software in Thane",
+    title: "Billing Software in Thane, Kalyan & Bhiwandi | Ezzy ERP",
+    description: "Billing, barcode and GST software for shops, wholesalers and units in Thane, Kalyan, Dombivli, Bhiwandi and Ulhasnagar, with printers, setup and support from a team nearby.",
+    eyebrow: "Thane · Kalyan · Bhiwandi",
+    h1: "Billing software in Thane for shops, wholesalers and units",
+    intro: [
+      "Thane district both sells and makes: shops on Gokhale Road and around Thane station, wholesalers in Kalyan and Dombivli, jeans and garment units in Ulhasnagar, and powerlooms and warehouses in Bhiwandi.",
+      "Ezzy ERP's office is in Kopar Khairane, on the Thane–Belapur Road, a short drive from Thane. You get billing software, barcode printers, setup and support from a team nearby, in Marathi, Hindi or English.",
+    ],
+    heroShot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with sales, purchase, stock value and receivables"],
+    sections: [
+      {
+        h2: "A billing software team near Thane",
+        points: [
+          ["A demo at your shop or on a call", "See the billing screen with your own products and labels first."],
+          ["Printers and scanners included", "Barcode label printers, 80mm receipt printers and scanners, supplied and set up by us."],
+          ["Setup at your counter", "We set up the software and your label format at your shop or unit."],
+          ["Training in Marathi, Hindi or English", "Your staff learn in the language they work in. Most learn billing in a day."],
+          ["Support every day", "Call or WhatsApp us 24×7, including during the festival rush."],
+        ],
+      },
+      {
+        h2: "For shops in Thane, Kalyan and Dombivli",
+        points: [
+          ["Garment and saree shops", "Size and colour stock, design number tags and exchange billing."],
+          ["Footwear showrooms", "Article and size-run stock with MRP billing."],
+          ["Mobile and electronics stores", "IMEI and serial number tracking with EMI and mixed payments."],
+          ["Supermarkets and kirana", "Fast barcode billing, low-stock alerts, customer credit and a daily cash report."],
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with barcode field, customer lookup and payment modes"],
+      },
+      {
+        h2: "For Bhiwandi and Ulhasnagar: wholesalers, godowns and garment units",
+        points: [
+          ["Orders, challans and invoices", "Take a sale order, dispatch on a delivery challan and bill it later, without typing it again."],
+          ["Godown stock", "Keep stock in more than one warehouse or godown, see it godown-wise and move it between them."],
+          ["E-invoice and e-way bill", "Generate the e-invoice IRN and the e-way bill from the same sale bill."],
+          ["Garment production", "Design cards with fabric per piece, fabric stock in metres, production lots, stages and job workers."],
+          ["Party ledgers", "Customer and supplier balances with bill-by-bill settlement, and statements on WhatsApp."],
+          ["Orders from the market", "Salesmen take orders and collect payments on the Android field sales app, even offline."],
+        ],
+        shot: ["shot-accounts.jpg", "Ezzy ERP accounts screen with customer ledger, outstanding and net receivable"],
+      },
+      {
+        h2: "One login for the shop, the godown and the unit",
+        paras: [
+          "A business with a shop in Thane and a godown in Bhiwandi does not need two systems. Ezzy ERP runs each firm and branch on one login, with its own stock and books, and the owner sees the day's sale, stock and dues on the Android app.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Do you provide billing software in Thane?", "Yes. We supply Ezzy ERP billing, barcode and inventory software in Thane, with printers, setup and training from our office in Kopar Khairane, Navi Mumbai."],
+      ["Which areas do you serve?", "Thane city, Kalyan, Dombivli, Bhiwandi, Ulhasnagar and the rest of Thane district, along with Navi Mumbai and Mumbai."],
+      ["Do you train staff in Marathi?", "Yes. Training and support are in Marathi, Hindi or English."],
+      ["Can it manage godown stock in Bhiwandi?", "Yes. Keep stock in more than one warehouse or godown, see stock godown-wise and move stock between them."],
+      ["Do you have software for garment units?", "Yes. Ezzy ERP runs garment production with design cards, fabric stock in metres, production lots, stages and job workers, along with billing and GST."],
+      ["Do you supply barcode printers in Thane?", "Yes. We supply barcode label printers, 80mm thermal receipt printers and scanners with the software, and set them up."],
+      DEMO_FAQ,
+    ],
+    guides: ["/blog/e-way-bill-rules-2026", "/blog/e-invoice-limit-2026", "/blog/size-and-colour-stock-management-garment-shop"],
+  },
+
   /* ---- Custom development services (same team, sold as projects, not as Ezzy ERP) ---- */
   {
     path: "/custom-software-development",
     label: "Custom software development",
-    title: "Custom Software Development Company in Navi Mumbai, India | Ezzy ERP",
+    title: "Custom Software Development Company in Navi Mumbai | Ezzy ERP",
     description: "Custom cloud and Windows software for industrial units and corporate offices: ERP, production, dispatch, dealer and approval systems, by the Navi Mumbai team behind Ezzy ERP. Delivered worldwide.",
     eyebrow: "Industrial · Corporate · Custom software",
     h1: "Custom software development for industrial and corporate businesses",
@@ -723,7 +1054,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     path: "/ecommerce-development",
     label: "E-commerce development",
-    title: "E-Commerce Website Development & B2B Ordering Portals | Ezzy ERP, Navi Mumbai",
+    title: "E-Commerce Website Development & B2B Ordering Portals | Ezzy ERP",
     description: "E-commerce solutions for retailers, wholesalers and manufacturers: online stores, B2B dealer ordering portals and catalogues, with orders and stock kept in step with your billing. Delivered worldwide.",
     eyebrow: "Online store · B2B ordering · Catalogue",
     h1: "E-commerce solutions for retailers, wholesalers and manufacturers",

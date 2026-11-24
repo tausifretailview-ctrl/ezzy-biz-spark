@@ -119,12 +119,16 @@ const INDUSTRIES = [
   {
     icon: "ph-device-mobile-camera", tileBg: "#ece3ff", tileFg: "#7C3AED",
     title: "Mobiles & electronics",
+    href: "/mobile-shop-billing-software",
+    linkLabel: "Mobile shop billing software",
     sub: "Mobile counters, electronics showrooms, appliance dealers",
     points: ["IMEI / serial number tracking", "EMI & mixed payment billing", "Warranty-ready invoices"],
   },
   {
     icon: "ph-shopping-cart-simple", tileBg: "#d8f5e6", tileFg: "#059669",
     title: "Departmental stores",
+    href: "/supermarket-billing-software",
+    linkLabel: "Supermarket & kirana billing software",
     sub: "Supermarkets, kirana, cosmetics, stationery",
     points: ["Fast barcode counter billing", "Batch & low-stock alerts", "Daily cash report & credit"],
   },
@@ -481,8 +485,13 @@ export default function Landing() {
         <div className="ezl-wrap" style={{ position: "relative" }}>
           <div key={slide} className={`ezl-grid ezl-auto-330${slid ? " ezl-slide-in" : ""}`} style={{ alignItems: "center", padding: "72px 0 30px" }}>
             <div>
-              <span className="ezl-hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 9, fontSize: 13, letterSpacing: ".18em", textTransform: "uppercase", color: "#60A5FA", border: "1px solid rgba(96,165,250,.4)", borderRadius: 999, padding: "7px 15px" }}>{s.eyebrow}</span>
-              <h1 className="ezl-h1">{s.head}</h1>
+              {/* The keyword line above the tagline is part of the page's main heading, so search engines read
+                  "Garment & footwear billing software" as what the page is about. Both parts are block-level,
+                  so the heading looks exactly as it did when the line was a separate element. */}
+              <h1 style={{ margin: 0 }}>
+                <span className="ezl-hero-eyebrow" style={{ display: "flex", width: "fit-content", alignItems: "center", gap: 9, fontSize: 13, fontWeight: 400, lineHeight: 1.5, letterSpacing: ".18em", textTransform: "uppercase", color: "#60A5FA", border: "1px solid rgba(96,165,250,.4)", borderRadius: 999, padding: "7px 15px" }}>{s.eyebrow}</span>{" "}
+                <span className="ezl-h1" style={{ display: "block" }}>{s.head}</span>
+              </h1>
               <p style={{ margin: "24px 0 0", fontSize: 20, maxWidth: "44ch", color: "rgba(255,255,255,.78)" }}>{s.body}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 34 }}>
                 <a href={s.ctaHref} className="ezl-btn ezl-btn-lg"><Icon name={s.ctaIcon} size={20} />{s.ctaLabel}</a>
