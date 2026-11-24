@@ -798,12 +798,12 @@ export default function Landing() {
 
           <Reveal as="form" onSubmit={onSubmit} className="ezl-form" style={{ display: "grid", gap: 18, background: PALE, borderRadius: 12, padding: 34 }}>
             <div className="ezl-grid ezl-auto-170">
-              <div className="ezl-field"><label htmlFor="ez-name">Your name</label><input className="ezl-input" id="ez-name" name="name" type="text" required placeholder="Full name" /></div>
+              <div className="ezl-field"><label htmlFor="ez-name">Your name</label><input className="ezl-input" id="ez-name" maxLength={120} name="name" type="text" required placeholder="Full name" /></div>
               <div className="ezl-field"><label htmlFor="ez-phone">Mobile number</label><input className="ezl-input" id="ez-phone" name="phone" type="tel" required pattern="[0-9+ ]{10,15}" placeholder="10-digit mobile" /></div>
             </div>
             <div className="ezl-grid ezl-auto-170">
-              <div className="ezl-field"><label htmlFor="ez-shop">Shop / firm name</label><input className="ezl-input" id="ez-shop" name="shop" type="text" placeholder="As printed on the bill" /></div>
-              <div className="ezl-field"><label htmlFor="ez-city">City</label><input className="ezl-input" id="ez-city" name="city" type="text" placeholder="City" /></div>
+              <div className="ezl-field"><label htmlFor="ez-shop">Shop / firm name</label><input className="ezl-input" id="ez-shop" maxLength={160} name="shop" type="text" placeholder="As printed on the bill" /></div>
+              <div className="ezl-field"><label htmlFor="ez-city">City</label><input className="ezl-input" id="ez-city" maxLength={80} name="city" type="text" placeholder="City" /></div>
             </div>
             <div className="ezl-field">
               <label htmlFor="ez-trade">What do you sell?</label>
@@ -811,7 +811,7 @@ export default function Landing() {
                 {TRADES.map((t) => <option key={t}>{t}</option>)}
               </select>
             </div>
-            <div className="ezl-field"><label htmlFor="ez-note">Anything we should know?</label><input className="ezl-input" id="ez-note" name="note" type="text" placeholder="Counters, branches, current software…" /></div>
+            <div className="ezl-field"><label htmlFor="ez-note">Anything we should know?</label><input className="ezl-input" id="ez-note" maxLength={1500} name="note" type="text" placeholder="Counters, branches, current software…" /></div>
             <button type="submit" className="ezl-submit" disabled={!!sent || sending}>{sent ? "Thank you — we will call you" : sending ? "Sending…" : "Book my free demo"}</button>
             {failed ? (
               <p style={{ margin: 0, fontSize: 14, color: "#b42318" }}>

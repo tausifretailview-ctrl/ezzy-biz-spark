@@ -70,12 +70,12 @@ export default function EnquiryForm({ service }: { service: string }) {
   return (
     <form onSubmit={onSubmit} className="ezl-form" style={{ display: "grid", gap: 18, background: PALE, borderRadius: 12, padding: 34 }}>
       <div className="ezl-grid ezl-auto-170">
-        <div className="ezl-field"><label htmlFor="eq-name">Your name</label><input className="ezl-input" id="eq-name" name="name" type="text" required placeholder="Full name" /></div>
+        <div className="ezl-field"><label htmlFor="eq-name">Your name</label><input className="ezl-input" id="eq-name" maxLength={120} name="name" type="text" required placeholder="Full name" /></div>
         <div className="ezl-field"><label htmlFor="eq-phone">Mobile number</label><input className="ezl-input" id="eq-phone" name="phone" type="tel" required pattern="[0-9+ ]{10,15}" placeholder="10-digit mobile" /></div>
       </div>
       <div className="ezl-grid ezl-auto-170">
-        <div className="ezl-field"><label htmlFor="eq-company">Company name</label><input className="ezl-input" id="eq-company" name="company" type="text" placeholder="Company or firm" /></div>
-        <div className="ezl-field"><label htmlFor="eq-city">City</label><input className="ezl-input" id="eq-city" name="city" type="text" placeholder="City" /></div>
+        <div className="ezl-field"><label htmlFor="eq-company">Company name</label><input className="ezl-input" id="eq-company" maxLength={160} name="company" type="text" placeholder="Company or firm" /></div>
+        <div className="ezl-field"><label htmlFor="eq-city">City</label><input className="ezl-input" id="eq-city" maxLength={80} name="city" type="text" placeholder="City" /></div>
       </div>
       <div className="ezl-field">
         <label htmlFor="eq-need">What do you need?</label>
@@ -85,7 +85,7 @@ export default function EnquiryForm({ service }: { service: string }) {
       </div>
       <div className="ezl-field">
         <label htmlFor="eq-note">Tell us about the requirement</label>
-        <textarea className="ezl-input" id="eq-note" name="note" rows={3} placeholder="What the software or app should do, and who will use it" style={{ resize: "vertical", minHeight: 84 }} />
+        <textarea className="ezl-input" id="eq-note" maxLength={1500} name="note" rows={3} placeholder="What the software or app should do, and who will use it" style={{ resize: "vertical", minHeight: 84 }} />
       </div>
       <button type="submit" className="ezl-submit" disabled={!!sent || sending}>{sent ? "Thank you — we will call you" : sending ? "Sending…" : "Send my enquiry"}</button>
       {failed ? (
