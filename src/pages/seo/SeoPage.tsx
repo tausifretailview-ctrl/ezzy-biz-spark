@@ -51,7 +51,7 @@ function jsonLd(page: SeoPageData) {
         url,
         name: page.title,
         description: page.description,
-        inLanguage: "en-IN",
+        inLanguage: page.audience === "global" ? "en" : "en-IN",
         isPartOf: { "@id": `${SITE}/#website` },
         about: { "@id": ORG_ID },
         primaryImageOfPage: `${SITE}${IMG}/${page.heroShot[0]}`,
@@ -93,7 +93,9 @@ export default function SeoPage({ page }: { page: SeoPageData }) {
   }, []);
 
   // A development page lists the other services first; an Ezzy ERP page lists the other Ezzy ERP pages first.
-  const related = (page.service ? [...SERVICE_PAGES, ...PRODUCT_PAGES] : [...PRODUCT_PAGES, ...SERVICE_PAGES]).filter((p) => p.path !== page.path);
+  // A page for shops outside India lists the other such pages first.
+  const sameAudienceFirst = [...PRODUCT_PAGES].sort((a, b) => Number(b.audience === page.audience) - Number(a.audience === page.audience));
+  const related = (page.service ? [...SERVICE_PAGES, ...PRODUCT_PAGES] : [...sameAudienceFirst, ...SERVICE_PAGES]).filter((p) => p.path !== page.path);
   const guides = BLOG_POSTS.filter((post) => page.guides?.includes(post.path));
   const waText = page.service
     ? `Hi, I found Ezzy ERP while looking for ${page.label.toLowerCase()}. I'd like to discuss a project.`

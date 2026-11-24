@@ -38,6 +38,12 @@ export type SeoPageData = {
    * `name` is the service as it appears in the form, WhatsApp message and schema.
    */
   service?: { name: string; icon: string; summary: string };
+  /**
+   * "global" marks a page written for shops outside India. Ezzy ERP's other pages speak to Indian
+   * shops (GST, e-invoice, UPI); these speak of "your currency" and "VAT or GST", and their HTML
+   * drops the India language and region tags.
+   */
+  audience?: "global";
 };
 
 const ENQUIRY_FAQ: [string, string] = [
@@ -51,6 +57,20 @@ const WORLDWIDE_FAQ: [string, string] = [
 const COST_FAQ: [string, string] = [
   "How much does it cost?",
   "It depends on what has to be built. We first understand the requirement, then give a written scope and quotation, so you know what is included before work starts.",
+];
+
+const GLOBAL_DEMO_FAQ: [string, string] = [
+  "How do I get a demo from my country?",
+  `Book a demo on this website, with your country code in the mobile number, or WhatsApp ${PHONE}. We show you the billing screen online, with your own products and labels.`,
+];
+/** We do not promise any one country's tax system: the owner confirms it for each customer. */
+const RULES_FAQ: [string, string] = [
+  "Does it meet my country's tax invoice or e-invoicing rules?",
+  "Tax invoice formats, fiscal devices and e-invoicing rules differ from country to country. Tell us your country when you book the demo, and we confirm what is supported before you buy.",
+];
+const HARDWARE_FAQ: [string, string] = [
+  "Which printers and scanners does it work with?",
+  "Ezzy ERP prints on barcode label printers and 80mm thermal receipt printers, and reads standard barcode scanners. We tell you what to buy and help you set it up.",
 ];
 
 const DEMO_FAQ: [string, string] = [
@@ -919,6 +939,271 @@ export const SEO_PAGES: SeoPageData[] = [
       DEMO_FAQ,
     ],
     guides: ["/blog/e-way-bill-rules-2026", "/blog/e-invoice-limit-2026", "/blog/size-and-colour-stock-management-garment-shop"],
+  },
+
+  /* ---- Pages for shops outside India (audience: "global"). The owner confirmed Ezzy ERP works in any
+   *      country with other currencies and taxes such as VAT. Nothing here promises a particular
+   *      country's tax system: see RULES_FAQ. ---- */
+  {
+    path: "/retail-pos-software",
+    label: "Retail POS software, worldwide",
+    audience: "global",
+    title: "Retail POS & Inventory Software for Shops Worldwide | Ezzy ERP",
+    description: "Cloud POS, billing, barcode and inventory software for shops in any country: your currency, VAT or GST, size and colour stock and an Android app. Free online demo.",
+    eyebrow: "Worldwide · Cloud POS · Inventory",
+    h1: "Retail POS, billing and inventory software for shops worldwide",
+    intro: [
+      "A clothing store in Dubai, a footwear wholesaler in Nairobi and a mobile shop in Mumbai have the same problems at the counter: the queue, stock that does not match the shelf, and customers who still owe money.",
+      "Ezzy ERP is cloud software built at the shop counter in India, where more than 2,000 shops, wholesalers and distributors use it. It works in any country, with bills in your own currency and taxes such as VAT.",
+    ],
+    heroShot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with barcode field, customer lookup and payment modes on function keys"],
+    sections: [
+      {
+        h2: "Everything a shop needs, in one login",
+        points: [
+          ["POS billing", "Scan, bill and print in seconds. Take cash, card or credit, or split them, and hold a bill while you serve the next customer."],
+          ["Barcode labels", "Generate barcodes and print labels for your items, or scan the maker's barcode."],
+          ["Inventory", "Live stock by product, size and colour, with low-stock, reorder and slow-stock reports."],
+          ["Purchases", "Enter the supplier's bill once. Stock goes up, and every sale brings it down."],
+          ["Customer accounts", "Balances, advances and credit notes for every customer, with statements sent on WhatsApp."],
+          ["Accounts and reports", "Ledgers, trial balance, P&L and balance sheet kept as you bill, with profit by item."],
+        ],
+        shot: ["shot-dashboard.jpg", "Ezzy ERP dashboard with total sales, invoices, stock value, receivables and cash collection"],
+      },
+      {
+        h2: "Works in your country",
+        points: [
+          ["Your currency", "Bills, stock value and reports in your own currency."],
+          ["Your tax", "Taxes such as VAT or GST on every bill line, with a tax register for your accountant."],
+          ["In the cloud", "Runs in a browser from anywhere, with cloud backup. There is no server to buy or look after."],
+          ["On your phone", "The Android app shows the owner today's sale, stock and dues, and bills from the phone."],
+          ["Every branch", "Run more than one shop on one login, each with its own stock and books."],
+          ["Staff rights", "Each staff member gets their own login and only the menus they need."],
+        ],
+      },
+      {
+        h2: "Made for these trades",
+        points: [
+          ["Clothing and apparel stores", "Size and colour matrix, style number barcode tags and exchange billing."],
+          ["Shoe stores", "Stock by article and size run, with a label on every box."],
+          ["Mobile and electronics stores", "IMEI and serial number tracking with mixed payments."],
+          ["Supermarkets and general stores", "Fast barcode billing, low-stock alerts and a daily cash report."],
+          ["Wholesalers and distributors", "Sale orders, delivery notes, customer-wise rates and ledgers, with a sales app for the field."],
+        ],
+        shot: ["shot-insights.jpg", "Ezzy ERP business insights with stock health, sales trends and reorder analysis"],
+      },
+      {
+        h2: "Setup and support, wherever you are",
+        paras: [
+          "You do not need a local dealer. We set up your account, your items and your label format online, and train your staff on a call. Support is on call and WhatsApp, 24×7.",
+          "Ezzy ERP is made by Adtech ERP Solutions in Navi Mumbai, India, an ISO certified software company. If your business needs something the standard software does not do, the same team builds custom software and mobile apps.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Can I use Ezzy ERP outside India?", "Yes. Ezzy ERP is cloud software and works in any country, with bills in your own currency and taxes such as VAT."],
+      ["Which countries do you work with?", "Any country. Most of our customers are in India, and we set up shops in the UAE and the Gulf, Africa, the UK, the USA, Canada and Australia online."],
+      ["Is the software in English?", "Yes. The software, bills and reports are in English, and training is in English or Hindi."],
+      RULES_FAQ,
+      HARDWARE_FAQ,
+      ["Does it work on a phone?", "Yes. The Android app shows the owner today's sale, stock and dues, and you can bill from the phone."],
+      GLOBAL_DEMO_FAQ,
+    ],
+  },
+  {
+    path: "/pos-software-uae",
+    label: "POS software in UAE & the Gulf",
+    audience: "global",
+    title: "POS & VAT Billing Software for Shops in UAE & the Gulf | Ezzy ERP",
+    description: "Cloud POS and VAT billing software for shops in Dubai, Sharjah, Abu Dhabi and the Gulf: barcode, size and colour stock, customer credit and an Android app. Free online demo.",
+    eyebrow: "UAE · Dubai · The Gulf",
+    h1: "POS and VAT billing software for shops in the UAE and the Gulf",
+    intro: [
+      "From the textile shops of Bur Dubai and Deira to garment and electronics stores in Sharjah and Abu Dhabi, a Gulf shop sells to walk-in customers, tourists and traders on the same day, with VAT on every bill.",
+      "Ezzy ERP is cloud POS, billing and inventory software used by more than 2,000 shops and wholesalers in India. It runs the same way in the UAE and across the Gulf: bills in your currency with VAT, stock by size and colour, and the whole shop on the owner's phone.",
+    ],
+    heroShot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with barcode field, customer lookup and payment modes on function keys"],
+    sections: [
+      {
+        h2: "Built for a busy Gulf counter",
+        points: [
+          ["VAT on every bill", "Each bill line carries its tax, and a tax register is ready for your accountant at the end of the period."],
+          ["Bills in your currency", "Dirhams, riyals or dinars: bills, stock value and reports are in the currency you trade in."],
+          ["Fast barcode billing", "Scan the tag and print the bill in seconds. Hold a bill while a customer is still choosing."],
+          ["Cash, card or credit", "Take any of them, or split a bill between them."],
+          ["Retail and wholesale together", "Walk-in prices at the counter and customer-wise rates for traders, in one system."],
+          ["Bills on WhatsApp", "Send the bill and the customer's statement to their phone from the billing screen."],
+        ],
+        shot: ["shot-purchase.jpg", "Ezzy ERP purchase entry with a size grid, barcode column and a Print Barcodes button"],
+      },
+      {
+        h2: "For textile, garment, footwear and electronics shops",
+        points: [
+          ["Textile and garment shops", "Size and colour matrix, style number tags and stock by size, colour and brand."],
+          ["Abaya, saree and boutique stores", "A barcode tag on every piece, with stock by design and colour."],
+          ["Footwear stores", "Stock by article and size run, with a label on every box."],
+          ["Mobile and electronics stores", "IMEI and serial number tracking with mixed payments."],
+          ["Supermarkets and groceries", "Fast barcode billing, low-stock alerts and a daily cash report."],
+        ],
+      },
+      {
+        h2: "Branches across the emirates, on one login",
+        paras: [
+          "A business with a shop in Deira, another in Sharjah and a warehouse in between does not need three systems. Ezzy ERP runs every branch on one login, each with its own stock and books, and moves stock between them.",
+          "The owner sees each branch's sale, stock and dues on the Android app, from the shop, from home or from abroad, and every staff member gets only the menus they need.",
+        ],
+      },
+      {
+        h2: "VAT in the Gulf",
+        paras: [
+          "The UAE charges VAT at 5%. Saudi Arabia, Oman and Bahrain have their own rates, and each country has its own rules for tax invoices. Ezzy ERP puts the tax on every bill line and keeps a register for your accountant.",
+          "Tell us your country when you book the demo, and we confirm what is supported for it before you buy.",
+        ],
+      },
+      {
+        h2: "Setup and support online",
+        paras: [
+          "We set up your account, items and label format online and train your staff on a call, in English or Hindi. Support is on call and WhatsApp, 24×7, so help is there on a Friday evening rush as well.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Does Ezzy ERP work in the UAE?", "Yes. Ezzy ERP is cloud software and works in the UAE and across the Gulf, with bills in your currency and VAT on every bill."],
+      ["Can it bill with VAT?", "Yes. Each bill line carries its tax, and a tax register is kept for your accountant."],
+      ["Is the software in English?", "Yes. The software, bills and reports are in English, and training is in English or Hindi."],
+      RULES_FAQ,
+      ["Can I run shops in more than one emirate?", "Yes. Run every branch on one login, each with its own stock and books, and see them all on the Android app."],
+      HARDWARE_FAQ,
+      GLOBAL_DEMO_FAQ,
+    ],
+  },
+  {
+    path: "/pos-software-africa",
+    label: "POS software in Africa",
+    audience: "global",
+    title: "Retail POS & Inventory Software for Shops in Africa | Ezzy ERP",
+    description: "Cloud POS, billing and inventory software for retail and wholesale shops in Kenya, Tanzania, Uganda, Nigeria and Ghana: barcode, stock, customer credit and an Android app.",
+    eyebrow: "Kenya · Tanzania · Nigeria · Ghana",
+    h1: "Retail POS and inventory software for shops in Africa",
+    intro: [
+      "Trade in Africa runs on volume and trust. A textile wholesaler on Biashara Street in Nairobi, a trader in Kariakoo in Dar es Salaam, a shop in Kikuubo in Kampala or in Balogun Market in Lagos sells to hundreds of small retailers, and much of it on credit.",
+      "Ezzy ERP keeps that business in one place: fast bills, stock you can trust, every customer's balance, and the day's figures on the owner's phone. It is cloud software from India, used there by more than 2,000 shops, wholesalers and distributors, and it works in your country and your currency.",
+    ],
+    heroShot: ["shot-accounts.jpg", "Ezzy ERP accounts screen with customer ledger, outstanding and net receivable"],
+    sections: [
+      {
+        h2: "For traders who sell in bulk and on credit",
+        points: [
+          ["Every customer's balance", "A ledger for each customer with bills, payments, advances and credit notes."],
+          ["Statements on WhatsApp", "Send the statement or a payment reminder to the customer's phone from the billing screen."],
+          ["Customer-wise rates", "The rate you last gave each customer comes up when you bill them again."],
+          ["Orders and delivery notes", "Take an order, send the goods on a delivery note and bill it later, without typing it again."],
+          ["Orders from the market", "Salesmen take orders and collect payments on the Android app at the customer's shop."],
+          ["Stock in every store", "Keep stock in more than one warehouse or store and move it between them."],
+        ],
+        shot: ["shot-customers.jpg", "Ezzy ERP customer list with balances and lifetime sale"],
+      },
+      {
+        h2: "A fast counter for retail shops",
+        points: [
+          ["Barcode billing", "Scan the item and print the bill in seconds. Hold a bill and serve the next customer."],
+          ["Cash, card or credit", "Take any of them, or split a bill between them."],
+          ["Size and colour stock", "For clothing and shoe shops: one style in many sizes and colours, with a tag on each piece."],
+          ["Staff rights", "Give counter staff the billing screen only, and keep profit and settings for the owner."],
+        ],
+      },
+      {
+        h2: "Your currency, your tax",
+        paras: [
+          "Bills, stock value and reports are in your own currency, whether that is shillings, naira or cedis, and each bill line carries taxes such as VAT, with a register for your accountant.",
+          "Some countries require invoices to pass through a tax authority system or a fiscal device. Tell us your country when you book the demo, and we confirm what is supported before you buy.",
+        ],
+      },
+      {
+        h2: "When the network is slow",
+        paras: [
+          "Salesmen take orders and collections on the Android app even without a network, and it syncs when the signal returns. Your data is backed up in the cloud, so a broken or stolen computer does not take the books with it.",
+        ],
+      },
+      {
+        h2: "Setup and support online",
+        paras: [
+          "You do not need a local dealer. We set up your account, items and label format online and train your staff on a call. Support is on call and WhatsApp, 24×7.",
+        ],
+      },
+    ],
+    faqs: [
+      ["Does Ezzy ERP work in Kenya, Tanzania, Uganda, Nigeria and Ghana?", "Yes. Ezzy ERP is cloud software and works in any country, with bills in your own currency and taxes such as VAT."],
+      ["Can I track customers who buy on credit?", "Yes. Each customer has a ledger with bills, payments and advances, and you can send statements and reminders on WhatsApp."],
+      ["Does it work without internet?", "The salesman's Android app takes orders and collections offline and syncs later. Billing at the shop runs in the cloud and needs a connection."],
+      RULES_FAQ,
+      HARDWARE_FAQ,
+      ["Can I run more than one shop or warehouse?", "Yes. Run every branch on one login, each with its own stock and books, and keep stock in more than one warehouse."],
+      GLOBAL_DEMO_FAQ,
+    ],
+  },
+  {
+    path: "/clothing-store-pos-software",
+    label: "Clothing & shoe store POS software",
+    audience: "global",
+    title: "Clothing & Shoe Store POS Software with Size & Colour Stock",
+    description: "POS and inventory software for clothing stores, boutiques and shoe stores: size and colour matrix, barcode tags, exchanges, customer history and an Android app. Free online demo.",
+    eyebrow: "Apparel · Boutiques · Footwear",
+    h1: "POS and inventory software for clothing and shoe stores",
+    intro: [
+      "A clothing store does not sell one product. It sells a style in five sizes and four colours, and the size that is missing is the sale that walks out. A general POS system treats each size as a separate item, and stock goes wrong within a season.",
+      "Ezzy ERP was built around the size and colour matrix, at the counters of more than 2,000 shops and wholesalers in India. It works in any country, with bills in your own currency and taxes such as VAT.",
+    ],
+    heroShot: ["shot-purchase.jpg", "Ezzy ERP purchase entry with a size grid, barcode column, purchase and sale rate and a Print Barcodes button"],
+    sections: [
+      {
+        h2: "Built for size and colour stock",
+        points: [
+          ["Size grid purchase entry", "Enter S, M, L, XL (or 28 to 40) in one row per style and colour, with cost and selling price."],
+          ["Barcode tags from the purchase", "Print style number, size, colour and price tags straight from the purchase entry."],
+          ["Stock by size, colour and brand", "See exactly which sizes are left in which colour, and what to reorder before the season."],
+          ["One-scan checkout", "Scan the tag and the right size, colour and price come up. Hold a sale during rush hours."],
+          ["Exchanges and returns", "An exchange puts the returned piece back into stock in the right size and settles the difference."],
+          ["Customer history", "Your best, regular and lapsed customers by what they have spent, with offers sent on WhatsApp."],
+        ],
+        shot: ["shot-pos.jpg", "Ezzy ERP POS billing screen with size and colour columns"],
+      },
+      {
+        h2: "For boutiques, apparel stores and shoe stores",
+        points: [
+          ["Boutiques", "A tag on every piece, stock by design and colour, and a note on the bill for alterations."],
+          ["Apparel and kidswear stores", "Many styles, sizes and brands, with size-wise stock and sales."],
+          ["Shoe stores", "Stock by article and size run, a label on every box, and size exchanges that keep stock right."],
+          ["Wholesalers", "Sale orders, delivery notes, customer-wise rates and customer ledgers in the same system."],
+        ],
+      },
+      {
+        h2: "Reports a store owner actually uses",
+        points: [
+          ["Slow sellers", "Styles that have not sold in 60 or 90 days, to clear before the next season."],
+          ["Size-wise sales", "Which sizes sell out, so you buy more of them."],
+          ["Profit by item", "Net profit with cost of goods and margin, not just turnover."],
+          ["The store on your phone", "Today's sale, stock and dues on the Android app."],
+        ],
+      },
+      {
+        h2: "Works in your country",
+        paras: [
+          "Bills, stock value and reports are in your own currency, and each line of a sale carries taxes such as VAT or GST. Ezzy ERP runs in the cloud, so there is no server to buy, and more than one store runs on the same login.",
+          "We set up your account, sizes and label format online and train your staff on a call. Support is on call and WhatsApp, 24×7.",
+        ],
+      },
+    ],
+    faqs: [
+      ["What is the best POS software for a clothing store?", "Choose a system that tracks stock by size and colour, prints barcode tags from the purchase entry, and handles exchanges. Ezzy ERP does all three, with customer accounts, reports and an Android app."],
+      ["Does it have a size and colour matrix?", "Yes. Purchases are entered in a size grid, and stock is kept by product, size and colour, with size-wise stock and sales reports."],
+      ["Can it print barcode tags for clothing?", "Yes. Print style number, size, colour and price tags straight from the purchase entry, on a barcode label printer."],
+      ["Does it work for shoe stores?", "Yes. Shoes are kept by article, size and colour, with a label for every box and size exchanges at the counter."],
+      ["Can I use it outside India?", "Yes. Ezzy ERP works in any country, with bills in your own currency and taxes such as VAT."],
+      RULES_FAQ,
+      GLOBAL_DEMO_FAQ,
+    ],
+    guides: ["/blog/size-and-colour-stock-management-garment-shop", "/blog/garment-barcode-label-size", "/blog/dead-stock-in-garment-shop"],
   },
 
   /* ---- Custom development services (same team, sold as projects, not as Ezzy ERP) ---- */

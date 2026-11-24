@@ -5,7 +5,7 @@ import {
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
 import { SEO_PAGES, SERVICE_PAGES } from "./seo/pages";
-import { SAVE_WAIT_MS, saveLead, settleWithin, startWhatsAppChat } from "./leads";
+import { PHONE_PATTERN, SAVE_WAIT_MS, saveLead, settleWithin, startWhatsAppChat } from "./leads";
 import { BlogMenu, MobileMenu, navLinks, SERVICES_LINK } from "./seo/SiteChrome";
 
 /* ------------------------------------------------------------------ *
@@ -232,7 +232,8 @@ const QUOTES = [
 ] as const;
 
 const FAQS = [
-  ["What is Ezzy ERP?", "Ezzy ERP is billing, POS, barcode, inventory, GST and accounting software for retail, wholesale, distribution and manufacturing businesses in India. It runs in the cloud with an Android app for owners and field sales."],
+  ["What is Ezzy ERP?", "Ezzy ERP is billing, POS, barcode, inventory, GST and accounting software for retail, wholesale, distribution and manufacturing businesses, in India and in other countries. It runs in the cloud with an Android app for owners and field sales."],
+  ["Can I use Ezzy ERP outside India?", "Yes. Ezzy ERP is cloud software and works in any country, with bills in your own currency and taxes such as VAT. We set up and support shops in the UAE and the Gulf, Africa, the UK, the USA, Canada and Australia online."],
   ["Which businesses is Ezzy ERP made for?", "Garment and textile shops, boutiques and saree shops, footwear showrooms, mobile and electronics stores, and departmental stores such as supermarkets, kirana, cosmetics and stationery — plus wholesalers, distributors, and manufacturers and industrial units that need quotations, sale orders, GST invoices with e-invoice and e-way bill, stock across warehouses, accounts and asset management."],
   ["Does Ezzy ERP handle size and colour stock for garments?", "Yes. Purchase entry has a size grid, stock is tracked by product, size and colour, and you can print design number (D.No), size and MRP barcode labels straight from the purchase bill."],
   ["Does Ezzy ERP do GST e-invoice and e-way bill?", "Yes. Generate the e-invoice IRN and signed QR code from the sale bill, print them on the invoice, and cancel an IRN from the same screen. You can also make e-way bills for dispatches, and Ezzy ERP prepares the GSTR-1 file for upload on the GST portal."],
@@ -265,8 +266,9 @@ const JSON_LD = {
       telephone: "+91-8424034844",
       address: { "@type": "PostalAddress", streetAddress: STREET, addressLocality: "Navi Mumbai", addressRegion: "Maharashtra", postalCode: "400709", addressCountry: "IN" },
       hasMap: GOOGLE_PROFILE,
-      areaServed: { "@type": "Country", name: "India" },
-      contactPoint: [{ "@type": "ContactPoint", telephone: "+91-8424034844", contactType: "sales", areaServed: "IN", availableLanguage: ["English", "Hindi", "Marathi"] }],
+      // Based in India, sold worldwide (owner, 2026-11-24).
+      areaServed: "Worldwide",
+      contactPoint: [{ "@type": "ContactPoint", telephone: "+91-8424034844", contactType: "sales", availableLanguage: ["English", "Hindi", "Marathi"] }],
     },
     {
       "@type": "WebSite",
@@ -283,7 +285,7 @@ const JSON_LD = {
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Retail POS, billing and inventory software",
       operatingSystem: "Web, Windows, Android",
-      description: "Billing, POS, barcode, inventory, GST, e-invoice and accounting software for garment, footwear, electronics and departmental stores, wholesalers and manufacturers in India.",
+      description: "Billing, POS, barcode, inventory, GST, e-invoice and accounting software for garment, footwear, electronics and departmental stores, wholesalers and manufacturers, in India and worldwide.",
       image: `${SITE}/landing/shot-pos.jpg`,
       screenshot: SHOTS.map((sh) => `${SITE}${IMG}/${sh.file}`),
       featureList: MODULES.map(([, , title]) => title),
@@ -579,6 +581,9 @@ export default function Landing() {
             </Reveal>
           ))}
         </div>
+        <Reveal as="p" style={{ margin: "30px 0 0", fontSize: 17 }}>
+          Outside India? <a href="/retail-pos-software">Ezzy ERP for shops worldwide</a> · <a href="/pos-software-uae">UAE and the Gulf</a> · <a href="/pos-software-africa">Africa</a> · <a href="/clothing-store-pos-software">Clothing and shoe stores</a>
+        </Reveal>
       </section>
 
       {/* modules */}
@@ -808,11 +813,11 @@ export default function Landing() {
           <Reveal as="form" onSubmit={onSubmit} className="ezl-form" style={{ display: "grid", gap: 18, background: PALE, borderRadius: 12, padding: 34 }}>
             <div className="ezl-grid ezl-auto-170">
               <div className="ezl-field"><label htmlFor="ez-name">Your name</label><input className="ezl-input" id="ez-name" maxLength={120} name="name" type="text" required placeholder="Full name" /></div>
-              <div className="ezl-field"><label htmlFor="ez-phone">Mobile number</label><input className="ezl-input" id="ez-phone" name="phone" type="tel" required pattern="[0-9+ ]{10,15}" placeholder="10-digit mobile" /></div>
+              <div className="ezl-field"><label htmlFor="ez-phone">Mobile number</label><input className="ezl-input" id="ez-phone" name="phone" type="tel" required pattern={PHONE_PATTERN} maxLength={20} title="Mobile number, with country code if you are outside India" placeholder="Mobile number (+ country code outside India)" /></div>
             </div>
             <div className="ezl-grid ezl-auto-170">
               <div className="ezl-field"><label htmlFor="ez-shop">Shop / firm name</label><input className="ezl-input" id="ez-shop" maxLength={160} name="shop" type="text" placeholder="As printed on the bill" /></div>
-              <div className="ezl-field"><label htmlFor="ez-city">City</label><input className="ezl-input" id="ez-city" maxLength={80} name="city" type="text" placeholder="City" /></div>
+              <div className="ezl-field"><label htmlFor="ez-city">City</label><input className="ezl-input" id="ez-city" maxLength={80} name="city" type="text" placeholder="City, country" /></div>
             </div>
             <div className="ezl-field">
               <label htmlFor="ez-trade">What do you sell?</label>

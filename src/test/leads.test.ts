@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { clipLead, settleWithin, whatsAppChatUrl, whatsAppPlatform } from "@/pages/leads";
+import { PHONE_PATTERN, clipLead, settleWithin, whatsAppChatUrl, whatsAppPlatform } from "@/pages/leads";
 
 const ANDROID = "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Mobile Safari/537.36";
 const IPHONE = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1";
@@ -51,5 +51,21 @@ describe("clipLead", () => {
     expect(clipped.name).toHaveLength(120);
     expect(clipped.note).toHaveLength(1500);
     expect(clipped).toMatchObject({ phone: "9000000000", shop: null, city: "Pune", trade: "Mobile app" });
+  });
+});
+
+describe("PHONE_PATTERN", () => {
+  // The browser tests a pattern attribute against the whole value.
+  // ... and compiles it with the "v" flag, so the test does too.
+  const ok = (v: string) => new RegExp(`^(?:${PHONE_PATTERN})$`, "v").test(v);
+
+  it("accepts mobile numbers from India and abroad as people type them", () => {
+    for (const v of ["9820012345", "98200 12345", "+91 98200 12345", "+971 50 123 4567", "+44 (0)20 7946 0958", "+1 415-555-0132", "+254 712 345678", "0501234567"]) {
+      expect(ok(v), v).toBe(true);
+    }
+  });
+
+  it("refuses text, and numbers that are too short or too long", () => {
+    for (const v of ["12345", "call me", "9820012345 ext 4", "+".repeat(21)]) expect(ok(v), v).toBe(false);
   });
 });
