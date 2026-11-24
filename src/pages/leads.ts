@@ -16,8 +16,24 @@ export type Lead = {
   note: string | null;
 };
 
+/**
+ * Longest text the database accepts per field (migration 20261124120000_lock_down_public_tables.sql).
+ * The forms' maxLength matches; this also covers a page cached from before the limits.
+ */
+const MAX_LENGTH: Record<keyof Lead, number> = { name: 120, phone: 15, shop: 160, city: 80, trade: 80, note: 1500 };
+
+export function clipLead(lead: Lead): Lead {
+  const out = { ...lead };
+  for (const key of Object.keys(MAX_LENGTH) as (keyof Lead)[]) {
+    const value = out[key];
+    if (value && value.length > MAX_LENGTH[key]) out[key] = value.slice(0, MAX_LENGTH[key]);
+  }
+  return out;
+}
+
 /** Saves the lead with its source. Resolves true when it was stored. */
-export async function saveLead(lead: Lead, src: LeadSource): Promise<boolean> {
+export async function saveLead(input: Lead, src: LeadSource): Promise<boolean> {
+  const lead = clipLead(input);
   try {
     // Loaded on submit so the database client stays out of the page's first download.
     const { supabase } = await import("@/integrations/supabase/client");

@@ -29,7 +29,7 @@ const WRLogin = () => {
         toast.error(data.error);
         return;
       }
-      login(data.user);
+      login(data.user, data.token);
       toast.success(`Welcome, ${data.user.name}!`);
     } catch {
       toast.error("Invalid User ID or Password");

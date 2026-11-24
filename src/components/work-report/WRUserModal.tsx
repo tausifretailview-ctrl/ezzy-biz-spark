@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { supabase } from "@/integrations/supabase/client";
+import { workReportCall } from "@/lib/workReportApi";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
@@ -26,24 +26,19 @@ const WRUserModal = ({ open, onOpenChange }: Props) => {
     }
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke("work-report-auth", {
-        body: {
-          action: "register",
-          user_id: form.user_id.trim(),
-          password: form.password,
-          name: form.name.trim(),
-          role: form.role,
-          department: form.department.trim() || null,
-        },
+      await workReportCall("register", {
+        user_id: form.user_id.trim(),
+        password: form.password,
+        name: form.name.trim(),
+        role: form.role,
+        department: form.department.trim() || null,
       });
-      if (error) throw error;
-      if (data?.error) { toast.error(data.error); return; }
       toast.success("Employee added successfully");
       qc.invalidateQueries({ queryKey: ["work-report-users"] });
       setForm({ name: "", user_id: "", password: "", role: "employee", department: "" });
       onOpenChange(false);
-    } catch {
-      toast.error("Failed to add employee");
+    } catch (e) {
+      toast.error(e instanceof Error && e.message ? e.message : "Failed to add employee");
     } finally {
       setLoading(false);
     }

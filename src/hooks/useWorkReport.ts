@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { workReportCall } from "@/lib/workReportApi";
 
 export interface WorkReport {
   id: string;
@@ -47,30 +47,15 @@ interface FetchReportsParams {
   work_status?: string;
 }
 
+// All reads and writes go through the work-report-auth function, which applies the rules:
+// employees see and edit only their own reports, only admins delete or list employees.
 export const useWorkReports = (params: FetchReportsParams) => {
   return useQuery({
     queryKey: ["work-reports", params],
     queryFn: async () => {
-      let query = supabase.from("work_reports").select("*").order("report_date", { ascending: false });
-
-      if (!params.isAdmin && params.empId) {
-        query = query.eq("emp_id", params.empId);
-      }
-      if (params.dateFrom) query = query.gte("report_date", params.dateFrom);
-      if (params.dateTo) query = query.lte("report_date", params.dateTo);
-      if (params.status && params.status !== "All") query = query.eq("status", params.status);
-      if (params.priority) query = query.eq("priority", params.priority);
-      if (params.customer_name) query = query.eq("customer_name", params.customer_name);
-      if (params.problem_type) query = query.eq("problem_type", params.problem_type);
-      if (params.call_type) query = query.eq("call_type", params.call_type);
-      if (params.work_status) query = query.eq("work_status", params.work_status);
-      if (params.search) {
-        query = query.or(`task.ilike.%${params.search}%,emp_name.ilike.%${params.search}%,customer_name.ilike.%${params.search}%`);
-      }
-
-      const { data, error } = await query;
-      if (error) throw error;
-      return data as WorkReport[];
+      const { empId: _empId, isAdmin: _isAdmin, ...filters } = params;
+      const { data } = await workReportCall<{ data: WorkReport[] }>("list_reports", { filters });
+      return data;
     },
   });
 };
@@ -79,15 +64,8 @@ export const useUpsertReport = () => {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (report: Partial<WorkReport> & { id?: string }) => {
-      if (report.id) {
-        const { id, created_at, updated_at, ...rest } = report;
-        const { error } = await supabase.from("work_reports").update(rest).eq("id", id);
-        if (error) throw error;
-      } else {
-        const { id, created_at, updated_at, ...rest } = report;
-        const { error } = await supabase.from("work_reports").insert(rest as any);
-        if (error) throw error;
-      }
+      const { id, created_at: _c, updated_at: _u, ...rest } = report;
+      await workReportCall("save_report", { id: id ?? null, report: rest });
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["work-reports"] }),
   });
@@ -97,8 +75,7 @@ export const useDeleteReport = () => {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase.from("work_reports").delete().eq("id", id);
-      if (error) throw error;
+      await workReportCall("delete_report", { id });
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["work-reports"] }),
   });
@@ -108,12 +85,8 @@ export const useWorkReportUsers = () => {
   return useQuery({
     queryKey: ["work-report-users"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("work_report_users")
-        .select("id, user_id, name, role, department, created_at")
-        .order("name");
-      if (error) throw error;
-      return data as WorkReportUser[];
+      const { data } = await workReportCall<{ data: WorkReportUser[] }>("list_users");
+      return data;
     },
   });
 };

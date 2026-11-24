@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
+import { setWorkReportToken } from "@/lib/workReportApi";
 
 export interface WRUser {
   userId: string;
@@ -9,7 +10,8 @@ export interface WRUser {
 
 interface WorkReportContextType {
   user: WRUser | null;
-  login: (user: WRUser) => void;
+  /** `token` is the session the work-report-auth function issued at login. */
+  login: (user: WRUser, token: string) => void;
   logout: () => void;
   isAdmin: boolean;
 }
@@ -19,8 +21,14 @@ const WorkReportContext = createContext<WorkReportContextType | null>(null);
 export const WorkReportProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<WRUser | null>(null);
 
-  const login = useCallback((u: WRUser) => setUser(u), []);
-  const logout = useCallback(() => setUser(null), []);
+  const login = useCallback((u: WRUser, token: string) => {
+    setWorkReportToken(token);
+    setUser(u);
+  }, []);
+  const logout = useCallback(() => {
+    setWorkReportToken(null);
+    setUser(null);
+  }, []);
   const isAdmin = user?.role === "admin";
 
   return (
