@@ -17,10 +17,18 @@ export type Lead = {
 };
 
 /**
- * Longest text the database accepts per field (migration 20261124120000_lock_down_public_tables.sql).
+ * Longest text the database accepts per field (migrations 20261124120000 and 20261124130000).
  * The forms' maxLength matches; this also covers a page cached from before the limits.
  */
-const MAX_LENGTH: Record<keyof Lead, number> = { name: 120, phone: 15, shop: 160, city: 80, trade: 80, note: 1500 };
+const MAX_LENGTH: Record<keyof Lead, number> = { name: 120, phone: 20, shop: 160, city: 80, trade: 80, note: 1500 };
+
+/**
+ * A mobile number from any country, as people type it: "+971 50 123 4567", "(020) 7946 0958",
+ * "98200 12345". The old "10 to 15 digits" rule refused most numbers written with a country code.
+ * The database accepts 8 to 20 characters (migration 20261124130000).
+ */
+// Brackets are escaped: browsers compile a pattern attribute in "v" mode, where a bare ( or ) in a class is an error.
+export const PHONE_PATTERN = "[0-9+\\(\\) \\-]{8,20}";
 
 export function clipLead(lead: Lead): Lead {
   const out = { ...lead };

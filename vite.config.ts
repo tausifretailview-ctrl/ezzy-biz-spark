@@ -15,7 +15,7 @@ const SITE = "https://ezzyerp.in";
 const escapeHtml = (v: string) => v.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 /** Swaps the home page's title, description, canonical and social tags for a route's own. */
-function withHead(template: string, route: string, head?: { title: string; description: string; alternates?: [string, string][] }) {
+function withHead(template: string, route: string, head?: { title: string; description: string; alternates?: [string, string][]; global?: boolean }) {
   if (!head) return template;
   const title = escapeHtml(head.title);
   const description = escapeHtml(head.description);
@@ -29,6 +29,11 @@ function withHead(template: string, route: string, head?: { title: string; descr
     (html: string) => !head.alternates?.length ? html : html.replace(/(<link rel="canonical"[^>]*>)/, `$1${head.alternates
       .map(([lang, path]) => `\n    <link rel="alternate" hreflang="${lang}" href="${SITE}${path}" />`).join("")}`),
     meta("name", "description", description),
+    // Pages for shops outside India: plain English, and no "Navi Mumbai, Maharashtra" region tags.
+    (html: string) => !head.global ? html : html
+      .replace('<html lang="en-IN">', '<html lang="en">')
+      .replace(/(<meta property="og:locale" content=")[^"]*(")/, "$1en_US$2")
+      .replace(/\s*<meta name="geo\.(region|placename)"[^>]*>/g, ""),
     meta("property", "og:url", url),
     meta("property", "og:title", title),
     meta("property", "og:description", description),

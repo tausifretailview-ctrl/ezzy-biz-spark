@@ -1,6 +1,6 @@
 # Ezzy ERP
 
-> Ezzy ERP (EzzyERP) is cloud billing, POS, barcode, inventory, GST and accounting software for retail, wholesale and distribution businesses in India, made by Adtech ERP Solutions, Navi Mumbai. It is built for garment and textile shops, footwear stores, mobile and electronics shops, departmental stores, wholesalers and distributors, and manufacturers and industrial units (quotation, sale order, GST invoice with e-invoice IRN, stock and accounts). ISO certified, used by 2,000+ shops, with 24×7 support on call and WhatsApp.
+> Ezzy ERP (EzzyERP) is cloud billing, POS, barcode, inventory, GST and accounting software for retail, wholesale and distribution businesses in India, made by Adtech ERP Solutions, Navi Mumbai. It is used mainly in India and is sold worldwide: it works in any country, with bills in the local currency and taxes such as VAT. It is built for garment and textile shops, footwear stores, mobile and electronics shops, departmental stores, wholesalers and distributors, and manufacturers and industrial units (quotation, sale order, GST invoice with e-invoice IRN, stock and accounts). ISO certified, used by 2,000+ shops, with 24×7 support on call and WhatsApp.
 
 - [Website](https://ezzyerp.in/)
 - [Book a free demo](https://ezzyerp.in/#demo)
@@ -21,6 +21,15 @@
 - [E-invoice software](https://ezzyerp.in/e-invoice-software): generate GST e-invoice IRN and signed QR code from the sale bill, cancel IRN, e-invoice report.
 - [Garment manufacturing software](https://ezzyerp.in/garment-manufacturing-software): design cards with fabric per piece, fabric stock in metres, production lots, stages and job workers.
 - [Billing software in Navi Mumbai](https://ezzyerp.in/billing-software-navi-mumbai): on-site setup and support in Navi Mumbai, Thane and Mumbai.
+- [Mobile shop billing software](https://ezzyerp.in/mobile-shop-billing-software): IMEI and serial number tracking, EMI and mixed payments, for mobile and electronics stores.
+- [Supermarket and kirana billing software](https://ezzyerp.in/supermarket-billing-software): fast barcode billing, batch and low-stock alerts, customer credit and a daily cash report.
+- [Saree shop and boutique billing software](https://ezzyerp.in/saree-shop-billing-software): a barcode tag on every piece, stock by design and colour, exchange billing.
+- [Billing software in Mumbai](https://ezzyerp.in/billing-software-mumbai): software, printers, setup and support for shops and wholesalers in Mumbai.
+- [Billing software in Thane](https://ezzyerp.in/billing-software-thane): for shops, wholesalers, godowns and garment units in Thane, Kalyan, Dombivli, Bhiwandi and Ulhasnagar.
+- [Retail POS software, worldwide](https://ezzyerp.in/retail-pos-software): Ezzy ERP for shops outside India: any currency, VAT or GST, online setup and support.
+- [POS software in the UAE and the Gulf](https://ezzyerp.in/pos-software-uae): cloud POS and VAT billing for shops in Dubai, Sharjah, Abu Dhabi and the Gulf.
+- [POS software in Africa](https://ezzyerp.in/pos-software-africa): POS, stock and customer credit for retail and wholesale shops in Kenya, Tanzania, Uganda, Nigeria and Ghana.
+- [Clothing and shoe store POS software](https://ezzyerp.in/clothing-store-pos-software): size and colour matrix, barcode tags and exchanges for apparel, boutique and footwear stores in any country.
 - [Custom software development](https://ezzyerp.in/custom-software-development): custom cloud and Windows software (ERP, production, dispatch, dealer and approval systems) for industrial units and corporate offices, by the team behind Ezzy ERP, delivered worldwide.
 - [Mobile app development](https://ezzyerp.in/mobile-app-development): Android and iPhone (iOS) apps for owners, field sales teams, dealers and staff, including apps that work offline.
 - [E-commerce development](https://ezzyerp.in/ecommerce-development): online stores, B2B dealer ordering portals and catalogues that stay in step with stock and billing.
