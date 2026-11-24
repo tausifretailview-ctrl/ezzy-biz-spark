@@ -1,6 +1,6 @@
 import { useRef, type MouseEvent } from "react";
 import { APP_LOGIN, LOGO, PHONE, TEL, MAIL, ADDRESS, GOOGLE_PROFILE, DIRECTIONS, waLink, NAVY, LINE, track } from "../site";
-import { SEO_PAGES } from "./pages";
+import { SEO_PAGES, PRODUCT_PAGES, SERVICE_PAGES } from "./pages";
 import { BLOG_PATH, BLOG_POSTS } from "../blog/posts";
 
 /* ------------------------------------------------------------------ *
@@ -40,6 +40,9 @@ export const navLinks = (home = false): [href: string, label: string][] =>
   ([["top", "Home"], ["industries", "Industries"], ["modules", "Modules"], ["inside", "Software"], ["hardware", "Hardware"], ["mobile", "Mobile app"]] as const)
     .map(([id, label]) => [home ? `#${id}` : id === "top" ? "/" : `/#${id}`, label]);
 
+/** "Services" in the main menu: the custom development pages, starting from custom software. */
+export const SERVICES_LINK: [href: string, label: string] = [SERVICE_PAGES[0].path, "Services"];
+
 /** The menu for phones and tablets, where the row of menu links does not fit (landing.css shows it at 1080px and
  *  below). Built on <details> so it opens before the page's JavaScript has loaded. */
 export function MobileMenu({ home = false }: { home?: boolean }) {
@@ -57,7 +60,11 @@ export function MobileMenu({ home = false }: { home?: boolean }) {
         {navLinks(home).map(([href, label]) => <a key={href} href={href}>{label}</a>)}
         <details className="ezl-mnav-sub">
           <summary>Solutions{chevron}</summary>
-          {SEO_PAGES.map((p) => <a key={p.path} href={p.path}>{p.label}</a>)}
+          {PRODUCT_PAGES.map((p) => <a key={p.path} href={p.path}>{p.label}</a>)}
+        </details>
+        <details className="ezl-mnav-sub">
+          <summary>Services{chevron}</summary>
+          {SERVICE_PAGES.map((p) => <a key={p.path} href={p.path}>{p.label}</a>)}
         </details>
         <details className="ezl-mnav-sub" open>
           <summary>Blogs{chevron}</summary>
@@ -95,7 +102,7 @@ export function SiteHeader() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP home" style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {navLinks().map(([href, label]) => (
+            {[...navLinks(), SERVICES_LINK].map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <BlogMenu />

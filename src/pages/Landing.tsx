@@ -4,8 +4,9 @@ import {
   APP_LOGIN, IMG, LOGO, HIGH_PRIORITY, PHONE, TEL, MAIL, SITE, STREET, ADDRESS, GOOGLE_PROFILE, INSTAGRAM, DIRECTIONS, waLink, webpSet, ORG_ID,
   NAVY, ROYAL, MUTED, SOFT, LINE, PALE, captureLeadSource, track, type LeadSource,
 } from "./site";
-import { SEO_PAGES } from "./seo/pages";
-import { BlogMenu, MobileMenu, navLinks } from "./seo/SiteChrome";
+import { SEO_PAGES, SERVICE_PAGES } from "./seo/pages";
+import { SAVE_WAIT_MS, saveLead, settleWithin, startWhatsAppChat } from "./leads";
+import { BlogMenu, MobileMenu, navLinks, SERVICES_LINK } from "./seo/SiteChrome";
 
 /* ------------------------------------------------------------------ *
  * Ezzy ERP — public marketing landing page.
@@ -393,9 +394,8 @@ export default function Landing() {
     setSending(true);
     setFailed(null);
 
-    // Every demo request also lands on our WhatsApp with the details filled in.
-    // Open the tab now, inside the click, because browsers block pop-ups opened
-    // after an await. It is pointed at WhatsApp once the lead is saved.
+    // Every demo request also lands in a WhatsApp chat with our number, the
+    // details already typed, as soon as the lead is saved (see ./leads.ts).
     const waText = [
       "Hi Ezzy ERP, I'd like to book a free demo.",
       `Name: ${lead.name ?? ""}`,
@@ -406,38 +406,28 @@ export default function Landing() {
       lead.note && `Notes: ${lead.note}`,
     ].filter(Boolean).join("\n");
     const waUrl = waLink(waText);
-    const waTab = window.open("", "_blank");
-    if (waTab) waTab.opener = null;
-    const openWhatsApp = () => {
-      if (waTab && !waTab.closed) waTab.location.href = waUrl;
-      else window.location.href = waUrl;
+    const chat = startWhatsAppChat(waText);
+
+    const finish = (saved: boolean) => {
+      setSending(false);
+      if (!saved) {
+        // The details still reach us on WhatsApp.
+        setFailed(waUrl);
+        track("demo_request_failed");
+        return;
+      }
+      track("generate_lead", { form: "demo", trade: lead.trade, ...src });
+      setSent(phone || "your number");
+      setWaSent(waUrl);
     };
 
-    // Save the lead with its source. If the source columns are not live in the
-    // database yet, retry with the source folded into the note so the lead is
-    // never lost to a schema mismatch.
-    // Loaded on submit so the database client stays out of the page's first download.
-    const { supabase } = await import("@/integrations/supabase/client");
-    let { error } = await supabase.from("demo_requests").insert({ ...lead, ...src });
-    if (error && Object.keys(src).length) {
-      const tag = Object.entries(src).map(([k, v]) => `${k}=${v}`).join(" ");
-      ({ error } = await supabase.from("demo_requests").insert({ ...lead, note: [lead.note, `[${tag}]`].filter(Boolean).join(" ") }));
-    }
-    setSending(false);
-
-    if (error) {
-      // Last resort: hand the details to WhatsApp so the visitor can still reach us.
-      console.error("demo_requests insert failed", error);
-      setFailed(waUrl);
-      track("demo_request_failed");
-      openWhatsApp();
-      return;
-    }
-
-    track("generate_lead", { form: "demo", trade: lead.trade, ...src });
-    setSent(phone || "your number");
-    setWaSent(waUrl);
-    openWhatsApp();
+    // Save the lead with its source, then straight into the WhatsApp chat (whether or
+    // not the save worked). A slow save does not hold WhatsApp back.
+    const saving = saveLead(lead, src);
+    const early = await settleWithin(saving, SAVE_WAIT_MS);
+    if (early !== null) finish(early);
+    chat.go();
+    if (early === null) finish(await saving);
   }
 
   const s = SLIDES[slide];
@@ -466,7 +456,7 @@ export default function Landing() {
             <img src={LOGO} width={620} height={115} alt="EzzyERP — Smart Billing. Seamless Inventory. Easy Barcode Management." style={{ height: 38, width: "auto", mixBlendMode: "multiply" }} />
           </a>
           <nav style={{ display: "flex", alignItems: "center", gap: 20, marginLeft: "auto", fontSize: 15.5 }}>
-            {navLinks(true).map(([href, label]) => (
+            {[...navLinks(true), SERVICES_LINK].map(([href, label]) => (
               <a key={href} className="ezl-navlink" href={href} style={{ color: NAVY, whiteSpace: "nowrap" }}>{label}</a>
             ))}
             <BlogMenu />
@@ -746,6 +736,23 @@ export default function Landing() {
               <Icon name="ph-quotes" size={30} color="#3B82F6" />
               <p style={{ margin: "14px 0 0", fontSize: 20, fontStyle: "italic", lineHeight: 1.45 }}>{quote}</p>
               <footer style={{ marginTop: 18, fontSize: 13.5, letterSpacing: ".06em", textTransform: "uppercase", color: SOFT }}>{who}</footer>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* custom development services */}
+      <section id="services" className="ezl-sec" style={{ padding: "78px 24px 20px", scrollMarginTop: 70 }}>
+        <Reveal as="p" className="ezl-eyebrow">Custom development</Reveal>
+        <Reveal as="h2" className="ezl-h2" style={{ maxWidth: "22ch" }}>Need something built for your business?</Reveal>
+        <Reveal as="p" className="ezl-lead">The team that builds Ezzy ERP also takes up custom projects for industrial units, corporate offices, wholesalers and retailers, in India and worldwide.</Reveal>
+        <div className="ezl-grid ezl-auto-270" style={{ marginTop: 34 }}>
+          {SERVICE_PAGES.map((page) => (
+            <Reveal key={page.path} className="ezl-card">
+              <div className="ezl-tile" style={{ background: "#EFF6FF" }}><Icon name={page.service!.icon} size={28} color="#2563EB" /></div>
+              <h3 style={{ margin: "20px 0 6px", fontSize: 23, lineHeight: 1.15 }}>{page.label}</h3>
+              <p style={{ margin: 0, fontSize: 15.5, color: SOFT }}>{page.service!.summary}</p>
+              <a href={page.path} style={{ display: "inline-block", marginTop: 16, fontSize: 15 }}>{page.label} →</a>
             </Reveal>
           ))}
         </div>

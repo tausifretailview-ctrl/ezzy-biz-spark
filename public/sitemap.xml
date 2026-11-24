@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ezzyerp.in/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://ezzyerp.in/og-image.jpg</image:loc></image:image>
@@ -73,6 +73,27 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/custom-software-development</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-dashboard.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/mobile-app-development</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-insights.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ezzyerp.in/ecommerce-development</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ezzyerp.in/landing/shot-pos.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://ezzyerp.in/blog</loc>

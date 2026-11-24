@@ -3,8 +3,8 @@ import "./landing.css";
 import { LOGO, PHONE, TEL, MAIL, SITE, ADDRESS, NAVY, MUTED, LINE, PRIVACY_PATH, PRIVACY_HEAD } from "./site";
 
 /* ------------------------------------------------------------------ *
- * /privacy-policy — what the website collects through the demo form
- * and why. Linked from the form and the footers.
+ * /privacy-policy — what the website collects through the demo and
+ * project enquiry forms and why. Linked from the form and the footers.
  * ------------------------------------------------------------------ */
 
 const SECTIONS: [string, string[]][] = [
@@ -12,16 +12,16 @@ const SECTIONS: [string, string[]][] = [
     `Ezzy ERP is billing and inventory software made by Adtech ERP Solutions, ${ADDRESS}. This policy covers the website ezzyerp.in.`,
   ]],
   ["What we collect", [
-    "When you book a demo, we receive the details you type into the form: your name, mobile number, shop or firm name, city, what you sell, and any note you add.",
+    "When you book a demo or send a project enquiry, we receive the details you type into the form: your name, mobile number, shop or company name, city, what you sell or what you need built, and any note you add.",
     "We also note which page or advert brought you to the site, so we know which of our pages help shops find us.",
     "When you call, email or WhatsApp us, we receive whatever you choose to share in that conversation.",
   ]],
   ["How we use it", [
-    "Only to contact you about the demo you asked for and to answer your questions about Ezzy ERP.",
+    "Only to contact you about the demo or enquiry you sent and to answer your questions about Ezzy ERP and our development services.",
     "We don't sell or rent your details to anyone.",
   ]],
   ["Where it is kept", [
-    "Demo requests are stored in a secure cloud database that only our team can open.",
+    "Demo requests and enquiries are stored in a secure cloud database that only our team can open.",
     "This website doesn't use advertising or tracking cookies.",
   ]],
   ["Your choices", [
